@@ -19,7 +19,7 @@ class ActionItems extends Object{
 }
 
 class OnSlide extends StatefulWidget {
-    OnSlide({Key key, @required this.items, @required this.child, this.backgroundColor:Colors.white}):super(key:key){
+    OnSlide({Key key, @required this.items, @required this.child, this.backgroundColor:Colors.blueAccent}):super(key:key){
         assert(items.length <= 6);
     }
 
