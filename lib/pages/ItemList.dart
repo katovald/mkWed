@@ -1,9 +1,10 @@
 import 'package:app_editesp/BackW.dart';
+import 'package:app_editesp/BackWGeneral.dart';
 import 'package:flutter/material.dart';
 import 'package:app_editesp/ListModel.dart';
 import '../product_manager.dart';
 
-List<String> prod = ["TAREA1","TAREA2","TAREA3"];
+List<String> prod = ["TAREA A","TAREA B","TAREA C","TAREA D", "TAREA E"];
 
 
 class ItemList extends StatelessWidget {
@@ -15,7 +16,7 @@ class ItemList extends StatelessWidget {
     return Scaffold(
       body:Stack(
         children: <Widget>[
-          BackW(),
+          BackWGeneral(),
           ProductManager(products.getListP()),
 
         ],

@@ -1,4 +1,5 @@
 import 'package:app_editesp/BackW.dart';
+import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
 import 'package:app_editesp/pages/ItemList.dart';
@@ -10,7 +11,7 @@ class CheckListOne extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          BackW(),
+          BackWGeneral(),
           Container(
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -22,37 +23,29 @@ class CheckListOne extends StatelessWidget {
 
 
                 Container(
-                  margin: EdgeInsets.all(13.0),
-                  child:RaisedButton(
+                  margin: EdgeInsets.all(7.0),
+                  child: ButtonTheme(
+                    child:FlatButton(
                       onPressed: () => Navigator.pop(context),
-                      color: Colors.deepOrange,
-                      padding: EdgeInsets.all(10.0),
-                      child: Column(
-                        children: <Widget>[
-                          Icon(Icons.supervised_user_circle)
-                        ],
-                      )
+                      child: Image.asset('assets/logout.png', width:100.0 , height: 60.0),
+                    ),
                   ),
                 ),
 
                 Container(
-                    margin: EdgeInsets.all(13.0),
+                    margin: EdgeInsets.all(7.0),
                     child:Row(
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
+
                         FlatButton(
-                          child: Row(
-                            children: <Widget>[
-                              Icon(Icons.camera_alt),
-                            ],
-                          ),
-                          color: Colors.grey,
+                          child: Image.asset('assets/camera.png', width:100.0 , height: 60.0),
                           onPressed: () => Navigator.push(
                           context,
                           MaterialPageRoute(
                             builder: (BuildContext context) => MyCamera(),
                           ),
-                        ),
+                          ),
                         ),
 
                       ],
@@ -69,8 +62,10 @@ class CheckListOne extends StatelessWidget {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton:  FloatingActionButton(
-        backgroundColor: Colors.green,
-        child: Icon(Icons.check),
+        backgroundColor: Colors.greenAccent,
+        child: Icon(
+          Icons.check,
+          color: Colors.black,),
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(

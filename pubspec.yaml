@@ -39,8 +39,15 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-  - assets/andy3.jpg
-  - assets/cochesito.png
+  - assets/pantalla-general.png
+  - assets/pantalla-inicio.png
+  - assets/logout.png
+  - assets/camera.png
+  - assets/fondo-chat.png
+  - assets/login.png
+  - assets/chat.png
+  - assets/fondo-tarea1.png
+  - assets/fondo-tarea3.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.

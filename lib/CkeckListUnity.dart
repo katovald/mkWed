@@ -69,9 +69,13 @@ class _CheckListUState extends State<CheckListUnity>{
 
     return Container(
       decoration: new BoxDecoration(
-        color: Colors.blueGrey,
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: AssetImage('assets/fondo-chat.png'),
+        ),
         border: Border.all(
-            width: 2.0,
+          color: Colors.greenAccent,
+          width: 3.0,
         ),
         borderRadius: BorderRadius.all(
             Radius.circular(5.0) //                 <--- border radius here
@@ -83,7 +87,11 @@ class _CheckListUState extends State<CheckListUnity>{
         children: <Widget>[
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked, onChanged:(bool value){onChanged(value);}),
+              Checkbox(
+                value: _isChecked,
+                onChanged:(bool value){onChanged(value);},
+                activeColor: Colors.lightBlueAccent,
+              ),
               Text(
                   'Campo uno has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -93,7 +101,11 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked2, onChanged:(bool value){onChangedValue2(value);}),
+              Checkbox(
+                value: _isChecked2,
+                onChanged:(bool value){onChangedValue2(value);},
+                activeColor: Colors.lightBlueAccent,
+              ),
               Text(
                   'Campo dos has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -105,7 +117,11 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked3, onChanged:(bool value){onChangedValue3(value);}),
+              Checkbox(
+                value: _isChecked3,
+                onChanged:(bool value){onChangedValue3(value);},
+                activeColor: Colors.lightBlueAccent,
+              ),
               Text(
                   'Campo tres has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -117,7 +133,11 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked4, onChanged:(bool value){onChangedValue4(value);}),
+              Checkbox(
+                value: _isChecked4,
+                onChanged:(bool value){onChangedValue4(value);},
+                activeColor: Colors.lightBlueAccent,
+              ),
               Text(
                   'Campo cuatro has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -129,7 +149,11 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked5, onChanged:(bool value){onChangedValue5(value);}),
+              Checkbox(
+                value: _isChecked5,
+                onChanged:(bool value){onChangedValue5(value);},
+                activeColor: Colors.lightBlueAccent,
+              ),
               Text(
                   'Campo cinco has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -141,7 +165,11 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked6, onChanged:(bool value){onChangedValue6(value);}),
+              Checkbox(
+                value: _isChecked6,
+                onChanged:(bool value){onChangedValue6(value);},
+                activeColor: Colors.lightBlueAccent,
+                  ),
               Text(
                 'Campo seis has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -153,7 +181,11 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Row(
             children: <Widget>[
-              Checkbox(value: _isChecked7, onChanged:(bool value){onChangedValue7(value);}),
+              Checkbox(
+                value: _isChecked7,
+                onChanged:(bool value){onChangedValue7(value);},
+                activeColor: Colors.lightBlueAccent,
+              ),
               Text(
                 'Campo siete has click',
                 style: TextStyle(color: Colors.white, fontSize: 20.0),
@@ -161,10 +193,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
             ],
           ),
-
-
-
-
 
         ],
       ),

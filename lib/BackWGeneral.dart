@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 
-class BackW extends StatelessWidget{
+class BackWGeneral extends StatelessWidget{
 
   @override
   Widget build(BuildContext context) {
@@ -9,7 +9,7 @@ class BackW extends StatelessWidget{
       decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage('assets/pantalla-inicio.png'),
+            image: AssetImage('assets/pantalla-general.png'),
           )
       ),
     );

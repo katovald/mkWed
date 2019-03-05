@@ -1,4 +1,5 @@
 import 'package:app_editesp/BackW.dart';
+import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
 import 'package:app_editesp/pages/ChatPage.dart';
@@ -17,7 +18,7 @@ class CheckListTwo extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          BackW(),
+          BackWGeneral(),
           Container(
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.end,

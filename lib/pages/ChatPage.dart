@@ -1,4 +1,5 @@
 import 'package:app_editesp/BackW.dart';
+import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/ChatW.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/MessagesField.dart';
@@ -11,7 +12,8 @@ class ChatPage extends StatelessWidget {
     return Scaffold(
       body: Stack(
         children: <Widget>[
-          BackW(),
+          BackWGeneral(),
+
           Container(
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
@@ -21,8 +23,40 @@ class ChatPage extends StatelessWidget {
                   margin: EdgeInsets.all(10.0),
                 ),
 
+                Container(
+                  margin: EdgeInsets.all(7.0),
+                  child: ButtonTheme(
+                    child:FlatButton(
+                      onPressed: () => Navigator.pop(context),
+                      child: Image.asset('assets/logout.png', width:100.0 , height: 60.0),
+                    ),
+                  ),
+                ),
+
 
                 Container(
+                    margin: EdgeInsets.all(7.0),
+                    child:Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+
+                        FlatButton(
+                          child: Image.asset('assets/camera.png', width:100.0 , height: 60.0),
+                          onPressed: () => Navigator.push(
+                            context,
+                            MaterialPageRoute(
+                              builder: (BuildContext context) => MyCamera(),
+                            ),
+                          ),
+                        ),
+
+                      ],
+                    )
+                ),
+
+
+
+                /*Container(
                     margin: EdgeInsets.all(15.0),
                     child:Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -38,6 +72,8 @@ class ChatPage extends StatelessWidget {
                               ],
                             )
                         ),
+
+
                         FlatButton(
                           child: Row(
                             children: <Widget>[
@@ -54,7 +90,7 @@ class ChatPage extends StatelessWidget {
 
                       ],
                     )
-                ),
+                ),*/
 
                 ChatW(),
                 Messages(),
