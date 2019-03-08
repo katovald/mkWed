@@ -1,70 +1,41 @@
 import 'package:app_editesp/pages/CheckTwo.dart';
-import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/swipe_widget.dart';
 import 'package:flutter/material.dart';
-
-
+//STATEFUL WIDGET - CREATE ELEMENTS-ITEMS & LIST OF PRODUCTS
 class Products extends StatefulWidget {
 
   Products(this.products, {this.deleteProduct});
-  final List<String> products; //List Variable 'products'
-  final Function deleteProduct;
-
+  final List<String> products ; //Variable Type List
+  final Function deleteProduct; //Variable Type Function
 
   @override
   State<StatefulWidget> createState() {
-
     return _ProductsState();
   }
-
 }
-
-
-
-
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::: SPECIAL CLASS ENUM
+//:::::::::::::::::::::::::::::::::::::::::::::::::::::::: SPECIAL CLASS ENUM I
 enum MyDialogAction{
   yes,
   no,
-  maybe
-}
+  maybe }
 //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-
-
-
-
-
 //PRODUCTS
 class _ProductsState extends State<Products> {
 
-
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::: POP-UPS EVENTS
-
-
+  //:::::::::::::::::::::::::::::::::::::::::::::::::::::::: POP-UPS EVENTS II
   void _dialogResultAccept(int index, MyDialogAction value) {
-
     widget.products.removeAt(index);
     print(widget.products);
-
     Navigator.pop(context);
-
-
   }
-
-
 
   void _dialogResultCancel(MyDialogAction value) {
-
     Navigator.pop(context);
   }
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
 
-
-  //--------------//////////////////////////////////////////METHOD _showAlert();
-
+  //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHODS showAlert
   void _showAlertFinish(index){
 
-    /////////////////////////////////////
     AlertDialog dialog = new AlertDialog(
         content: new Text(
           "¿Terminar Tarea?",
@@ -72,8 +43,8 @@ class _ProductsState extends State<Products> {
         actions: <Widget>[
 
 
-          new FlatButton(
-              onPressed: (){
+          new IconButton(
+            onPressed: (){
 
 
                 _dialogResultAccept(index, MyDialogAction.yes);
@@ -81,22 +52,19 @@ class _ProductsState extends State<Products> {
 
 
               },
+            icon: Icon(
+              Icons.check_circle,
               color: Colors.green,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.check_circle,color: Colors.white,)
-                ],
-              )
+            ),
           ),
 
-          new FlatButton(
-              onPressed: (){_dialogResultCancel(MyDialogAction.no);},
-              color: Colors.redAccent,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.cancel,color: Colors.white,)
-                ],
-              )
+          new IconButton(
+            onPressed: (){_dialogResultCancel(MyDialogAction.no);},
+            icon: Icon(
+              Icons.cancel,
+              color: Colors.red,
+            ),
+
           ),
 
 
@@ -113,7 +81,6 @@ class _ProductsState extends State<Products> {
 
   }
 
-
   void _showAlertCall() {
     AlertDialog dialog = new AlertDialog(
         content: new Text(
@@ -122,24 +89,21 @@ class _ProductsState extends State<Products> {
         actions: <Widget>[
 
 
-          new FlatButton(
-              onPressed: (){},
+          new IconButton(
+            onPressed: (){},
+            icon: Icon(
+              Icons.check_circle,
               color: Colors.green,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.check_circle,color: Colors.white,)
-                ],
-              )
+            ),
           ),
 
-          new FlatButton(
-              onPressed: (){_dialogResultCancel(MyDialogAction.no);},
-              color: Colors.redAccent,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.cancel,color: Colors.white,)
-                ],
-              )
+          new IconButton(
+            onPressed: (){_dialogResultCancel(MyDialogAction.no);},
+            icon: Icon(
+
+              Icons.cancel,
+              color: Colors.red,
+            ),
           ),
 
 
@@ -153,79 +117,101 @@ class _ProductsState extends State<Products> {
     );
   }
 
-  /////////////////////////////////////////////////////////////////// END METHOD
-
-
-
-
-  //--------------//////////////////////////////////////////METHOD REFRESH
-
+  //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHOD REFRESH
   Future<Null> refreshList() async{
     await Future.delayed(Duration(seconds: 1));
-
     setState((){
       widget.products;
     });
-
     return null;
   }
-
-
   /////////////////////////////////////////////////////////////////// END METHOD
 
 
   Widget _buildWorksItem(BuildContext context, int index) {
 
+    return Container(
+      decoration: new BoxDecoration(
+        border: Border.all(
+          color: Colors.lightBlueAccent,
+          width: 2.5,
+        ),
+        borderRadius: BorderRadius.all(
+            Radius.circular(5.0) //                 <--- border radius here
+        ),
+      ),
+      margin: EdgeInsets.only(left: 9.0, right: 9.0, top:5.0),
+      width: 175.0,
+      height: 135.0,
+      child: Card(
+        color: Colors.black54,
+        child: Column(
+          children: <Widget>[
+            Text(
+              widget.products[index],
+              style: TextStyle(
+                  color: Colors.greenAccent,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
+              ),
 
-
-    return OnSlide(
-      items: <ActionItems>[
-        new ActionItems(icon: new IconButton(icon: new Icon(Icons.check_circle_outline), onPressed: () {},color: Colors.green,
-        ), onPress: (){  _showAlertFinish(index);  }, backgroudColor: Color(0xff0B4E70)),
-        new ActionItems(icon: new IconButton(icon: new Icon(Icons.call), onPressed: () {}, color: Colors.red,
-        ), onPress: (){  _showAlertCall();         },  backgroudColor: Color(0xff0B4E70)),
-        new ActionItems(icon: new IconButton( icon: new Icon(Icons.assignment),  onPressed: () {},color: Colors.blue,
-        ), onPress: ()=> Navigator
-
-            .push<bool>(
-          context,
-          MaterialPageRoute(
-            builder: (BuildContext context) => CheckListTwo(
-              widget.products[index]
             ),
-          ),
+            Text(
+              "Descripción general de la Tarea",
+              style: TextStyle(color: Colors.lightBlueAccent, fontSize: 16.0),
+            ),
+            ButtonBar(
+              alignment: MainAxisAlignment.center,
+              children: <Widget>[
 
-        ).then((bool value){
+                IconButton(
+                  icon: Icon(
+                    Icons.assignment,
+                    color: Colors.indigo,
+                  ),
+                  onPressed: () => Navigator
+                      .push<bool>(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => CheckListTwo(
+                          widget.products[index]),
+                    ),
+                  )
+                      .then((bool value) {
+                    if (value) {
+                      widget.deleteProduct(index);
+                    }
+                  }),
+                ),
 
-          if(value){
-            widget.deleteProduct(index);
-          }
+                IconButton(
+                  icon:Icon(
+                    Icons.check_circle,
+                    color: Colors.green,
+                  ),
+                  onPressed: (){
+                    _showAlertFinish(index);
+                  },
+                ),
 
-        }),
+                IconButton(
+                  icon:Icon(
+                    Icons.add_call,
+                    color: Colors.red,),
+                  onPressed: (){
+                    _showAlertCall();
+                  },
+                ),
 
 
-            backgroudColor: Color(0xff0B4E70)),
-        /* new ActionItems(icon: new IconButton(  icon: new Icon(Icons.bookmark),
-                  onPressed: () {},color: Colors.orange,
-                ), onPress: (){},  backgroudColor: Colors.white),*/
-      ],
-      child: new Container(
-        color: Color(0xff0B4E70),
-        padding: const EdgeInsets.only(top:5.0),
-        width: 200.0,
-        height: 150.0,
-        child: new Card(
-          color:Colors.white70,
-          child: new Row(
-            children: <Widget>[
-              Text(widget.products[index])
-            ],
-          ),
+              ],
+            )
+          ],
         ),
       ),
     );
 
-  }
+  } ///////////////////////////////////////////// END METHOD
 
   Widget _buildWorksList() {
     Widget productCards;
@@ -241,11 +227,16 @@ class _ProductsState extends State<Products> {
       );
     } else {
       productCards = Center(
-        
-        child:Text(
-          "No hay tareas por el momento",
-          style: TextStyle(color: Colors.white, fontSize: 20.0),
-        )
+        child:Container(
+            width: 330.0,
+            height: 387.0,
+            child: Center(
+                child: Text(
+                  "No hay tareas por el momento",
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                )
+            ),
+        ),
       );
     }
     return productCards;

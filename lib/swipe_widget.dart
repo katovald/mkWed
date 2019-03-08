@@ -7,19 +7,19 @@ import 'size_change_notifier.dart';
 
 
 class ActionItems extends Object{
-    ActionItems({@required this.icon,@required this.onPress, this.backgroudColor:Colors.grey}){
+    ActionItems({@required this.icon,@required this.onPress}){
         assert(icon != null);
         assert(onPress != null);
     }
 
     final Widget icon;
     final VoidCallback onPress;
-    final Color backgroudColor;
+    //final Color backgroudColor;
     
 }
 
 class OnSlide extends StatefulWidget {
-    OnSlide({Key key, @required this.items, @required this.child, this.backgroundColor:Colors.white}):super(key:key){
+    OnSlide({Key key, @required this.items, @required this.child, this.backgroundColor}):super(key:key){
         assert(items.length <= 6);
     }
 
@@ -92,7 +92,7 @@ class _OnSlideState extends State<OnSlide> {
             under.add(
                 new Container(
                     alignment: Alignment.center,
-                    color: item.backgroudColor,
+                    //color: item.backgroudColor,
                     width: 60.0,
                     height: childSize.height,
                     

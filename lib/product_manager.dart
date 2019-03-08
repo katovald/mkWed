@@ -1,4 +1,5 @@
 import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -62,61 +63,49 @@ class _ProductManagerState extends State<ProductManager> { //State Class
   Widget build(BuildContext context) {
     print('[ProductManager State] build()');
     return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
         Container(
-          margin: EdgeInsets.all(28.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: <Widget>[
+          margin: EdgeInsets.all(10.0),
+        ),
 
 
-              RaisedButton(
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.supervised_user_circle),
-                  ],
-                ),
-                color: Colors.deepOrange,
-                padding: EdgeInsets.all(10.0),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => HomePage(),
-                  ),
+        Container(
+          margin: EdgeInsets.all(7.0),
+          child: ButtonTheme(
+            child:FlatButton(
+              child: Image.asset('assets/logout.png', width:100.0 , height: 60.0),
+              onPressed: () => Navigator.push(
+                context,
+                MaterialPageRoute(
+                  builder: (BuildContext context) => CheckListThree(),
                 ),
               ),
-
-
-              RaisedButton(
-                child: Row(
-                  children: <Widget>[
-                    Icon(Icons.message),
-                  ],
-                ),
-                color: Colors.deepOrange,
-                padding: EdgeInsets.all(10.0),
-                onPressed: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (BuildContext context) => ChatPage(),
-                  ),
-                ),
-              ),
-
-
-            ],
+            ),
           ),
         ),
 
         Container(
-          child: Text(
-              "Lista de Tareas",
-            style: TextStyle(color: Colors.white, fontSize: 20.0),
-          ),
+            margin: EdgeInsets.all(5.0),
+            child:Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
 
+                FlatButton(
+                  child: Image.asset('assets/chat.png', width:100.0 , height: 60.0),
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ChatPage(),
+                    ),
+                  ),
+                ),
 
+              ],
+            )
         ),
+
         Expanded(child: Products(widget.startingProduct, deleteProduct: _deleteProduct,)),
       ],
     );
