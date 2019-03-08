@@ -9,7 +9,7 @@ class BackWGeneral extends StatelessWidget{
       decoration: BoxDecoration(
           image: DecorationImage(
             fit: BoxFit.cover,
-            image: AssetImage('assets/pantalla-general.png'),
+            image: AssetImage('assets/pantalla_extra.png'),
           )
       ),
     );

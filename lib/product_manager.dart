@@ -1,4 +1,5 @@
 import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/home.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,7 @@ class _ProductManagerState extends State<ProductManager> { //State Class
               onPressed: () => Navigator.push(
                 context,
                 MaterialPageRoute(
-                  builder: (BuildContext context) => HomePage(),
+                  builder: (BuildContext context) => CheckListThree(),
                 ),
               ),
             ),

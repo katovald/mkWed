@@ -1,43 +1,46 @@
-import 'package:app_editesp/BackW.dart';
-import 'package:app_editesp/pages/CheckOne.dart';
+import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:flutter/material.dart';
-
-
-
 class HomePage extends StatefulWidget {
   @override
   MyAppState createState() {
-
     return MyAppState();
   }
-
 }
-
 class MyAppState extends State<HomePage>{
 
   final TextEditingController _singleTextFieldController = TextEditingController();
 
-
   void onPressed(){
     print("Button pressed");
-
   }
 
   @override
   Widget build(BuildContext context) {
+    print(globals.isLoggedIn);
+    //RETORNAMOS un CONTAINER con un CHILD que es un SCAFFOLD, hacemos esto...
+    //...para que al aparecer el teclado no cambie de tamaño la imagen de fondo
+    return new Container(
 
-    return new Scaffold(
-      body: Stack(
-        children: <Widget>[
-          BackW(),
-          Container(
+      decoration: BoxDecoration(
+          image: DecorationImage(
+            fit: BoxFit.cover,
+            image: AssetImage('assets/pantalla-inicio.png'),
+          )
+      ),
+
+      child: Scaffold(
+        backgroundColor: Colors.transparent,
+        body: GestureDetector(
+          onTap:(){
+            FocusScope.of(context).requestFocus(FocusNode());
+          },
+          child: Container(
               padding: EdgeInsets.all(23.0),
               child: Center(
                 child: SingleChildScrollView(
                   child:Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: <Widget>[
-
 
                       Theme(
                         data: new ThemeData(
@@ -66,11 +69,13 @@ class MyAppState extends State<HomePage>{
                               ),
                               enabledBorder: new OutlineInputBorder(
                                 borderSide: new BorderSide(
-                                  color: Colors.lightBlueAccent, width: 3.5,
+                                  color: Colors.lightBlueAccent, width: 2.5,
                                 ),
                               )
-                          ), keyboardType: TextInputType.emailAddress,
-                          autocorrect: false, onChanged:(String value){},
+                          ),
+                          keyboardType: TextInputType.emailAddress,
+                          autocorrect: false,
+                          onChanged:(String value){},
                         ),
                       ),
 
@@ -105,7 +110,7 @@ class MyAppState extends State<HomePage>{
                               ),
                               enabledBorder: new OutlineInputBorder(
                                 borderSide: new BorderSide(
-                                  color: Colors.lightBlueAccent, width: 3.7,
+                                  color: Colors.lightBlueAccent, width: 2.5,
                                 ),
                               )
                           ),
@@ -120,38 +125,39 @@ class MyAppState extends State<HomePage>{
 
                       FlatButton(
                         child:Text(
-                          "Forgot your Password?  Recover here",
+                          "¿Olvidaste tu Password?  Recupéralo",
                           style: TextStyle(
                             color: Colors.grey,
                             fontSize: 16.0,
                             decoration: TextDecoration.underline,
                           ),),
-                        onPressed: (){},
+                        onPressed: (){
+                          print("VARIABLE GLOBAL:");
+                          print(globals.isLoggedIn );
+                        },
                       ),
 
                       ButtonTheme(
                           child: FlatButton(
                             child: Image.asset('assets/login.png', width:170.0 , height: 50.0),
-                            onPressed: () => Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                builder: (BuildContext context) => CheckListOne(),
-                              ),
+                            onPressed: () {
+                              globals.isLoggedIn = true;
+                              print("VARIABLE GLOBAL:");
+                              print(globals.isLoggedIn );
+                              Navigator.pushNamed(context, '/check1');
+                            },
                             ),
-                          )
-                      ),
+                          ),
+
 
                     ],
                   ),
                 ),
               )
           ),
-
-
-        ],
+        )
       ),
     );
-
 
   }
 }

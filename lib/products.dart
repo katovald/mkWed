@@ -43,8 +43,8 @@ class _ProductsState extends State<Products> {
         actions: <Widget>[
 
 
-          new FlatButton(
-              onPressed: (){
+          new IconButton(
+            onPressed: (){
 
 
                 _dialogResultAccept(index, MyDialogAction.yes);
@@ -52,22 +52,19 @@ class _ProductsState extends State<Products> {
 
 
               },
+            icon: Icon(
+              Icons.check_circle,
               color: Colors.green,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.check_circle,color: Colors.white,)
-                ],
-              )
+            ),
           ),
 
-          new FlatButton(
-              onPressed: (){_dialogResultCancel(MyDialogAction.no);},
-              color: Colors.redAccent,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.cancel,color: Colors.white,)
-                ],
-              )
+          new IconButton(
+            onPressed: (){_dialogResultCancel(MyDialogAction.no);},
+            icon: Icon(
+              Icons.cancel,
+              color: Colors.red,
+            ),
+
           ),
 
 
@@ -92,24 +89,21 @@ class _ProductsState extends State<Products> {
         actions: <Widget>[
 
 
-          new FlatButton(
-              onPressed: (){},
+          new IconButton(
+            onPressed: (){},
+            icon: Icon(
+              Icons.check_circle,
               color: Colors.green,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.check_circle,color: Colors.white,)
-                ],
-              )
+            ),
           ),
 
-          new FlatButton(
-              onPressed: (){_dialogResultCancel(MyDialogAction.no);},
-              color: Colors.redAccent,
-              child: Column(
-                children: <Widget>[
-                  Icon(Icons.cancel,color: Colors.white,)
-                ],
-              )
+          new IconButton(
+            onPressed: (){_dialogResultCancel(MyDialogAction.no);},
+            icon: Icon(
+
+              Icons.cancel,
+              color: Colors.red,
+            ),
           ),
 
 
@@ -137,20 +131,44 @@ class _ProductsState extends State<Products> {
   Widget _buildWorksItem(BuildContext context, int index) {
 
     return Container(
+      decoration: new BoxDecoration(
+        border: Border.all(
+          color: Colors.lightBlueAccent,
+          width: 2.5,
+        ),
+        borderRadius: BorderRadius.all(
+            Radius.circular(5.0) //                 <--- border radius here
+        ),
+      ),
       margin: EdgeInsets.only(left: 9.0, right: 9.0, top:5.0),
       width: 175.0,
-      height: 130.0,
+      height: 135.0,
       child: Card(
-        color: Colors.white70,
+        color: Colors.black54,
         child: Column(
           children: <Widget>[
-            Text(widget.products[index]),
+            Text(
+              widget.products[index],
+              style: TextStyle(
+                  color: Colors.greenAccent,
+                  fontSize: 18.0,
+                  fontWeight: FontWeight.bold
+              ),
+
+            ),
+            Text(
+              "Descripción general de la Tarea",
+              style: TextStyle(color: Colors.lightBlueAccent, fontSize: 16.0),
+            ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
               children: <Widget>[
 
-                FlatButton(
-                  child: Text('Details'),
+                IconButton(
+                  icon: Icon(
+                    Icons.assignment,
+                    color: Colors.indigo,
+                  ),
                   onPressed: () => Navigator
                       .push<bool>(
                     context,
@@ -166,14 +184,23 @@ class _ProductsState extends State<Products> {
                   }),
                 ),
 
-                FlatButton(
-                  child:Text("Finish"),
-                  onPressed: (){},
+                IconButton(
+                  icon:Icon(
+                    Icons.check_circle,
+                    color: Colors.green,
+                  ),
+                  onPressed: (){
+                    _showAlertFinish(index);
+                  },
                 ),
 
-                FlatButton(
-                  child:Text("Call"),
-                  onPressed: (){},
+                IconButton(
+                  icon:Icon(
+                    Icons.add_call,
+                    color: Colors.red,),
+                  onPressed: (){
+                    _showAlertCall();
+                  },
                 ),
 
 

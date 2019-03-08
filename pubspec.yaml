@@ -20,6 +20,9 @@ dependencies:
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
   camera: ^0.3.0
+  image_picker: ^0.5.0
+  android_intent: ^0.3.0
+  url_launcher: ^5.0.1
 
 dev_dependencies:
   flutter_test:
@@ -48,6 +51,7 @@ flutter:
   - assets/chat.png
   - assets/fondo-tarea1.png
   - assets/fondo-tarea3.png
+  - assets/pantalla_extra.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
