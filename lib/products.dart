@@ -1,6 +1,8 @@
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/swipe_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
+import 'dart:io';
 //STATEFUL WIDGET - CREATE ELEMENTS-ITEMS & LIST OF PRODUCTS
 class Products extends StatefulWidget {
 
@@ -31,6 +33,22 @@ class _ProductsState extends State<Products> {
 
   void _dialogResultCancel(MyDialogAction value) {
     Navigator.pop(context);
+  }
+
+  _callMe() async {
+    // Android
+    const uri = 'tel:+521 55 37 01 34 31';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'tel:521-55-19-18-99-54';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
   }
 
   //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHODS showAlert
@@ -90,7 +108,7 @@ class _ProductsState extends State<Products> {
 
 
           new IconButton(
-            onPressed: (){},
+            onPressed: (){_callMe();},
             icon: Icon(
               Icons.check_circle,
               color: Colors.green,
