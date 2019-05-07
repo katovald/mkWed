@@ -26,6 +26,86 @@ class _CheckListUState extends State<Formulario>{
   var _valuemanti = "1";
   var _valuedireccion = "1";
   var _valuefrenos = "1";
+  var _valueGasolina = "1";
+
+  DropdownButton _itemGasolina() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem(
+        value: "1",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Tanque Lleno",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "2",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "3/4",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "3",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Medio Tanque",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "4",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "1/4",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "5",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Tanque Vacio",
+            ),
+          ],
+        ),
+      ),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _valueGasolina = value;
+      });
+    },
+
+    value: _valueGasolina,
+    elevation: 2,
+
+    style: TextStyle(
+      color: Color(0xFF2350A6),
+      fontSize: 13.0,
+    ),
+  );
+  //// MI LISTA </>
   DropdownButton _itemDown() => DropdownButton<String>(
     items: [
       DropdownMenuItem(
@@ -220,7 +300,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -418,7 +498,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -616,7 +696,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -814,7 +894,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1012,7 +1092,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1210,7 +1290,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1408,7 +1488,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1606,7 +1686,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1804,7 +1884,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2002,7 +2082,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2200,7 +2280,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2398,7 +2478,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2453,7 +2533,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2508,7 +2588,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2563,7 +2643,7 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2618,27 +2698,72 @@ class _CheckListUState extends State<Formulario>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
-
-  bool _isChecked = false;
-  bool _isChecked2 = false;
-  bool _isChecked3 = false;
-  bool _isChecked4 = false;
-  bool _isChecked5 = false;
-  bool _isChecked6 = false;
-  bool _isChecked7 = false;
   var rating;
-
   int selectedRadio;
   int selectedRadio2;
+  int selectedRadio3;
+  int selectedRadio4;
+  int selectedRadio5;
+  int selectedRadio6;
+  int selectedRadio7;
+  int selectedRadio8;
+  int selectedRadio9;
+  int selectedRadio10;
+  int selectedRadio11;
+  int selectedRadio12;
+  int selectedRadio13;
+  int selectedRadio14;
+  int selectedRadio15;
+  int selectedRadio16;
+  int selectedRadio17;
+  int selectedRadio18;
+  int selectedRadio19;
+  int selectedRadio20;
+  int selectedRadio21;
+  int selectedRadio22;
+  int selectedRadio23;
+  int selectedRadio24;
+  int selectedRadio25;
+  int selectedRadio26;
+  int selectedRadio27;
+  int selectedRadio28;
+  int selectedRadio29;
   @override
   void initState() {
     super.initState();
     selectedRadio = 0;
     selectedRadio2 = 0;
+    selectedRadio3 = 0;
+    selectedRadio4 = 0;
+    selectedRadio5 = 0;
+    selectedRadio6 = 0;
+    selectedRadio7 = 0;
+    selectedRadio8= 0;
+    selectedRadio9 = 0;
+    selectedRadio10 = 0;
+    selectedRadio11 = 0;
+    selectedRadio12 = 0;
+    selectedRadio13 = 0;
+    selectedRadio14 = 0;
+    selectedRadio15 = 0;
+    selectedRadio16 = 0;
+    selectedRadio17 = 0;
+    selectedRadio18 = 0;
+    selectedRadio19 = 0;
+    selectedRadio20= 0;
+    selectedRadio21 = 0;
+    selectedRadio22 = 0;
+    selectedRadio23 = 0;
+    selectedRadio24 = 0;
+    selectedRadio25= 0;
+    selectedRadio26 = 0;
+    selectedRadio27 = 0;
+    selectedRadio28 = 0;
+    selectedRadio29 = 0;
   }
   setSelectedRadio (int val) {
     setState(() {
@@ -2648,6 +2773,141 @@ class _CheckListUState extends State<Formulario>{
   setSelectedRadio2 (int val) {
     setState(() {
       selectedRadio2 = val;
+    });
+  }
+  setSelectedRadio3 (int val) {
+    setState(() {
+      selectedRadio3 = val;
+    });
+  }
+  setSelectedRadio4 (int val) {
+    setState(() {
+      selectedRadio4 = val;
+    });
+  }
+  setSelectedRadio5 (int val) {
+    setState(() {
+      selectedRadio5 = val;
+    });
+  }
+  setSelectedRadio6 (int val) {
+    setState(() {
+      selectedRadio6 = val;
+    });
+  }
+  setSelectedRadio7 (int val) {
+    setState(() {
+      selectedRadio7 = val;
+    });
+  }
+  setSelectedRadio8 (int val) {
+    setState(() {
+      selectedRadio8 = val;
+    });
+  }
+  setSelectedRadio9 (int val) {
+    setState(() {
+      selectedRadio9 = val;
+    });
+  }
+  setSelectedRadio10 (int val) {
+    setState(() {
+      selectedRadio10 = val;
+    });
+  }
+  setSelectedRadio11 (int val) {
+    setState(() {
+      selectedRadio11 = val;
+    });
+  }
+  setSelectedRadio12 (int val) {
+    setState(() {
+      selectedRadio12 = val;
+    });
+  }
+  setSelectedRadio13 (int val) {
+    setState(() {
+      selectedRadio13 = val;
+    });
+  }
+  setSelectedRadio14 (int val) {
+    setState(() {
+      selectedRadio14 = val;
+    });
+  }
+  setSelectedRadio15 (int val) {
+    setState(() {
+      selectedRadio15 = val;
+    });
+  }
+  setSelectedRadio16 (int val) {
+    setState(() {
+      selectedRadio16 = val;
+    });
+  }
+  setSelectedRadio17 (int val) {
+    setState(() {
+      selectedRadio17 = val;
+    });
+  }
+  setSelectedRadio18 (int val) {
+    setState(() {
+      selectedRadio18 = val;
+    });
+  }
+  setSelectedRadio19 (int val) {
+    setState(() {
+      selectedRadio19 = val;
+    });
+  }
+  setSelectedRadio20 (int val) {
+    setState(() {
+      selectedRadio20 = val;
+    });
+  }
+  setSelectedRadio21 (int val) {
+    setState(() {
+      selectedRadio21 = val;
+    });
+  }
+  setSelectedRadio22 (int val) {
+    setState(() {
+      selectedRadio22 = val;
+    });
+  }
+  setSelectedRadio23 (int val) {
+    setState(() {
+      selectedRadio23 = val;
+    });
+  }
+  setSelectedRadio24 (int val) {
+    setState(() {
+      selectedRadio24 = val;
+    });
+  }
+  setSelectedRadio25 (int val) {
+    setState(() {
+      selectedRadio25 = val;
+    });
+  }
+  setSelectedRadio26 (int val) {
+    setState(() {
+      selectedRadio26 = val;
+    });
+  }
+  setSelectedRadio27 (int val) {
+    setState(() {
+      selectedRadio27 = val;
+    });
+  }
+  setSelectedRadio28 (int val) {
+    setState(() {
+      selectedRadio28 = val;
+    });
+  }
+  setSelectedRadio29 (int val) {
+    setState(() {
+      selectedRadio29 = val;
     });
   }
   @override
@@ -2666,11 +2926,11 @@ class _CheckListUState extends State<Formulario>{
                 color: Colors.black54,
                 borderRadius: BorderRadius.circular(5.0)),
             child:  Text(
-              "Formato de Devolución de Vehículo",
+              "Devolución de Vehículo",
               style: TextStyle(
                   fontSize: 22.0,
-                  color: Colors.greenAccent,
-                  fontWeight: FontWeight.bold
+                  color: Colors.white,
+                  fontWeight: FontWeight.w100
               ),
             ),
           ),
@@ -2681,14 +2941,15 @@ class _CheckListUState extends State<Formulario>{
 
           Container(
 
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0) //                 <--- border radius here
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
 
@@ -2698,8 +2959,9 @@ class _CheckListUState extends State<Formulario>{
                 Text(
                   "Estatus General",
                   style: TextStyle(
+                      fontFamily: "Sabritas",
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                      color: Colors.lightBlueAccent,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -2714,13 +2976,16 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Estado de la pintura',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 20.0,
+                        ),
                       ),
 
                       ButtonBar(
@@ -2739,6 +3004,7 @@ class _CheckListUState extends State<Formulario>{
                                 },
                                 value: 1,
                                 groupValue: selectedRadio,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2755,6 +3021,7 @@ class _CheckListUState extends State<Formulario>{
                                 },
                                 value: 2,
                                 groupValue: selectedRadio,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2771,6 +3038,7 @@ class _CheckListUState extends State<Formulario>{
                                 },
                                 value: 3,
                                 groupValue: selectedRadio,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2791,7 +3059,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2817,6 +3085,7 @@ class _CheckListUState extends State<Formulario>{
                                 },
                                 value: 1,
                                 groupValue: selectedRadio2,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2833,6 +3102,7 @@ class _CheckListUState extends State<Formulario>{
                                 },
                                 value: 2,
                                 groupValue: selectedRadio2,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2862,7 +3132,7 @@ class _CheckListUState extends State<Formulario>{
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                        borderRadius: BorderRadius.circular(0.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -2882,10 +3152,10 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
                               color: Colors.lightBlueAccent,
@@ -2908,7 +3178,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2929,9 +3199,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio3(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio3,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2943,9 +3216,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio3(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio3,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2957,9 +3233,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio3(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio3,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2984,7 +3263,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3005,9 +3284,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio4(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio4,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3019,9 +3301,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio4(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio4,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3033,9 +3318,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio4(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio4,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3061,7 +3349,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3081,9 +3369,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio5(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio5,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3095,9 +3386,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio5(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio5,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3109,9 +3403,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio5(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio5,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3137,7 +3434,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3159,9 +3456,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio6(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio6,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3173,9 +3473,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio6(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio6,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3187,9 +3490,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio6(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio6,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3214,7 +3520,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3235,9 +3541,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio7(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio7,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3249,9 +3558,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio7(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio7,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3263,9 +3575,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio7(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio7,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3298,14 +3613,15 @@ class _CheckListUState extends State<Formulario>{
 
           Container(
 //Diseño de la caja <>
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0) //                 <--- border radius here
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
 
@@ -3317,7 +3633,7 @@ class _CheckListUState extends State<Formulario>{
                   "Gasolina",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                      color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3331,7 +3647,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3345,46 +3661,15 @@ class _CheckListUState extends State<Formulario>{
                         alignment: MainAxisAlignment.start,
                         children: <Widget>[
 //Opciones Tanque<>
-
+// MENU
                           Row(
                             children: <Widget>[
-                              Text(
-                                "LLeno",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
+                              /*Radio(
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),
+                              ),*/
+                              _itemGasolina(),
                             ],
                           ),
 //Opciones Tanque</>
@@ -3401,7 +3686,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3422,9 +3707,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio8(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio8,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3436,9 +3724,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio8(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio8,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3457,7 +3748,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3478,9 +3769,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio9(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio9,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3492,9 +3786,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio9(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio9,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3520,7 +3817,7 @@ class _CheckListUState extends State<Formulario>{
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3542,8 +3839,8 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3577,7 +3874,7 @@ class _CheckListUState extends State<Formulario>{
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3599,8 +3896,8 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3633,7 +3930,7 @@ class _CheckListUState extends State<Formulario>{
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3655,8 +3952,8 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3682,7 +3979,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3703,9 +4000,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio10(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio10,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3717,9 +4017,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio10(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio10,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3749,15 +4052,17 @@ class _CheckListUState extends State<Formulario>{
 
           Container(
             decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0)
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
+
             child: Column(
               children: <Widget>[
 
@@ -3765,7 +4070,7 @@ class _CheckListUState extends State<Formulario>{
                   "Estacionamiento",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                      color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3780,7 +4085,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3800,9 +4105,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio11(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio11,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3814,9 +4122,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio11(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio11,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3876,8 +4187,8 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3907,7 +4218,7 @@ class _CheckListUState extends State<Formulario>{
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3927,8 +4238,8 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3959,7 +4270,7 @@ class _CheckListUState extends State<Formulario>{
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3979,8 +4290,8 @@ class _CheckListUState extends State<Formulario>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -4007,7 +4318,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4028,9 +4339,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio12(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio12,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4042,9 +4356,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio12(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio12,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4087,15 +4404,17 @@ class _CheckListUState extends State<Formulario>{
 
           Container(
             decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0)
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
+
             child: Column(
               children: <Widget>[
 
@@ -4103,7 +4422,7 @@ class _CheckListUState extends State<Formulario>{
                   "Accesorios",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                      color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -4118,7 +4437,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4138,9 +4457,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio13(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio13,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4152,9 +4474,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio13(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio13,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4169,23 +4494,6 @@ class _CheckListUState extends State<Formulario>{
                               _itemDown(),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
-
-
                         ],
                       ),
                     ],
@@ -4200,7 +4508,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4221,9 +4529,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio14(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio14,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4235,19 +4546,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio14(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio14,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown2(),
                             ],
                           ),
@@ -4265,7 +4574,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4285,9 +4594,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio15(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio15,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4299,39 +4611,20 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio15(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio15,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown3(),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
-
-
                         ],
                       ),
                     ],
@@ -4345,7 +4638,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4365,9 +4658,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio16(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio16,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4379,19 +4675,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio16(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio16,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown4(),
                             ],
                           ),
@@ -4408,7 +4702,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4428,9 +4722,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio17(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio17,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4442,34 +4739,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio17(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio17,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown5(),
                             ],
                           ),
@@ -4487,7 +4767,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4507,9 +4787,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio18(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio18,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4521,34 +4804,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio18(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio18,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown6(),
                             ],
                           ),
@@ -4566,7 +4832,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4586,9 +4852,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio19(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio19,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4600,34 +4869,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio19(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio19,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown7(),
                             ],
                           ),
@@ -4645,7 +4897,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4665,9 +4917,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio20(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio20,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4679,34 +4934,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio20(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio20,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown8(),
                             ],
                           ),
@@ -4724,7 +4962,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4744,9 +4982,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio21(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio21,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4757,35 +4998,18 @@ class _CheckListUState extends State<Formulario>{
                                 "No",
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
-                              Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                               Radio(
+                                onChanged: (val){
+                                  setSelectedRadio21(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio21,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown9(),
                             ],
                           ),
@@ -4803,7 +5027,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4823,9 +5047,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio22(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio22,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4837,34 +5064,17 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio22(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio22,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown10(),
                             ],
                           ),
@@ -4882,7 +5092,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4902,9 +5112,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio23(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio23,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4916,38 +5129,20 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio23(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio23,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown11(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
@@ -4961,7 +5156,7 @@ class _CheckListUState extends State<Formulario>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4981,9 +5176,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio24(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio24,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4995,49 +5193,33 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio24(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio24,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown12(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
                   ),
                 ),
-
+                SizedBox(
+                  height: 6,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -5057,9 +5239,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio25(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio25,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -5071,30 +5256,33 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio25(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio25,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-
                               _itemaceite(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 6,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -5114,9 +5302,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio26(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio26,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -5128,30 +5319,33 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio26(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio26,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
                           Row(
                             children: <Widget>[
                               _itemdmanti(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 6,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -5171,9 +5365,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio27(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio27,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -5185,9 +5382,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio27(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio27,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -5196,18 +5396,19 @@ class _CheckListUState extends State<Formulario>{
                               _itemdireccion(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 6,
+                ),
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -5227,9 +5428,12 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio28(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio28,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -5241,187 +5445,96 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio28(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio28,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
+                              /*Radio(
+                                onChanged: (e){},
+                                value: 1,
+                                groupValue: 1,
+                              ),*/
                               _itemfrenos(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        '¿Es correcta la información?',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio29(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio29,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio29(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio29,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
               ],
             ),
           ),
-
-          /*Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked2,
-                onChanged:(bool value){onChangedValue2(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo dos has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked3,
-                onChanged:(bool value){onChangedValue3(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo tres has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked4,
-                onChanged:(bool value){onChangedValue4(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo cuatro has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked5,
-                onChanged:(bool value){onChangedValue5(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo cinco has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked6,
-                onChanged:(bool value){onChangedValue6(value);},
-                activeColor: Colors.lightBlueAccent,
-                  ),
-              Text(
-                'Campo seis has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),*/
         ],
       ),
     );
-
   }
 }

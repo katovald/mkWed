@@ -9,7 +9,6 @@ class CheckListUnity extends StatefulWidget{
   }
 
 }
-
 class _CheckListUState extends State<CheckListUnity>{
   var _value1 = "1";
   var _value2 = "1";
@@ -23,9 +22,13 @@ class _CheckListUState extends State<CheckListUnity>{
   var _value10 = "1";
   var _value11 = "1";
   var _value12 = "1";
+  var _valueaceite = "1";
+  var _valuemanti = "1";
+  var _valuedireccion = "1";
+  var _valuefrenos = "1";
   var _valueGasolina = "1";
-  
-   DropdownButton _itemGasolina() => DropdownButton<String>(
+
+  DropdownButton _itemGasolina() => DropdownButton<String>(
     items: [
       DropdownMenuItem(
         value: "1",
@@ -39,7 +42,7 @@ class _CheckListUState extends State<CheckListUnity>{
           ],
         ),
       ),
-     DropdownMenuItem(
+      DropdownMenuItem(
         value: "2",
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -63,7 +66,7 @@ class _CheckListUState extends State<CheckListUnity>{
           ],
         ),
       ),
-     DropdownMenuItem(
+      DropdownMenuItem(
         value: "4",
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -296,7 +299,7 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value1,
     elevation: 2,
 
-style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
@@ -692,7 +695,7 @@ style: TextStyle(
     value: _value3,
     elevation: 2,
 
-   style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
@@ -1286,7 +1289,7 @@ style: TextStyle(
     value: _value6,
     elevation: 2,
 
-   style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
@@ -1682,7 +1685,7 @@ style: TextStyle(
     value: _value8,
     elevation: 2,
 
-   style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
@@ -2078,7 +2081,7 @@ style: TextStyle(
     value: _value10,
     elevation: 2,
 
-   style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
@@ -2276,7 +2279,7 @@ style: TextStyle(
     value: _value11,
     elevation: 2,
 
-   style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
@@ -2474,63 +2477,439 @@ style: TextStyle(
     value: _value12,
     elevation: 2,
 
-   style: TextStyle(
+    style: TextStyle(
       color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
+  DropdownButton _itemaceite() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem(
+        value: "1",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
 
-  bool _isChecked = false;
-  bool _isChecked2 = false;
-  bool _isChecked3 = false;
-  bool _isChecked4 = false;
-  bool _isChecked5 = false;
-  bool _isChecked6 = false;
-  bool _isChecked7 = false;
+
+            SizedBox(width: 10),
+            Text(
+              "A nivel",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "2",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Medio",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "3",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Bajo",
+            ),
+          ],
+        ),
+      ),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _valueaceite = value;
+      });
+    },
+
+    value: _valueaceite,
+    elevation: 2,
+
+    style: TextStyle(
+      color: Color(0xFF2350A6),
+      fontSize: 13.0,
+    ),
+  );
+  DropdownButton _itemdmanti() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem(
+        value: "1",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+
+
+            SizedBox(width: 10),
+            Text(
+              "A nivel",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "2",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Medio",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "3",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Bajo",
+            ),
+          ],
+        ),
+      ),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _valuemanti = value;
+      });
+    },
+
+    value: _valuemanti,
+    elevation: 2,
+
+    style: TextStyle(
+      color: Color(0xFF2350A6),
+      fontSize: 13.0,
+    ),
+  );
+  DropdownButton _itemdireccion() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem(
+        value: "1",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+
+
+            SizedBox(width: 10),
+            Text(
+              "A nivel",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "2",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Medio",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "3",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Bajo",
+            ),
+          ],
+        ),
+      ),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _valuedireccion = value;
+      });
+    },
+
+    value: _valuedireccion,
+    elevation: 2,
+
+    style: TextStyle(
+      color: Color(0xFF2350A6),
+      fontSize: 13.0,
+    ),
+  );
+  DropdownButton _itemfrenos() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem(
+        value: "1",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+
+
+            SizedBox(width: 10),
+            Text(
+              "A nivel",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "2",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Medio",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "3",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Bajo",
+            ),
+          ],
+        ),
+      ),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _valuefrenos = value;
+      });
+    },
+
+    value: _valuefrenos,
+    elevation: 2,
+
+    style: TextStyle(
+      color: Color(0xFF2350A6),
+      fontSize: 13.0,
+    ),
+  );
   var rating;
-
-  void onChanged(bool value){
+  int selectedRadio;
+  int selectedRadio2;
+  int selectedRadio3;
+  int selectedRadio4;
+  int selectedRadio5;
+  int selectedRadio6;
+  int selectedRadio7;
+  int selectedRadio8;
+  int selectedRadio9;
+  int selectedRadio10;
+  int selectedRadio11;
+  int selectedRadio12;
+  int selectedRadio13;
+  int selectedRadio14;
+  int selectedRadio15;
+  int selectedRadio16;
+  int selectedRadio17;
+  int selectedRadio18;
+  int selectedRadio19;
+  int selectedRadio20;
+  int selectedRadio21;
+  int selectedRadio22;
+  int selectedRadio23;
+  int selectedRadio24;
+  int selectedRadio25;
+  int selectedRadio26;
+  int selectedRadio27;
+  int selectedRadio28;
+  int selectedRadio29;
+  @override
+  void initState() {
+    super.initState();
+    selectedRadio = 0;
+    selectedRadio2 = 0;
+    selectedRadio3 = 0;
+    selectedRadio4 = 0;
+    selectedRadio5 = 0;
+    selectedRadio6 = 0;
+    selectedRadio7 = 0;
+    selectedRadio8= 0;
+    selectedRadio9 = 0;
+    selectedRadio10 = 0;
+    selectedRadio11 = 0;
+    selectedRadio12 = 0;
+    selectedRadio13 = 0;
+    selectedRadio14 = 0;
+    selectedRadio15 = 0;
+    selectedRadio16 = 0;
+    selectedRadio17 = 0;
+    selectedRadio18 = 0;
+    selectedRadio19 = 0;
+    selectedRadio20= 0;
+    selectedRadio21 = 0;
+    selectedRadio22 = 0;
+    selectedRadio23 = 0;
+    selectedRadio24 = 0;
+    selectedRadio25= 0;
+    selectedRadio26 = 0;
+    selectedRadio27 = 0;
+    selectedRadio28 = 0;
+    selectedRadio29 = 0;
+  }
+  setSelectedRadio (int val) {
     setState(() {
-      _isChecked = value;
+      selectedRadio = val;
     });
   }
-
-  void onChangedValue2(bool value){
+  setSelectedRadio2 (int val) {
     setState(() {
-      _isChecked2 = value;
+      selectedRadio2 = val;
     });
   }
-
-  void onChangedValue3(bool value){
+  setSelectedRadio3 (int val) {
     setState(() {
-      _isChecked3 = value;
+      selectedRadio3 = val;
     });
   }
-
-  void onChangedValue4(bool value){
+  setSelectedRadio4 (int val) {
     setState(() {
-      _isChecked4 = value;
+      selectedRadio4 = val;
     });
   }
-
-  void onChangedValue5(bool value){
+  setSelectedRadio5 (int val) {
     setState(() {
-      _isChecked5 = value;
+      selectedRadio5 = val;
     });
   }
-
-  void onChangedValue6(bool value){
+  setSelectedRadio6 (int val) {
     setState(() {
-      _isChecked6 = value;
+      selectedRadio6 = val;
     });
   }
-
-  void onChangedValue7(bool value){
+  setSelectedRadio7 (int val) {
     setState(() {
-      _isChecked7 = value;
+      selectedRadio7 = val;
     });
   }
-
+  setSelectedRadio8 (int val) {
+    setState(() {
+      selectedRadio8 = val;
+    });
+  }
+  setSelectedRadio9 (int val) {
+    setState(() {
+      selectedRadio9 = val;
+    });
+  }
+  setSelectedRadio10 (int val) {
+    setState(() {
+      selectedRadio10 = val;
+    });
+  }
+  setSelectedRadio11 (int val) {
+    setState(() {
+      selectedRadio11 = val;
+    });
+  }
+  setSelectedRadio12 (int val) {
+    setState(() {
+      selectedRadio12 = val;
+    });
+  }
+  setSelectedRadio13 (int val) {
+    setState(() {
+      selectedRadio13 = val;
+    });
+  }
+  setSelectedRadio14 (int val) {
+    setState(() {
+      selectedRadio14 = val;
+    });
+  }
+  setSelectedRadio15 (int val) {
+    setState(() {
+      selectedRadio15 = val;
+    });
+  }
+  setSelectedRadio16 (int val) {
+    setState(() {
+      selectedRadio16 = val;
+    });
+  }
+  setSelectedRadio17 (int val) {
+    setState(() {
+      selectedRadio17 = val;
+    });
+  }
+  setSelectedRadio18 (int val) {
+    setState(() {
+      selectedRadio18 = val;
+    });
+  }
+  setSelectedRadio19 (int val) {
+    setState(() {
+      selectedRadio19 = val;
+    });
+  }
+  setSelectedRadio20 (int val) {
+    setState(() {
+      selectedRadio20 = val;
+    });
+  }
+  setSelectedRadio21 (int val) {
+    setState(() {
+      selectedRadio21 = val;
+    });
+  }
+  setSelectedRadio22 (int val) {
+    setState(() {
+      selectedRadio22 = val;
+    });
+  }
+  setSelectedRadio23 (int val) {
+    setState(() {
+      selectedRadio23 = val;
+    });
+  }
+  setSelectedRadio24 (int val) {
+    setState(() {
+      selectedRadio24 = val;
+    });
+  }
+  setSelectedRadio25 (int val) {
+    setState(() {
+      selectedRadio25 = val;
+    });
+  }
+  setSelectedRadio26 (int val) {
+    setState(() {
+      selectedRadio26 = val;
+    });
+  }
+  setSelectedRadio27 (int val) {
+    setState(() {
+      selectedRadio27 = val;
+    });
+  }
+  setSelectedRadio28 (int val) {
+    setState(() {
+      selectedRadio28 = val;
+    });
+  }
+  setSelectedRadio29 (int val) {
+    setState(() {
+      selectedRadio29 = val;
+    });
+  }
   @override
   Widget build(BuildContext context) {
 
@@ -2543,7 +2922,7 @@ style: TextStyle(
             padding:
             EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
             decoration: BoxDecoration(
-                //border: Border.all(color: Colors.grey, width: 1.0),
+              //border: Border.all(color: Colors.grey, width: 1.0),
                 color: Colors.black54,
                 borderRadius: BorderRadius.circular(5.0)),
             child:  Text(
@@ -2563,7 +2942,7 @@ style: TextStyle(
           Container(
 
             decoration: BoxDecoration(
-            color: Colors.white30,
+              color: Colors.white30,
 
               border: Border.all(
                 color: Color(0xFFD5D5D5),
@@ -2582,7 +2961,7 @@ style: TextStyle(
                   style: TextStyle(
                       fontFamily: "Sabritas",
                       fontSize: 21.0,
-                color: Color(0xFF00DCFF),
+                      color: Colors.lightBlueAccent,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -2604,8 +2983,8 @@ style: TextStyle(
                       Text(
                         'Estado de la pintura',
                         style: TextStyle(
-                        color: Colors.white, 
-                        fontSize: 20.0,
+                          color: Colors.white,
+                          fontSize: 20.0,
                         ),
                       ),
 
@@ -2613,51 +2992,56 @@ style: TextStyle(
                         alignment: MainAxisAlignment.start,
                         children: <Widget>[
 
-                         Row(
-                           children: <Widget>[
-                             Text(
-                               "Nueva",
-                               style: TextStyle(color: Colors.white, fontSize: 13.0),
-                             ),
-                             Radio(
-                               onChanged: (e){},
-                               value: 1,
-                               groupValue: 1,
-                               activeColor: Color(0xFF2350A6),
-                             ),
-                           ],
-                         ),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Nueva",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
 
-                         Row(
-                           children: <Widget>[
-                             Text(
-                               "Regular",
-                               style: TextStyle(color: Colors.white, fontSize: 13.0),
-                             ),
-                             Radio(
-                               onChanged: (e){},
-                               value: 1,
-                               groupValue: 1,
-                               activeColor: Color(0xFF2350A6),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Regular",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
 
-                             ),
-                           ],
-                         ),
-
-                         Row(
-                           children: <Widget>[
-                             Text(
-                               "Desgaste",
-                               style: TextStyle(color: Colors.white, fontSize: 13.0),
-                             ),
-                             Radio(
-                               onChanged: (e){},
-                               value: 1,
-                               groupValue: 1,
-                               activeColor: Color(0xFF2350A6),
-                             ),
-                           ],
-                         ),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Desgaste",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
 
 
 
@@ -2696,9 +3080,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio2(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio2,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2711,9 +3097,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio2(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio2,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2743,8 +3131,8 @@ style: TextStyle(
                     height: 170.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                                color: Colors.black54,
-                      borderRadius: BorderRadius.circular(0.0)),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(0.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -2789,7 +3177,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                         color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -2811,9 +3199,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio3(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio3,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2826,9 +3216,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio3(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio3,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2841,9 +3233,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio3(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio3,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2868,7 +3262,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -2890,9 +3284,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio4(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio4,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2905,9 +3301,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio4(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio4,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2920,9 +3318,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio4(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio4,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2948,7 +3348,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -2969,9 +3369,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio5(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio5,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2984,9 +3386,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio5(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio5,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -2999,9 +3403,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio5(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio5,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3027,7 +3433,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3050,9 +3456,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio6(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio6,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3065,9 +3473,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio6(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio6,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3080,9 +3490,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio6(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio6,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3107,7 +3519,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                    color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3129,9 +3541,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio7(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio7,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3144,9 +3558,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio7(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio7,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3159,9 +3575,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio7(val);
+                                },
+                                value: 3,
+                                groupValue: selectedRadio7,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3195,8 +3613,8 @@ style: TextStyle(
 
           Container(
 //Diseño de la caja <>
-              decoration: BoxDecoration(
-            color: Colors.white30,
+            decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
                 color: Color(0xFFD5D5D5),
@@ -3215,7 +3633,7 @@ style: TextStyle(
                   "Gasolina",
                   style: TextStyle(
                       fontSize: 21.0,
-                color: Color(0xFF00DCFF),
+                      color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3228,7 +3646,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                    color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3244,7 +3662,7 @@ style: TextStyle(
                         children: <Widget>[
 //Opciones Tanque<>
 // MENU
-                      Row(
+                          Row(
                             children: <Widget>[
                               /*Radio(
                                 onChanged: (e){},
@@ -3267,7 +3685,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                  color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3289,9 +3707,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio8(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio8,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3304,9 +3724,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio8(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio8,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3325,7 +3747,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                   color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3347,9 +3769,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio9(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio9,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3362,9 +3786,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio9(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio9,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3390,8 +3816,8 @@ style: TextStyle(
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3413,7 +3839,7 @@ style: TextStyle(
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                               color: Color(0xFF00DCFF),
+                                color: Color(0xFF00DCFF),
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
@@ -3447,8 +3873,8 @@ style: TextStyle(
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3503,8 +3929,8 @@ style: TextStyle(
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3526,7 +3952,7 @@ style: TextStyle(
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                               color: Color(0xFF00DCFF),
+                                color: Color(0xFF00DCFF),
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
@@ -3552,7 +3978,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                   color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3574,9 +4000,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio10(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio10,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3589,9 +4017,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio10(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio10,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -3620,9 +4050,9 @@ style: TextStyle(
             height: 10,
           ),
 
-           Container(
-               decoration: BoxDecoration(
-            color: Colors.white30,
+          Container(
+            decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
                 color: Color(0xFFD5D5D5),
@@ -3633,72 +4063,76 @@ style: TextStyle(
               ),
             ),
 
-             child: Column(
-                children: <Widget>[
+            child: Column(
+              children: <Widget>[
 
-                  Text(
-                    "Estacionamiento",
-                    style: TextStyle(
-                        fontSize: 21.0,
-                color: Color(0xFF00DCFF),
-                        fontWeight: FontWeight.bold
-                    ),
+                Text(
+                  "Estacionamiento",
+                  style: TextStyle(
+                      fontSize: 21.0,
+                      color: Color(0xFF00DCFF),
+                      fontWeight: FontWeight.bold
                   ),
+                ),
 
 
 
-                  SizedBox(
-                    height: 6,
-                  ),
+                SizedBox(
+                  height: 6,
+                ),
 
-                  Container(
-                    decoration: BoxDecoration(
-                      //border: Border.all(color: Colors.grey, width: 1.0),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
-                    margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                    child: Column(
-                      children: <Widget>[
-                        Text(
-                          '¿Cuenta con fondo de estacionamientos?',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
-                        ),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        '¿Cuenta con fondo de estacionamientos?',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
 
-                        ButtonBar(
-                          alignment: MainAxisAlignment.start,
-                          children: <Widget>[
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
 
-                           Row(
-                             children: <Widget>[
-                               Text(
-                                 "Si",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                                 activeColor: Color(0xFF2350A6),
-                               ),
-                             ],
-                           ),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio11(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio11,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
 
-                           Row(
-                             children: <Widget>[
-                               Text(
-                                 "No",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                                 activeColor: Color(0xFF2350A6),
-                               ),
-                             ],
-                           ),
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio11(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio11,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
 
-                        /*   Row(
+                          /*   Row(
                              children: <Widget>[
                                Text(
                                  "Desgaste",
@@ -3714,236 +4148,240 @@ style: TextStyle(
 
 
 
-                          ],
-                        ),
-                      ],
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: 6,
-                  ),
-
-                  GestureDetector(
-                    onTap:(){
-                      FocusScope.of(context).requestFocus(FocusNode());
-                    },
-                    child:Container(
-                      height: 120.0,
-                      decoration: BoxDecoration(
-                        //border: Border.all(color: Colors.grey, width: 1.0),
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(5.0)),
-                      margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            '¿Cuánto?',
-                            style: TextStyle(color: Colors.white, fontSize: 20.0),
-                          ),
-
-                          TextField(
-                            maxLines: 1,
-                            cursorColor: Colors.white,
-                            cursorWidth: 7.0,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19.0
-                            ),
-                            decoration: InputDecoration(
-                              labelText: 'Llenar campo de texto',
-                              labelStyle: TextStyle(
-                                  color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
-                              ),
-                              fillColor: Colors.black54,
-                              prefixIcon: const Icon(
-                                Icons.drive_eta,
-                                color: Colors.lightBlueAccent,
-                              ),
-                            ),
-                            onChanged:(String value){},
-                          ),
-
                         ],
                       ),
-                    ),
+                    ],
                   ),
+                ),
 
-                  SizedBox(
-                    height: 6,
-                  ),
+                SizedBox(
+                  height: 6,
+                ),
 
-
-                  GestureDetector(
-                    onTap:(){
-                      FocusScope.of(context).requestFocus(FocusNode());
-                    },
-                    child:Container(
-                      height: 120.0,
-                      decoration: BoxDecoration(
-                        //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                      margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            'Número de ticket de estacionamiento',
-                            style: TextStyle(color: Colors.white, fontSize: 20.0),
-                          ),
-
-                          TextField(
-                            maxLines: 1,
-                            cursorColor: Colors.white,
-                            cursorWidth: 7.0,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19.0
-                            ),
-                            decoration: InputDecoration(
-                              labelText: 'Llenar campo de texto',
-                              labelStyle: TextStyle(
-                                  color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
-                              ),
-                              fillColor: Colors.black54,
-                              prefixIcon: const Icon(
-                                Icons.drive_eta,
-                                color: Colors.lightBlueAccent,
-                              ),
-                            ),
-                            onChanged:(String value){},
-                          ),
-
-                        ],
-                      ),
-                    ),
-                  ),
-
-                  SizedBox(
-                    height: 6,
-                  ),
-
-
-
-                  GestureDetector(
-                    onTap:(){
-                      FocusScope.of(context).requestFocus(FocusNode());
-                    },
-                    child:Container(
-                      height: 120.0,
-                      decoration: BoxDecoration(
-                        //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                      margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                      child: Column(
-                        children: <Widget>[
-                          Text(
-                            'Total en pesos',
-                            style: TextStyle(color: Colors.white, fontSize: 20.0),
-                          ),
-
-                          TextField(
-                            maxLines: 1,
-                            cursorColor: Colors.white,
-                            cursorWidth: 7.0,
-                            style: TextStyle(
-                                color: Colors.white,
-                                fontSize: 19.0
-                            ),
-                            decoration: InputDecoration(
-                              labelText: 'Llenar campo de texto',
-                              labelStyle: TextStyle(
-                                  color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
-                              ),
-                              fillColor: Colors.black54,
-                              prefixIcon: const Icon(
-                                Icons.drive_eta,
-                                color: Colors.lightBlueAccent,
-                              ),
-                            ),
-                            onChanged:(String value){},
-                          ),
-
-                        ],
-                      ),
-                    ),
-                  ),
-
-
-                  SizedBox(
-                    height: 6,
-                  ),
-
-
-
-                  Container(
+                GestureDetector(
+                  onTap:(){
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  },
+                  child:Container(
+                    height: 120.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(5.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
                         Text(
-                          '¿Es correcta la información?',
+                          '¿Cuánto?',
                           style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
 
-                        ButtonBar(
-                          alignment: MainAxisAlignment.start,
-                          children: <Widget>[
-
-
-                            Row(
-                              children: <Widget>[
-                                Text(
-                                  "Si",
-                                  style: TextStyle(color: Colors.white, fontSize: 13.0),
-                                ),
-                                Radio(
-                                  onChanged: (e){},
-                                  value: 1,
-                                  groupValue: 1,
-                                  activeColor: Color(0xFF2350A6),
-                                ),
-                              ],
+                        TextField(
+                          maxLines: 1,
+                          cursorColor: Colors.white,
+                          cursorWidth: 7.0,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19.0
+                          ),
+                          decoration: InputDecoration(
+                            labelText: 'Llenar campo de texto',
+                            labelStyle: TextStyle(
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
-
-                            Row(
-                              children: <Widget>[
-                                Text(
-                                  "No",
-                                  style: TextStyle(color: Colors.white, fontSize: 13.0),
-                                ),
-                                Radio(
-                                  onChanged: (e){},
-                                  value: 1,
-                                  groupValue: 1,
-                                  activeColor: Color(0xFF2350A6),
-                                ),
-                              ],
+                            fillColor: Colors.black54,
+                            prefixIcon: const Icon(
+                              Icons.drive_eta,
+                              color: Colors.lightBlueAccent,
                             ),
-                          ],
+                          ),
+                          onChanged:(String value){},
                         ),
+
                       ],
                     ),
                   ),
+                ),
+
+                SizedBox(
+                  height: 6,
+                ),
 
 
-                  SizedBox(
-                    height: 10,
+                GestureDetector(
+                  onTap:(){
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  },
+                  child:Container(
+                    height: 120.0,
+                    decoration: BoxDecoration(
+                      //border: Border.all(color: Colors.grey, width: 1.0),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(1.0)),
+                    margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          'Número de ticket de estacionamiento',
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+
+                        TextField(
+                          maxLines: 1,
+                          cursorColor: Colors.white,
+                          cursorWidth: 7.0,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19.0
+                          ),
+                          decoration: InputDecoration(
+                            labelText: 'Llenar campo de texto',
+                            labelStyle: TextStyle(
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
+                            ),
+                            fillColor: Colors.black54,
+                            prefixIcon: const Icon(
+                              Icons.drive_eta,
+                              color: Colors.lightBlueAccent,
+                            ),
+                          ),
+                          onChanged:(String value){},
+                        ),
+
+                      ],
+                    ),
                   ),
+                ),
+
+                SizedBox(
+                  height: 6,
+                ),
 
 
 
-                ],
-              ),
-           ),
-         /* Container(
+                GestureDetector(
+                  onTap:(){
+                    FocusScope.of(context).requestFocus(FocusNode());
+                  },
+                  child:Container(
+                    height: 120.0,
+                    decoration: BoxDecoration(
+                      //border: Border.all(color: Colors.grey, width: 1.0),
+                        color: Colors.black54,
+                        borderRadius: BorderRadius.circular(1.0)),
+                    margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                    child: Column(
+                      children: <Widget>[
+                        Text(
+                          'Total en pesos',
+                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        ),
+
+                        TextField(
+                          maxLines: 1,
+                          cursorColor: Colors.white,
+                          cursorWidth: 7.0,
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19.0
+                          ),
+                          decoration: InputDecoration(
+                            labelText: 'Llenar campo de texto',
+                            labelStyle: TextStyle(
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
+                            ),
+                            fillColor: Colors.black54,
+                            prefixIcon: const Icon(
+                              Icons.drive_eta,
+                              color: Colors.lightBlueAccent,
+                            ),
+                          ),
+                          onChanged:(String value){},
+                        ),
+
+                      ],
+                    ),
+                  ),
+                ),
+
+
+                SizedBox(
+                  height: 6,
+                ),
+
+
+
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        '¿Es correcta la información?',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio12(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio12,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio12(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio12,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+
+
+                SizedBox(
+                  height: 10,
+                ),
+
+
+
+              ],
+            ),
+          ),
+          /* Container(
             padding:
             EdgeInsets.symmetric(horizontal: 3.0, vertical: 2.0),
             decoration: BoxDecoration(
@@ -3965,8 +4403,8 @@ style: TextStyle(
           ),
 
           Container(
-             decoration: BoxDecoration(
-            color: Colors.white30,
+            decoration: BoxDecoration(
+              color: Colors.white30,
 
               border: Border.all(
                 color: Color(0xFFD5D5D5),
@@ -3984,7 +4422,7 @@ style: TextStyle(
                   "Accesorios",
                   style: TextStyle(
                       fontSize: 21.0,
-                color: Color(0xFF00DCFF),
+                      color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3998,7 +4436,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4019,9 +4457,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio13(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio13,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4034,9 +4474,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio13(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio13,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4052,23 +4494,6 @@ style: TextStyle(
                               _itemDown(),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
-
-
                         ],
                       ),
                     ],
@@ -4082,7 +4507,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4104,9 +4529,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio14(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio14,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4119,20 +4546,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio14(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio14,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown2(),
                             ],
                           ),
@@ -4149,7 +4573,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                  color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4170,11 +4594,13 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio15(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio15,
                                 activeColor: Color(0xFF2350A6),
-                ),
+                              ),
                             ],
                           ),
 
@@ -4185,40 +4611,20 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio15(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio15,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown3(),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
-
-
                         ],
                       ),
                     ],
@@ -4231,7 +4637,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4252,9 +4658,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio16(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio16,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4267,20 +4675,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio16(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio16,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown4(),
                             ],
                           ),
@@ -4296,7 +4701,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                   color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4317,9 +4722,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio17(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio17,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4332,35 +4739,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio17(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio17,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown5(),
                             ],
                           ),
@@ -4377,7 +4766,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4398,9 +4787,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio18(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio18,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4413,35 +4804,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio18(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio18,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown6(),
                             ],
                           ),
@@ -4458,7 +4831,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4479,9 +4852,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio19(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio19,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4494,34 +4869,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio19(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio19,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown7(),
                             ],
                           ),
@@ -4538,7 +4896,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                    color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4559,9 +4917,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio20(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio20,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4574,35 +4934,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio20(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio20,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown8(),
                             ],
                           ),
@@ -4640,9 +4982,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio21(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio21,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4655,35 +4999,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio21(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio21,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown9(),
                             ],
                           ),
@@ -4700,7 +5026,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                  color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4721,9 +5047,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio22(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio22,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4736,35 +5064,17 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio22(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio22,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
-
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown10(),
                             ],
                           ),
@@ -4781,7 +5091,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                     color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4802,9 +5112,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio23(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio23,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4817,39 +5129,20 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
+                                onChanged: (val){
+                                  setSelectedRadio23(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio23,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
-
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
                           Row(
                             children: <Widget>[
-                              /*Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),*/
                               _itemDown11(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
@@ -4862,7 +5155,7 @@ style: TextStyle(
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                   color: Colors.black54,
+                      color: Colors.black54,
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -4883,9 +5176,11 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio24(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio24,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
@@ -4898,27 +5193,267 @@ style: TextStyle(
                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
                               ),
                               Radio(
-                                onChanged: (e){},
+                                onChanged: (val){
+                                  setSelectedRadio24(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio24,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              _itemDown12(),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'Aceite',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio25(val);
+                                },
                                 value: 1,
-                                groupValue: 1,
+                                groupValue: selectedRadio25,
                                 activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
 
-                          /*   Row(
-                             children: <Widget>[
-                               Text(
-                                 "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
-                               ),
-                               Radio(
-                                 onChanged: (e){},
-                                 value: 1,
-                                 groupValue: 1,
-                               ),
-                             ],
-                           ),*/
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio25(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio25,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              _itemaceite(),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'Anticongelante',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio26(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio26,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio26(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio26,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              _itemdmanti(),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'Líquido de dirección',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio27(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio27,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio27(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio27,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                          Row(
+                            children: <Widget>[
+                              _itemdireccion(),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        'Líquido de frenos',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
+
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio28(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio28,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio28(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio28,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
                           Row(
                             children: <Widget>[
                               /*Radio(
@@ -4926,180 +5461,80 @@ style: TextStyle(
                                 value: 1,
                                 groupValue: 1,
                               ),*/
-                              _itemDown12(),
+                              _itemfrenos(),
                             ],
                           ),
-
-
                         ],
                       ),
                     ],
                   ),
                 ),
+                SizedBox(
+                  height: 6,
+                ),
+                Container(
+                  decoration: BoxDecoration(
+                    //border: Border.all(color: Colors.grey, width: 1.0),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
+                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                  child: Column(
+                    children: <Widget>[
+                      Text(
+                        '¿Es correcta la información?',
+                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                      ),
 
+                      ButtonBar(
+                        alignment: MainAxisAlignment.start,
+                        children: <Widget>[
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "Si",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio29(val);
+                                },
+                                value: 1,
+                                groupValue: selectedRadio29,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+
+                          Row(
+                            children: <Widget>[
+                              Text(
+                                "No",
+                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                              ),
+                              Radio(
+                                onChanged: (val){
+                                  setSelectedRadio29(val);
+                                },
+                                value: 2,
+                                groupValue: selectedRadio29,
+                                activeColor: Color(0xFF2350A6),
+                              ),
+                            ],
+                          ),
+                        ],
+                      ),
+                    ],
+                  ),
+                ),
+                SizedBox(
+                  height: 6,
+                ),
               ],
             ),
           ),
-
-          /*Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked2,
-                onChanged:(bool value){onChangedValue2(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo dos has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked3,
-                onChanged:(bool value){onChangedValue3(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo tres has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked4,
-                onChanged:(bool value){onChangedValue4(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo cuatro has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked5,
-                onChanged:(bool value){onChangedValue5(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                  'Campo cinco has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked6,
-                onChanged:(bool value){onChangedValue6(value);},
-                activeColor: Colors.lightBlueAccent,
-                  ),
-              Text(
-                'Campo seis has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),
-
-
-          Row(
-            children: <Widget>[
-              Checkbox(
-                value: _isChecked7,
-                onChanged:(bool value){onChangedValue7(value);},
-                activeColor: Colors.lightBlueAccent,
-              ),
-              Text(
-                'Campo siete has click',
-                style: TextStyle(color: Colors.white, fontSize: 20.0),
-              ),
-
-            ],
-          ),*/
         ],
       ),
     );
-
   }
 }
