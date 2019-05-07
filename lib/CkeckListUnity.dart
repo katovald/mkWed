@@ -23,6 +23,86 @@ class _CheckListUState extends State<CheckListUnity>{
   var _value10 = "1";
   var _value11 = "1";
   var _value12 = "1";
+  var _valueGasolina = "1";
+  
+   DropdownButton _itemGasolina() => DropdownButton<String>(
+    items: [
+      DropdownMenuItem(
+        value: "1",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Tanque Lleno",
+            ),
+          ],
+        ),
+      ),
+     DropdownMenuItem(
+        value: "2",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "3/4",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "3",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Medio Tanque",
+            ),
+          ],
+        ),
+      ),
+     DropdownMenuItem(
+        value: "4",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "1/4",
+            ),
+          ],
+        ),
+      ),
+      DropdownMenuItem(
+        value: "5",
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: <Widget>[
+            SizedBox(width: 10),
+            Text(
+              "Tanque Vacio",
+            ),
+          ],
+        ),
+      ),
+    ],
+    onChanged: (value) {
+      setState(() {
+        _valueGasolina = value;
+      });
+    },
+
+    value: _valueGasolina,
+    elevation: 2,
+
+    style: TextStyle(
+      color: Color(0xFF2350A6),
+      fontSize: 13.0,
+    ),
+  );
+  //// MI LISTA </>
   DropdownButton _itemDown() => DropdownButton<String>(
     items: [
       DropdownMenuItem(
@@ -216,8 +296,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value1,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -415,7 +495,7 @@ class _CheckListUState extends State<CheckListUnity>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -612,8 +692,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value3,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+   style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -811,7 +891,7 @@ class _CheckListUState extends State<CheckListUnity>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1009,7 +1089,7 @@ class _CheckListUState extends State<CheckListUnity>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1206,8 +1286,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value6,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+   style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1405,7 +1485,7 @@ class _CheckListUState extends State<CheckListUnity>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1602,8 +1682,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value8,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+   style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1801,7 +1881,7 @@ class _CheckListUState extends State<CheckListUnity>{
     elevation: 2,
 
     style: TextStyle(
-      color: Colors.greenAccent,
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -1998,8 +2078,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value10,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+   style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2196,8 +2276,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value11,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+   style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2394,8 +2474,8 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value12,
     elevation: 2,
 
-    style: TextStyle(
-      color: Colors.greenAccent,
+   style: TextStyle(
+      color: Color(0xFF2350A6),
       fontSize: 13.0,
     ),
   );
@@ -2467,11 +2547,11 @@ class _CheckListUState extends State<CheckListUnity>{
                 color: Colors.black54,
                 borderRadius: BorderRadius.circular(5.0)),
             child:  Text(
-              "Formato de Recepción de Vehículo",
+              "Recepción de Vehículo",
               style: TextStyle(
                   fontSize: 22.0,
-                  color: Colors.greenAccent,
-                  fontWeight: FontWeight.bold
+                  color: Colors.white,
+                  fontWeight: FontWeight.w100
               ),
             ),
           ),
@@ -2482,14 +2562,15 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Container(
 
-            decoration: new BoxDecoration(
+            decoration: BoxDecoration(
+            color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0) //                 <--- border radius here
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
 
@@ -2499,8 +2580,9 @@ class _CheckListUState extends State<CheckListUnity>{
                 Text(
                   "Estatus General",
                   style: TextStyle(
+                      fontFamily: "Sabritas",
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -2515,13 +2597,16 @@ class _CheckListUState extends State<CheckListUnity>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Estado de la pintura',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(
+                        color: Colors.white, 
+                        fontSize: 20.0,
+                        ),
                       ),
 
                       ButtonBar(
@@ -2538,6 +2623,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                onChanged: (e){},
                                value: 1,
                                groupValue: 1,
+                               activeColor: Color(0xFF2350A6),
                              ),
                            ],
                          ),
@@ -2552,6 +2638,8 @@ class _CheckListUState extends State<CheckListUnity>{
                                onChanged: (e){},
                                value: 1,
                                groupValue: 1,
+                               activeColor: Color(0xFF2350A6),
+
                              ),
                            ],
                          ),
@@ -2566,6 +2654,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                onChanged: (e){},
                                value: 1,
                                groupValue: 1,
+                               activeColor: Color(0xFF2350A6),
                              ),
                            ],
                          ),
@@ -2586,7 +2675,7 @@ class _CheckListUState extends State<CheckListUnity>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2610,6 +2699,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2624,6 +2714,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2652,8 +2743,8 @@ class _CheckListUState extends State<CheckListUnity>{
                     height: 170.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                                color: Colors.black54,
+                      borderRadius: BorderRadius.circular(0.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -2673,10 +2764,10 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
                               color: Colors.lightBlueAccent,
@@ -2698,8 +2789,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                         color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2723,6 +2814,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2737,6 +2829,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2751,6 +2844,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2774,8 +2868,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                        color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2799,6 +2893,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2813,6 +2908,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2827,6 +2923,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2851,8 +2948,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2875,6 +2972,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2889,6 +2987,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2903,6 +3002,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2927,8 +3027,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -2953,6 +3053,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2967,6 +3068,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -2981,6 +3083,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3004,8 +3107,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                    color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3029,6 +3132,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3043,6 +3147,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3057,6 +3162,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3089,14 +3195,15 @@ class _CheckListUState extends State<CheckListUnity>{
 
           Container(
 //Diseño de la caja <>
-            decoration: new BoxDecoration(
+              decoration: BoxDecoration(
+            color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0) //                 <--- border radius here
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
 
@@ -3108,7 +3215,7 @@ class _CheckListUState extends State<CheckListUnity>{
                   "Gasolina",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3121,8 +3228,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                    color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3136,46 +3243,15 @@ class _CheckListUState extends State<CheckListUnity>{
                         alignment: MainAxisAlignment.start,
                         children: <Widget>[
 //Opciones Tanque<>
-
-                          Row(
+// MENU
+                      Row(
                             children: <Widget>[
-                              Text(
-                                "LLeno",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
+                              /*Radio(
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (e){},
-                                value: 1,
-                                groupValue: 1,
-                              ),
+                              ),*/
+                              _itemGasolina(),
                             ],
                           ),
 //Opciones Tanque</>
@@ -3191,8 +3267,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                  color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3216,6 +3292,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3230,6 +3307,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3247,8 +3325,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                   color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3272,6 +3350,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3286,6 +3365,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3310,8 +3390,8 @@ class _CheckListUState extends State<CheckListUnity>{
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3333,8 +3413,8 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                               color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3367,8 +3447,8 @@ class _CheckListUState extends State<CheckListUnity>{
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3390,8 +3470,8 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3423,8 +3503,8 @@ class _CheckListUState extends State<CheckListUnity>{
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3446,8 +3526,8 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Colors.greenAccent,
-                                fontWeight: FontWeight.bold
+                               color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
@@ -3472,8 +3552,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                   color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3497,6 +3577,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3511,6 +3592,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3539,16 +3621,18 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
 
            Container(
-             decoration: BoxDecoration(
+               decoration: BoxDecoration(
+            color: Colors.white30,
 
-               border: Border.all(
-                 color: Colors.lightBlueAccent,
-                 width: 1.5,
-               ),
-               borderRadius: BorderRadius.all(
-                   Radius.circular(5.0)
-               ),
-             ),
+              border: Border.all(
+                color: Color(0xFFD5D5D5),
+                width: 1.5,
+              ),
+              borderRadius: BorderRadius.all(
+                  Radius.circular(0.0) //                 <--- border radius here
+              ),
+            ),
+
              child: Column(
                 children: <Widget>[
 
@@ -3556,7 +3640,7 @@ class _CheckListUState extends State<CheckListUnity>{
                     "Estacionamiento",
                     style: TextStyle(
                         fontSize: 21.0,
-                        color: Colors.greenAccent,
+                color: Color(0xFF00DCFF),
                         fontWeight: FontWeight.bold
                     ),
                   ),
@@ -3570,8 +3654,8 @@ class _CheckListUState extends State<CheckListUnity>{
                   Container(
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3594,6 +3678,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                  onChanged: (e){},
                                  value: 1,
                                  groupValue: 1,
+                                 activeColor: Color(0xFF2350A6),
                                ),
                              ],
                            ),
@@ -3608,6 +3693,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                  onChanged: (e){},
                                  value: 1,
                                  groupValue: 1,
+                                 activeColor: Color(0xFF2350A6),
                                ),
                              ],
                            ),
@@ -3667,8 +3753,8 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: InputDecoration(
                               labelText: 'Llenar campo de texto',
                               labelStyle: TextStyle(
-                                  color: Colors.greenAccent,
-                                  fontWeight: FontWeight.bold
+                                  color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                               ),
                               fillColor: Colors.black54,
                               prefixIcon: const Icon(
@@ -3697,8 +3783,8 @@ class _CheckListUState extends State<CheckListUnity>{
                       height: 120.0,
                       decoration: BoxDecoration(
                         //border: Border.all(color: Colors.grey, width: 1.0),
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(5.0)),
+                        color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                       margin: EdgeInsets.only(left: 3.0, right: 3.0),
                       child: Column(
                         children: <Widget>[
@@ -3718,8 +3804,8 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: InputDecoration(
                               labelText: 'Llenar campo de texto',
                               labelStyle: TextStyle(
-                                  color: Colors.greenAccent,
-                                  fontWeight: FontWeight.bold
+                                  color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                               ),
                               fillColor: Colors.black54,
                               prefixIcon: const Icon(
@@ -3749,8 +3835,8 @@ class _CheckListUState extends State<CheckListUnity>{
                       height: 120.0,
                       decoration: BoxDecoration(
                         //border: Border.all(color: Colors.grey, width: 1.0),
-                          color: Colors.black54,
-                          borderRadius: BorderRadius.circular(5.0)),
+                        color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                       margin: EdgeInsets.only(left: 3.0, right: 3.0),
                       child: Column(
                         children: <Widget>[
@@ -3770,8 +3856,8 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: InputDecoration(
                               labelText: 'Llenar campo de texto',
                               labelStyle: TextStyle(
-                                  color: Colors.greenAccent,
-                                  fontWeight: FontWeight.bold
+                                  color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
                               ),
                               fillColor: Colors.black54,
                               prefixIcon: const Icon(
@@ -3797,8 +3883,8 @@ class _CheckListUState extends State<CheckListUnity>{
                   Container(
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
-                        borderRadius: BorderRadius.circular(5.0)),
+                      color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
@@ -3822,6 +3908,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                   onChanged: (e){},
                                   value: 1,
                                   groupValue: 1,
+                                  activeColor: Color(0xFF2350A6),
                                 ),
                               ],
                             ),
@@ -3836,6 +3923,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                   onChanged: (e){},
                                   value: 1,
                                   groupValue: 1,
+                                  activeColor: Color(0xFF2350A6),
                                 ),
                               ],
                             ),
@@ -3877,16 +3965,18 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
 
           Container(
-            decoration: BoxDecoration(
+             decoration: BoxDecoration(
+            color: Colors.white30,
 
               border: Border.all(
-                color: Colors.lightBlueAccent,
+                color: Color(0xFFD5D5D5),
                 width: 1.5,
               ),
               borderRadius: BorderRadius.all(
-                  Radius.circular(5.0)
+                  Radius.circular(0.0) //                 <--- border radius here
               ),
             ),
+
             child: Column(
               children: <Widget>[
 
@@ -3894,7 +3984,7 @@ class _CheckListUState extends State<CheckListUnity>{
                   "Accesorios",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Colors.greenAccent,
+                color: Color(0xFF00DCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3908,8 +3998,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -3932,6 +4022,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3946,6 +4037,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -3990,8 +4082,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4015,6 +4107,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4029,6 +4122,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4055,8 +4149,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                  color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4079,6 +4173,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                 ),
                             ],
                           ),
@@ -4093,6 +4188,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4135,8 +4231,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4159,6 +4255,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4173,6 +4270,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4198,8 +4296,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                   color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4222,6 +4320,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4236,6 +4335,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4277,8 +4377,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4301,6 +4401,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4315,6 +4416,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4356,8 +4458,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4380,6 +4482,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4435,8 +4538,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                    color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4459,6 +4562,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4473,6 +4577,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4515,7 +4620,7 @@ class _CheckListUState extends State<CheckListUnity>{
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
                       color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4538,6 +4643,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4552,6 +4658,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4593,8 +4700,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                  color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4617,6 +4724,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4631,6 +4739,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4672,8 +4781,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                     color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4696,6 +4805,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4710,6 +4820,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4751,8 +4862,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(5.0)),
+                   color: Colors.black54,
+                      borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
@@ -4775,6 +4886,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
@@ -4789,6 +4901,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 onChanged: (e){},
                                 value: 1,
                                 groupValue: 1,
+                                activeColor: Color(0xFF2350A6),
                               ),
                             ],
                           ),
