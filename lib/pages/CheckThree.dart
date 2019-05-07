@@ -1,5 +1,6 @@
 import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
+import 'package:app_editesp/formulario.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
 import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/pages/home.dart';
@@ -27,8 +28,8 @@ class CheckListThree extends StatelessWidget {
                   margin: EdgeInsets.all(7.0),
                 ),
 
-                CheckListUnity(),
-
+               // CheckListUnity(),
+                  Formulario(),
 
               ],
             ),
