@@ -150,12 +150,12 @@ class _ProductsState extends State<Products> {
 
     return Container(
       decoration: new BoxDecoration(
-        border: Border.all(
-          color: Colors.lightBlueAccent,
-          width: 2.5,
+               border: Border.all(
+                color: Color(0xFFD5D5D5),
+                width: 1.5,
         ),
         borderRadius: BorderRadius.all(
-            Radius.circular(5.0) //                 <--- border radius here
+            Radius.circular(1.0) //                 <--- border radius here
         ),
       ),
       margin: EdgeInsets.only(left: 9.0, right: 9.0, top:5.0),
@@ -168,7 +168,7 @@ class _ProductsState extends State<Products> {
             Text(
               widget.products[index],
               style: TextStyle(
-                  color: Colors.greenAccent,
+                      color: Colors.lightBlueAccent,
                   fontSize: 18.0,
                   fontWeight: FontWeight.bold
               ),
@@ -176,7 +176,11 @@ class _ProductsState extends State<Products> {
             ),
             Text(
               "Descripción general de la Tarea",
-              style: TextStyle(color: Colors.lightBlueAccent, fontSize: 16.0),
+              style: TextStyle(
+                color: Colors.white, 
+                fontSize: 16.0,
+                fontWeight: FontWeight.w200
+                ),
             ),
             ButtonBar(
               alignment: MainAxisAlignment.center,
@@ -185,7 +189,7 @@ class _ProductsState extends State<Products> {
                 IconButton(
                   icon: Icon(
                     Icons.assignment,
-                    color: Colors.indigo,
+                    color: Colors.white,
                   ),
                   onPressed: () => Navigator
                       .push<bool>(
@@ -205,7 +209,7 @@ class _ProductsState extends State<Products> {
                 IconButton(
                   icon:Icon(
                     Icons.check_circle,
-                    color: Colors.green,
+                    color: Color(0xFF13E46F),
                   ),
                   onPressed: (){
                     _showAlertFinish(index);
@@ -214,8 +218,9 @@ class _ProductsState extends State<Products> {
 
                 IconButton(
                   icon:Icon(
-                    Icons.add_call,
-                    color: Colors.red,),
+                    Icons.call,
+                    color: Color(0xFF5ADEFF),
+                    ),
                   onPressed: (){
                     _showAlertCall();
                   },

@@ -66,18 +66,17 @@ class ItemList extends StatelessWidget {
         ],
       ),
 
-      floatingActionButton:  FloatingActionButton(
-        backgroundColor: Colors.greenAccent,
-        child: Icon(
-          Icons.adb,
-          color: Colors.black,),
-        onPressed: (){
+         floatingActionButton: FloatingActionButton.extended(
+         onPressed: (){
          // _printJSON();
           _openMap();
-
-        },
-      ),
-    );
+          },
+          icon: Icon(Icons.map),
+          label: Text("Mapa"),
+          backgroundColor: Colors.lightBlueAccent,
+          foregroundColor: Colors.white,
+        ),
+         );
 
 
 

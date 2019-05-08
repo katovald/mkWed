@@ -47,7 +47,7 @@ class CheckListOne extends StatelessWidget {
         floatingActionButton:  FloatingActionButton(
           backgroundColor: Color(0xFF00DCFF),
           child: Icon(
-            Icons.check_box,
+            Icons.verified_user,
             color: Colors.white,),
           onPressed: () => Navigator.push(
             context,
