@@ -53,7 +53,7 @@ child: Container(
                     elevation: 2.0,
                     color: Colors.white,
                     shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(8.0),
+                      borderRadius: BorderRadius.circular(1.0),
                     ),
                     child: Container(
                       width: 300.0,
@@ -83,7 +83,7 @@ child: Container(
                                   color: Colors.black,
                                   size: 22.0,
                                 ),
-                                hintText: "Número de cliente",
+                                hintText: "Usuario",
                                 hintStyle: TextStyle(
                                     fontFamily: "WorkSansSemiBold", fontSize: 17.0),
                               ),
@@ -137,13 +137,7 @@ child: Container(
                     margin: EdgeInsets.only(top: 200.0),
                     decoration:  BoxDecoration(
                       borderRadius: BorderRadius.all(Radius.circular(30.0)),
-                      boxShadow: <BoxShadow>[
-                        BoxShadow(
-                          color: Theme.Colors.loginGradientEnd2,
-                          offset: Offset(1.0, 2.0),
-                          blurRadius: 3.0,
-                        ),
-                      ],
+                    
                       gradient:  LinearGradient(
                           colors: [
                             Theme.Colors.loginGradientEnd2,

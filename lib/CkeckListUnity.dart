@@ -2961,7 +2961,7 @@ class _CheckListUState extends State<CheckListUnity>{
                   style: TextStyle(
                       fontFamily: "Sabritas",
                       fontSize: 21.0,
-                      color: Colors.lightBlueAccent,
+                      color: Color(0xFF00CCFF),
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3128,7 +3128,7 @@ class _CheckListUState extends State<CheckListUnity>{
                     FocusScope.of(context).requestFocus(FocusNode());
                   },
                   child:Container(
-                    height: 170.0,
+                   height: 128.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
@@ -3147,18 +3147,18 @@ class _CheckListUState extends State<CheckListUnity>{
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
                             fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
@@ -3828,24 +3828,23 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
 
                         TextField(
-                          maxLines: 1, //Maximo de Lineas de Texto
+                          maxLines: 3,
                           cursorColor: Colors.white,
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
-//Descripcion & Estilos
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
@@ -3884,25 +3883,24 @@ class _CheckListUState extends State<CheckListUnity>{
                           style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
 
-                        TextField(
-                          maxLines: 1, //Maximo de Lineas de Texto
+                       TextField(
+                          maxLines: 3,
                           cursorColor: Colors.white,
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
-//Descripcion & Estilos
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
@@ -3940,25 +3938,24 @@ class _CheckListUState extends State<CheckListUnity>{
                           style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
 
-                        TextField(
-                          maxLines: 1,  //Maximo de Lineas de Texto
+                         TextField(
+                          maxLines: 3,
                           cursorColor: Colors.white,
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
-//Descripcion & Estilos
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
@@ -4163,7 +4160,7 @@ class _CheckListUState extends State<CheckListUnity>{
                     FocusScope.of(context).requestFocus(FocusNode());
                   },
                   child:Container(
-                    height: 120.0,
+                    height: 128.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
@@ -4177,23 +4174,23 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
 
                         TextField(
-                          maxLines: 1,
+                          maxLines: 3,
                           cursorColor: Colors.white,
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
@@ -4214,7 +4211,7 @@ class _CheckListUState extends State<CheckListUnity>{
                     FocusScope.of(context).requestFocus(FocusNode());
                   },
                   child:Container(
-                    height: 120.0,
+                    height: 128.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
@@ -4227,24 +4224,24 @@ class _CheckListUState extends State<CheckListUnity>{
                           style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
 
-                        TextField(
-                          maxLines: 1,
+                         TextField(
+                          maxLines: 3,
                           cursorColor: Colors.white,
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
@@ -4266,7 +4263,7 @@ class _CheckListUState extends State<CheckListUnity>{
                     FocusScope.of(context).requestFocus(FocusNode());
                   },
                   child:Container(
-                    height: 120.0,
+                    height: 128.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
                         color: Colors.black54,
@@ -4279,29 +4276,28 @@ class _CheckListUState extends State<CheckListUnity>{
                           style: TextStyle(color: Colors.white, fontSize: 20.0),
                         ),
 
-                        TextField(
-                          maxLines: 1,
+                       TextField(
+                          maxLines: 3,
                           cursorColor: Colors.white,
                           cursorWidth: 7.0,
                           style: TextStyle(
                               color: Colors.white,
-                              fontSize: 19.0
+                              fontSize: 18.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
+                                color: Color(0xFF4EA7DE),
+                                fontWeight: FontWeight.w300
                             ),
-                            fillColor: Colors.black54,
+                            fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
-                              Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              Icons.textsms,
+                              color: Colors.white,
                             ),
                           ),
                           onChanged:(String value){},
                         ),
-
                       ],
                     ),
                   ),
