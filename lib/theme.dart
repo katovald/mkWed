@@ -6,10 +6,10 @@ class Colors {
 
   const Colors();
 
-  static const Color loginGradientStart = const Color(0xFF1D539B);
-  static const Color loginGradientEnd = const Color(0xFF1D539B);
-  static const Color loginGradientStart2 = const Color(0xFF214575);
-  static const Color loginGradientEnd2 = const Color(0xFF214575);
+  static const Color loginGradientStart = const Color(0xFF00CCFF);
+  static const Color loginGradientEnd = const Color(0xFF00CCFF);
+  static const Color loginGradientStart2 = const Color(0xFF5ADEFF);
+  static const Color loginGradientEnd2 = const Color(0xFF5ADEFF);
 
 
   static const primaryGradient = const LinearGradient(

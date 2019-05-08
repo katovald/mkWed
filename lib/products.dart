@@ -55,40 +55,27 @@ class _ProductsState extends State<Products> {
   void _showAlertFinish(index){
 
     AlertDialog dialog = new AlertDialog(
-        content: new Text(
-          "¿Terminar Tarea?",
-          style: new TextStyle(fontSize: 30.0),),
-        actions: <Widget>[
+         title: Text("Tarea Concluida"),
+         content:  Text("¿Está seguro que terminaste la tarea?"),
+       actions: <Widget>[
+                                    FlatButton(
+                                      child:  Text("Aceptar"),
+                                      onPressed: () {
+                                        /*Navigator.push(
+                                     context,
+                                     MaterialPageRoute(builder: (context) => LoginPage()),
+                                 );*/
+                                         Navigator.of(context).pop();
+                                      },
+                                    ),
 
-
-          new IconButton(
-            onPressed: (){
-
-
-                _dialogResultAccept(index, MyDialogAction.yes);
-                refreshList();
-
-
-              },
-            icon: Icon(
-              Icons.check_circle,
-              color: Colors.green,
-            ),
-          ),
-
-          new IconButton(
-            onPressed: (){_dialogResultCancel(MyDialogAction.no);},
-            icon: Icon(
-              Icons.cancel,
-              color: Colors.red,
-            ),
-
-          ),
-
-
-
-
-        ]
+                                    FlatButton(
+                                      child:  Text("Cancelar"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
     );
 
     showDialog(
@@ -150,6 +137,7 @@ class _ProductsState extends State<Products> {
 
     return Container(
       decoration: new BoxDecoration(
+        
                border: Border.all(
                 color: Color(0xFFD5D5D5),
                 width: 1.5,
