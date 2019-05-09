@@ -41,7 +41,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   var color = Colors.black;
   var strokeWidth = 2.0;
   final _sign = GlobalKey<SignatureState>();
-
+  bool _canShowButton = true;
   var _value1 = "1";
   var _value2 = "1";
   var _value3 = "1";
@@ -3870,22 +3870,10 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 SizedBox(
                   height: 6,
                 ),
-                Text(
-                  'Fotografia fachada',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                CameraW(),
-                Text(
-                  'Fotografia entrada',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                CameraW(),
-                Text(
-                  'Fotografia lateral',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                CameraW(),
-               RaisedButton(
+                _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
+                _canShowButton
+                    ?
+                RaisedButton(
                   onPressed: (){
                     showDialog(
                       context: context,
@@ -3893,33 +3881,60 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                         return AlertDialog(
                           title: Text("Firma electrónica"),
-                          content:   Container(
-                            height: 150,
-                            width: 300,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Signature(
-                                color: color,
-                                key: _sign,
-                                onSign: () {
-                                  final sign = _sign.currentState;
-                                  debugPrint('${sign.points.length} points in the signature');
-                                },
-                                backgroundPainter: _WatermarkPaint("2.0", "2.0"),
-                                strokeWidth: strokeWidth,
-                              ),
+                          content:
+                          Container(
+                            height: 200,
+                            child: Column(
+                              children: <Widget>[
+                                Container(
+                                  height: 84,
+                                  width: 300,
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Signature(
+                                      color: color,
+                                      key: _sign,
+                                      onSign: () {
+                                        final sign = _sign.currentState;
+                                        debugPrint('${sign.points.length} points in the signature');
+                                      },
+                                      backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                                      strokeWidth: strokeWidth,
+                                    ),
+                                  ),
+                                  color: Colors.black12,
+                                ),
+                                MaterialButton(
+                                    color: Colors.green,
+                                    onPressed: () async {
+                                      final sign = _sign.currentState;
+                                      //retrieve image data, do whatever you want with it (send to server, save locally...)
+                                      final image = await sign.getData();
+                                      var data = await image.toByteData(format: ui.ImageByteFormat.png);
+                                      sign.clear();
+                                      final encoded = base64.encode(data.buffer.asUint8List());
+                                      setState(() {
+                                        _img = data;
+                                      });
+                                      debugPrint("onPressed " + encoded);
+                                    },
+                                    child: Text("Salvar")),
+                              ],
                             ),
-                            color: Colors.black12,
                           ),
+
+
                           actions: <Widget>[
                             FlatButton(
                               child:  Text("Aceptar"),
                               onPressed: ()  {
                                 Navigator.of(context).pop();
+                                setState(() => _canShowButton = !_canShowButton);
                               },
 
                             ),
-                            _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
+
+                            //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
                             FlatButton(
                               child:  Text("Borrar"),
                               onPressed: () {
@@ -3948,7 +3963,25 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   child: Text(
                     "Firma electrónica",
                   ),
+
+                )
+                    : SizedBox(),
+                Text(
+                  'Fotografia fachada',
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
                 ),
+                CameraW(),
+                Text(
+                  'Fotografia entrada',
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
+                CameraW(),
+                Text(
+                  'Fotografia lateral',
+                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                ),
+                CameraW(),
+
              //   _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 0.0, child: Image.memory(_img.buffer.asUint8List())),
               ],
             ),
