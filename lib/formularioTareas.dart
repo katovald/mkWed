@@ -1,12 +1,47 @@
+import 'dart:convert';
+import 'dart:math';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:app_editesp/CameraW.dart';
 import 'package:flutter/cupertino.dart';
-import 'package:flutter/material.dart';
+import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 class formulario_Tareas extends StatefulWidget {
   @override
   _formulario_TareasState createState() => _formulario_TareasState();
 }
+class _WatermarkPaint extends CustomPainter {
+  final String price;
+  final String watermark;
+
+  _WatermarkPaint(this.price, this.watermark);
+
+  @override
+  void paint(ui.Canvas canvas, ui.Size size) {
+
+  }
+
+  @override
+  bool shouldRepaint(_WatermarkPaint oldDelegate) {
+    return oldDelegate != this;
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || other is _WatermarkPaint && runtimeType == other.runtimeType && price == other.price && watermark == other.watermark;
+
+  @override
+  int get hashCode => price.hashCode ^ watermark.hashCode;
+}
 
 class _formulario_TareasState  extends State<formulario_Tareas>{
+  ByteData _img = ByteData(0);
+  var color = Colors.black;
+  var strokeWidth = 2.0;
+  final _sign = GlobalKey<SignatureState>();
+
   var _value1 = "1";
   var _value2 = "1";
   var _value3 = "1";
@@ -1422,6 +1457,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   setSelectedRadio (int val) {
     setState(() {
       selectedRadio = val;
+      _isTextFieldVisible = !_isTextFieldVisible;
     });
   }
   setSelectedRadio2 (int val) {
@@ -1514,6 +1550,8 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
       selectedRadio19 = val;
     });
   }
+  TextEditingController _textFieldController = TextEditingController();
+  bool _isTextFieldVisible = false;
   @override
   Widget build(BuildContext context) {
 
@@ -1590,7 +1628,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 onChanged: (val){
                                   setSelectedRadio(val);
                                 },
-                                value: 1,
+                                value: 2,
                                 groupValue: selectedRadio,
                                 activeColor: Color(0xFF2350A6),
                               ),
@@ -1607,7 +1645,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 onChanged: (val){
                                   setSelectedRadio(val);
                                 },
-                                value: 2,
+                                value: 1,
                                 groupValue: selectedRadio,
                                 activeColor: Color(0xFF2350A6),
                               ),
@@ -1617,7 +1655,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                         ],
                       ),
-                      TextField(
+                     /* TextField(
                         enabled: false,
                         maxLines: 3,
                         cursorColor: Colors.white,
@@ -1639,7 +1677,33 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                           ),
                         ),
                         onChanged:(String value){},
-                      ),
+                      ),*/
+                      _isTextFieldVisible
+                          ? Padding(
+
+                        padding: EdgeInsets.symmetric(horizontal: 25.0),
+                        child: TextField(
+                          controller: _textFieldController,
+
+                          style: TextStyle(
+                              color: Colors.white,
+                              fontSize: 19.0
+                          ),
+                          decoration: InputDecoration(
+                            labelText: 'Observación',
+                            labelStyle: TextStyle(
+                                color: Color(0xFF00DCFF),
+                                fontWeight: FontWeight.w100
+                            ),
+                            fillColor: Colors.blueGrey,
+                           // hintText: "Enter Username",
+                          ),
+                        ),
+                      )
+                          :SizedBox(),
+                SizedBox(
+                  height: 25.0,
+                ),
                     ],
                   ),
                 ),
@@ -3821,6 +3885,71 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   style: TextStyle(color: Colors.white, fontSize: 20.0),
                 ),
                 CameraW(),
+               RaisedButton(
+                  onPressed: (){
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+
+                        return AlertDialog(
+                          title: Text("Firma electrónica"),
+                          content:   Container(
+                            height: 150,
+                            width: 300,
+                            child: Padding(
+                              padding: const EdgeInsets.all(8.0),
+                              child: Signature(
+                                color: color,
+                                key: _sign,
+                                onSign: () {
+                                  final sign = _sign.currentState;
+                                  debugPrint('${sign.points.length} points in the signature');
+                                },
+                                backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                                strokeWidth: strokeWidth,
+                              ),
+                            ),
+                            color: Colors.black12,
+                          ),
+                          actions: <Widget>[
+                            FlatButton(
+                              child:  Text("Aceptar"),
+                              onPressed: ()  {
+                                Navigator.of(context).pop();
+                              },
+
+                            ),
+                            _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
+                            FlatButton(
+                              child:  Text("Borrar"),
+                              onPressed: () {
+                                final sign = _sign.currentState;
+                                sign.clear();
+                                setState(() {
+                                  _img = ByteData(0);
+                                });
+                                debugPrint("cleared");
+                              },
+                            ),
+                            FlatButton(
+                              child:  Text("Cancelar"),
+                              onPressed: () {
+                                Navigator.of(context).pop();
+                              },
+                            ),
+                          ],
+                        );
+                      },
+                    );
+                  },
+                  textColor: Colors.white,
+                  color: Colors.blueGrey,
+                  padding: EdgeInsets.all(8.0),
+                  child: Text(
+                    "Firma electrónica",
+                  ),
+                ),
+             //   _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 0.0, child: Image.memory(_img.buffer.asUint8List())),
               ],
             ),
 
