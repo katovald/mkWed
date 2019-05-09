@@ -56,27 +56,21 @@ class _ProductsState extends State<Products> {
 
     AlertDialog dialog = new AlertDialog(
          title: Text("Tarea Concluida"),
-         content:  Text("¿Está seguro que terminaste la tarea?"),
-       actions: <Widget>[
-                                    FlatButton(
-                                      child:  Text("Aceptar"),
-                                      onPressed: () {
-                                        /*Navigator.push(
-                                     context,
-                                     MaterialPageRoute(builder: (context) => LoginPage()),
-                                 );*/
-                                         Navigator.of(context).pop();
-                                      },
-                                    ),
-
-                                    FlatButton(
-                                      child:  Text("Cancelar"),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-    );
+         content:  Text("Esta tarea desaparecera de la pantalla de tareas ¿Está seguro que terminaste la tarea?"),
+         actions: <Widget>[
+                FlatButton(
+                child:  Text("Si"),
+                onPressed: (){
+                _dialogResultAccept(index, MyDialogAction.yes);
+                refreshList();
+              },
+              ),
+              FlatButton(
+              child:  Text("No"),
+              onPressed: (){_dialogResultCancel(MyDialogAction.no);},
+              ),
+              ],
+              );
 
     showDialog(
         context: context,
@@ -87,39 +81,30 @@ class _ProductsState extends State<Products> {
   }
 
   void _showAlertCall() {
+   
     AlertDialog dialog = new AlertDialog(
-        content: new Text(
-          "¿Llamar?",
-          style: new TextStyle(fontSize: 30.0),),
-        actions: <Widget>[
-
-
-          new IconButton(
-            onPressed: (){_callMe();},
-            icon: Icon(
-              Icons.check_circle,
-              color: Colors.green,
-            ),
-          ),
-
-          new IconButton(
-            onPressed: (){_dialogResultCancel(MyDialogAction.no);},
-            icon: Icon(
-
-              Icons.cancel,
-              color: Colors.red,
-            ),
-          ),
-
-
-
-        ]
+         title: Text("Contacto"),
+         content:  Text("¿Desea contactar con el cliente?"),
+       actions: <Widget>[
+                      FlatButton(
+                      child:  Text("Si"),
+                      onPressed: (){_callMe();}, 
+                      ),
+                      FlatButton(
+                      child:  Text("No"),
+                      onPressed: () {
+                      Navigator.of(context).pop();
+                      },
+                      ),
+                      ],
     );
 
     showDialog(
         context: context,
         child: dialog
     );
+    ///////////////////////////////////////////////////////////
+
   }
 
   //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHOD REFRESH

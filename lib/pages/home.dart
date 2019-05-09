@@ -2,6 +2,7 @@ import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/pages/CheckOne.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart' as prefix0;
 class HomePage extends StatefulWidget {
   @override
@@ -17,6 +18,55 @@ class MyAppState extends State<HomePage>{
   void onPressed(){
     print("Button pressed");
   }
+
+_callMe() async {
+    // Android
+    const uri = 'tel:+521 55 37 01 34 31';
+    if (await canLaunch(uri)) {
+      await launch(uri);
+    } else {
+      // iOS
+      const uri = 'tel:521-55-19-18-99-54';
+      if (await canLaunch(uri)) {
+        await launch(uri);
+      } else {
+        throw 'Could not launch $uri';
+      }
+    }
+  }
+
+   void _showAlertCall() {
+   
+    AlertDialog dialog = new AlertDialog(
+         title: Text("Recuperar Contraseña"),
+         content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una nueva contraseña, ¿Deseas continuar?"),
+         backgroundColor: Color(0xFFF4F4F4),
+       actions: <Widget>[
+                                    FlatButton(
+                                      child:  Text("Si"),
+                                    
+                                    onPressed: (){_callMe();},
+                                      
+                                    ),
+
+                                    FlatButton(
+                                      child:  Text("No"),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    ),
+                                  ],
+    );
+
+    showDialog(
+        context: context,
+        child: dialog
+    );
+    ///////////////////////////////////////////////////////////
+
+  }
+  
+  
 final FocusNode myFocusNodePassword = FocusNode();
 bool _obscureTextLogin = true;
  @override
@@ -120,7 +170,7 @@ child: Container(
                                 suffixIcon: GestureDetector(
                                 onTap: _toggleLogin,
                                   child: Icon(
-                                    Icons.panorama_fish_eye,
+                                    Icons.visibility,
                                     //FontAwesomeIcons.eye,
                                     size: 15.0,
                                     color: Colors.black,
@@ -177,7 +227,9 @@ child: Container(
                child: Padding(
                 padding: EdgeInsets.only(top:250),
                 child: FlatButton(
-                    onPressed: () {},
+                    onPressed: (){
+                    _showAlertCall();
+                  },
                     child: Text(
                       "Recuperar Contraseña",
                       style: TextStyle(
