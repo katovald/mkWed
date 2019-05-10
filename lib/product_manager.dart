@@ -79,7 +79,12 @@ class _ProductManagerState extends State<ProductManager> { //State Class
                   child: ButtonTheme(
                     child:
                     FlatButton(
-                      onPressed: () => Navigator.pop(context), 
+                      onPressed: () => {
+Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => CheckListThree()),
+  ),
+                      },
                       color: Color(0xFFFF2661),
                       child: Row( // Replace with a Row for horizontal icon + text
                       children: <Widget>[
