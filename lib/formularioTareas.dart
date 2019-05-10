@@ -3881,13 +3881,8 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                         return AlertDialog(
                           title: Text("Firma electrónica"),
-                          content:
-                          Container(
-                            height: 200,
-                            child: Column(
-                              children: <Widget>[
-                                Container(
-                                  height: 84,
+                          content: Container(
+                                  height: 150,
                                   width: 300,
                                   child: Padding(
                                     padding: const EdgeInsets.all(8.0),
@@ -3904,30 +3899,21 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                   ),
                                   color: Colors.black12,
                                 ),
-                                MaterialButton(
-                                    color: Colors.green,
-                                    onPressed: () async {
-                                      final sign = _sign.currentState;
-                                      //retrieve image data, do whatever you want with it (send to server, save locally...)
-                                      final image = await sign.getData();
-                                      var data = await image.toByteData(format: ui.ImageByteFormat.png);
-                                      sign.clear();
-                                      final encoded = base64.encode(data.buffer.asUint8List());
-                                      setState(() {
-                                        _img = data;
-                                      });
-                                      debugPrint("onPressed " + encoded);
-                                    },
-                                    child: Text("Salvar")),
-                              ],
-                            ),
-                          ),
-
 
                           actions: <Widget>[
                             FlatButton(
-                              child:  Text("Aceptar"),
-                              onPressed: ()  {
+                              child:  Text("Salvar"),
+                              onPressed: ()  async {
+                                final sign = _sign.currentState;
+                                //retrieve image data, do whatever you want with it (send to server, save locally...)
+                                final image = await sign.getData();
+                                var data = await image.toByteData(format: ui.ImageByteFormat.png);
+                                sign.clear();
+                                final encoded = base64.encode(data.buffer.asUint8List());
+                                setState(() {
+                                _img = data;
+                                });
+                                debugPrint("onPressed " + encoded);
                                 Navigator.of(context).pop();
                                 setState(() => _canShowButton = !_canShowButton);
                               },
@@ -3944,12 +3930,6 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                   _img = ByteData(0);
                                 });
                                 debugPrint("cleared");
-                              },
-                            ),
-                            FlatButton(
-                              child:  Text("Cancelar"),
-                              onPressed: () {
-                                Navigator.of(context).pop();
                               },
                             ),
                           ],
