@@ -51,7 +51,7 @@ class _ProductsState extends State<Products> {
     }
   }
 
-  //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHODS showAlert
+  //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHODS showAlertgit
   void _showAlertFinish(index){
 
     AlertDialog dialog = new AlertDialog(
