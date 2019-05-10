@@ -28,12 +28,30 @@ class CheckListOne extends StatelessWidget {
                 ),
 
                 Container(
-                  margin: EdgeInsets.all(7.0),
+                  width: 90,
+                  height: 40,
+                  margin: EdgeInsets.all(16.0),
                   child: ButtonTheme(
-                    child:FlatButton(
-                      onPressed: () => Navigator.pop(context),
-                      child: Image.asset('assets/logout.png', width:100.0 , height: 60.0),
-                    ),
+                    child:
+                    FlatButton(
+                      onPressed: () => Navigator.pop(context), 
+                      color: Color(0xFFFF2661),
+                      child: Row( // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                      Icon(
+                      Icons.arrow_left,
+                      color: Colors.white,
+                      ),
+                      Text(
+                      "Salir",
+                      style: TextStyle(
+                        fontSize: 15,
+                      color: Colors.white,
+                        ),
+                      )
+                  ],
+                ),
+                  ),
                   ),
                 ),
 
@@ -45,10 +63,10 @@ class CheckListOne extends StatelessWidget {
 
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton:  FloatingActionButton(
-          backgroundColor: Colors.greenAccent,
+          backgroundColor: Color(0xFF00DCFF),
           child: Icon(
-            Icons.check,
-            color: Colors.black,),
+            Icons.verified_user,
+            color: Colors.white,),
           onPressed: () => Navigator.push(
             context,
             MaterialPageRoute(

@@ -21,8 +21,9 @@ class MyApp extends StatelessWidget {
       // debugShowMaterialGrid: true,
       theme: ThemeData(
           brightness: Brightness.light,
-          primarySwatch: Colors.deepOrange,
-          accentColor: Colors.deepPurple),
+          primarySwatch: Colors.blue,
+          accentColor: Color(0xFF2350A6)
+          ),
       //home:HomePage(),
 
 

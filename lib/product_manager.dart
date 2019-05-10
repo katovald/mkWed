@@ -70,41 +70,70 @@ class _ProductManagerState extends State<ProductManager> { //State Class
           margin: EdgeInsets.all(10.0),
         ),
 
-
+        Row(
+        children: [
         Container(
-          margin: EdgeInsets.all(7.0),
-          child: ButtonTheme(
-            child:FlatButton(
-              child: Image.asset('assets/logout.png', width:100.0 , height: 60.0),
-              onPressed: () => Navigator.push(
-                context,
-                MaterialPageRoute(
-                  builder: (BuildContext context) => CheckListThree(),
+                  width: 90,
+                  height: 40,
+                  margin: EdgeInsets.all(16.0),
+                  child: ButtonTheme(
+                    child:
+                    FlatButton(
+                      onPressed: () => Navigator.pop(context), 
+                      color: Color(0xFFFF2661),
+                      child: Row( // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                      Icon(
+                      Icons.arrow_left,
+                      color: Colors.white,
+                      ),
+                      Text(
+                      "Salir",
+                      style: TextStyle(
+                        fontSize: 15,
+                      color: Colors.white,
+                        ),
+                      )
+                  ],
                 ),
-              ),
-            ),
-          ),
-        ),
-
-        Container(
-            margin: EdgeInsets.all(5.0),
-            child:Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-
-                FlatButton(
-                  child: Image.asset('assets/chat.png', width:100.0 , height: 60.0),
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ChatPage(),
-                    ),
+                  ),
                   ),
                 ),
 
-              ],
-            )
-        ),
+         Container(
+                  width: 90,
+                  height: 40,
+                  margin: EdgeInsets.only(bottom: 16, top: 16),
+                  child: ButtonTheme(
+                    child:
+                    FlatButton(
+                      onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ChatPage(),
+                     ),
+                     ),
+                      color: Color(0xFF1373DF),
+                      child: Row( // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                      Icon(
+                      Icons.chat,
+                      color: Colors.white,
+                      ),
+                      Text(
+                      "Chat",
+                      style: TextStyle(
+                        fontSize: 15,
+                      color: Colors.white,
+                        ),
+                      )
+                  ],
+                ),
+                  ),
+                  ),
+                ),
+                ],
+                ),
 
         Expanded(child: Products(widget.startingProduct, deleteProduct: _deleteProduct,)),
       ],

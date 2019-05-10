@@ -1,6 +1,7 @@
 import 'package:app_editesp/BackW.dart';
 import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
+import 'package:app_editesp/formularioTareas.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
 import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/ItemList.dart';
@@ -101,7 +102,8 @@ class CheckListTwo extends StatelessWidget {
                     )
                 ),
 
-                CheckListUnity(),
+                //CheckListUnity(),
+                formulario_Tareas(),
 
 
                 Container(
