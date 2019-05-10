@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
 
-
+// YA NO SE USA :U
 class CameraW extends StatefulWidget {
   @override
   MyHomePageState createState() => new MyHomePageState();
@@ -24,17 +24,31 @@ class MyHomePageState extends State<CameraW> {
   @override
   Widget build(BuildContext context) {
     return Container(
-        margin: EdgeInsets.all(7.0),
-        child:Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[
-
-            FlatButton(
-              child: Image.asset('assets/camera.png', width:100.0 , height: 60.0),
-              onPressed: getImage,
-            )
-          ],
-        )
-    );
+                  width: 90,
+                  height: 40,
+                  margin: EdgeInsets.only(bottom: 16, top: 16),
+                  child: ButtonTheme(
+                    child:
+                    FlatButton(
+                    onPressed: getImage,
+                      color: Color(0xFFFFD100),
+                      child: Row( // Replace with a Row for horizontal icon + text
+                      children: <Widget>[
+                      Icon(
+                      Icons.camera,
+                      color: Colors.white,
+                      ),
+                      Text(
+                      "Foto",
+                      style: TextStyle(
+                        fontSize: 15,
+                      color: Colors.white,
+                        ),
+                      )
+                  ],
+                ),
+                  ),
+                  ),
+                );
   }
 }

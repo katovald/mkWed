@@ -1,5 +1,6 @@
 import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
+import 'package:app_editesp/formulario.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
 import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/pages/home.dart';
@@ -27,8 +28,8 @@ class CheckListThree extends StatelessWidget {
                   margin: EdgeInsets.all(7.0),
                 ),
 
-                CheckListUnity(),
-
+               // CheckListUnity(),
+                  Formulario(),
 
               ],
             ),
@@ -37,14 +38,14 @@ class CheckListThree extends StatelessWidget {
       ),
       //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
       floatingActionButton:  FloatingActionButton(
-        backgroundColor: Colors.greenAccent,
+        backgroundColor: Color(0xFF00DCFF),
         child: Icon(
-          Icons.check,
-          color: Colors.black,),
+          Icons.check_box,
+          color: Colors.white,),
         onPressed: () => Navigator.push(
           context,
           MaterialPageRoute(
-            builder: (BuildContext context) => HomePage(),
+            builder: (BuildContext context) => ItemList(),
           ),
         ),
       ),
