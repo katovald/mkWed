@@ -2,6 +2,7 @@ import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/pages/CheckOne.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/material.dart';
+import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:flutter/material.dart' as prefix0;
 class HomePage extends StatefulWidget {
@@ -88,7 +89,18 @@ bool _obscureTextLogin = true;
            child: Column(  
              children: <Widget>[
                Container(
-            padding: prefix0.EdgeInsets.symmetric(vertical: 210),
+                  child: Padding(
+                  padding: EdgeInsets.only(top: 50.0),
+                  child:  Image(
+                      width: 250.0,
+                      height: 165.0,
+                      fit: BoxFit.fill,
+                      image:  AssetImage('assets/ver ficacion2.png')
+                  ),
+                ),
+               ),
+               Container(
+          
             child: Stack(
                 alignment: Alignment.topCenter,
                 overflow: Overflow.visible,
@@ -233,8 +245,10 @@ bool _obscureTextLogin = true;
                           fontFamily: "WorkSansMedium"),
                     )),
               ),
+               padding: EdgeInsets.symmetric(vertical: 100),
               ),
                 ],
+                
               ),
              
               ), 
