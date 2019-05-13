@@ -2919,18 +2919,6 @@ class _CheckListUState extends State<CheckListUnity>{
         children: <Widget>[
           Container(
 
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
-
             child:  Column(
               children: <Widget>[
 
@@ -2939,12 +2927,10 @@ class _CheckListUState extends State<CheckListUnity>{
                   style: TextStyle(
                       fontFamily: "Sabritas",
                       fontSize: 21.0,
-                      color: Color(0xFF00CCFF),
+                      color: Color(0xFF2A2A2A),
                       fontWeight: FontWeight.bold
                   ),
                 ),
-
-
 
                 SizedBox(
                   height: 6,
@@ -2952,8 +2938,8 @@ class _CheckListUState extends State<CheckListUnity>{
 
                 Container(
                   decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                     
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -2961,8 +2947,8 @@ class _CheckListUState extends State<CheckListUnity>{
                       Text(
                         'Estado de la pintura',
                         style: TextStyle(
-                          color: Colors.white,
-                          fontSize: 20.0,
+                          color: Color(0xFF2E2E2E),
+                          fontSize: 17.0,
                         ),
                       ),
 
@@ -2974,7 +2960,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             children: <Widget>[
                               Text(
                                 "Nueva",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Color(0xFF2E2E2E), fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2991,7 +2977,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             children: <Widget>[
                               Text(
                                 "Regular",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Color(0xFF2E2E2E), fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3008,7 +2994,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             children: <Widget>[
                               Text(
                                 "Desgaste",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Color(0xFF2E2E2E), fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
