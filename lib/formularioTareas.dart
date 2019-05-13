@@ -1560,23 +1560,6 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
       child: ListView(
         children: <Widget>[
 
-          Container(
-            padding:
-            EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
-            decoration: BoxDecoration(
-              //border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(5.0)),
-            child:  Text(
-              "Checklist verificación",
-              style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-          ),
-
           SizedBox(
             height: 10,
           ),

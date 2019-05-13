@@ -83,14 +83,8 @@ bool _obscureTextLogin = true;
     //...para que al aparecer el teclado no cambie de tamaño la imagen de fondo
     return  
     SingleChildScrollView (
-child: Container(
-
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('assets/pantalla-inicio.png'),
-          )
-      ),
+         child: Container(
+           color: Color(0xFF1D539B),
            child: Column(  
              children: <Widget>[
                Container(

@@ -17,6 +17,23 @@ class CheckListTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          leading: IconButton(
+          icon: Icon(Icons.arrow_left),
+          onPressed: () {
+            Navigator.pop(context);
+            },
+          ),
+        title: Text("Cecklist de Verificacíon",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontFamily: "Sabritas",
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF1D539B),
+      ),
       body: Stack(
         children: <Widget>[
           BackWGeneral(),
@@ -25,45 +42,13 @@ class CheckListTwo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
 
-                Container(
-                  margin: EdgeInsets.all(10.0),
-                ),
-
 
                 Row(
         children: [
-        Container(
-                  width: 90,
-                  height: 40,
-                  margin: EdgeInsets.all(16.0),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => Navigator.pop(context), 
-                      color: Color(0xFFFF2661),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.arrow_left,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Salir",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
-
          Container(
                   width: 90,
                   height: 40,
-                  margin: EdgeInsets.only(bottom: 16, top: 16),
+                  margin: EdgeInsets.all(16),
                   child: ButtonTheme(
                     child:
                     FlatButton(

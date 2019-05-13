@@ -62,53 +62,38 @@ class _ProductManagerState extends State<ProductManager> { //State Class
   @override
   Widget build(BuildContext context) {
     print('[ProductManager State] build()');
-    return Column(
+    return Scaffold(
+      appBar: AppBar(
+          leading: IconButton(
+          icon: Icon(Icons.arrow_left),
+          onPressed: () {
+            Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => CheckListThree()),
+  );
+            },
+          ),
+        title: Text("Tareas",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontFamily: "Sabritas",
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF1D539B),
+      ),
+         body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        Container(
-          margin: EdgeInsets.all(10.0),
-        ),
-
         Row(
         children: [
-        Container(
-                  width: 90,
-                  height: 40,
-                  margin: EdgeInsets.all(16.0),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => {
-Navigator.push(
-    context,
-    MaterialPageRoute(builder: (context) => CheckListThree()),
-  ),
-                      },
-                      color: Color(0xFFFF2661),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.arrow_left,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Salir",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
 
          Container(
                   width: 90,
                   height: 40,
-                  margin: EdgeInsets.only(bottom: 16, top: 16),
+                  margin: EdgeInsets.all(16),
                   child: ButtonTheme(
                     child:
                     FlatButton(
@@ -142,6 +127,7 @@ Navigator.push(
 
         Expanded(child: Products(widget.startingProduct, deleteProduct: _deleteProduct,)),
       ],
+    ),
     );
   }
 }

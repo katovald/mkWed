@@ -2917,28 +2917,6 @@ class _CheckListUState extends State<Formulario>{
 
       child: ListView(
         children: <Widget>[
-
-          Container(
-            padding:
-            EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
-            decoration: BoxDecoration(
-              //border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(5.0)),
-            child:  Text(
-              "Devolución de Vehículo",
-              style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.w100
-              ),
-            ),
-          ),
-
-          SizedBox(
-            height: 10,
-          ),
-
           Container(
 
             decoration: BoxDecoration(
