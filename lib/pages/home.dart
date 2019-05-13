@@ -1,6 +1,7 @@
 import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/pages/CheckOne.dart';
 import 'package:app_editesp/theme.dart'as Theme;
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -245,15 +246,20 @@ bool _obscureTextLogin = true;
                           fontFamily: "WorkSansMedium"),
                     )),
               ),
-               padding: EdgeInsets.symmetric(vertical: 100),
               ),
                 ],
                 
               ),
              
-              ), 
-                
-        
+              ),
+               SizedBox(
+                 child: DecoratedBox(
+                   decoration: BoxDecoration(
+                     color: Color(0xFF1D539B),
+                   ),
+                 ),
+                 height: 175,
+               ),
              ],          
             ),
 

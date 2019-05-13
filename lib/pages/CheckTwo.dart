@@ -120,7 +120,7 @@ class CheckListTwo extends StatelessWidget {
                     child:
                     FlatButton(
                       onPressed: () => Navigator.pop(context, true), 
-                      color: Color(0xFF00C5FF),
+                      color:  Color(0xFF2350A6),
                       child: Row( // Replace with a Row for horizontal icon + text
                       children: <Widget>[
                       Icon(

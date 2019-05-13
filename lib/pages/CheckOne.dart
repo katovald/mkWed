@@ -46,7 +46,7 @@ class CheckListOne extends StatelessWidget {
 
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton:  FloatingActionButton(
-          backgroundColor: Color(0xFF00DCFF),
+          backgroundColor: Color(0xFF2350A6),
           child: Icon(
             Icons.verified_user,
             color: Colors.white,),

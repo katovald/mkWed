@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 
 class Formulario extends StatefulWidget{
 
@@ -9,7 +13,35 @@ class Formulario extends StatefulWidget{
   }
 
 }
+class _WatermarkPaint extends CustomPainter {
+  final String price;
+  final String watermark;
+
+  _WatermarkPaint(this.price, this.watermark);
+
+  @override
+  void paint(ui.Canvas canvas, ui.Size size) {
+
+  }
+
+  @override
+  bool shouldRepaint(_WatermarkPaint oldDelegate) {
+    return oldDelegate != this;
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || other is _WatermarkPaint && runtimeType == other.runtimeType && price == other.price && watermark == other.watermark;
+
+  @override
+  int get hashCode => price.hashCode ^ watermark.hashCode;
+}
 class _CheckListUState extends State<Formulario>{
+  ByteData _img = ByteData(0);
+  var color = Colors.black;
+  var strokeWidth = 2.0;
+  final _sign = GlobalKey<SignatureState>();
+  bool _canShowButton = true;
   var _value1 = "1";
   var _value2 = "1";
   var _value3 = "1";
@@ -2919,18 +2951,6 @@ class _CheckListUState extends State<Formulario>{
         children: <Widget>[
           Container(
 
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
-
             child:  Column(
               children: <Widget>[
                 Text(
@@ -4029,7 +4049,7 @@ class _CheckListUState extends State<Formulario>{
           ),
 
           Container(
-      
+
             child: Column(
               children: <Widget>[
 
@@ -4375,17 +4395,6 @@ class _CheckListUState extends State<Formulario>{
           ),
 
           Container(
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
 
             child: Column(
               children: <Widget>[
@@ -5522,6 +5531,87 @@ class _CheckListUState extends State<Formulario>{
               ],
             ),
           ),
+
+          SizedBox(
+            height: 10,
+          ),
+
+          _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
+          _canShowButton
+              ?
+          RaisedButton(
+            onPressed: (){
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+
+                  return AlertDialog(
+                    title: Text("Firma electrónica"),
+                    content: Container(
+                      height: 150,
+                      width: 300,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Signature(
+                          color: color,
+                          key: _sign,
+                          onSign: () {
+                            final sign = _sign.currentState;
+                            debugPrint('${sign.points.length} points in the signature');
+                          },
+                          backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                          strokeWidth: strokeWidth,
+                        ),
+                      ),
+                      color: Colors.black12,
+                    ),
+
+                    actions: <Widget>[
+                      FlatButton(
+                        child:  Text("Salvar"),
+                        onPressed: ()  async {
+                          final sign = _sign.currentState;
+                          //retrieve image data, do whatever you want with it (send to server, save locally...)
+                          final image = await sign.getData();
+                          var data = await image.toByteData(format: ui.ImageByteFormat.png);
+                          sign.clear();
+                          final encoded = base64.encode(data.buffer.asUint8List());
+                          setState(() {
+                            _img = data;
+                          });
+                          debugPrint("onPressed " + encoded);
+                          Navigator.of(context).pop();
+                          setState(() => _canShowButton = !_canShowButton);
+                        },
+
+                      ),
+
+                      //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
+                      FlatButton(
+                        child:  Text("Borrar"),
+                        onPressed: () {
+                          final sign = _sign.currentState;
+                          sign.clear();
+                          setState(() {
+                            _img = ByteData(0);
+                          });
+                          debugPrint("cleared");
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            textColor: Colors.white,
+            color: Color(0xFF2350A6),
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              "Firma electrónica",
+            ),
+
+          )
+              : SizedBox(),
         ],
       ),
     );
