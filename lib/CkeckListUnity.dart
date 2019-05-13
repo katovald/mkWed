@@ -2938,16 +2938,20 @@ class _CheckListUState extends State<CheckListUnity>{
 
                 Container(
                   decoration: BoxDecoration(
+                    boxShadow:[new BoxShadow(
+            color: Color(0xFFE2E2E2),
+            blurRadius: 2.0,
+          ),] ,
                      
                       color: Color(0xFFEAEAEA),
-                      borderRadius: BorderRadius.circular(1.0)),
+                      borderRadius: BorderRadius.circular(8.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Estado de la pintura',
                         style: TextStyle(
-                          color: Color(0xFF2E2E2E),
+                          color: Colors.white,
                           fontSize: 17.0,
                         ),
                       ),
@@ -2960,7 +2964,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             children: <Widget>[
                               Text(
                                 "Nueva",
-                                style: TextStyle(color: Color(0xFF2E2E2E), fontSize: 13.0),
+                                style: TextStyle(color: Color(0xFF464646), fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2977,7 +2981,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             children: <Widget>[
                               Text(
                                 "Regular",
-                                style: TextStyle(color: Color(0xFF2E2E2E), fontSize: 13.0),
+                                style: TextStyle(color: Color(0xFF464646), fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2994,7 +2998,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             children: <Widget>[
                               Text(
                                 "Desgaste",
-                                style: TextStyle(color: Color(0xFF2E2E2E), fontSize: 13.0),
+                                style: TextStyle(color: Color(0xFF464646), fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
