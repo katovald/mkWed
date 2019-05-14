@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/foundation.dart';
-
+import 'package:image_picker/image_picker.dart';
+import 'dart:async';
+import 'dart:io';
 
 const String defaultUserName = "Rafael";
 
@@ -12,6 +14,14 @@ class Chat extends StatefulWidget {
 }
 
 class ChatWindow extends State<Chat> with TickerProviderStateMixin {
+  File image;
+  Future getImage() async {
+    File picture = await ImagePicker.pickImage(
+        source: ImageSource.camera, maxWidth: 300.0, maxHeight: 500.0);
+    setState(() {
+      image = picture;
+    });
+  }
   final List<Msg> _messages = <Msg>[];
   final TextEditingController _textController = new TextEditingController();
   bool _isWriting = false;
@@ -30,7 +40,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       new Container(
         child: _buildComposer(),
         decoration: new BoxDecoration(
-            color: Colors.black54,
+            color: Color(0xFFE7E7E7),
         ),
       ),
     ]));
@@ -39,7 +49,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
 
   Widget _buildComposer() {
     return new IconTheme(
-      data: new IconThemeData(color: Colors.greenAccent),
+      data: new IconThemeData(color: Color(0xFF2B52A0),),
       child: new Container(
           margin: const EdgeInsets.symmetric(horizontal: 9.0),
           child: new Row(
@@ -47,20 +57,21 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
               new Flexible(
                 child: new TextField(
                   maxLines: 3,
-                  cursorColor: Colors.white,
-                  cursorWidth: 10.0,
+                  cursorColor: Color(0xFF626262),
+                  cursorWidth: 5.0,
                   style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 23.0
+                      color: Color(0xFF626262),
+                      fontSize: 15.0
                   ),
 
                   decoration:
                   new InputDecoration.collapsed(
 
-                    hintText: "Envía un mensaje",
+                    hintText: "Escribe un mensaje",
                     hintStyle: TextStyle(
-                        color: Colors.lightBlueAccent,
-                        fontWeight: FontWeight.bold
+                        color: Color(0xFF626262),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400
                     ),
                   ),
 
@@ -78,6 +89,17 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
               ),
               new Container(
                   margin: new EdgeInsets.symmetric(horizontal: 3.0),
+              
+                    child: IconButton(
+                    onPressed: getImage,
+                    icon: Icon(
+                      Icons.camera_alt,
+                      color: Color(0xFF373737),
+                      ),
+                  )
+              ),
+              new Container(
+                  margin: new EdgeInsets.symmetric(horizontal: 3.0),
                   child: Theme.of(context).platform == TargetPlatform.iOS
                       ? new CupertinoButton(
                       child: new Text("Submit"),
@@ -85,7 +107,10 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                           : null
                   )
                       : new IconButton(
-                    icon: new Icon(Icons.send),
+                    icon: Icon(
+                      Icons.send,
+                      color: Color(0xFF2B52A0),
+                      ),
                     onPressed: _isWriting
                         ? () => _submitMsg(_textController.text)
                         : null,
@@ -146,13 +171,13 @@ class Msg extends StatelessWidget {
             new Container(
               margin: const EdgeInsets.only(right: 18.0),
               child: new CircleAvatar(
-                backgroundColor: Colors.black54,
+                backgroundColor: Color(0xFF353535),
                   child: new Text(
                     defaultUserName[0],
                     style: TextStyle(
-                        color: Colors.greenAccent,
-                        fontSize: 18.0,
-                        fontWeight: FontWeight.bold
+                        color: Colors.white,
+                        fontSize: 14.0,
+                        fontWeight: FontWeight.w200
                     ),
                   )
               ),
@@ -163,7 +188,7 @@ class Msg extends StatelessWidget {
                 children: <Widget>[
                   new Text(defaultUserName,
                     style: TextStyle(
-                        color: Colors.greenAccent,
+                        color: Color(0xFF185A9C),
                         fontSize: 18.0,
                         fontWeight: FontWeight.bold
                     ),),
@@ -172,9 +197,9 @@ class Msg extends StatelessWidget {
                     child: new Text(
                         txt,
                         style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 17.0,
-                            fontWeight: FontWeight.bold
+                           color: Color(0xFF626262),
+                        fontSize: 16,
+                        fontWeight: FontWeight.w400
                         )
                     ),
                   ),

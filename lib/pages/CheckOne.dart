@@ -1,6 +1,7 @@
 import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
+import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/ItemList.dart';
 import 'package:flutter/material.dart';
 
@@ -25,6 +26,41 @@ class CheckListOne extends StatelessWidget {
             fontFamily: "Sabritas",
           ),
         ),
+         bottom: PreferredSize(
+           child: InkWell(
+              onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => ChatPage(),
+                     ),
+                     ),
+          child: Container(
+            color: Color(0xFFEAEAEA),
+            constraints: BoxConstraints.expand(height: 50),
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                   textDirection: TextDirection.rtl,
+              children: <Widget>[
+                Container(
+                padding: EdgeInsets.only(right: 16),
+                 child: Text(
+              "Mensajes",
+              style: TextStyle(fontSize: 16),
+               ),
+                ),
+                Container(
+                padding: EdgeInsets.only(right: 5),
+                child: Icon(
+                      Icons.chat,
+                      color: Color(0xFF1D539B),
+                      ),
+                ),
+            ],
+            ),
+          ),
+           ),
+          preferredSize: Size(50, 50),
+        ),
         centerTitle: true,
         backgroundColor: Color(0xFF1D539B),
       ),
@@ -33,10 +69,6 @@ class CheckListOne extends StatelessWidget {
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: <Widget>[
-
-                Container(
-                  margin: EdgeInsets.all(10.0),
-                ),
 
                 CheckListUnity(),
 
