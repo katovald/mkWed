@@ -82,12 +82,8 @@ class CheckListOne extends StatelessWidget {
           child: Icon(
             Icons.verified_user,
             color: Colors.white,),
-          onPressed: () => Navigator.push(
-            context,
-            MaterialPageRoute(
-              builder: (BuildContext context) => ItemList(),
-            ),
-          ),
+          onPressed: () => Navigator.of(context)
+              .pushNamedAndRemoveUntil('/item', (Route<dynamic> route) => false),
         ),
 
       ),
