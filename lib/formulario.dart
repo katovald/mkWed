@@ -2949,6 +2949,10 @@ class _CheckListUState extends State<Formulario>{
 
       child: ListView(
         children: <Widget>[
+          
+                SizedBox(
+                  height: 6,
+                ),
           Container(
 
             child:  Column(

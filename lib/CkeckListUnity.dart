@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:app_editesp/pages/ChatPage.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 
@@ -2949,6 +2950,10 @@ class _CheckListUState extends State<CheckListUnity>{
 
       child: ListView(
         children: <Widget>[
+
+                SizedBox(
+                  height: 6,
+                ),
           Container(
 
             child:  Column(

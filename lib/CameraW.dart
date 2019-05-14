@@ -26,7 +26,7 @@ class MyHomePageState extends State<CameraW> {
     return Container(
                   width: 90,
                   height: 40,
-                  margin: EdgeInsets.only(bottom: 16, top: 16),
+                  margin: EdgeInsets.only(bottom: 14, left: 14),
                   child: ButtonTheme(
                     child:
                     FlatButton(
