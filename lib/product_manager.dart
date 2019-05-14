@@ -2,6 +2,7 @@ import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/home.dart';
+import 'package:app_editesp/pages/reporte.dart';
 import 'package:flutter/material.dart';
 import './products.dart';
 
@@ -82,6 +83,50 @@ class _ProductManagerState extends State<ProductManager> { //State Class
         ),
         centerTitle: true,
         backgroundColor: Color(0xFF1D539B),
+      ),
+      endDrawer: Drawer(
+        elevation: 10.0,
+        child: ListView(
+
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('Verificador'),
+              accountEmail: Text('verificador@mail.com'),
+              currentAccountPicture:
+              Container(
+                height: 120,
+                width: 120,
+                child:Image(
+                    fit: BoxFit.contain,
+                    image: AssetImage('assets/ver ficacion2.png')),),
+              decoration: BoxDecoration(color: Color(0xFF1D539B)),
+            ),
+            ListTile(
+              leading: Icon(Icons.warning),
+              title: Text('Reporte de siniestros'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => reporte_Siniestros()),
+                );
+              },
+            ),
+            Divider(
+              height: 2.0,
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Cerrar sesión'),
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+              },
+            ),
+            Divider(
+              height: 2.0,
+            ),
+          ],
+        ),
       ),
          body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'dart:convert';
+import 'dart:typed_data';
+import 'dart:ui' as ui;
+import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 
 class Formulario extends StatefulWidget{
 
@@ -9,7 +13,35 @@ class Formulario extends StatefulWidget{
   }
 
 }
+class _WatermarkPaint extends CustomPainter {
+  final String price;
+  final String watermark;
+
+  _WatermarkPaint(this.price, this.watermark);
+
+  @override
+  void paint(ui.Canvas canvas, ui.Size size) {
+
+  }
+
+  @override
+  bool shouldRepaint(_WatermarkPaint oldDelegate) {
+    return oldDelegate != this;
+  }
+
+  @override
+  bool operator ==(Object other) =>
+      identical(this, other) || other is _WatermarkPaint && runtimeType == other.runtimeType && price == other.price && watermark == other.watermark;
+
+  @override
+  int get hashCode => price.hashCode ^ watermark.hashCode;
+}
 class _CheckListUState extends State<Formulario>{
+  ByteData _img = ByteData(0);
+  var color = Colors.black;
+  var strokeWidth = 2.0;
+  final _sign = GlobalKey<SignatureState>();
+  bool _canShowButton = true;
   var _value1 = "1";
   var _value2 = "1";
   var _value3 = "1";
@@ -2919,31 +2951,17 @@ class _CheckListUState extends State<Formulario>{
         children: <Widget>[
           Container(
 
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
-
             child:  Column(
               children: <Widget>[
-
                 Text(
                   "Estatus General",
                   style: TextStyle(
                       fontFamily: "Sabritas",
                       fontSize: 21.0,
-                      color: Colors.lightBlueAccent,
+                      color: Color(0xFF2A2A2A),
                       fontWeight: FontWeight.bold
                   ),
                 ),
-
 
 
                 SizedBox(
@@ -2953,7 +2971,8 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -2961,7 +2980,7 @@ class _CheckListUState extends State<Formulario>{
                       Text(
                         'Estado de la pintura',
                         style: TextStyle(
-                          color: Colors.white,
+                          color: Colors.black,
                           fontSize: 20.0,
                         ),
                       ),
@@ -2974,7 +2993,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Nueva",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2991,7 +3010,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Regular",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3008,7 +3027,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Desgaste",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3036,14 +3055,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Estado de los Frenos',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3055,7 +3075,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Buen estado",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3072,7 +3092,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "  Mal estado",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3093,9 +3113,6 @@ class _CheckListUState extends State<Formulario>{
                   ),
                 ),
 
-
-
-
                 SizedBox(
                   height: 6,
                 ),
@@ -3109,34 +3126,35 @@ class _CheckListUState extends State<Formulario>{
                     height: 170.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(0.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
                         Text(
                           'Sistema Eléctrico',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 3,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.blueGrey,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -3155,14 +3173,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'LLanta trasera izquierda',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3174,7 +3193,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Bien",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3191,7 +3210,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "1/2 Vida",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3208,7 +3227,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "3/4 Vida" ,
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3240,14 +3259,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'LLanta trasera derecha',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3259,7 +3279,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Bien",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3276,7 +3296,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "1/2 Vida",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3293,7 +3313,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "3/4 Vida" ,
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3326,14 +3346,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'LLanta delantera izquierda',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3344,7 +3365,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Bien",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3361,7 +3382,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "1/2 Vida",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3378,7 +3399,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "3/4 Vida" ,
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3411,14 +3432,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'LLanta delantera derecha',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3431,7 +3453,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Bien",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3448,7 +3470,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "1/2 Vida",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3465,7 +3487,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "3/4 Vida" ,
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3497,14 +3519,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'LLanta de refacción',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3516,7 +3539,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Bien",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3533,7 +3556,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "1/2 Vida",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3550,7 +3573,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "3/4 Vida" ,
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3591,17 +3614,7 @@ class _CheckListUState extends State<Formulario>{
 
           Container(
 //Diseño de la caja <>
-            decoration: BoxDecoration(
-              color: Colors.white30,
 
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
 
             child:  Column(
               children: <Widget>[
@@ -3611,7 +3624,7 @@ class _CheckListUState extends State<Formulario>{
                   "Gasolina",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Color(0xFF00DCFF),
+                     color: Colors.black,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -3624,7 +3637,8 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3632,7 +3646,7 @@ class _CheckListUState extends State<Formulario>{
 //Tanque Gasolina Titulo<>
                       Text(
                         'Gasolina Inicial',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 //Tanque Gasolina Titulo</>
                       ButtonBar(
@@ -3663,7 +3677,8 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3671,7 +3686,7 @@ class _CheckListUState extends State<Formulario>{
 //Tarjeta Gasolina Titulo<>
                       Text(
                         '¿Tarjeta de Gasolina?',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 //Tarjeta Gasolina Titulo</>
                       ButtonBar(
@@ -3682,7 +3697,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3699,7 +3714,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3725,7 +3740,8 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3733,7 +3749,7 @@ class _CheckListUState extends State<Formulario>{
 //Cargo Gasolina Titulo<>
                       Text(
                         '¿Cargo Gasolina?',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 //Cargo Gasolina Titulo</>
                       ButtonBar(
@@ -3744,7 +3760,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3761,7 +3777,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3794,7 +3810,8 @@ class _CheckListUState extends State<Formulario>{
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
@@ -3802,28 +3819,28 @@ class _CheckListUState extends State<Formulario>{
 //Titulo
                         Text(
                           'NO. Tarjeta de Gasolina',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 1, //Maximo de Lineas de Texto
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
 //Descripcion & Estilos
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -3851,7 +3868,8 @@ class _CheckListUState extends State<Formulario>{
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
@@ -3859,28 +3877,28 @@ class _CheckListUState extends State<Formulario>{
 //Titulo
                         Text(
                           'Saldo de Tarjeta',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 1, //Maximo de Lineas de Texto
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
 //Descripcion & Estilos
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -3907,7 +3925,8 @@ class _CheckListUState extends State<Formulario>{
                     height: 132.0,  //Tamaño del contenedor
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
@@ -3915,28 +3934,28 @@ class _CheckListUState extends State<Formulario>{
 //Titulo
                         Text(
                           'Hora de la Carga',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 1,  //Maximo de Lineas de Texto
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
 //Descripcion & Estilos
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -3956,7 +3975,8 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
@@ -3964,7 +3984,7 @@ class _CheckListUState extends State<Formulario>{
 //Info Titulo<>
                       Text(
                         '¿Es correcta la informacion?',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 //Info Titulo</>
                       ButtonBar(
@@ -3975,7 +3995,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3992,7 +4012,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4029,17 +4049,6 @@ class _CheckListUState extends State<Formulario>{
           ),
 
           Container(
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
 
             child: Column(
               children: <Widget>[
@@ -4048,7 +4057,7 @@ class _CheckListUState extends State<Formulario>{
                   "Estacionamiento",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Color(0xFF00DCFF),
+                     color: Colors.black,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -4062,14 +4071,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         '¿Cuenta con fondo de estacionamientos?',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4080,7 +4090,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4097,7 +4107,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4114,7 +4124,7 @@ class _CheckListUState extends State<Formulario>{
                              children: <Widget>[
                                Text(
                                  "Desgaste",
-                                 style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                 style: TextStyle(color: Colors.black, fontSize: 13.0),
                                ),
                                Radio(
                                  onChanged: (e){},
@@ -4144,34 +4154,35 @@ class _CheckListUState extends State<Formulario>{
                     height: 120.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(5.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
                         Text(
                           '¿Cuánto?',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 1,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -4195,34 +4206,35 @@ class _CheckListUState extends State<Formulario>{
                     height: 120.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
                         Text(
                           'Número de ticket de estacionamiento',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 1,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -4247,34 +4259,35 @@ class _CheckListUState extends State<Formulario>{
                     height: 120.0,
                     decoration: BoxDecoration(
                       //border: Border.all(color: Colors.grey, width: 1.0),
-                        color: Colors.black54,
+
+                        color: Color(0xFFEAEAEA),
                         borderRadius: BorderRadius.circular(1.0)),
                     margin: EdgeInsets.only(left: 3.0, right: 3.0),
                     child: Column(
                       children: <Widget>[
                         Text(
                           'Total en pesos',
-                          style: TextStyle(color: Colors.white, fontSize: 20.0),
+                          style: TextStyle(color: Colors.black, fontSize: 20.0),
                         ),
 
                         TextField(
                           maxLines: 1,
-                          cursorColor: Colors.white,
+                          cursorColor: Colors.black,
                           cursorWidth: 7.0,
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Llenar campo de texto',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                               color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.black54,
                             prefixIcon: const Icon(
                               Icons.drive_eta,
-                              color: Colors.lightBlueAccent,
+                              color: Colors.black
                             ),
                           ),
                           onChanged:(String value){},
@@ -4295,14 +4308,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         '¿Es correcta la información?',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4314,7 +4328,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4331,7 +4345,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4381,17 +4395,6 @@ class _CheckListUState extends State<Formulario>{
           ),
 
           Container(
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
 
             child: Column(
               children: <Widget>[
@@ -4400,7 +4403,7 @@ class _CheckListUState extends State<Formulario>{
                   "Accesorios",
                   style: TextStyle(
                       fontSize: 21.0,
-                      color: Color(0xFF00DCFF),
+                     color: Colors.black,
                       fontWeight: FontWeight.bold
                   ),
                 ),
@@ -4414,14 +4417,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Cargador USB',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4432,7 +4436,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4449,7 +4453,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4485,14 +4489,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Tag',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4504,7 +4509,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4521,7 +4526,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4551,14 +4556,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Guia roja',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4569,7 +4575,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4586,7 +4592,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4615,14 +4621,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Lámpara',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4633,7 +4640,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4650,7 +4657,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4679,14 +4686,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Paraguas',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4697,7 +4705,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4714,7 +4722,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4744,14 +4752,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Manos libres',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4762,7 +4771,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4779,7 +4788,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4809,14 +4818,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Red',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4827,7 +4837,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4844,7 +4854,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4874,14 +4884,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Extintor',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4892,7 +4903,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4909,7 +4920,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4939,14 +4950,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Gato',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -4957,7 +4969,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -4974,7 +4986,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                                Radio(
                                 onChanged: (val){
@@ -5004,14 +5016,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Llave de cruz',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5022,7 +5035,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5039,7 +5052,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5069,14 +5082,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Señalamientos',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5087,7 +5101,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5104,7 +5118,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5133,14 +5147,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'kit de limpieza',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5151,7 +5166,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5168,7 +5183,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5196,14 +5211,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Aceite',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5214,7 +5230,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5231,7 +5247,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5259,14 +5275,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Anticongelante',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5277,7 +5294,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5294,7 +5311,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5322,14 +5339,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Líquido de dirección',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5340,7 +5358,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5357,7 +5375,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5385,14 +5403,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Líquido de frenos',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5403,7 +5422,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5420,7 +5439,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5453,14 +5472,15 @@ class _CheckListUState extends State<Formulario>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         '¿Es correcta la información?',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -5471,7 +5491,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5488,7 +5508,7 @@ class _CheckListUState extends State<Formulario>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -5511,6 +5531,87 @@ class _CheckListUState extends State<Formulario>{
               ],
             ),
           ),
+
+          SizedBox(
+            height: 10,
+          ),
+
+          _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
+          _canShowButton
+              ?
+          RaisedButton(
+            onPressed: (){
+              showDialog(
+                context: context,
+                builder: (BuildContext context) {
+
+                  return AlertDialog(
+                    title: Text("Firma electrónica"),
+                    content: Container(
+                      height: 150,
+                      width: 300,
+                      child: Padding(
+                        padding: const EdgeInsets.all(8.0),
+                        child: Signature(
+                          color: color,
+                          key: _sign,
+                          onSign: () {
+                            final sign = _sign.currentState;
+                            debugPrint('${sign.points.length} points in the signature');
+                          },
+                          backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                          strokeWidth: strokeWidth,
+                        ),
+                      ),
+                      color: Colors.black12,
+                    ),
+
+                    actions: <Widget>[
+                      FlatButton(
+                        child:  Text("Salvar"),
+                        onPressed: ()  async {
+                          final sign = _sign.currentState;
+                          //retrieve image data, do whatever you want with it (send to server, save locally...)
+                          final image = await sign.getData();
+                          var data = await image.toByteData(format: ui.ImageByteFormat.png);
+                          sign.clear();
+                          final encoded = base64.encode(data.buffer.asUint8List());
+                          setState(() {
+                            _img = data;
+                          });
+                          debugPrint("onPressed " + encoded);
+                          Navigator.of(context).pop();
+                          setState(() => _canShowButton = !_canShowButton);
+                        },
+
+                      ),
+
+                      //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
+                      FlatButton(
+                        child:  Text("Borrar"),
+                        onPressed: () {
+                          final sign = _sign.currentState;
+                          sign.clear();
+                          setState(() {
+                            _img = ByteData(0);
+                          });
+                          debugPrint("cleared");
+                        },
+                      ),
+                    ],
+                  );
+                },
+              );
+            },
+            textColor: Colors.white,
+            color: Color(0xFF2350A6),
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              "Firma electrónica",
+            ),
+
+          )
+              : SizedBox(),
         ],
       ),
     );
