@@ -25,6 +25,7 @@ dependencies:
   url_launcher: ^5.0.1
   font_awesome_flutter: ^8.4.0
   flutter_signature_pad: ^2.0.0+1
+  google_maps_flutter: ^0.4.0
 
 
 
@@ -68,6 +69,7 @@ flutter:
   - assets/3.png
   - assets/4.png
   - assets/5.png
+  - assets/rafa.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.io/assets-and-images/#resolution-aware.
