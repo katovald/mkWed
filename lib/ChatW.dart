@@ -132,7 +132,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       txt: txt,
       animationController: new AnimationController(
           vsync: this,
-          duration: new Duration(milliseconds: 800)
+          duration: new Duration(milliseconds: 600)
       ),
     );
     setState(() {

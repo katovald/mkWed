@@ -1,6 +1,7 @@
 import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
+import 'package:app_editesp/pages/mural.dart';
 import 'package:app_editesp/pages/reporte.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
@@ -108,28 +109,42 @@ class _MapState extends State<TaskMapManager> { //State Class
               padding: EdgeInsets.zero,
               children: <Widget>[
                 UserAccountsDrawerHeader(
-                accountName: Text('Rafael Ramirez Marquez'),
-                accountEmail: Text('rmarquez@centraldealarmas.com.mx'),
-                currentAccountPicture:
+                  accountName: Text('Rafael Ramirez Marquez'),
+                  accountEmail: Text('rmarquez@centraldealarmas.com.mx'),
+                  currentAccountPicture:
                   Container(
                     height: 120,
                     width: 120,
                     child:Image(
-                      fit: BoxFit.contain,
-                      image: AssetImage('assets/rafa.png')
-                    ),
-                  ),
+                        fit: BoxFit.contain,
+                        image: AssetImage('assets/rafa.png')),),
                   decoration: BoxDecoration(color: Color(0xFF1D539B)),
                 ),
                 ListTile(
                   leading: Icon(Icons.warning),
                   title: Text('Reporte de siniestros'),
                   onTap: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => reporte_Siniestros()),
-                  );
-                },
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => reporte_Siniestros()),
+                    );
+                  },
+                ),
+                Divider(
+                  height: 2.0,
+                ),
+                ListTile(
+                  leading: Icon(Icons.accessibility),
+                  title: Text('CAMSA contigo'),
+                  onTap: () {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Mural()),
+                    );
+                  },
+                ),
+                Divider(
+                  height: 2.0,
                 ),
                 Divider(
                   height: 2.0,
@@ -157,7 +172,8 @@ class _MapState extends State<TaskMapManager> { //State Class
                   target: _center,
                   zoom: 11.0
               ),
-            ),
+        ),
+
           ],
         ),
       ),
