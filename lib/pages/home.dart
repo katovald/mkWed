@@ -125,7 +125,7 @@ bool _obscureTextLogin = true;
                               keyboardType: TextInputType.emailAddress,
                               validator: (value) {
                                 if (value.isEmpty) {
-                                  return 'Por favor ingrese su número de cliente';
+                                  return 'Por favor ingrese su número de empleado';
                                 }
                               },
                               style: TextStyle(
