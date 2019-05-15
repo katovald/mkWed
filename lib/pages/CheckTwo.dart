@@ -141,45 +141,6 @@ class CheckListTwo extends StatelessWidget {
                 ),
                 ],
                 ),
-
-
-                /*Container(
-                    margin: EdgeInsets.all(13.0),
-                    child:Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        FlatButton(
-                          child: Row(
-                            children: <Widget>[
-                              Text("ENVIAR  "),
-                              Icon(Icons.send),
-                            ],
-                          ),
-                          color: Colors.green,
-                          onPressed: () => Navigator.pop(context, true),
-                        ),
-
-                        FlatButton(
-                          child: Row(
-                            children: <Widget>[
-                              Text("GUARDAR"),
-                              Icon(Icons.save),
-                            ],
-                          ),
-                          color: Colors.redAccent,
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) => ItemList(),
-                            ),
-                          ),
-                        ),
-
-                      ],
-                    )
-                ),*/
-
-
               ],
             ),
           )

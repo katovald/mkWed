@@ -13,6 +13,8 @@
 	<key>CFBundleInfoDictionaryVersion</key>
 	<string>6.0</string>
 	<key>CFBundleName</key>
+	<key>io.flutter.embedded_views_preview</key>
+    <true/>
 	<string>app_editesp</string>
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>

@@ -3,9 +3,6 @@ import 'package:app_editesp/main.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
 
-
-
-
 class CameraApp extends StatefulWidget {
   @override
   _CameraAppState createState() => _CameraAppState();

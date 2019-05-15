@@ -12,7 +12,6 @@ List<CameraDescription> cameras;
 Future<void> main() async {
   cameras = await availableCameras();
   runApp(MyApp());
-
 }
 
 class MyApp extends StatelessWidget {
@@ -25,8 +24,6 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           accentColor:  Color(0xFF2350A6),
           ),
-      //home:HomePage(),
-
 
       //:::::::::::::::::::::::::: NAME ROUTING 1::::::::::::::::::::::::::::::::
       routes: {
