@@ -97,6 +97,41 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
             fontFamily: "Sabritas",
           ),
         ),
+        bottom: PreferredSize(
+          child: InkWell(
+            onTap: () => Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (BuildContext context) => ChatPage(),
+              ),
+            ),
+            child: Container(
+              color: Color(0xFFEAEAEA),
+              constraints: BoxConstraints.expand(height: 50),
+              child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                textDirection: TextDirection.rtl,
+                children: <Widget>[
+                  Container(
+                    padding: EdgeInsets.only(right: 16),
+                    child: Text(
+                      "Mensajes",
+                      style: TextStyle(fontSize: 16),
+                    ),
+                  ),
+                  Container(
+                    padding: EdgeInsets.only(right: 5),
+                    child: Icon(
+                      Icons.chat,
+                      color: Color(0xFF1D539B),
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ),
+          preferredSize: Size(50, 50),
+        ),
         centerTitle: true,
         backgroundColor: Color(0xFF1D539B),
       ),
@@ -109,41 +144,7 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
             //mainAxisAlignment: MainAxisAlignment.center,
             //crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-          Align(
-          alignment: Alignment.topLeft,
-         child: Container(
-              width: 90,
-              height: 40,
-              margin: EdgeInsets.all(16),
-              child: ButtonTheme(
-                child:
-                FlatButton(
-                  onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ChatPage(),
-                    ),
-                  ),
-                  color: Color(0xFF1373DF),
-                  child: Row( // Replace with a Row for horizontal icon + text
-                    children: <Widget>[
-                      Icon(
-                        Icons.chat,
-                        color: Colors.white,
-                      ),
-                      Text(
-                        "Chat",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                      )
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
+
          Align(
            alignment: Alignment.topRight,
              child: _itemDown(),
