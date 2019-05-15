@@ -153,7 +153,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -255,7 +255,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -357,7 +357,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -459,7 +459,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -561,7 +561,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -663,7 +663,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -765,7 +765,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -867,7 +867,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -934,7 +934,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1001,7 +1001,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1103,7 +1103,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1217,7 +1217,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1331,7 +1331,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1398,7 +1398,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1560,40 +1560,11 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
       child: ListView(
         children: <Widget>[
 
-          Container(
-            padding:
-            EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
-            decoration: BoxDecoration(
-              //border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(5.0)),
-            child:  Text(
-              "Checklist verificación",
-              style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-          ),
-
           SizedBox(
             height: 10,
           ),
 
           Container(
-
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
 
             child:  Column(
               children: <Widget>[
@@ -1604,14 +1575,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Observaciones',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -1622,7 +1593,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -1639,7 +1610,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -1658,22 +1629,22 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                      /* TextField(
                         enabled: false,
                         maxLines: 3,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
@@ -1686,13 +1657,13 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                           controller: _textFieldController,
 
                           style: TextStyle(
-                              color: Colors.white,
+                              color: Colors.black,
                               fontSize: 19.0
                           ),
                           decoration: InputDecoration(
                             labelText: 'Observación',
                             labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
+                                color: Colors.black,
                                 fontWeight: FontWeight.w100
                             ),
                             fillColor: Colors.blueGrey,
@@ -1715,14 +1686,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Cortinas(s) entrada de clientes',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -1733,7 +1704,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -1750,7 +1721,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -1768,17 +1739,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -1808,17 +1779,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -1840,14 +1811,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Cortinas(s) recibo de mercancia',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -1858,7 +1829,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -1875,7 +1846,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -1893,17 +1864,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                            color: Color(0xFF00DCFF),
+                                            color: Colors.black,
                                             fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -1935,17 +1906,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     child:  TextField(
                                       keyboardType: TextInputType.multiline,
                                       // maxLines: 3,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Observación (opcional)',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -1969,14 +1940,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Puerta(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -1987,7 +1958,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2004,7 +1975,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2022,17 +1993,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2064,17 +2035,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2098,14 +2069,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Chapa(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2116,7 +2087,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2133,7 +2104,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2151,17 +2122,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2193,17 +2164,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2226,14 +2197,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Cámara(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2244,7 +2215,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2261,7 +2232,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2279,17 +2250,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2321,17 +2292,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2355,14 +2326,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Candado(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2373,7 +2344,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2390,7 +2361,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2408,17 +2379,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2450,17 +2421,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2484,14 +2455,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   (
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Puerta(s) de cristal',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2502,7 +2473,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2519,7 +2490,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2537,17 +2508,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2579,17 +2550,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2613,14 +2584,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Fachada(s) de cristal',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2631,7 +2602,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2648,7 +2619,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2666,17 +2637,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2708,17 +2679,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2741,14 +2712,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Muro(s) perimetrales',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2759,7 +2730,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2776,7 +2747,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2794,17 +2765,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2836,17 +2807,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2869,14 +2840,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Sirena(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -2887,7 +2858,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2904,7 +2875,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -2922,17 +2893,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -2964,17 +2935,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -2998,14 +2969,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Planta(s) de luz',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3016,7 +2987,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3033,7 +3004,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3051,17 +3022,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -3093,17 +3064,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -3126,14 +3097,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Ventana(s) o ventanales',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3144,7 +3115,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3161,7 +3132,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3179,17 +3150,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -3221,17 +3192,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -3255,14 +3226,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Porton(es) de estacionamiento',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3273,7 +3244,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3290,7 +3261,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3308,17 +3279,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -3350,17 +3321,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -3383,14 +3354,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Puerta(s) de reja de protección',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3401,7 +3372,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3418,7 +3389,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3436,17 +3407,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       keyboardType: TextInputType.number,
 
                                       maxLines: 1,
-                                      cursorColor: Colors.white,
+                                      cursorColor: Colors.black,
                                       cursorWidth: 7.0,
                                       style: TextStyle(
-                                          color: Colors.white,
+                                          color: Colors.black,
                                           fontSize: 19.0
                                       ),
                                       decoration: InputDecoration(
                                         //labelText: 'Total',
                                         hintText: 'Total',
                                         hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
+                                          color: Colors.black,
                                           fontWeight: FontWeight.w100,
                                         ),
                                         fillColor: Colors.blueGrey,
@@ -3478,17 +3449,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 child:  TextField(
                                   keyboardType: TextInputType.multiline,
                                   // maxLines: 3,
-                                  cursorColor: Colors.white,
+                                  cursorColor: Colors.black,
                                   cursorWidth: 7.0,
                                   style: TextStyle(
-                                      color: Colors.white,
+                                      color: Colors.black,
                                       fontSize: 19.0
                                   ),
                                   decoration: InputDecoration(
                                     //labelText: 'Total',
                                     hintText: 'Observación (opcional)',
                                     hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
+                                      color: Colors.black,
                                       fontWeight: FontWeight.w100,
                                     ),
                                     fillColor: Colors.blueGrey,
@@ -3511,14 +3482,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Ruidos al interior',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3529,7 +3500,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3546,7 +3517,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3564,22 +3535,22 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       TextField(
                         maxLines: 3,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
@@ -3593,14 +3564,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Luz al interior',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3611,7 +3582,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3628,7 +3599,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3646,22 +3617,22 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       TextField(
                         maxLines: 3,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
@@ -3675,14 +3646,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Perímetro',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3693,7 +3664,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3710,7 +3681,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3729,22 +3700,22 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       TextField(
                         enabled: false,
                         maxLines: 3,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
@@ -3758,14 +3729,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                 Container(
                   decoration: BoxDecoration(
                     //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
+                      color: Color(0xFFEAEAEA),
                       borderRadius: BorderRadius.circular(1.0)),
                   margin: EdgeInsets.only(left: 3.0, right: 3.0),
                   child: Column(
                     children: <Widget>[
                       Text(
                         'Hubo entrevista',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
 
                       ButtonBar(
@@ -3776,7 +3747,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3793,7 +3764,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             children: <Widget>[
                               Text(
                                 "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
+                                style: TextStyle(color: Colors.black, fontSize: 13.0),
                               ),
                               Radio(
                                 onChanged: (val){
@@ -3811,55 +3782,58 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Text(
                         'Nombre',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
                       TextField(
                         maxLines: 1,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
                       ),
                       Text(
                         'Puesto',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                        style: TextStyle(color: Colors.black, fontSize: 20.0),
                       ),
                       TextField(
                         maxLines: 1,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
+                      ),
+                      SizedBox(
+                        height: 6,
                       ),
                     ],
                   ),
@@ -3938,7 +3912,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                     );
                   },
                   textColor: Colors.white,
-                  color: Colors.blueGrey,
+                  color: Color(0xFF2350A6),
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     "Firma electrónica",
@@ -3948,17 +3922,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                     : SizedBox(),
                 Text(
                   'Fotografia fachada',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                  style: TextStyle(color: Colors.black, fontSize: 20.0),
                 ),
                 CameraW(),
                 Text(
                   'Fotografia entrada',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                  style: TextStyle(color: Colors.black, fontSize: 20.0),
                 ),
                 CameraW(),
                 Text(
                   'Fotografia lateral',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
+                  style: TextStyle(color: Colors.black, fontSize: 20.0),
                 ),
                 CameraW(),
 

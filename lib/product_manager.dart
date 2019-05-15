@@ -2,6 +2,7 @@ import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/home.dart';
+import 'package:app_editesp/pages/reporte.dart';
 import 'package:flutter/material.dart';
 import './products.dart';
 
@@ -62,48 +63,82 @@ class _ProductManagerState extends State<ProductManager> { //State Class
   @override
   Widget build(BuildContext context) {
     print('[ProductManager State] build()');
-    return Column(
+    return Scaffold(
+      appBar: AppBar(
+          leading: IconButton(
+          icon: Icon(Icons.arrow_left),
+          onPressed: () {
+            Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => CheckListThree()),
+  );
+            },
+          ),
+        title: Text("Tareas",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontFamily: "Sabritas",
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF1D539B),
+      ),
+      endDrawer: Drawer(
+        elevation: 10.0,
+        child: ListView(
+
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            UserAccountsDrawerHeader(
+              accountName: Text('Verificador'),
+              accountEmail: Text('verificador@mail.com'),
+              currentAccountPicture:
+              Container(
+                height: 120,
+                width: 120,
+                child:Image(
+                    fit: BoxFit.contain,
+                    image: AssetImage('assets/ver ficacion2.png')),),
+              decoration: BoxDecoration(color: Color(0xFF1D539B)),
+            ),
+            ListTile(
+              leading: Icon(Icons.warning),
+              title: Text('Reporte de siniestros'),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => reporte_Siniestros()),
+                );
+              },
+            ),
+            Divider(
+              height: 2.0,
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text('Cerrar sesión'),
+              onTap: () {
+                Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+              },
+            ),
+            Divider(
+              height: 2.0,
+            ),
+          ],
+        ),
+      ),
+         body: Column(
       crossAxisAlignment: CrossAxisAlignment.start,
       children: [
 
-        Container(
-          margin: EdgeInsets.all(10.0),
-        ),
-
         Row(
         children: [
-        Container(
-                  width: 90,
-                  height: 40,
-                  margin: EdgeInsets.all(16.0),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => Navigator.pop(context), 
-                      color: Color(0xFFFF2661),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.arrow_left,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Salir",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
 
          Container(
                   width: 90,
                   height: 40,
-                  margin: EdgeInsets.only(bottom: 16, top: 16),
+                  margin: EdgeInsets.all(16),
                   child: ButtonTheme(
                     child:
                     FlatButton(
@@ -137,6 +172,7 @@ class _ProductManagerState extends State<ProductManager> { //State Class
 
         Expanded(child: Products(widget.startingProduct, deleteProduct: _deleteProduct,)),
       ],
+    ),
     );
   }
 }

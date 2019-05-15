@@ -7,16 +7,27 @@ import 'package:flutter/material.dart';
 class CheckListOne extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+
     return Container(
-
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('assets/pantalla_extra.png'),
-          )
-      ),
-
+      color: Color(0xFFF8F8F8),
       child: Scaffold(
+        appBar: AppBar(
+          leading: IconButton(
+          icon: Icon(Icons.exit_to_app),
+          onPressed: () {
+            Navigator.pop(context);
+            },
+          ),
+        title: Text("Recepción de Vehículo",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontFamily: "Sabritas",
+          ),
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF1D539B),
+      ),
         backgroundColor: Colors.transparent,
         body: Container(
             child:Column(
@@ -27,34 +38,6 @@ class CheckListOne extends StatelessWidget {
                   margin: EdgeInsets.all(10.0),
                 ),
 
-                Container(
-                  width: 90,
-                  height: 40,
-                  margin: EdgeInsets.all(16.0),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => Navigator.pop(context), 
-                      color: Color(0xFFFF2661),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.arrow_left,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Salir",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
-
                 CheckListUnity(),
 
               ],
@@ -63,7 +46,7 @@ class CheckListOne extends StatelessWidget {
 
         //floatingActionButtonLocation: FloatingActionButtonLocation.centerFloat,
         floatingActionButton:  FloatingActionButton(
-          backgroundColor: Color(0xFF00DCFF),
+          backgroundColor: Color(0xFF2350A6),
           child: Icon(
             Icons.verified_user,
             color: Colors.white,),

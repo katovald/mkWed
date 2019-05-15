@@ -16,13 +16,7 @@ class ChatPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return new Container(
-
-        decoration: BoxDecoration(
-            image: DecorationImage(
-              fit: BoxFit.cover,
-              image: AssetImage('assets/pantalla_extra.png'),
-            )
-        ),
+      color: Color(0xFFF8F8F8),
 
       child: Scaffold(
           backgroundColor: Colors.transparent,

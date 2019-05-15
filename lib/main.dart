@@ -3,6 +3,7 @@ import 'package:app_editesp/BackW.dart';
 import 'package:app_editesp/pages/CheckOne.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
+import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'package:camera/camera.dart';
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
           brightness: Brightness.light,
           primarySwatch: Colors.blue,
-          accentColor: Color(0xFF2350A6)
+          accentColor:  Color(0xFF2350A6),
           ),
       //home:HomePage(),
 
@@ -32,6 +33,7 @@ class MyApp extends StatelessWidget {
         '/': (BuildContext context) => HomePage(), // Default Route
         '/check1': (BuildContext context) => CheckListOne(),
         '/check3': (BuildContext context) => CheckListThree(),
+        '/item': (BuildContext context) => ItemList(),
         //Si navegamos a una ruta con nombre que no está especificada aquí....
         //...se ejecuta onUnkownRoute .
       },
