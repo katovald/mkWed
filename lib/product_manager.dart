@@ -2,6 +2,8 @@ import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/home.dart';
+import 'package:app_editesp/pages/mural.dart' as prefix0;
+import 'package:app_editesp/pages/mural.dart';
 import 'package:app_editesp/pages/reporte.dart';
 import 'package:flutter/material.dart';
 import './products.dart';
@@ -116,15 +118,31 @@ class _ProductManagerState extends State<ProductManager> { //State Class
               height: 2.0,
             ),
             ListTile(
-              leading: Icon(Icons.exit_to_app),
-              title: Text('Cerrar sesión'),
+              leading: Icon(Icons.accessibility),
+              title: Text('CAMSA contigo'),
               onTap: () {
-                Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => Mural()),
+                );
               },
             ),
             Divider(
               height: 2.0,
             ),
+      Divider(
+        height: 2.0,
+      ),
+      ListTile(
+        leading: Icon(Icons.exit_to_app),
+        title: Text('Cerrar sesión'),
+        onTap: () {
+          Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+        },
+      ),
+      Divider(
+        height: 2.0,
+      ),
           ],
         ),
       ),
