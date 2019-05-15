@@ -62,7 +62,6 @@ _callMe() async {
 
     showDialog(
         context: context,
-        child: dialog
     );
     ///////////////////////////////////////////////////////////
 

@@ -82,6 +82,7 @@ class _MapState extends State<TaskMapManager> { //State Class
   @override
   Widget build(BuildContext context){
     return MaterialApp(
+      debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
           leading: IconButton(
