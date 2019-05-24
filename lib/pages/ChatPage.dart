@@ -1,15 +1,6 @@
-import 'package:app_editesp/CameraW.dart';
-import 'package:app_editesp/pages/ACameraApp.dart';
-import 'package:app_editesp/BackW.dart';
-import 'package:app_editesp/BackWGeneral.dart';
 import 'package:app_editesp/ChatW.dart';
-import 'package:app_editesp/CkeckListUnity.dart';
-import 'package:app_editesp/MessagesField.dart';
-import 'package:app_editesp/pages/CameraPag.dart';
-import 'dart:async';
-import 'dart:io';
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
+
 
 class ChatPage extends StatelessWidget {
   
@@ -38,16 +29,12 @@ class ChatPage extends StatelessWidget {
       ),
           backgroundColor: Colors.transparent,
         body: Container(
-              child:Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
+              child:ListView(
                 children: <Widget>[
 
                   Container(
                     margin: EdgeInsets.all(10.0),
                   ),
-
-                   Row(
-                ),
                 Chat(),
                 ],
               ),

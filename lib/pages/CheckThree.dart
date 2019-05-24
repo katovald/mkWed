@@ -1,4 +1,5 @@
 import 'package:app_editesp/BackWGeneral.dart';
+import 'package:app_editesp/ChatW.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/formulario.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
@@ -25,7 +26,7 @@ class CheckListThree extends StatelessWidget {
               onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => ChatPage(),
+                      builder: (BuildContext context) => Chat(),
                      ),
                      ),
           child: Container(
