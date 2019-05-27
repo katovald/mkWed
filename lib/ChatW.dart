@@ -6,6 +6,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'dart:async';
 import 'dart:io';
+import 'package:flutter_linkify/flutter_linkify.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 
 
@@ -48,6 +50,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
     StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
     storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
       imageUrl = downloadUrl;
+      _link(_chatTextController.text);
       setState(() {
         isLoading = false;
         //onSendMessage(imageUrl, 1);
@@ -75,13 +78,26 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       'time':  DateTime.now().timeZoneName
     });
   }
+  void _link(String text) {
+    _chatTextController.clear();
+    Firestore.instance.collection('links').add({
+      'name': _name,
+      'message': text,
+      'link':imageUrl,
+      'time':  DateTime.now().timeZoneName
+    });
+  }
 
   Widget buildChatList() {
     return  Expanded(
         child:  StreamBuilder(
             stream: Firestore.instance.collection('chats').snapshots(),
-            builder: (context, snapshot) {
-              if (!snapshot.hasData) return const Text('Cargando...');
+            builder: (context, snapshot2) {
+              if (!snapshot2.hasData) return const Text('Cargando...');
+              return  StreamBuilder(
+                  stream: Firestore.instance.collection('links').snapshots(),
+                  builder: (context, snapshot) {
+                    if (!snapshot.hasData) return const Text('Cargando...');
               return  ListView.builder(
                   controller: _scrollController,
                   itemCount: snapshot.data.documents.length,
@@ -95,8 +111,8 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                       );
                     });
                     DocumentSnapshot ds = snapshot.data.documents[index];
-                    print("documentChange received? ${ds['message']}");
-                    return buildChatBubble(ds['name'], ds['message']);
+                    return buildChatBubbleIm(ds['name'], ds['message'], ds['link']);
+                  });
                   });
             }));
   }
@@ -112,7 +128,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                   controller: _chatTextController,
                   decoration:
                   InputDecoration.collapsed(
-                      hintText: "Manda tu mensaje",
+                    hintText: "Manda tu mensaje",
                     hintStyle: TextStyle(color: Color(0xFFB1B1B1)),
                   ),
                   onChanged: (text) {
@@ -126,7 +142,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
               color: Color(0xFF313131),
               onPressed: _hasText
                   ? () {
-                _handleChatSubmit(_chatTextController.text);
+                _link(_chatTextController.text);
               }
                   : null,
             ),
@@ -154,6 +170,38 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
           Text(message, style: whiteText)
         ],
       ),
+    );
+  }
+  Widget buildChatBubbleIm(String name, String message, String link) {
+    const whiteText = const TextStyle(color: Colors.white, fontSize: 15.0);
+
+    return  Container(
+      margin:  EdgeInsets.all(5.0),
+      decoration:  BoxDecoration(
+          color: Color(0xFF1D539B),
+          borderRadius:  BorderRadius.all(const Radius.circular(8.0))),
+      padding:  EdgeInsets.all(10.0),
+      child:  Column(
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: <Widget>[
+          Text(
+            "${name}: ",
+            style: whiteText,
+          ),
+          Text(message, style: whiteText),
+          Linkify(text: link, style: whiteText,
+              linkStyle: TextStyle(color: Colors.white),
+              onOpen: (url) async {
+            if (await canLaunch(link)) {
+              await launch(link);
+            } else {
+              throw 'No pudo abrirse $imageUrl';
+            }
+                },
+
+                ),
+        ],
+    ),
     );
   }
 
@@ -197,7 +245,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
             color: Colors.white,
             onPressed: (){
               getImage2();
-
             },
           ),
           IconButton(
@@ -205,7 +252,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
             color: Colors.white,
             onPressed: (){
               getImage();
-
             },
           ),
         ],
@@ -238,5 +284,4 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
     );
   }
 }
-
 
