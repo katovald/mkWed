@@ -1,5 +1,6 @@
 import 'package:app_editesp/ChatW.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
+import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:flutter/material.dart';
 
 class CheckListOne extends StatelessWidget {
@@ -28,7 +29,7 @@ class CheckListOne extends StatelessWidget {
               onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => Chat(),
+                      builder: (BuildContext context) => ChatPage(),
                      ),
                      ),
           child: Container(
