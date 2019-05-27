@@ -1,5 +1,6 @@
 import 'package:app_editesp/BackW.dart';
 import 'package:app_editesp/BackWGeneral.dart';
+import 'package:app_editesp/ChatW.dart';
 import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/formularioTareas.dart';
 import 'package:app_editesp/pages/CameraPag.dart';
@@ -17,6 +18,58 @@ class CheckListTwo extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+          leading: IconButton(
+          icon: Icon(Icons.arrow_left),
+          onPressed: () {
+            Navigator.pop(context);
+            },
+          ),
+        title: Text("Checklist de Verificacíon",
+          style: TextStyle(
+            color: Colors.white,
+            fontSize: 18.0,
+            fontFamily: "Sabritas",
+          ),
+        ),
+         bottom: PreferredSize(
+           child: InkWell(
+              onTap: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (BuildContext context) => Chat(),
+                     ),
+                     ),
+          child: Container(
+            color: Color(0xFFEAEAEA),
+            constraints: BoxConstraints.expand(height: 50),
+            child: Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                   textDirection: TextDirection.rtl,
+              children: <Widget>[
+                Container(
+                padding: EdgeInsets.only(right: 16),
+                 child: Text(
+              "Mensajes",
+              style: TextStyle(fontSize: 16),
+               ),
+                ),
+                Container(
+                padding: EdgeInsets.only(right: 5),
+                child: Icon(
+                      Icons.chat,
+                      color: Color(0xFF1D539B),
+                      ),
+                ),
+            ],
+            ),
+          ),
+           ),
+          preferredSize: Size(50, 50),
+        ),
+        centerTitle: true,
+        backgroundColor: Color(0xFF1D539B),
+      ),
       body: Stack(
         children: <Widget>[
           BackWGeneral(),
@@ -25,75 +78,6 @@ class CheckListTwo extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
 
-                Container(
-                  margin: EdgeInsets.all(10.0),
-                ),
-
-
-                Row(
-        children: [
-        Container(
-                  width: 90,
-                  height: 40,
-                  margin: EdgeInsets.all(16.0),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => Navigator.pop(context), 
-                      color: Color(0xFFFF2661),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.arrow_left,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Salir",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
-
-         Container(
-                  width: 90,
-                  height: 40,
-                  margin: EdgeInsets.only(bottom: 16, top: 16),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                      builder: (BuildContext context) => ChatPage(),
-                     ),
-                     ),
-                      color: Color(0xFF1373DF),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.chat,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Chat",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
-                ],
-                ),
                 //CheckListUnity(),
                 formulario_Tareas(),
 
@@ -135,7 +119,7 @@ class CheckListTwo extends StatelessWidget {
                     child:
                     FlatButton(
                       onPressed: () => Navigator.pop(context, true), 
-                      color: Color(0xFF00C5FF),
+                      color:  Color(0xFF2350A6),
                       child: Row( // Replace with a Row for horizontal icon + text
                       children: <Widget>[
                       Icon(
@@ -156,45 +140,6 @@ class CheckListTwo extends StatelessWidget {
                 ),
                 ],
                 ),
-
-
-                /*Container(
-                    margin: EdgeInsets.all(13.0),
-                    child:Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                      children: <Widget>[
-                        FlatButton(
-                          child: Row(
-                            children: <Widget>[
-                              Text("ENVIAR  "),
-                              Icon(Icons.send),
-                            ],
-                          ),
-                          color: Colors.green,
-                          onPressed: () => Navigator.pop(context, true),
-                        ),
-
-                        FlatButton(
-                          child: Row(
-                            children: <Widget>[
-                              Text("GUARDAR"),
-                              Icon(Icons.save),
-                            ],
-                          ),
-                          color: Colors.redAccent,
-                          onPressed: () => Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                              builder: (BuildContext context) => ItemList(),
-                            ),
-                          ),
-                        ),
-
-                      ],
-                    )
-                ),*/
-
-
               ],
             ),
           )

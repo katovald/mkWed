@@ -7,10 +7,17 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:app_editesp/CameraW.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/widgets.dart';
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 class formulario_Tareas extends StatefulWidget {
   @override
   _formulario_TareasState createState() => _formulario_TareasState();
+}
+class MyItem {
+  MyItem({ this.isExpanded: false,});
+
+  bool isExpanded;
+
 }
 class _WatermarkPaint extends CustomPainter {
   final String price;
@@ -37,6 +44,9 @@ class _WatermarkPaint extends CustomPainter {
 }
 
 class _formulario_TareasState  extends State<formulario_Tareas>{
+  List<MyItem> _items = <MyItem>[
+    MyItem()
+  ];
   ByteData _img = ByteData(0);
   var color = Colors.black;
   var strokeWidth = 2.0;
@@ -153,7 +163,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -255,7 +265,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -357,7 +367,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -459,7 +469,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -561,7 +571,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -663,7 +673,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -765,7 +775,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -867,7 +877,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -934,7 +944,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1001,7 +1011,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1103,7 +1113,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1217,7 +1227,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1331,7 +1341,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1398,7 +1408,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     elevation: 2,
 
     style: TextStyle(
-      color: Color(0xFF00DCFF),
+      color: Colors.black,
       fontWeight: FontWeight.w100,
       fontSize: 13.0,
     ),
@@ -1554,2418 +1564,2436 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   bool _isTextFieldVisible = false;
   @override
   Widget build(BuildContext context) {
-
     return Expanded(
 
       child: ListView(
         children: <Widget>[
 
-          Container(
-            padding:
-            EdgeInsets.symmetric(horizontal: 6.0, vertical: 2.0),
-            decoration: BoxDecoration(
-              //border: Border.all(color: Colors.grey, width: 1.0),
-                color: Colors.black54,
-                borderRadius: BorderRadius.circular(5.0)),
-            child:  Text(
-              "Checklist verificación",
-              style: TextStyle(
-                  fontSize: 22.0,
-                  color: Colors.white,
-                  fontWeight: FontWeight.bold
-              ),
-            ),
-          ),
-
           SizedBox(
             height: 10,
           ),
+          ExpansionPanelList(
 
-          Container(
-
-            decoration: BoxDecoration(
-              color: Colors.white30,
-
-              border: Border.all(
-                color: Color(0xFFD5D5D5),
-                width: 1.5,
-              ),
-              borderRadius: BorderRadius.all(
-                  Radius.circular(0.0) //                 <--- border radius here
-              ),
-            ),
-
-            child:  Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 6,
-                ),
-
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
+            expansionCallback: (int index, bool isExpanded) {
+              setState(() {
+                _items[index].isExpanded = !_items[index].isExpanded;
+              });
+            },
+            children: _items.map((MyItem item) {
+              return  ExpansionPanel(
+                headerBuilder: (BuildContext context, bool isExpanded) {
+                  return   Column(
+                   crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                      Text(
-                        'Observaciones',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
+                    Text(
+                    "Tarea",
+                    style: TextStyle(
+                        fontSize: 21.0,
+                        color: Colors.black,
+                        fontWeight: FontWeight.bold
+                    ),
+                  ),
+                    ],
+                  );
+                  },
+                isExpanded: item.isExpanded,
+                body: Container(
+
+                  child:  Column(
+                    children: <Widget>[
+                      SizedBox(
+                        height: 6,
                       ),
 
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Observaciones',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
 
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
 
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio,
-                                activeColor: Color(0xFF2350A6),
-                              ),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Si",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
 
-                            ],
-                          ),
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
 
-                        ],
-                      ),
-                     /* TextField(
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            /* TextField(
                         enabled: false,
                         maxLines: 3,
-                        cursorColor: Colors.white,
+                        cursorColor: Colors.black,
                         cursorWidth: 7.0,
                         style: TextStyle(
-                            color: Colors.white,
+                            color: Colors.black,
                             fontSize: 19.0
                         ),
                         decoration: InputDecoration(
                           labelText: 'Llenar campo de texto',
                           labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
+                              color: Colors.black,
                               fontWeight: FontWeight.w100
                           ),
                           fillColor: Colors.blueGrey,
                           prefixIcon: const Icon(
                             Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
+                            color: Colors.black,
                           ),
                         ),
                         onChanged:(String value){},
                       ),*/
-                      _isTextFieldVisible
-                          ? Padding(
+                            _isTextFieldVisible
+                                ? Padding(
 
-                        padding: EdgeInsets.symmetric(horizontal: 25.0),
-                        child: TextField(
-                          controller: _textFieldController,
+                              padding: EdgeInsets.symmetric(horizontal: 25.0),
+                              child: TextField(
+                                controller: _textFieldController,
 
-                          style: TextStyle(
-                              color: Colors.white,
-                              fontSize: 19.0
-                          ),
-                          decoration: InputDecoration(
-                            labelText: 'Observación',
-                            labelStyle: TextStyle(
-                                color: Color(0xFF00DCFF),
-                                fontWeight: FontWeight.w100
-                            ),
-                            fillColor: Colors.blueGrey,
-                           // hintText: "Enter Username",
-                          ),
-                        ),
-                      )
-                          :SizedBox(),
-                SizedBox(
-                  height: 25.0,
-                ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Cortinas(s) entrada de clientes',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio2(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio2,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio2(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio2,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
+                                style: TextStyle(
+                                    color: Colors.black,
+                                    fontSize: 19.0
+                                ),
+                                decoration: InputDecoration(
+                                  labelText: 'Observación',
+                                  labelStyle: TextStyle(
+                                      color: Colors.black,
+                                      fontWeight: FontWeight.w100
                                   ),
-                                ],
-                              ),
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
+                                  fillColor: Colors.blueGrey,
+                                  // hintText: "Enter Username",
                                 ),
                               ),
-                            ],
-                          ),
-                        ],
-                      ),
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Cortinas(s) recibo de mercancia',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio3(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio3,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio3(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio3,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                  child:  TextField(
-                                    keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                            color: Color(0xFF00DCFF),
-                                            fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                       ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown2(),
-                            ],
-                          ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 200,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.multiline,
-                                      // maxLines: 3,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Observación (opcional)',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-                        ],
-                       ),
-
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Puerta(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio4(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio4,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio4(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio4,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown3(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Chapa(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio5(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio5,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio5(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio5,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown9(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Cámara(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio6(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio6,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio6(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio6,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown11(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 134,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Candado(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio7(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio7,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio7(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio7,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown10(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container
-                  (
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Puerta(s) de cristal',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio8(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio8,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio8(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio8,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown4(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Fachada(s) de cristal',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio9(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio9,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio9(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio9,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown5(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Muro(s) perimetrales',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio10(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio10,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio10(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio10,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown14(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 198,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Sirena(s)',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio11(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio11,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio11(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio11,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown12(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Planta(s) de luz',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio12(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio12,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio12(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio12,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown13(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 186,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Ventana(s) o ventanales',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio13(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio13,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio13(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio13,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown6(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Porton(es) de estacionamiento',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio14(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio14,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio14(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio14,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown7(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Puerta(s) de reja de protección',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio15(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio15,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No aplica",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio15(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio15,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                              Row(
-                                children: <Widget>[
-                                  Container(
-                                    width: 116,
-                                    child:  TextField(
-                                      keyboardType: TextInputType.number,
-
-                                      maxLines: 1,
-                                      cursorColor: Colors.white,
-                                      cursorWidth: 7.0,
-                                      style: TextStyle(
-                                          color: Colors.white,
-                                          fontSize: 19.0
-                                      ),
-                                      decoration: InputDecoration(
-                                        //labelText: 'Total',
-                                        hintText: 'Total',
-                                        hintStyle: TextStyle(
-                                          color: Color(0xFF00DCFF),
-                                          fontWeight: FontWeight.w100,
-                                        ),
-                                        fillColor: Colors.blueGrey,
-                                      ),
-                                      onChanged:(String value){},
-                                    ),
-                                  ),
-                                ],
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            children: <Widget>[
-                              _itemDown8(),
-                            ],
-                          ),
-                          Row(
-                            children: <Widget>[
-                              Container(
-                                width: 200,
-                                child:  TextField(
-                                  keyboardType: TextInputType.multiline,
-                                  // maxLines: 3,
-                                  cursorColor: Colors.white,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.white,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    //labelText: 'Total',
-                                    hintText: 'Observación (opcional)',
-                                    hintStyle: TextStyle(
-                                      color: Color(0xFF00DCFF),
-                                      fontWeight: FontWeight.w100,
-                                    ),
-                                    fillColor: Colors.blueGrey,
-                                  ),
-                                  onChanged:(String value){},
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
-
-
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Ruidos al interior',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio16(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio16,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio16(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio16,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      TextField(
-                        maxLines: 3,
-                        cursorColor: Colors.white,
-                        cursorWidth: 7.0,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19.0
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Llenar campo de texto',
-                          labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
-                              fontWeight: FontWeight.w100
-                          ),
-                          fillColor: Colors.blueGrey,
-                          prefixIcon: const Icon(
-                            Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
-                        onChanged:(String value){},
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Luz al interior',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio17(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio17,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio17(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio17,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      TextField(
-                        maxLines: 3,
-                        cursorColor: Colors.white,
-                        cursorWidth: 7.0,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19.0
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Llenar campo de texto',
-                          labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
-                              fontWeight: FontWeight.w100
-                          ),
-                          fillColor: Colors.blueGrey,
-                          prefixIcon: const Icon(
-                            Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
-                        onChanged:(String value){},
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Perímetro',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio18(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio18,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio18(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio18,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      TextField(
-                        enabled: false,
-                        maxLines: 3,
-                        cursorColor: Colors.white,
-                        cursorWidth: 7.0,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19.0
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Llenar campo de texto',
-                          labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
-                              fontWeight: FontWeight.w100
-                          ),
-                          fillColor: Colors.blueGrey,
-                          prefixIcon: const Icon(
-                            Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
-                        onChanged:(String value){},
-                      ),
-                    ],
-                  ),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Container(
-                  decoration: BoxDecoration(
-                    //border: Border.all(color: Colors.grey, width: 1.0),
-                      color: Colors.black54,
-                      borderRadius: BorderRadius.circular(1.0)),
-                  margin: EdgeInsets.only(left: 3.0, right: 3.0),
-                  child: Column(
-                    children: <Widget>[
-                      Text(
-                        'Hubo entrevista',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-
-                      ButtonBar(
-                        alignment: MainAxisAlignment.start,
-                        children: <Widget>[
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "Si",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio19(val);
-                                },
-                                value: 1,
-                                groupValue: selectedRadio19,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-                            ],
-                          ),
-
-                          Row(
-                            children: <Widget>[
-                              Text(
-                                "No",
-                                style: TextStyle(color: Colors.white, fontSize: 13.0),
-                              ),
-                              Radio(
-                                onChanged: (val){
-                                  setSelectedRadio19(val);
-                                },
-                                value: 2,
-                                groupValue: selectedRadio19,
-                                activeColor: Color(0xFF2350A6),
-                              ),
-
-                            ],
-                          ),
-
-                        ],
-                      ),
-                      Text(
-                        'Nombre',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      TextField(
-                        maxLines: 1,
-                        cursorColor: Colors.white,
-                        cursorWidth: 7.0,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19.0
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Llenar campo de texto',
-                          labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
-                              fontWeight: FontWeight.w100
-                          ),
-                          fillColor: Colors.blueGrey,
-                          prefixIcon: const Icon(
-                            Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
-                        onChanged:(String value){},
-                      ),
-                      Text(
-                        'Puesto',
-                        style: TextStyle(color: Colors.white, fontSize: 20.0),
-                      ),
-                      TextField(
-                        maxLines: 1,
-                        cursorColor: Colors.white,
-                        cursorWidth: 7.0,
-                        style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 19.0
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Llenar campo de texto',
-                          labelStyle: TextStyle(
-                              color: Color(0xFF00DCFF),
-                              fontWeight: FontWeight.w100
-                          ),
-                          fillColor: Colors.blueGrey,
-                          prefixIcon: const Icon(
-                            Icons.drive_eta,
-                            color: Colors.lightBlueAccent,
-                          ),
-                        ),
-                        onChanged:(String value){},
-                      ),
-                    ],
-                  ),
-                ),
-
-
-
-                SizedBox(
-                  height: 6,
-                ),
-                _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
-                _canShowButton
-                    ?
-                RaisedButton(
-                  onPressed: (){
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-
-                        return AlertDialog(
-                          title: Text("Firma electrónica"),
-                          content: Container(
-                                  height: 150,
-                                  width: 300,
-                                  child: Padding(
-                                    padding: const EdgeInsets.all(8.0),
-                                    child: Signature(
-                                      color: color,
-                                      key: _sign,
-                                      onSign: () {
-                                        final sign = _sign.currentState;
-                                        debugPrint('${sign.points.length} points in the signature');
-                                      },
-                                      backgroundPainter: _WatermarkPaint("2.0", "2.0"),
-                                      strokeWidth: strokeWidth,
-                                    ),
-                                  ),
-                                  color: Colors.black12,
-                                ),
-
-                          actions: <Widget>[
-                            FlatButton(
-                              child:  Text("Salvar"),
-                              onPressed: ()  async {
-                                final sign = _sign.currentState;
-                                //retrieve image data, do whatever you want with it (send to server, save locally...)
-                                final image = await sign.getData();
-                                var data = await image.toByteData(format: ui.ImageByteFormat.png);
-                                sign.clear();
-                                final encoded = base64.encode(data.buffer.asUint8List());
-                                setState(() {
-                                _img = data;
-                                });
-                                debugPrint("onPressed " + encoded);
-                                Navigator.of(context).pop();
-                                setState(() => _canShowButton = !_canShowButton);
-                              },
-
-                            ),
-
-                            //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
-                            FlatButton(
-                              child:  Text("Borrar"),
-                              onPressed: () {
-                                final sign = _sign.currentState;
-                                sign.clear();
-                                setState(() {
-                                  _img = ByteData(0);
-                                });
-                                debugPrint("cleared");
-                              },
+                            )
+                                :SizedBox(),
+                            SizedBox(
+                              height: 25.0,
                             ),
                           ],
-                        );
-                      },
-                    );
-                  },
-                  textColor: Colors.white,
-                  color: Colors.blueGrey,
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Firma electrónica",
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Cortinas(s) entrada de clientes',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio2(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio2,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio2(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio2,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Cortinas(s) recibo de mercancia',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio3(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio3,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio3(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio3,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown2(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Puerta(s)',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio4(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio4,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio4(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio4,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown3(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Chapa(s)',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio5(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio5,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio5(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio5,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown9(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Cámara(s)',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio6(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio6,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio6(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio6,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown11(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 134,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Candado(s)',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio7(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio7,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio7(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio7,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown10(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container
+                        (
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Puerta(s) de cristal',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio8(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio8,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio8(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio8,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown4(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Fachada(s) de cristal',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio9(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio9,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio9(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio9,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown5(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Muro(s) perimetrales',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio10(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio10,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio10(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio10,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown14(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 198,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Sirena(s)',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio11(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio11,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio11(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio11,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown12(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Planta(s) de luz',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio12(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio12,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio12(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio12,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown13(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 186,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Ventana(s) o ventanales',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio13(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio13,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio13(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio13,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown6(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Porton(es) de estacionamiento',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio14(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio14,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio14(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio14,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown7(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Puerta(s) de reja de protección',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio15(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio15,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No aplica",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio15(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio15,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                    Row(
+                                      children: <Widget>[
+                                        Container(
+                                          width: 116,
+                                          child:  TextField(
+                                            keyboardType: TextInputType.number,
+
+                                            maxLines: 1,
+                                            cursorColor: Colors.black,
+                                            cursorWidth: 7.0,
+                                            style: TextStyle(
+                                                color: Colors.black,
+                                                fontSize: 19.0
+                                            ),
+                                            decoration: InputDecoration(
+                                              //labelText: 'Total',
+                                              hintText: 'Total',
+                                              hintStyle: TextStyle(
+                                                color: Colors.black,
+                                                fontWeight: FontWeight.w100,
+                                              ),
+                                              fillColor: Colors.blueGrey,
+                                            ),
+                                            onChanged:(String value){},
+                                          ),
+                                        ),
+                                      ],
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+                                Row(
+                                  children: <Widget>[
+                                    _itemDown8(),
+                                  ],
+                                ),
+                                Row(
+                                  children: <Widget>[
+                                    Container(
+                                      width: 200,
+                                      child:  TextField(
+                                        keyboardType: TextInputType.multiline,
+                                        // maxLines: 3,
+                                        cursorColor: Colors.black,
+                                        cursorWidth: 7.0,
+                                        style: TextStyle(
+                                            color: Colors.black,
+                                            fontSize: 19.0
+                                        ),
+                                        decoration: InputDecoration(
+                                          //labelText: 'Total',
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(
+                                            color: Colors.black,
+                                            fontWeight: FontWeight.w100,
+                                          ),
+                                          fillColor: Colors.blueGrey,
+                                        ),
+                                        onChanged:(String value){},
+                                      ),
+                                    ),
+                                  ],
+                                ),
+                              ],
+                            ),
+
+
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Ruidos al interior',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Si",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio16(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio16,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio16(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio16,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            TextField(
+                              maxLines: 3,
+                              cursorColor: Colors.black,
+                              cursorWidth: 7.0,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Llenar campo de texto',
+                                labelStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w100
+                                ),
+                                fillColor: Colors.blueGrey,
+                                prefixIcon: const Icon(
+                                  Icons.drive_eta,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              onChanged:(String value){},
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Luz al interior',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Si",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio17(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio17,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio17(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio17,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            TextField(
+                              maxLines: 3,
+                              cursorColor: Colors.black,
+                              cursorWidth: 7.0,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Llenar campo de texto',
+                                labelStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w100
+                                ),
+                                fillColor: Colors.blueGrey,
+                                prefixIcon: const Icon(
+                                  Icons.drive_eta,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              onChanged:(String value){},
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Perímetro',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Si",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio18(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio18,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio18(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio18,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            TextField(
+                              enabled: false,
+                              maxLines: 3,
+                              cursorColor: Colors.black,
+                              cursorWidth: 7.0,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Llenar campo de texto',
+                                labelStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w100
+                                ),
+                                fillColor: Colors.blueGrey,
+                                prefixIcon: const Icon(
+                                  Icons.drive_eta,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              onChanged:(String value){},
+                            ),
+                          ],
+                        ),
+                      ),
+                      SizedBox(
+                        height: 6,
+                      ),
+                      Container(
+                        decoration: BoxDecoration(
+                          //border: Border.all(color: Colors.grey, width: 1.0),
+                            color: Color(0xFFEAEAEA),
+                            borderRadius: BorderRadius.circular(1.0)),
+                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                        child: Column(
+                          children: <Widget>[
+                            Text(
+                              'Hubo entrevista',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+
+                            ButtonBar(
+                              alignment: MainAxisAlignment.start,
+                              children: <Widget>[
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "Si",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio19(val);
+                                      },
+                                      value: 1,
+                                      groupValue: selectedRadio19,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+                                  ],
+                                ),
+
+                                Row(
+                                  children: <Widget>[
+                                    Text(
+                                      "No",
+                                      style: TextStyle(color: Colors.black, fontSize: 13.0),
+                                    ),
+                                    Radio(
+                                      onChanged: (val){
+                                        setSelectedRadio19(val);
+                                      },
+                                      value: 2,
+                                      groupValue: selectedRadio19,
+                                      activeColor: Color(0xFF2350A6),
+                                    ),
+
+                                  ],
+                                ),
+
+                              ],
+                            ),
+                            Text(
+                              'Nombre',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+                            TextField(
+                              maxLines: 1,
+                              cursorColor: Colors.black,
+                              cursorWidth: 7.0,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Llenar campo de texto',
+                                labelStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w100
+                                ),
+                                fillColor: Colors.blueGrey,
+                                prefixIcon: const Icon(
+                                  Icons.drive_eta,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              onChanged:(String value){},
+                            ),
+                            Text(
+                              'Puesto',
+                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                            ),
+                            TextField(
+                              maxLines: 1,
+                              cursorColor: Colors.black,
+                              cursorWidth: 7.0,
+                              style: TextStyle(
+                                  color: Colors.black,
+                                  fontSize: 19.0
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Llenar campo de texto',
+                                labelStyle: TextStyle(
+                                    color: Colors.black,
+                                    fontWeight: FontWeight.w100
+                                ),
+                                fillColor: Colors.blueGrey,
+                                prefixIcon: const Icon(
+                                  Icons.drive_eta,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              onChanged:(String value){},
+                            ),
+                            SizedBox(
+                              height: 6,
+                            ),
+                          ],
+                        ),
+                      ),
+                      //   _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 0.0, child: Image.memory(_img.buffer.asUint8List())),
+                    ],
                   ),
 
-                )
-                    : SizedBox(),
-                Text(
-                  'Fotografia fachada',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
                 ),
-                CameraW(),
-                Text(
-                  'Fotografia entrada',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                CameraW(),
-                Text(
-                  'Fotografia lateral',
-                  style: TextStyle(color: Colors.white, fontSize: 20.0),
-                ),
-                CameraW(),
 
-             //   _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 0.0, child: Image.memory(_img.buffer.asUint8List())),
-              ],
-            ),
+              );
 
+            }).toList(),
+          ),
+          Column(
+            children: <Widget>[
+              SizedBox(
+                height: 6,
+              ),
+              _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
+              _canShowButton
+                  ?
+              RaisedButton(
+                onPressed: (){
+                  showDialog(
+                    context: context,
+                    builder: (BuildContext context) {
+
+                      return AlertDialog(
+                        title: Text("Firma electrónica"),
+                        content: Container(
+                          height: 150,
+                          width: 300,
+                          child: Padding(
+                            padding: const EdgeInsets.all(8.0),
+                            child: Signature(
+                              color: color,
+                              key: _sign,
+                              onSign: () {
+                                final sign = _sign.currentState;
+                                debugPrint('${sign.points.length} points in the signature');
+                              },
+                              backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                              strokeWidth: strokeWidth,
+                            ),
+                          ),
+                          color: Colors.black12,
+                        ),
+
+                        actions: <Widget>[
+                          FlatButton(
+                            child:  Text("Salvar"),
+                            onPressed: ()  async {
+                              final sign = _sign.currentState;
+                              //retrieve image data, do whatever you want with it (send to server, save locally...)
+                              final image = await sign.getData();
+                              var data = await image.toByteData(format: ui.ImageByteFormat.png);
+                              sign.clear();
+                              final encoded = base64.encode(data.buffer.asUint8List());
+                              setState(() {
+                                _img = data;
+                              });
+                              debugPrint("onPressed " + encoded);
+                              Navigator.of(context).pop();
+                              setState(() => _canShowButton = !_canShowButton);
+                            },
+
+                          ),
+
+                          //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
+                          FlatButton(
+                            child:  Text("Borrar"),
+                            onPressed: () {
+                              final sign = _sign.currentState;
+                              sign.clear();
+                              setState(() {
+                                _img = ByteData(0);
+                              });
+                              debugPrint("cleared");
+                            },
+                          ),
+                        ],
+                      );
+                    },
+                  );
+                },
+                textColor: Colors.white,
+                color: Color(0xFF2350A6),
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Firma electrónica",
+                ),
+
+              )
+                  : SizedBox(),
+              Text(
+                'Fotografia fachada',
+                style: TextStyle(color: Colors.black, fontSize: 20.0),
+              ),
+              SizedBox(
+                height: 6,
+              ),
+              CameraW(),
+              SizedBox(
+                height: 6,
+              ),
+              Text(
+                'Fotografia entrada',
+                style: TextStyle(color: Colors.black, fontSize: 20.0),
+              ),
+              SizedBox(
+                height: 6,
+              ),
+              CameraW(),
+              SizedBox(
+                height: 6,
+              ),
+              Text(
+                'Fotografia lateral',
+                style: TextStyle(color: Colors.black, fontSize: 20.0),
+              ),
+              SizedBox(
+                height: 6,
+              ),
+              CameraW(),
+            ],
           ),
         ],
       ),

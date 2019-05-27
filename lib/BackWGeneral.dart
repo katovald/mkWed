@@ -6,12 +6,7 @@ class BackWGeneral extends StatelessWidget{
   Widget build(BuildContext context) {
 
     return Container(
-      decoration: BoxDecoration(
-          image: DecorationImage(
-            fit: BoxFit.cover,
-            image: AssetImage('assets/pantalla_extra.png'),
-          )
-      ),
+      color: Color(0xFFF8F8F8),
     );
   }
 }

@@ -27,7 +27,6 @@ class _ProductsState extends State<Products> {
   //:::::::::::::::::::::::::::::::::::::::::::::::::::::::: POP-UPS EVENTS II
   void _dialogResultAccept(int index, MyDialogAction value) {
     widget.products.removeAt(index);
-    print(widget.products);
     Navigator.pop(context);
   }
 
@@ -74,7 +73,6 @@ class _ProductsState extends State<Products> {
 
     showDialog(
         context: context,
-        child: dialog
     );
     ///////////////////////////////////////////////////////////
 
@@ -101,7 +99,6 @@ class _ProductsState extends State<Products> {
 
     showDialog(
         context: context,
-        child: dialog
     );
     ///////////////////////////////////////////////////////////
 
