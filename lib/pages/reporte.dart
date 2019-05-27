@@ -103,7 +103,7 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => Chat(),
+                builder: (BuildContext context) => ChatPage(),
               ),
             ),
             child: Container(
