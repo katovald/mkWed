@@ -142,37 +142,47 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
        child: Container(
           padding: EdgeInsets.all(15.0),
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              Expanded(
+               child: ListView(
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
 
-         Align(
-           alignment: Alignment.topRight,
-             child: _itemDown(),
-         ),
-              Container(
-                padding: EdgeInsets.all(15.0),
-                child: TextField(
-                  maxLines: 4,
-                  cursorColor: Colors.black,
-
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15.0
-                  ),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Comentario",
-                    hintStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w100
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: _itemDown(),
                     ),
-                    fillColor: Colors.blueGrey,
+                    Container(
+                      padding: EdgeInsets.all(15.0),
+                      child: TextField(
+                        maxLines: 4,
+                        cursorColor: Colors.black,
 
-                  ),
-                  onChanged:(String value){},
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0
+                        ),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Comentario",
+                          hintStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w100
+                          ),
+                          fillColor: Colors.blueGrey,
+
+                        ),
+                        onChanged:(String value){},
+                      ),
+                    ),
+
+
+                  ],
+
                 ),
               ),
+
               Container(
                 padding: EdgeInsets.only(top: 15.0),
                 child: RaisedButton(
@@ -186,7 +196,6 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
                   ),
                 ),
               ),
-
             ],
           ),
 
