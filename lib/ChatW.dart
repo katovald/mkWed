@@ -70,14 +70,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
 
   String _name = 'Usuario';
 
-  void _handleChatSubmit(String text) {
-    _chatTextController.clear();
-    Firestore.instance.collection('chats').add({
-      'name': _name,
-      'message': text,
-      'time':  DateTime.now().timeZoneName
-    });
-  }
   void _link(String text) {
     _chatTextController.clear();
     Firestore.instance.collection('links').add({
@@ -91,7 +83,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
   Widget buildChatList() {
     return  Expanded(
         child:  StreamBuilder(
-            stream: Firestore.instance.collection('chats').snapshots(),
+             stream:Firestore.instance.collection('chats').snapshots(),
             builder: (context, snapshot2) {
               if (!snapshot2.hasData) return const Text('Cargando...');
               return  StreamBuilder(
@@ -150,28 +142,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
           ],
         ));
   }
-
-  Widget buildChatBubble(String name, String message) {
-    const whiteText = const TextStyle(color: Colors.white, fontSize: 15.0);
-
-    return  Container(
-      margin:  EdgeInsets.all(5.0),
-      decoration:  BoxDecoration(
-          color: Color(0xFF1D539B),
-          borderRadius:  BorderRadius.all(const Radius.circular(8.0))),
-      padding:  EdgeInsets.all(10.0),
-      child:  Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: <Widget>[
-          Text(
-            "${name}: ",
-            style: whiteText,
-          ),
-          Text(message, style: whiteText)
-        ],
-      ),
-    );
-  }
   Widget buildChatBubbleIm(String name, String message, String link) {
     const whiteText = const TextStyle(color: Colors.white, fontSize: 15.0);
 
@@ -195,7 +165,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
             if (await canLaunch(link)) {
               await launch(link);
             } else {
-              throw 'No pudo abrirse $imageUrl';
+              throw 'No pudo abrirse $link';
             }
                 },
 
