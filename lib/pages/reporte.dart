@@ -1,3 +1,4 @@
+import 'package:app_editesp/ChatW.dart';
 import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/product_manager.dart';
@@ -102,7 +103,7 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => ChatPage(),
+                builder: (BuildContext context) => Chat(),
               ),
             ),
             child: Container(

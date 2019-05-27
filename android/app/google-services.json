@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "539549206543",
+    "firebase_url": "https://camsa-vpro.firebaseio.com",
+    "project_id": "camsa-vpro",
+    "storage_bucket": "camsa-vpro.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:539549206543:android:9df73e43a50cefb1",
+        "android_client_info": {
+          "package_name": "com.camsadev.camsavpro"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "539549206543-jml883lsuaverirvfdepukgg2agb2atm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCE5F7rKzTj72YEYLcQKveEQGKaLryWsOM"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "539549206543-jml883lsuaverirvfdepukgg2agb2atm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
