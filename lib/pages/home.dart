@@ -5,7 +5,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'package:flutter/material.dart' as prefix0;
 class HomePage extends StatefulWidget {
   @override
   MyAppState createState() {
@@ -37,36 +36,36 @@ _callMe() async {
     }
   }
 
-   void _showAlertCall() {
-   
-    AlertDialog dialog = new AlertDialog(
-         title: Text("Recuperar Contraseña"),
-         content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una nueva contraseña, ¿Deseas continuar?"),
-         backgroundColor: Color(0xFFF4F4F4),
-       actions: <Widget>[
-                                    FlatButton(
-                                      child:  Text("Si"),
-                                    
-                                    onPressed: (){_callMe();},
-                                      
-                                    ),
-
-                                    FlatButton(
-                                      child:  Text("No"),
-                                      onPressed: () {
-                                        Navigator.of(context).pop();
-                                      },
-                                    ),
-                                  ],
-    );
-
+  void _showDialog() {
+    // flutter defined function
     showDialog(
-        context: context,
-    );
-    ///////////////////////////////////////////////////////////
+      context: context,
+      builder: (BuildContext context) {
+        // return object of type Dialog
+        return AlertDialog(
+          title: Text("Recuperar Contraseña"),
+          content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una nueva contraseña, ¿Deseas continuar?"),
+          backgroundColor: Color(0xFFF4F4F4),
+          actions: <Widget>[
+            // usually buttons at the bottom of the dialog
+            FlatButton(
+              child:  Text("Si"),
 
+              onPressed: (){_callMe();},
+
+            ),
+
+            FlatButton(
+              child:  Text("No"),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+            ),
+          ],
+        );
+      },
+    );
   }
-  
   
 final FocusNode myFocusNodePassword = FocusNode();
 bool _obscureTextLogin = true;
@@ -234,7 +233,7 @@ bool _obscureTextLogin = true;
                 padding: EdgeInsets.only(top:250),
                 child: FlatButton(
                     onPressed: (){
-                    _showAlertCall();
+                      _showDialog();
                   },
                     child: Text(
                       "Recuperar Contraseña",

@@ -10,8 +10,8 @@ import 'package:carousel_slider/carousel_slider.dart';
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];*/
 final List<String> imgList = [
-  'assets/1.png',
-  'assets/2.png',
+  'assets/banner1.png',
+  'assets/banner2.jpg',
   'assets/3.png',
   'assets/4.png',
   'assets/5.png',
@@ -89,7 +89,7 @@ class _State extends State<Mural> {
                 borderRadius: BorderRadius.all(Radius.circular(0.0)),
                 child: Image.asset(
                   i,
-                  fit: BoxFit.cover,
+                  fit: BoxFit.fill,
                   width: 1000.0,
                 ),
               ),
