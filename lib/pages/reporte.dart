@@ -10,14 +10,18 @@ class reporte_Siniestros extends StatefulWidget {
 class _reporte_SiniestrosState extends State<reporte_Siniestros> {
   var _value1 = "Accidente de transito";
   TextEditingController _sinTextController =   TextEditingController();
-
+  String _numero = '169861';
+  String _latitud = '19.415269';
+  String _longitud = '-99.136779';
+  var now = DateTime.now();
   void _siniestro(String Comentario) {
     _sinTextController.clear();
     Firestore.instance.collection('siniestros').add({
-      'siniestro': _itemDown().value,
-      'comentario': Comentario,
-
-      'time':  DateTime.now().timeZoneName
+      'Número de empleado': _numero,
+      'Punto': '($_latitud, $_longitud)',
+      'Siniestro': _itemDown().value,
+      'Comentario': Comentario,
+      'Hora': now,
     });
   }
   DropdownButton _itemDown() =>
