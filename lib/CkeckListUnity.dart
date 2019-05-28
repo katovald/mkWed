@@ -2756,7 +2756,7 @@ class _CheckListUState extends State<CheckListUnity>{
   );
   var rating;
   int selectedRadio;
-  int selectedRadio2;
+  String selectedRadio2;
   int selectedRadio3;
   int selectedRadio4;
   int selectedRadio5;
@@ -2788,7 +2788,7 @@ class _CheckListUState extends State<CheckListUnity>{
   void initState() {
     super.initState();
     selectedRadio = 0;
-    selectedRadio2 = 0;
+    selectedRadio2 = "Buen estado";
     selectedRadio3 = 0;
     selectedRadio4 = 0;
     selectedRadio5 = 0;
@@ -2822,7 +2822,7 @@ class _CheckListUState extends State<CheckListUnity>{
       selectedRadio = val;
     });
   }
-  setSelectedRadio2 (int val) {
+  setSelectedRadio2 (String val) {
     setState(() {
       selectedRadio2 = val;
     });
@@ -3128,7 +3128,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                       onChanged: (val){
                                         setSelectedRadio2(val);
                                       },
-                                      value: 1,
+                                      value: "Buen estado",
                                       groupValue: selectedRadio2,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3138,14 +3138,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                 Row(
                                   children: <Widget>[
                                     Text(
-                                      "  Mal estado",
+                                      "Mal estado",
                                       style: TextStyle(color: Colors.black, fontSize: 13.0),
                                     ),
                                     Radio(
                                       onChanged: (val){
                                         setSelectedRadio2(val);
                                       },
-                                      value: 2,
+                                      value: "Mal estado",
                                       groupValue: selectedRadio2,
                                       activeColor: Color(0xFF2350A6),
                                     ),
