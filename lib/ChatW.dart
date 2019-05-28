@@ -44,7 +44,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
     }
   }
   Future uploadFile() async {
-    String fileName = DateTime.now().minute.toString();
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
     StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
     StorageUploadTask uploadTask = reference.putFile(imageFile);
     StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
@@ -76,28 +76,27 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       'name': _name,
       'message': text,
       'link':imageUrl,
-      'time':  DateTime.now().runtimeType
+      'time':  DateTime.now().timeZoneName
     });
   }
-
   Widget buildChatList() {
     return  Expanded(
         child:  StreamBuilder(
             stream:Firestore.instance.collection('chats').snapshots(),
             builder: (context, snapshot2) {
               if (!snapshot2.hasData) return const Text(
-                  'Cargando . . .',
-                   style: TextStyle(
-                       fontSize: 16.0,
-                       fontWeight: FontWeight.w600,
-                       color: Color(0xFF1D539B)
-                   ),
+                'Cargando . . .',
+                style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF1D539B)
+                ),
               );
               return  StreamBuilder(
                   stream: Firestore.instance.collection('links').snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) return const Text(
-                        'Cargando . . .',
+                      'Cargando . . .',
                       style: TextStyle(
                           fontSize: 16.0,
                           fontWeight: FontWeight.w600,
@@ -122,6 +121,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                   });
             }));
   }
+ 
 
   Widget buildChatBar() {
     return  Container(
