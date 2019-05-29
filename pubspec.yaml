@@ -70,6 +70,12 @@ flutter:
   - assets/rafa.png
   - assets/banner1.png
   - assets/banner2.jpg
+  - assets/chimuelo.png
+  - assets/chimuelo2.png
+  - assets/chimuelo3.png
+  - assets/chimuelo4.png
+  - assets/chimuelo5png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

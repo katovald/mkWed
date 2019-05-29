@@ -121,7 +121,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                   });
             }));
   }
- 
+
 
   Widget buildChatBar() {
     return  Container(

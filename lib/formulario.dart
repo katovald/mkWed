@@ -786,19 +786,14 @@ class _CheckListUState extends State<Formulario>{
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.exit_to_app),
-          onPressed: () {
-            Navigator.pop(context);
-          },
-        ),
-        title: Text("Recepción de Vehículo",
+        title: Text("Devolución de Vehículo",
           style: TextStyle(
             color: Colors.white,
             fontSize: 18.0,
             fontFamily: "Sabritas",
           ),
         ),
+        leading: Container(),
         bottom: PreferredSize(
           child: InkWell(
             onTap: () => Navigator.push(
@@ -3887,7 +3882,7 @@ class _CheckListUState extends State<Formulario>{
             color: Colors.white,),
           onPressed: () {
             Navigator.of(context)
-                .pushNamedAndRemoveUntil('/item', (Route<dynamic> route) => false);
+                .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
             _devolucion();
           }
 

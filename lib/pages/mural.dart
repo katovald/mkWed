@@ -13,8 +13,8 @@ final List<String> imgList = [
   'assets/banner1.png',
   'assets/banner2.jpg',
   'assets/3.png',
-  'assets/4.png',
-  'assets/5.png',
+  'assets/chimuelo2.png',
+  'assets/chimuelo.png',
 ];
 int _current = 0;
 final List child = map<Widget>(
