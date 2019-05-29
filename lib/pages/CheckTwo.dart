@@ -80,66 +80,6 @@ class CheckListTwo extends StatelessWidget {
 
                 //CheckListUnity(),
                 formulario_Tareas(),
-
-                Row(
-        children: [
-        Container(
-                  width: 100,
-                  height: 40,
-                  margin: EdgeInsets.all(16.0),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                       onPressed: () => Navigator.pop(context, true), 
-                      color: Color(0xFF25C13A),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.arrow_right,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Enviar",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
-
-         Container(
-                  width: 110,
-                  height: 40,
-                  margin: EdgeInsets.only(bottom: 16, top: 16),
-                  child: ButtonTheme(
-                    child:
-                    FlatButton(
-                      onPressed: () => Navigator.pop(context, true), 
-                      color:  Color(0xFF2350A6),
-                      child: Row( // Replace with a Row for horizontal icon + text
-                      children: <Widget>[
-                      Icon(
-                      Icons.save,
-                      color: Colors.white,
-                      ),
-                      Text(
-                      "Guardar",
-                      style: TextStyle(
-                        fontSize: 15,
-                      color: Colors.white,
-                        ),
-                      )
-                  ],
-                ),
-                  ),
-                  ),
-                ),
-                ],
-                ),
               ],
             ),
           )

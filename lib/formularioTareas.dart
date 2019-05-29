@@ -1,17 +1,23 @@
 import 'dart:convert';
+import 'dart:io';
 import 'dart:math';
 import 'dart:typed_data';
 import 'dart:ui' as ui;
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:app_editesp/product_manager.dart';
 import 'package:app_editesp/CameraW.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
+
 class formulario_Tareas extends StatefulWidget {
+
   @override
-  _formulario_TareasState createState() => _formulario_TareasState();
+  _formulario_TareasState createState() => _formulario_TareasState( );
 }
 class MyItem {
   MyItem({ this.isExpanded: false,});
@@ -44,6 +50,8 @@ class _WatermarkPaint extends CustomPainter {
 }
 
 class _formulario_TareasState  extends State<formulario_Tareas>{
+  final Evento evento;
+  _formulario_TareasState({Key key, this.evento});
   List<MyItem> _items = <MyItem>[
     MyItem()
   ];
@@ -52,1515 +60,595 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   var strokeWidth = 2.0;
   final _sign = GlobalKey<SignatureState>();
   bool _canShowButton = true;
-  var _value1 = "1";
-  var _value2 = "1";
-  var _value3 = "1";
-  var _value4 = "1";
-  var _value5 = "1";
-  var _value6 = "1";
-  var _value7 = "1";
-  var _value8 = "1";
-  var _value9 = "1";
-  var _value10 = "1";
-  var _value11 = "1";
-  var _value12 = "1";
-  var _value13 = "1";
-  var _value14 = "1";
-  DropdownButton _itemDown() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-    DropdownMenuItem(
-      value: "2",
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(width: 10),
-          Text(
-            "Violado",
-          ),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: "3",
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(width: 10),
-          Text(
-            "Fisurado",
-          ),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: "4",
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(width: 10),
-          Text(
-            "Oxidado",
-          ),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: "5",
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(width: 10),
-          Text(
-            "Clausurada",
-          ),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: "6",
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(width: 10),
-          Text(
-            "Rota",
-          ),
-        ],
-      ),
-    ),
-    DropdownMenuItem(
-      value: "7",
-      child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: <Widget>[
-          SizedBox(width: 10),
-          Text(
-            "Otro",
-          ),
-        ],
-      ),
-    ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value1 = value;
-      });
-    },
-
-    value: _value1,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown2() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value2 = value;
-      });
-    },
-
-    value: _value2,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown3() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value3 = value;
-      });
-    },
-
-    value: _value3,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown4() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value4 = value;
-      });
-    },
-
-    value: _value4,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown5() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value5 = value;
-      });
-    },
-
-    value: _value5,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown6() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value6 = value;
-      });
-    },
-
-    value: _value6,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown7() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value7 = value;
-      });
-    },
-
-    value: _value7,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown8() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Clausurada",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rota",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value8 = value;
-      });
-    },
-
-    value: _value8,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown9() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Botadas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value9 = value;
-      });
-    },
-
-    value: _value9,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown10() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Botadas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Abierto",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value10 = value;
-      });
-    },
-
-    value: _value10,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown11() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Rotas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Sustraidas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Desviadas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Pintadas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Sustraidas o robadas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Golpeadas o estrelladas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otros",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value11 = value;
-      });
-    },
-
-    value: _value11,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown12() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Golpeado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Robado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Fisurado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Dañado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Oxidado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Cortado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Arrancado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "8",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value12 = value;
-      });
-    },
-
-    value: _value12,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown13() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Golpeado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Arrancado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Robado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Dañado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "5",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Apagado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "6",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Violado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "7",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Intentode robo",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "8",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value13 = value;
-      });
-    },
-
-    value: _value13,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  DropdownButton _itemDown14() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Boquete",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Derrumbado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Accidentado",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Otro",
-            ),
-          ],
-        ),
-      ),
-
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value14 = value;
-      });
-    },
-
-    value: _value14,
-    elevation: 2,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontWeight: FontWeight.w100,
-      fontSize: 13.0,
-    ),
-  );
-  bool _isChecked = false;
-  bool _isChecked2 = false;
-  bool _isChecked3 = false;
-  bool _isChecked4 = false;
-  bool _isChecked5 = false;
-  bool _isChecked6 = false;
-  bool _isChecked7 = false;
   var rating;
 
-  int selectedRadio;
-  int selectedRadio2;
-  int selectedRadio3;
-  int selectedRadio4;
-  int selectedRadio5;
-  int selectedRadio6;
-  int selectedRadio7;
-  int selectedRadio8;
-  int selectedRadio9;
-  int selectedRadio10;
-  int selectedRadio11;
-  int selectedRadio12;
-  int selectedRadio13;
-  int selectedRadio14;
-  int selectedRadio15;
-  int selectedRadio16;
-  int selectedRadio17;
-  int selectedRadio18;
-  int selectedRadio19;
+  String selectedRadio;
+  String selectedRadio2;
+  String selectedRadio3;
+  String selectedRadio4;
+  String selectedRadio5;
+  String selectedRadio6;
+  String selectedRadio7;
+  String selectedRadio8;
+  String selectedRadio9;
+  String selectedRadio10;
+  String selectedRadio11;
+  String selectedRadio12;
+  String selectedRadio13;
+  String selectedRadio14;
+  String selectedRadio15;
+  String selectedRadio16;
+  String selectedRadio17;
+  String selectedRadio18;
+  String selectedRadio19;
   @override
   void initState() {
     super.initState();
-    selectedRadio = 0;
-    selectedRadio2 = 0;
-    selectedRadio3 = 0;
-    selectedRadio4 = 0;
-    selectedRadio5 = 0;
-    selectedRadio6 = 0;
-    selectedRadio7 = 0;
-    selectedRadio8= 0;
-    selectedRadio9 = 0;
-    selectedRadio10 = 0;
-    selectedRadio11 = 0;
-    selectedRadio12 = 0;
-    selectedRadio13 = 0;
-    selectedRadio14 = 0;
-    selectedRadio15 = 0;
-    selectedRadio16 = 0;
-    selectedRadio17 = 0;
-    selectedRadio18 = 0;
-    selectedRadio19 = 0;
+    selectedRadio = "No";
+    selectedRadio2 = "Aplica";
+    selectedRadio3 = "Aplica";
+    selectedRadio4 = "Aplica";
+    selectedRadio5 = "Aplica";
+    selectedRadio6 = "Aplica";
+    selectedRadio7 = "Aplica";
+    selectedRadio8= "Aplica";
+    selectedRadio9 = "Aplica";
+    selectedRadio10 = "Aplica";
+    selectedRadio11 = "Aplica";
+    selectedRadio12 = "Aplica";
+    selectedRadio13 = "Aplica";
+    selectedRadio14 = "Aplica";
+    selectedRadio15 = "Si";
+    selectedRadio16 = "Si";
+    selectedRadio17 = "Si";
+    selectedRadio18 = "Si";
+    selectedRadio19 = "Si";
   }
-  setSelectedRadio (int val) {
+  setSelectedRadio (String val) {
     setState(() {
       selectedRadio = val;
       _isTextFieldVisible = !_isTextFieldVisible;
     });
   }
-  setSelectedRadio2 (int val) {
+  setSelectedRadio2 (String val) {
     setState(() {
       selectedRadio2 = val;
     });
   }
-  setSelectedRadio3 (int val) {
+  setSelectedRadio3 (String val) {
     setState(() {
       selectedRadio3 = val;
     });
   }
-  setSelectedRadio4 (int val) {
+  setSelectedRadio4 (String val) {
     setState(() {
       selectedRadio4 = val;
     });
   }
-  setSelectedRadio5 (int val) {
+  setSelectedRadio5 (String val) {
     setState(() {
       selectedRadio5 = val;
     });
   }
-  setSelectedRadio6 (int val) {
+  setSelectedRadio6 (String val) {
     setState(() {
       selectedRadio6 = val;
     });
   }
-  setSelectedRadio7 (int val) {
+  setSelectedRadio7 (String val) {
     setState(() {
       selectedRadio7 = val;
     });
   }
-  setSelectedRadio8 (int val) {
+  setSelectedRadio8 (String val) {
     setState(() {
       selectedRadio8 = val;
     });
   }
-  setSelectedRadio9 (int val) {
+  setSelectedRadio9 (String val) {
     setState(() {
       selectedRadio9 = val;
     });
   }
-  setSelectedRadio10 (int val) {
+  setSelectedRadio10 (String val) {
     setState(() {
       selectedRadio10 = val;
     });
   }
-  setSelectedRadio11 (int val) {
+  setSelectedRadio11 (String val) {
     setState(() {
       selectedRadio11 = val;
     });
   }
-  setSelectedRadio12 (int val) {
+  setSelectedRadio12 (String val) {
     setState(() {
       selectedRadio12 = val;
     });
   }
-  setSelectedRadio13 (int val) {
+  setSelectedRadio13 (String val) {
     setState(() {
       selectedRadio13 = val;
     });
   }
-  setSelectedRadio14 (int val) {
+  setSelectedRadio14 (String val) {
     setState(() {
       selectedRadio14 = val;
     });
   }
-  setSelectedRadio15 (int val) {
+  setSelectedRadio15 (String val) {
     setState(() {
       selectedRadio15 = val;
     });
   }
-  setSelectedRadio16 (int val) {
+  setSelectedRadio16 (String val) {
     setState(() {
       selectedRadio16 = val;
     });
   }
-  setSelectedRadio17 (int val) {
+  setSelectedRadio17 (String val) {
     setState(() {
       selectedRadio17 = val;
     });
   }
-  setSelectedRadio18 (int val) {
+  setSelectedRadio18 (String val) {
     setState(() {
       selectedRadio18 = val;
     });
   }
-  setSelectedRadio19 (int val) {
+  setSelectedRadio19 (String val) {
     setState(() {
       selectedRadio19 = val;
     });
   }
   TextEditingController _textFieldController = TextEditingController();
+  TextEditingController _totalCortinaClientes = TextEditingController();
+  TextEditingController _observacionCortinaClientes = TextEditingController();
+  TextEditingController _totalCortinasMercancia = TextEditingController();
+  TextEditingController _observacionCortinasMercancia = TextEditingController();
+  TextEditingController _totalPuerta = TextEditingController();
+  TextEditingController _observacionPuerta = TextEditingController();
+  TextEditingController _totalChapa = TextEditingController();
+  TextEditingController _observacionChapa = TextEditingController();
+  TextEditingController _totalCamara = TextEditingController();
+  TextEditingController _observacionCamara = TextEditingController();
+  TextEditingController _totalCandado = TextEditingController();
+  TextEditingController _observacionCandado = TextEditingController();
+  TextEditingController _totalPuertaCristal = TextEditingController();
+  TextEditingController _observacionPuertaCristal = TextEditingController();
+  TextEditingController _totalFachadaCristal = TextEditingController();
+  TextEditingController _observacionFachadaCristal = TextEditingController();
+  TextEditingController _totalMuro = TextEditingController();
+  TextEditingController _observacionMuro = TextEditingController();
+  TextEditingController _totalSirena = TextEditingController();
+  TextEditingController _observacionSirena = TextEditingController();
+  TextEditingController _totalPlanta = TextEditingController();
+  TextEditingController _observacionPlanta = TextEditingController();
+  TextEditingController _totalVentana = TextEditingController();
+  TextEditingController _observacionVentana = TextEditingController();
+  TextEditingController _totalPorton = TextEditingController();
+  TextEditingController _observacionPorton = TextEditingController();
+  TextEditingController _totalReja = TextEditingController();
+  TextEditingController _observacionReja = TextEditingController();
+  TextEditingController _ruidos = TextEditingController();
+  TextEditingController _luz = TextEditingController();
+  TextEditingController _perimetro = TextEditingController();
+  TextEditingController _nombreEntrevista = TextEditingController();
+  TextEditingController _puesto = TextEditingController();
+  var now = DateTime.now();
+  File imageFile;
+  File imageFile2;
+  File imageFile3;
+  File imageFirma;
+  String imageUrl;
+  String imageUrl2;
+  String imageUrl3;
+  String urlFirma;
+  bool isLoading;
+
+  Future getImage() async {
+    imageFile = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile();
+    }
+  }
+  Future getImage2() async {
+    imageFile2 = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile2 != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile2();
+    }
+  }
+  Future getImage3() async {
+    imageFile3 = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile3 != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile3();
+    }
+  }
+  Future uploadFile() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFile2() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile2);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl2 = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFile3() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile3);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl3 = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFirma() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putData(_img.buffer.asUint8List());
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      urlFirma = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  void _tarea() {
+    //_sinTextController.clear();
+    Firestore.instance.collection('Checklist').add({
+      'Observaciones': selectedRadio,
+      'Cortina_Clientes': selectedRadio2,
+      'Cortina_Mercancia': selectedRadio3,
+      'Puerta': selectedRadio4,
+      'Chapa': selectedRadio5,
+      'Camara': selectedRadio6,
+      'Candado': selectedRadio7,
+      'Puerta_cristal': selectedRadio8,
+      'Fachada_cristal': selectedRadio9,
+      'Muro': selectedRadio10,
+      'Sirena': selectedRadio11,
+      'Planta': selectedRadio12,
+      'Ventana': selectedRadio13,
+      'Porton': selectedRadio14,
+      'Reja': selectedRadio15,
+      'Ruidos': selectedRadio16,
+      'Luz': selectedRadio17,
+      'Perímetro': selectedRadio18,
+      'Entrevista': selectedRadio19,
+      'Observaciones_contenido': _textFieldController.text,
+      'Cortina_cliente_total': _totalCortinaClientes.text,
+      'Cortina_cliente_observacion':_observacionCortinaClientes.text,
+      'Cortina_mercancia_total': _totalCortinasMercancia.text,
+      'Cortina_mercancia_observacion':_observacionCortinasMercancia.text,
+      'Puerta_total': _totalPuerta.text,
+      'Puerta_observacion':_observacionPuerta.text,
+      'Chapa_total': _totalChapa.text,
+      'Chapa_observacion':_observacionChapa.text,
+      'Camara_total': _totalCamara.text,
+      'Camara_observacion':_observacionCamara.text,
+      'Candado_total': _totalCandado.text,
+      'Candado_observacion':_observacionCandado.text,
+      'Puerta_Cristal_total': _totalPuertaCristal.text,
+      'Puerta_Cristal_observacion':_observacionPuertaCristal.text,
+      'Fachada_Cristal_total': _totalFachadaCristal.text,
+      'Fachada_Cristal_observacion':_observacionFachadaCristal.text,
+      'Muro_total': _totalMuro.text,
+      'Muro_observacion':_observacionMuro.text,
+      'Sirena_total': _totalSirena.text,
+      'Sirena_observacion':_observacionSirena.text,
+      'Planta_total': _totalPlanta.text,
+      'Planta_observacion':_observacionPlanta.text,
+      'Ventana_total': _totalVentana.text,
+      'Ventana_observacion':_observacionVentana.text,
+      'Porton_total': _totalPorton.text,
+      'Porton_observacion':_observacionPorton.text,
+      'Reja_total': _totalReja.text,
+      'Reja_observacion':_observacionReja.text,
+      'Ruidos_comentario': _ruidos.text,
+      'Luz_comentario':_luz.text,
+      'Perímetro_comentario': _perimetro.text,
+      'Nombre_entrevista':_nombreEntrevista.text,
+      'Puesto': _puesto.text,
+      'Hora': now,
+      'Fachada': imageUrl,
+      'Entrada': imageUrl2,
+      'Lateral': imageUrl3,
+      'Firma': urlFirma,
+      //'Cuenta': evento.cuenta,
+    });
+  }
+  var _value1 = "Abierto";
+  var _value2 = "Abierto";
+  var _value3 ="Abierto";
+  var _value4 = "Abierto";
+  var _value5 = "Abierto";
+  var _value6 = "Abierto";
+  var _value7 = "Abierto";
+  var _value8 = "Abierto";
+  var _value9 = "Violado";
+  var _value10 = "Violado";
+  var _value11 = "Rotas";
+  var _value12 = "Golpeado";
+  var _value13 = "Golpeado";
+  var _value14 = "Boquete";
+  DropdownButton _itemDown() => DropdownButton<String>(
+    value: _value1,
+    onChanged: (String newValue) {
+      setState(() {
+        _value1 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown2() => DropdownButton<String>(
+    value: _value2,
+    onChanged: (String newValue) {
+      setState(() {
+        _value2 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown3() => DropdownButton<String>(
+    value: _value3,
+    onChanged: (String newValue) {
+      setState(() {
+        _value3 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown4() => DropdownButton<String>(
+    value: _value4,
+    onChanged: (String newValue) {
+      setState(() {
+        _value4 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown5() => DropdownButton<String>(
+    value: _value5,
+    onChanged: (String newValue) {
+      setState(() {
+        _value5 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown6() => DropdownButton<String>(
+    value: _value6,
+    onChanged: (String newValue) {
+      setState(() {
+        _value6 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown7() => DropdownButton<String>(
+    value: _value7,
+    onChanged: (String newValue) {
+      setState(() {
+        _value7 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown8() => DropdownButton<String>(
+    value: _value8,
+    onChanged: (String newValue) {
+      setState(() {
+        _value8 = newValue;
+      });
+    },
+    items: <String>['Abierto', 'Violado', 'Fisurado', 'Oxidado', 'Clausurada', 'Rota', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown9() => DropdownButton<String>(
+    value: _value9,
+    onChanged: (String newValue) {
+      setState(() {
+        _value9 = newValue;
+      });
+    },
+    items: <String>['Violado', 'Botadas', 'Abierto', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown10() => DropdownButton<String>(
+    value: _value10,
+    onChanged: (String newValue) {
+      setState(() {
+        _value10 = newValue;
+      });
+    },
+    items: <String>['Violado', 'Botadas', 'Abierto', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown11() => DropdownButton<String>(
+    value: _value11,
+    onChanged: (String newValue) {
+      setState(() {
+        _value11 = newValue;
+      });
+    },
+    items: <String>['Rotas', 'Sustraidas', 'Desviadas', 'Pintadas', 'Sustraidas', 'Golpeadas', 'Otros']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown12() => DropdownButton<String>(
+    value: _value12,
+    onChanged: (String newValue) {
+      setState(() {
+        _value12 = newValue;
+      });
+    },
+    items: <String>['Golpeado', 'Robado', 'Fisurado', 'Dañado', 'Oxidado', 'Cortado','Arrancado', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown13() => DropdownButton<String>(
+    value: _value13,
+    onChanged: (String newValue) {
+      setState(() {
+        _value13 = newValue;
+      });
+    },
+    items: <String>['Golpeado', 'Robado', 'Arrancado', 'Dañado', 'Apagado', 'Violado','Intento de robo', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
+  DropdownButton _itemDown14() => DropdownButton<String>(
+    value: _value14,
+    onChanged: (String newValue) {
+      setState(() {
+        _value14 = newValue;
+      });
+    },
+    items: <String>['Boquete', 'Derrumbado', 'Accidentado', 'Otro']
+        .map<DropdownMenuItem<String>>((String value) {
+      return DropdownMenuItem<String>(
+        value: value,
+        child: Text(value),
+      );
+    })
+        .toList(),
+  );
   bool _isTextFieldVisible = false;
   @override
   Widget build(BuildContext context) {
@@ -1633,7 +721,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio(val);
                                       },
-                                      value: 2,
+                                      value: "Si",
                                       groupValue: selectedRadio,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1650,7 +738,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio(val);
                                       },
-                                      value: 1,
+                                      value: "No",
                                       groupValue: selectedRadio,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1660,29 +748,6 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                               ],
                             ),
-                            /* TextField(
-                        enabled: false,
-                        maxLines: 3,
-                        cursorColor: Colors.black,
-                        cursorWidth: 7.0,
-                        style: TextStyle(
-                            color: Colors.black,
-                            fontSize: 19.0
-                        ),
-                        decoration: InputDecoration(
-                          labelText: 'Llenar campo de texto',
-                          labelStyle: TextStyle(
-                              color: Colors.black,
-                              fontWeight: FontWeight.w100
-                          ),
-                          fillColor: Colors.blueGrey,
-                          prefixIcon: const Icon(
-                            Icons.drive_eta,
-                            color: Colors.black,
-                          ),
-                        ),
-                        onChanged:(String value){},
-                      ),*/
                             _isTextFieldVisible
                                 ? Padding(
 
@@ -1726,7 +791,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                         child: Column(
                           children: <Widget>[
                             Text(
-                              'Cortinas(s) entrada de clientes',
+                              'Cortina(s) entrada de clientes',
                               style: TextStyle(color: Colors.black, fontSize: 20.0),
                             ),
 
@@ -1744,7 +809,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio2(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio2,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1761,7 +826,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio2(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio2,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1770,6 +835,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalCortinaClientes,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -1811,6 +877,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionCortinaClientes,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -1851,7 +918,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                         child: Column(
                           children: <Widget>[
                             Text(
-                              'Cortinas(s) recibo de mercancia',
+                              'Cortina(s) recibo de mercancia',
                               style: TextStyle(color: Colors.black, fontSize: 20.0),
                             ),
 
@@ -1869,7 +936,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio3(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio3,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1886,7 +953,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio3(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio3,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1896,11 +963,13 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                           width: 116,
                                           child:  TextField(
                                             keyboardType: TextInputType.number,
+                                            controller: _totalCortinasMercancia,
 
                                             maxLines: 1,
                                             cursorColor: Colors.black,
                                             cursorWidth: 7.0,
                                             style: TextStyle(
+
                                                 color: Colors.black,
                                                 fontSize: 19.0
                                             ),
@@ -1938,6 +1007,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionCortinasMercancia,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -1998,7 +1068,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio4(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio4,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2015,7 +1085,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio4(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio4,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2024,6 +1094,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalPuerta,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2067,6 +1138,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionPuerta,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2127,7 +1199,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio5(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio5,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2144,7 +1216,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio5(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio5,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2153,6 +1225,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalChapa,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2196,6 +1269,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionChapa,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2255,7 +1329,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio6(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio6,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2272,7 +1346,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio6(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio6,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2281,6 +1355,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalCamara,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2324,6 +1399,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 134,
                                       child:  TextField(
+                                        controller: _observacionCamara,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2384,7 +1460,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio7(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio7,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2401,7 +1477,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio7(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio7,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2410,6 +1486,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalCandado,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2453,6 +1530,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionCandado,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2513,7 +1591,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio8(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio8,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2530,7 +1608,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio8(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio8,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2539,6 +1617,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalPuertaCristal,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2549,6 +1628,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
+
                                               //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(
@@ -2582,6 +1662,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionPuertaCristal,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2642,7 +1723,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio9(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio9,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2659,7 +1740,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio9(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio9,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2668,6 +1749,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalFachadaCristal,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2711,6 +1793,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionFachadaCristal,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2770,7 +1853,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio10(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio10,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2787,7 +1870,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio10(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio10,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2796,6 +1879,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalMuro,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2837,8 +1921,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 198,
+                                      width: 192,
                                       child:  TextField(
+                                        controller: _observacionMuro,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -2898,7 +1983,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio11(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio11,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2915,7 +2000,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio11(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio11,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2924,6 +2009,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalSirena,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -2967,6 +2053,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionSirena,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -3027,7 +2114,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio12(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio12,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3044,7 +2131,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio12(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio12,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3053,6 +2140,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalPlanta,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -3094,13 +2182,15 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 186,
+                                      width: 173,
                                       child:  TextField(
+                                        controller: _observacionPlanta,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
+
                                             color: Colors.black,
                                             fontSize: 19.0
                                         ),
@@ -3155,7 +2245,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio13(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio13,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3172,7 +2262,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio13(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio13,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3181,6 +2271,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalVentana,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -3224,6 +2315,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionVentana,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -3284,7 +2376,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio14(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio14,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3301,7 +2393,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio14(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio14,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3310,6 +2402,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalPorton,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -3353,6 +2446,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionPorton,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -3412,7 +2506,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio15(val);
                                       },
-                                      value: 1,
+                                      value: "Aplica",
                                       groupValue: selectedRadio15,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3429,7 +2523,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio15(val);
                                       },
-                                      value: 2,
+                                      value: "No aplica",
                                       groupValue: selectedRadio15,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3438,6 +2532,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         Container(
                                           width: 116,
                                           child:  TextField(
+                                            controller: _totalReja,
                                             keyboardType: TextInputType.number,
 
                                             maxLines: 1,
@@ -3481,6 +2576,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Container(
                                       width: 200,
                                       child:  TextField(
+                                        controller: _observacionReja,
                                         keyboardType: TextInputType.multiline,
                                         // maxLines: 3,
                                         cursorColor: Colors.black,
@@ -3540,7 +2636,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio16(val);
                                       },
-                                      value: 1,
+                                      value: "Si",
                                       groupValue: selectedRadio16,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3557,7 +2653,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio16(val);
                                       },
-                                      value: 2,
+                                      value: "No",
                                       groupValue: selectedRadio16,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3568,6 +2664,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               ],
                             ),
                             TextField(
+                              controller: _ruidos,
                               maxLines: 3,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
@@ -3622,7 +2719,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio17(val);
                                       },
-                                      value: 1,
+                                      value: "Si",
                                       groupValue: selectedRadio17,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3639,7 +2736,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio17(val);
                                       },
-                                      value: 2,
+                                      value: "No",
                                       groupValue: selectedRadio17,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3650,6 +2747,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               ],
                             ),
                             TextField(
+                              controller: _luz,
                               maxLines: 3,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
@@ -3704,7 +2802,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio18(val);
                                       },
-                                      value: 1,
+                                      value:"Si",
                                       groupValue: selectedRadio18,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3721,7 +2819,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio18(val);
                                       },
-                                      value: 2,
+                                      value: "No",
                                       groupValue: selectedRadio18,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3732,7 +2830,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               ],
                             ),
                             TextField(
-                              enabled: false,
+                              controller: _perimetro,
                               maxLines: 3,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
@@ -3787,7 +2885,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio19(val);
                                       },
-                                      value: 1,
+                                      value: "Si",
                                       groupValue: selectedRadio19,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3804,7 +2902,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio19(val);
                                       },
-                                      value: 2,
+                                      value: "No",
                                       groupValue: selectedRadio19,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -3819,6 +2917,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               style: TextStyle(color: Colors.black, fontSize: 20.0),
                             ),
                             TextField(
+                              controller: _nombreEntrevista,
                               maxLines: 1,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
@@ -3845,6 +2944,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               style: TextStyle(color: Colors.black, fontSize: 20.0),
                             ),
                             TextField(
+                              controller: _puesto,
                               maxLines: 1,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
@@ -3872,7 +2972,6 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                           ],
                         ),
                       ),
-                      //   _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 0.0, child: Image.memory(_img.buffer.asUint8List())),
                     ],
                   ),
 
@@ -3933,6 +3032,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               debugPrint("onPressed " + encoded);
                               Navigator.of(context).pop();
                               setState(() => _canShowButton = !_canShowButton);
+                              uploadFirma();
                             },
 
                           ),
@@ -3970,7 +3070,45 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
               SizedBox(
                 height: 6,
               ),
-              CameraW(),
+              Column(
+                children: <Widget>[
+                  Container(
+                    child: imageFile == null
+                        ?Text('')
+                        :Image.file((imageFile)),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    width: 90,
+                    height: 40,
+                    margin: EdgeInsets.only(bottom: 14),
+                    child: ButtonTheme(
+                      child:
+                      FlatButton(
+                        onPressed: getImage,
+                        color: Color(0xFFFFD100),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.camera,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Foto",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(
                 height: 6,
               ),
@@ -3981,7 +3119,45 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
               SizedBox(
                 height: 6,
               ),
-              CameraW(),
+              Column(
+                children: <Widget>[
+                  Container(
+                    child: imageFile2 == null
+                        ?Text('')
+                        :Image.file((imageFile2)),
+                  ),
+                  SizedBox(height: 10),
+                  Container(
+                    width: 90,
+                    height: 40,
+                    margin: EdgeInsets.only(bottom: 14),
+                    child: ButtonTheme(
+                      child:
+                      FlatButton(
+                        onPressed: getImage2,
+                        color: Color(0xFFFFD100),
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: <Widget>[
+                            Icon(
+                              Icons.camera,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Foto",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                ],
+              ),
               SizedBox(
                 height: 6,
               ),
@@ -3992,7 +3168,120 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
               SizedBox(
                 height: 6,
               ),
-              CameraW(),
+            Column(
+          children: <Widget>[
+            Container(
+              child: imageFile3 == null
+                  ?Text('')
+                  :Image.file((imageFile3)),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: 90,
+              height: 40,
+              margin: EdgeInsets.only(bottom: 14),
+              child: ButtonTheme(
+                child:
+                FlatButton(
+                  onPressed: getImage3,
+                  color: Color(0xFFFFD100),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        Icons.camera,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "Foto",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
+            /*  RaisedButton(
+                onPressed: (){
+                  _tarea();
+                },
+                textColor: Colors.white,
+                color: Colors.green,
+                padding: EdgeInsets.all(8.0),
+                child: Text(
+                  "Envíar",
+                ),
+              ),*/
+              Row(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Container(
+                    width: 100,
+                    height: 40,
+                    margin: EdgeInsets.all(16.0),
+                    child: ButtonTheme(
+                      child:
+                      FlatButton(
+                          onPressed: () {
+                            Navigator.of(context)
+                                .pushNamedAndRemoveUntil('/item', (Route<dynamic> route) => false);
+                            _tarea();
+                          },
+                        color: Color(0xFF25C13A),
+                        child: Row( // Replace with a Row for horizontal icon + text
+                          children: <Widget>[
+                            Icon(
+                              Icons.arrow_right,
+                              color: Colors.white,
+                            ),
+                            Text(
+                              "Enviar",
+                              style: TextStyle(
+                                fontSize: 15,
+                                color: Colors.white,
+                              ),
+                            )
+                          ],
+                        ),
+                      ),
+                    ),
+                  ),
+                      Container(
+                      width: 110,
+                      height: 40,
+                      margin: EdgeInsets.only(bottom: 16, top: 16),
+                      child: ButtonTheme(
+                        child:
+                        FlatButton(
+                          onPressed: () => Navigator.pop(context, true),
+                          color:  Color(0xFF2350A6),
+                          child: Row( // Replace with a Row for horizontal icon + text
+                            children: <Widget>[
+                              Icon(
+                                Icons.save,
+                                color: Colors.white,
+                              ),
+                              Text(
+                                "Guardar",
+                                style: TextStyle(
+                                  fontSize: 15,
+                                  color: Colors.white,
+                                ),
+                              )
+                            ],
+                          ),
+                        ),
+                      ),
+                    ),
+                ],
+              ),
             ],
           ),
         ],
