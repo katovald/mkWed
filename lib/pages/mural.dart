@@ -11,7 +11,7 @@ import 'package:carousel_slider/carousel_slider.dart';
 ];*/
 final List<String> imgList = [
   'assets/chimuelo.png',
-  'assets/chimuelo1.png',
+  'assets/chimuelo5.png',
   'assets/chimuelo2.png',
   'assets/chimuelo3.png',
   'assets/chimuelo4.png',
