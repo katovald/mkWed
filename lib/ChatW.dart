@@ -68,7 +68,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
 
   bool _hasText = false;
 
-  String _name = 'Usuario';
+  String _name = 'Rafael Márquezgi';
 
   void _link(String text) {
     _chatTextController.clear();
@@ -79,35 +79,49 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       'time':  DateTime.now().timeZoneName
     });
   }
-
   Widget buildChatList() {
     return  Expanded(
         child:  StreamBuilder(
-             stream:Firestore.instance.collection('chats').snapshots(),
+            stream:Firestore.instance.collection('chats').snapshots(),
             builder: (context, snapshot2) {
-              if (!snapshot2.hasData) return const Text('Cargando...');
+              if (!snapshot2.hasData) return const Text(
+                'Cargando . . .',
+                style: TextStyle(
+                    fontSize: 16.0,
+                    fontWeight: FontWeight.w600,
+                    color: Color(0xFF1D539B)
+                ),
+              );
               return  StreamBuilder(
                   stream: Firestore.instance.collection('links').snapshots(),
                   builder: (context, snapshot) {
-                    if (!snapshot.hasData) return const Text('Cargando...');
-              return  ListView.builder(
-                  controller: _scrollController,
-                  itemCount: snapshot.data.documents.length,
-                  padding: const EdgeInsets.only(top: 10.0),
-                  itemBuilder: (context, index) {
-                    SchedulerBinding.instance.addPostFrameCallback((duration) {
-                      _scrollController.animateTo(
-                        _scrollController.position.maxScrollExtent,
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeOut,
-                      );
-                    });
-                    DocumentSnapshot ds = snapshot.data.documents[index];
-                    return buildChatBubbleIm(ds['name'], ds['message'], ds['link']);
-                  });
+                    if (!snapshot.hasData) return const Text(
+                      'Cargando . . .',
+                      style: TextStyle(
+                          fontSize: 16.0,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFF1D539B)
+                      ),
+                    );
+                    return  ListView.builder(
+                        controller: _scrollController,
+                        itemCount: snapshot.data.documents.length,
+                        padding: const EdgeInsets.only(top: 10.0),
+                        itemBuilder: (context, index) {
+                          SchedulerBinding.instance.addPostFrameCallback((duration) {
+                            _scrollController.animateTo(
+                              _scrollController.position.maxScrollExtent,
+                              duration: const Duration(milliseconds: 300),
+                              curve: Curves.easeOut,
+                            );
+                          });
+                          DocumentSnapshot ds = snapshot.data.documents[index];
+                          return buildChatBubbleIm(ds['name'], ds['message'], ds['link']);
+                        });
                   });
             }));
   }
+ 
 
   Widget buildChatBar() {
     return  Container(
@@ -143,35 +157,39 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
         ));
   }
   Widget buildChatBubbleIm(String name, String message, String link) {
-    const whiteText = const TextStyle(color: Colors.white, fontSize: 15.0);
+    const whiteText = const TextStyle(color: Colors.black87, fontSize: 15.0);
 
     return  Container(
       margin:  EdgeInsets.all(5.0),
-      decoration:  BoxDecoration(
+      /*decoration:  BoxDecoration(
           color: Color(0xFF1D539B),
-          borderRadius:  BorderRadius.all(const Radius.circular(8.0))),
+          borderRadius:  BorderRadius.all(const Radius.circular(8.0))),*/
       padding:  EdgeInsets.all(10.0),
       child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
             "${name}: ",
-            style: whiteText,
+            style: TextStyle(
+                fontSize: 16.0,
+                fontWeight: FontWeight.w600,
+                color: Color(0xFF1D539B)
+            ),
           ),
           Text(message, style: whiteText),
           Linkify(text: link, style: whiteText,
-              linkStyle: TextStyle(color: Colors.white),
-              onOpen: (url) async {
-            if (await canLaunch(link)) {
-              await launch(link);
-            } else {
-              throw 'No pudo abrirse $link';
-            }
-                },
+            linkStyle: TextStyle(color: Color(0xFF2266C2)),
+            onOpen: (url) async {
+              if (await canLaunch(link)) {
+                await launch(link);
+              } else {
+                throw 'No pudo abrirse $link';
+              }
+            },
 
-                ),
+          ),
         ],
-    ),
+      ),
     );
   }
 
@@ -254,4 +272,3 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
     );
   }
 }
-

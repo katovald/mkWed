@@ -1,7 +1,5 @@
-import 'package:app_editesp/ChatW.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:app_editesp/pages/ChatPage.dart';
-import 'package:app_editesp/pages/ItemList.dart';
-import 'package:app_editesp/product_manager.dart';
 import 'package:flutter/material.dart';
 
 class reporte_Siniestros extends StatefulWidget {
@@ -10,76 +8,39 @@ class reporte_Siniestros extends StatefulWidget {
 }
 
 class _reporte_SiniestrosState extends State<reporte_Siniestros> {
-  var _value1 = "1";
-  DropdownButton _itemDown() => DropdownButton<String>(
-    items: [
-      DropdownMenuItem(
-        value: "1",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-
-
-            SizedBox(width: 10),
-            Text(
-              "Accidente de transito",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "2",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Avería mecánica",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "3",
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Pinchadura de llantas",
-            ),
-          ],
-        ),
-      ),
-      DropdownMenuItem(
-        value: "4",
-        child: Row(
-
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: <Widget>[
-            SizedBox(width: 10),
-            Text(
-              "Robo",
-            ),
-          ],
-        ),
-      ),
-    ],
-    onChanged: (value) {
-      setState(() {
-        _value1 = value;
-      });
-    },
-
-    value: _value1,
-    elevation: 2,
-    //isExpanded: true,
-
-    style: TextStyle(
-      color: Colors.black,
-      fontSize: 15.0,
-    ),
-  );
+  var _value1 = "Accidente de transito";
+  TextEditingController _sinTextController =   TextEditingController();
+  String _numero = '169861';
+  String _latitud = '19.415269';
+  String _longitud = '-99.136779';
+  var now = DateTime.now();
+  void _siniestro(String Comentario) {
+    _sinTextController.clear();
+    Firestore.instance.collection('siniestros').add({
+      'Número de empleado': _numero,
+      'Punto': '($_latitud, $_longitud)',
+      'Siniestro': _itemDown().value,
+      'Comentario': Comentario,
+      'Hora': now,
+    });
+  }
+  DropdownButton _itemDown() =>
+      DropdownButton<String>(
+        value: _value1,
+        onChanged: (String newValue) {
+          setState(() {
+           _value1 = newValue;
+          });
+        },
+        items: <String>['Accidente de transito', 'Averia mecánica', 'Pinchadura de llantas', 'Robo']
+            .map<DropdownMenuItem<String>>((String value) {
+          return DropdownMenuItem<String>(
+            value: value,
+            child: Text(value),
+          );
+        })
+            .toList(),
+      );
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -103,7 +64,7 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => Chat(),
+                builder: (BuildContext context) => ChatPage(),
               ),
             ),
             child: Container(
@@ -142,42 +103,54 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
        child: Container(
           padding: EdgeInsets.all(15.0),
           child: Column(
-            //mainAxisAlignment: MainAxisAlignment.center,
-            //crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              Expanded(
+               child: ListView(
+                  //mainAxisAlignment: MainAxisAlignment.center,
+                  //crossAxisAlignment: CrossAxisAlignment.center,
+                  children: <Widget>[
 
-         Align(
-           alignment: Alignment.topRight,
-             child: _itemDown(),
-         ),
-              Container(
-                padding: EdgeInsets.all(15.0),
-                child: TextField(
-                  maxLines: 4,
-                  cursorColor: Colors.black,
-
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontSize: 15.0
-                  ),
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    hintText: "Comentario",
-                    hintStyle: TextStyle(
-                        color: Colors.black,
-                        fontWeight: FontWeight.w100
+                    Align(
+                      alignment: Alignment.topRight,
+                      child: _itemDown(),
                     ),
-                    fillColor: Colors.blueGrey,
+                    Container(
+                      padding: EdgeInsets.all(15.0),
+                      child: TextField(
+                        controller: _sinTextController,
+                        maxLines: 4,
+                        cursorColor: Colors.black,
 
-                  ),
-                  onChanged:(String value){},
+                        style: TextStyle(
+                            color: Colors.black,
+                            fontSize: 15.0
+                        ),
+                        decoration: InputDecoration(
+                          border: OutlineInputBorder(),
+                          hintText: "Comentario",
+                          hintStyle: TextStyle(
+                              color: Colors.black,
+                              fontWeight: FontWeight.w100
+                          ),
+                          fillColor: Colors.blueGrey,
+
+                        ),
+                        onChanged:(String value){},
+                      ),
+                    ),
+
+
+                  ],
+
                 ),
               ),
+
               Container(
                 padding: EdgeInsets.only(top: 15.0),
                 child: RaisedButton(
                   onPressed: () =>{
                   Navigator.of(context).pushNamedAndRemoveUntil('/item', ModalRoute.withName('/check1')),
+                    _siniestro(_sinTextController.text),
                   },
                   textColor: Colors.white,
                   color: Color(0xFF2350A6),
@@ -186,7 +159,6 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
                   ),
                 ),
               ),
-
             ],
           ),
 
