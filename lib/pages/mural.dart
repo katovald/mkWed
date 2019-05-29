@@ -10,11 +10,11 @@ import 'package:carousel_slider/carousel_slider.dart';
   'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
 ];*/
 final List<String> imgList = [
-  'assets/banner1.png',
-  'assets/banner2.jpg',
-  'assets/3.png',
-  'assets/chimuelo2.png',
   'assets/chimuelo.png',
+  'assets/chimuelo1.png',
+  'assets/chimuelo2.png',
+  'assets/chimuelo3.png',
+  'assets/chimuelo4.png',
 ];
 int _current = 0;
 final List child = map<Widget>(
