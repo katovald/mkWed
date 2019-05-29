@@ -1,3 +1,4 @@
+import 'dart:io';
 import 'package:app_editesp/CameraW.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
@@ -6,6 +7,8 @@ import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
+import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 class CheckListUnity extends StatefulWidget{
 
@@ -89,36 +92,210 @@ class _CheckListUState extends State<CheckListUnity>{
   var _valuefrenos = "A nivel";
   var _valueGasolina = "Tanque lleno";
   var now = DateTime.now();
-  //String electrico, String numTarjeta, String saldoTarjeta,String horaCarga, String fondo, String numTicket,String total,
+  File imageFile;
+  File imageFile2;
+  File imageFile3;
+  File imageFile4;
+  File imageFirma;
+  bool isLoading;
+  String imageUrl;
+  String imageUrl2;
+  String imageUrl3;
+  String imageUrl4;
+  String urlFirma;
 
+  Future getImage() async {
+    imageFile = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile();
+    }
+  }
+  Future getImage2() async {
+    imageFile2 = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile2 != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile2();
+    }
+  }
+  Future getImage3() async {
+    imageFile3 = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile3 != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile3();
+    }
+  }
+  Future getImage4() async {
+    imageFile4 = await ImagePicker.pickImage(source: ImageSource.camera);
+
+    if (imageFile4 != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile4();
+    }
+  }
+  Future uploadFile() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFile2() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile2);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl2 = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFile3() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile3);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl3 = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFile4() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile4);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl4 = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
+  Future uploadFirma() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putData(_img.buffer.asUint8List());
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      urlFirma = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
  void _recepcion() {
     //_sinTextController.clear();
     Firestore.instance.collection('Recepcion').add({
-      'Gasolina inicial': _itemGasolina().value,
-      'Sistema Eléctico': _TextController1.text,
-      'No. Tarjeta de gasolina ': _TextController2.text,
-      'Saldo de trajeta': _TextController3.text,
-      'Hora de la carga': _TextController4.text,
-      'Fondo de estacionamiento': _TextController5.text,
-      'Número de ticket': _TextController6.text,
+      'Pintura': selectedRadio,
+      'Frenos': selectedRadio2,
+      'Llanta_trasera_izquierda': selectedRadio3,
+      'Llanta_trasera_derecha': selectedRadio4,
+      'Llanta_delantera_izquierda': selectedRadio5,
+      'Llanta_delantera_derecha': selectedRadio6,
+      'Llanta_refacción': selectedRadio7,
+      'Tarjeta_gasolina': selectedRadio8,
+      'Cargo_gasolina': selectedRadio9,
+      'Info_Correcta_Gasolina': selectedRadio10,
+      'Estacionamiento_fondo': selectedRadio11,
+      'Info_Correcta_Estacionamiento': selectedRadio12,
+      'Cargador_USB': selectedRadio13,
+      'Tag': selectedRadio14,
+      'Guía_roja': selectedRadio15,
+      'Lámpara': selectedRadio16,
+      'Paraguas': selectedRadio17,
+      'Manos_libres': selectedRadio18,
+      'Red': selectedRadio19,
+      'Extintor': selectedRadio20,
+      'Gato': selectedRadio21,
+      'Llave_de_cruz': selectedRadio22,
+      'Señalamientos': selectedRadio23,
+      'Kit_de_Limpieza': selectedRadio24,
+      'Aceite': selectedRadio25,
+      'Anticongelante': selectedRadio26,
+      'Líquido_direccion': selectedRadio27,
+      'Líquido_frenos': selectedRadio28,
+      'Info_Correcta_Accesorios': selectedRadio29,
+      'Gasolina_inicial': _itemGasolina().value,
+      'Sistema_Eléctico': _TextController1.text,
+      'No._Tarjeta_de_gasolina ': _TextController2.text,
+      'Saldo_de_trajeta': _TextController3.text,
+      'Hora_de_la_carga': _TextController4.text,
+      'Fondo_de_estacionamiento': _TextController5.text,
+      'Número_de_ticket': _TextController6.text,
       'Total': _TextController7.text,
-      'Cargador USB': _itemDown().value,
-      'Tag': _itemDown2().value,
-      'Guía_Roja': _itemDown3().value,
-      'Lámpara': _itemDown4().value,
-      'Paraguas': _itemDown5().value,
-      'Manos_libes': _itemDown6().value,
-      'Red': _itemDown7().value,
-      'Extintor': _itemDown8().value,
-      'Gato': _itemDown9().value,
-      'Llave_de_cruz': _itemDown10().value,
-      'Señalamientos': _itemDown11().value,
-      'Kit_de_limpieza': _itemDown12().value,
-      'Aceite': _itemaceite().value,
-      'Anticongelante': _itemdmanti().value,
-      'Líquido_de_dirección': _itemdireccion().value,
-      'Líquido_de_frenos': _itemfrenos().value,
+      'Estatus_Cargador_USB': _itemDown().value,
+      'Estatus_Tag': _itemDown2().value,
+      'Estatus_Guía_Roja': _itemDown3().value,
+      'Estatus_Lámpara': _itemDown4().value,
+      'Estatus_Paraguas': _itemDown5().value,
+      'Estatus_Manos_libes': _itemDown6().value,
+      'Estatus_Red': _itemDown7().value,
+      'Estatus_Extintor': _itemDown8().value,
+      'Estatus_Gato': _itemDown9().value,
+      'Estatus_Llave_de_cruz': _itemDown10().value,
+      'Estatus_Señalamientos': _itemDown11().value,
+      'Estatus_Kit_de_limpieza': _itemDown12().value,
+      'Estatus_Aceite': _itemaceite().value,
+      'Estatus_Anticongelante': _itemdmanti().value,
+      'Estatus_Líquido_de_dirección': _itemdireccion().value,
+      'Estatus_Líquido_de_frenos': _itemfrenos().value,
       'Hora': now,
+      'Foto_frontal_piloto': imageUrl,
+      'Foto_frontal_copiloto': imageUrl2,
+      'Foto_trasera_piloto': imageUrl3,
+      'Foto_trasera_copiloto': imageUrl4,
+      'Firma': urlFirma,
     });
   }
 
@@ -288,7 +465,7 @@ class _CheckListUState extends State<CheckListUnity>{
     value: _value10,
     onChanged: (String newValue) {
       setState(() {
-        _value1 = newValue;
+        _value10 = newValue;
       });
     },
     items: <String>['Nuevo', 'Buen estado', 'Usado', 'Mal','Roto', 'Desgastado', 'Caducado', 'Inservible','Obsoleto', 'Sin comprar', 'En proceso compra', 'Reposición','Solicitar cambio', 'Incompleto']
@@ -397,69 +574,69 @@ class _CheckListUState extends State<CheckListUnity>{
         .toList(),
   );
   var rating;
-  int selectedRadio;
+  String selectedRadio;
   String selectedRadio2;
-  int selectedRadio3;
-  int selectedRadio4;
-  int selectedRadio5;
-  int selectedRadio6;
-  int selectedRadio7;
-  int selectedRadio8;
-  int selectedRadio9;
-  int selectedRadio10;
-  int selectedRadio11;
-  int selectedRadio12;
-  int selectedRadio13;
-  int selectedRadio14;
-  int selectedRadio15;
-  int selectedRadio16;
-  int selectedRadio17;
-  int selectedRadio18;
-  int selectedRadio19;
-  int selectedRadio20;
-  int selectedRadio21;
-  int selectedRadio22;
-  int selectedRadio23;
-  int selectedRadio24;
-  int selectedRadio25;
-  int selectedRadio26;
-  int selectedRadio27;
-  int selectedRadio28;
-  int selectedRadio29;
+  String selectedRadio3;
+  String selectedRadio4;
+  String selectedRadio5;
+  String selectedRadio6;
+  String selectedRadio7;
+  String selectedRadio8;
+  String selectedRadio9;
+  String selectedRadio10;
+  String selectedRadio11;
+  String selectedRadio12;
+  String selectedRadio13;
+  String selectedRadio14;
+  String selectedRadio15;
+  String selectedRadio16;
+  String selectedRadio17;
+  String selectedRadio18;
+  String selectedRadio19;
+  String selectedRadio20;
+  String selectedRadio21;
+  String selectedRadio22;
+  String selectedRadio23;
+  String selectedRadio24;
+  String selectedRadio25;
+  String selectedRadio26;
+  String selectedRadio27;
+  String selectedRadio28;
+  String selectedRadio29;
   @override
   void initState() {
     super.initState();
-    selectedRadio = 0;
+    selectedRadio = "Nueva";
     selectedRadio2 = "Buen estado";
-    selectedRadio3 = 0;
-    selectedRadio4 = 0;
-    selectedRadio5 = 0;
-    selectedRadio6 = 0;
-    selectedRadio7 = 0;
-    selectedRadio8= 0;
-    selectedRadio9 = 0;
-    selectedRadio10 = 0;
-    selectedRadio11 = 0;
-    selectedRadio12 = 0;
-    selectedRadio13 = 0;
-    selectedRadio14 = 0;
-    selectedRadio15 = 0;
-    selectedRadio16 = 0;
-    selectedRadio17 = 0;
-    selectedRadio18 = 0;
-    selectedRadio19 = 0;
-    selectedRadio20= 0;
-    selectedRadio21 = 0;
-    selectedRadio22 = 0;
-    selectedRadio23 = 0;
-    selectedRadio24 = 0;
-    selectedRadio25= 0;
-    selectedRadio26 = 0;
-    selectedRadio27 = 0;
-    selectedRadio28 = 0;
-    selectedRadio29 = 0;
+    selectedRadio3 = "Bien";
+    selectedRadio4 = "Bien";
+    selectedRadio5 = "Bien";
+    selectedRadio6 = "Bien";
+    selectedRadio7 = "Bien";
+    selectedRadio8= "Si";
+    selectedRadio9 = "Si";
+    selectedRadio10 = "Si";
+    selectedRadio11 = "Si";
+    selectedRadio12 = "Si";
+    selectedRadio13 = "Si";
+    selectedRadio14 = "Si";
+    selectedRadio15 = "Si";
+    selectedRadio16 = "Si";
+    selectedRadio17 = "Si";
+    selectedRadio18 = "Si";
+    selectedRadio19 = "Si";
+    selectedRadio20= "Si";
+    selectedRadio21 = "Si";
+    selectedRadio22 = "Si";
+    selectedRadio23 = "Si";
+    selectedRadio24 = "Si";
+    selectedRadio25= "Si";
+    selectedRadio26 = "Si";
+    selectedRadio27 = "Si";
+    selectedRadio28 = "Si";
+    selectedRadio29 = "Si";
   }
-  setSelectedRadio (int val) {
+  setSelectedRadio (String val) {
     setState(() {
       selectedRadio = val;
     });
@@ -469,137 +646,137 @@ class _CheckListUState extends State<CheckListUnity>{
       selectedRadio2 = val;
     });
   }
-  setSelectedRadio3 (int val) {
+  setSelectedRadio3 (String val) {
     setState(() {
       selectedRadio3 = val;
     });
   }
-  setSelectedRadio4 (int val) {
+  setSelectedRadio4 (String val) {
     setState(() {
       selectedRadio4 = val;
     });
   }
-  setSelectedRadio5 (int val) {
+  setSelectedRadio5 (String val) {
     setState(() {
       selectedRadio5 = val;
     });
   }
-  setSelectedRadio6 (int val) {
+  setSelectedRadio6 (String val) {
     setState(() {
       selectedRadio6 = val;
     });
   }
-  setSelectedRadio7 (int val) {
+  setSelectedRadio7 (String val) {
     setState(() {
       selectedRadio7 = val;
     });
   }
-  setSelectedRadio8 (int val) {
+  setSelectedRadio8 (String val) {
     setState(() {
       selectedRadio8 = val;
     });
   }
-  setSelectedRadio9 (int val) {
+  setSelectedRadio9 (String val) {
     setState(() {
       selectedRadio9 = val;
     });
   }
-  setSelectedRadio10 (int val) {
+  setSelectedRadio10 (String val) {
     setState(() {
       selectedRadio10 = val;
     });
   }
-  setSelectedRadio11 (int val) {
+  setSelectedRadio11 (String val) {
     setState(() {
       selectedRadio11 = val;
     });
   }
-  setSelectedRadio12 (int val) {
+  setSelectedRadio12 (String val) {
     setState(() {
       selectedRadio12 = val;
     });
   }
-  setSelectedRadio13 (int val) {
+  setSelectedRadio13 (String val) {
     setState(() {
       selectedRadio13 = val;
     });
   }
-  setSelectedRadio14 (int val) {
+  setSelectedRadio14 (String val) {
     setState(() {
       selectedRadio14 = val;
     });
   }
-  setSelectedRadio15 (int val) {
+  setSelectedRadio15 (String val) {
     setState(() {
       selectedRadio15 = val;
     });
   }
-  setSelectedRadio16 (int val) {
+  setSelectedRadio16 (String val) {
     setState(() {
       selectedRadio16 = val;
     });
   }
-  setSelectedRadio17 (int val) {
+  setSelectedRadio17 (String val) {
     setState(() {
       selectedRadio17 = val;
     });
   }
-  setSelectedRadio18 (int val) {
+  setSelectedRadio18 (String val) {
     setState(() {
       selectedRadio18 = val;
     });
   }
-  setSelectedRadio19 (int val) {
+  setSelectedRadio19 (String val) {
     setState(() {
       selectedRadio19 = val;
     });
   }
-  setSelectedRadio20 (int val) {
+  setSelectedRadio20 (String val) {
     setState(() {
       selectedRadio20 = val;
     });
   }
-  setSelectedRadio21 (int val) {
+  setSelectedRadio21 (String val) {
     setState(() {
       selectedRadio21 = val;
     });
   }
-  setSelectedRadio22 (int val) {
+  setSelectedRadio22 (String val) {
     setState(() {
       selectedRadio22 = val;
     });
   }
-  setSelectedRadio23 (int val) {
+  setSelectedRadio23 (String val) {
     setState(() {
       selectedRadio23 = val;
     });
   }
-  setSelectedRadio24 (int val) {
+  setSelectedRadio24 (String val) {
     setState(() {
       selectedRadio24 = val;
     });
   }
-  setSelectedRadio25 (int val) {
+  setSelectedRadio25 (String val) {
     setState(() {
       selectedRadio25 = val;
     });
   }
-  setSelectedRadio26 (int val) {
+  setSelectedRadio26 (String val) {
     setState(() {
       selectedRadio26 = val;
     });
   }
-  setSelectedRadio27 (int val) {
+  setSelectedRadio27 (String val) {
     setState(() {
       selectedRadio27 = val;
     });
   }
-  setSelectedRadio28 (int val) {
+  setSelectedRadio28 (String val) {
     setState(() {
       selectedRadio28 = val;
     });
   }
-  setSelectedRadio29 (int val) {
+  setSelectedRadio29 (String val) {
     setState(() {
       selectedRadio29 = val;
     });
@@ -735,7 +912,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio(val);
                                         },
-                                        value: 1,
+                                        value: "Nueva",
                                         groupValue: selectedRadio,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -752,7 +929,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio(val);
                                         },
-                                        value: 2,
+                                        value: "Regular",
                                         groupValue: selectedRadio,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -769,7 +946,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio(val);
                                         },
-                                        value: 3,
+                                        value: "Desgaste",
                                         groupValue: selectedRadio,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -949,7 +1126,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio3(val);
                                         },
-                                        value: 1,
+                                        value: "Bien",
                                         groupValue: selectedRadio3,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -966,7 +1143,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio3(val);
                                         },
-                                        value: 2,
+                                        value: "1/2 Vida",
                                         groupValue: selectedRadio3,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -983,7 +1160,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio3(val);
                                         },
-                                        value: 3,
+                                        value:"3/4 Vida",
                                         groupValue: selectedRadio3,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1039,7 +1216,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio4(val);
                                         },
-                                        value: 1,
+                                        value: "Bien",
                                         groupValue: selectedRadio4,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1056,7 +1233,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio4(val);
                                         },
-                                        value: 2,
+                                        value: "1/2 Vida",
                                         groupValue: selectedRadio4,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1073,7 +1250,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio4(val);
                                         },
-                                        value: 3,
+                                        value: "3/4 Vida",
                                         groupValue: selectedRadio4,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1129,7 +1306,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio5(val);
                                         },
-                                        value: 1,
+                                        value: "Bien",
                                         groupValue: selectedRadio5,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1146,7 +1323,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio5(val);
                                         },
-                                        value: 2,
+                                        value:  "1/2 Vida",
                                         groupValue: selectedRadio5,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1163,7 +1340,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio5(val);
                                         },
-                                        value: 3,
+                                        value: "3/4 Vida",
                                         groupValue: selectedRadio5,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1221,7 +1398,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio6(val);
                                         },
-                                        value: 1,
+                                        value: "Bien",
                                         groupValue: selectedRadio6,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1238,7 +1415,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio6(val);
                                         },
-                                        value: 2,
+                                        value:  "1/2 Vida",
                                         groupValue: selectedRadio6,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1255,7 +1432,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio6(val);
                                         },
-                                        value: 3,
+                                        value: "3/4 Vida",
                                         groupValue: selectedRadio6,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1311,7 +1488,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio7(val);
                                         },
-                                        value: 1,
+                                        value: "Bien",
                                         groupValue: selectedRadio7,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1328,7 +1505,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio7(val);
                                         },
-                                        value: 2,
+                                        value:  "1/2 Vida",
                                         groupValue: selectedRadio7,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1345,7 +1522,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio7(val);
                                         },
-                                        value: 3,
+                                        value: "3/4 Vida",
                                         groupValue: selectedRadio7,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1445,11 +1622,6 @@ class _CheckListUState extends State<CheckListUnity>{
 // MENU
                                   Row(
                                     children: <Widget>[
-                                      /*Radio(
-                                  onChanged: (e){},
-                                  value: 1,
-                                  groupValue: 1,
-                                ),*/
                                       _itemGasolina(),
                                     ],
                                   ),
@@ -1496,7 +1668,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio8(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio8,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1513,7 +1685,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio8(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio8,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1562,7 +1734,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio9(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio9,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1579,7 +1751,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio9(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio9,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1815,7 +1987,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio10(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio10,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1832,7 +2004,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio10(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio10,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1934,7 +2106,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio11(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio11,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -1951,29 +2123,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio11(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio11,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
-                                  /*   Row(
-                               children: <Widget>[
-                                 Text(
-                                   "Desgaste",
-                                   style: TextStyle(color: Colors.black, fontSize: 13.0),
-                                 ),
-                                 Radio(
-                                   onChanged: (e){},
-                                   value: 1,
-                                   groupValue: 1,
-                                 ),
-                               ],
-                             ),*/
-
-
-
                                 ],
                               ),
                             ],
@@ -2190,7 +2345,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio12(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio12,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2207,7 +2362,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio12(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio12,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2233,24 +2388,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
               }).toList(),
             ),
-
-            /* Container(
-              padding:
-              EdgeInsets.symmetric(horizontal: 3.0, vertical: 2.0),
-              decoration: BoxDecoration(
-                //border: Border.all(color: Colors.grey, width: 1.0),
-                  color: Colors.black54,
-                  borderRadius: BorderRadius.circular(5.0)),
-              child:  Text(
-                "Estacionamiento",
-                style: TextStyle(
-                    fontSize: 21.0,
-                    color: Colors.greenAccent,
-                    fontWeight: FontWeight.bold
-                ),
-              ),
-            ),*/
-
             SizedBox(
               height: 10,
             ),
@@ -2323,7 +2460,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio13(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio13,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2340,7 +2477,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio13(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio13,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2349,11 +2486,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
                                   Row(
                                     children: <Widget>[
-                                      /*Radio(
-                                  onChanged: (e){},
-                                  value: 1,
-                                  groupValue: 1,
-                                ),*/
                                       _itemDown(),
                                     ],
                                   ),
@@ -2399,7 +2531,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio14(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio14,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2416,7 +2548,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio14(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio14,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2468,7 +2600,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio15(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio15,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2485,7 +2617,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio15(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio15,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2536,7 +2668,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio16(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio16,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2553,7 +2685,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio16(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio16,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2604,7 +2736,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio17(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio17,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2621,7 +2753,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio17(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio17,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2673,7 +2805,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio18(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio18,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2690,7 +2822,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio18(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio18,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2742,7 +2874,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio19(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio19,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2759,7 +2891,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio19(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio19,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2811,7 +2943,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio20(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio20,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2828,7 +2960,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio20(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio20,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2880,7 +3012,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio21(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio21,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2897,7 +3029,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio21(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio21,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2949,7 +3081,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio22(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio22,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2966,7 +3098,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio22(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio22,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3018,7 +3150,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio23(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio23,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3035,7 +3167,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio23(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio23,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3086,7 +3218,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio24(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio24,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3103,7 +3235,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio24(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio24,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3153,7 +3285,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio25(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio25,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3170,7 +3302,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio25(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio25,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3220,7 +3352,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio26(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio26,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3237,7 +3369,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio26(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio26,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3287,7 +3419,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio27(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio27,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3304,7 +3436,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio27(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio27,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3354,7 +3486,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio28(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio28,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3371,7 +3503,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio28(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio28,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3379,11 +3511,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                   ),
                                   Row(
                                     children: <Widget>[
-                                      /*Radio(
-                                  onChanged: (e){},
-                                  value: 1,
-                                  groupValue: 1,
-                                ),*/
                                       _itemfrenos(),
                                     ],
                                   ),
@@ -3426,7 +3553,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio29(val);
                                         },
-                                        value: 1,
+                                        value: "Si",
                                         groupValue: selectedRadio29,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3443,9 +3570,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio29(val);
                                         },
-                                        value: 2,
+                                        value: "No",
                                         groupValue: selectedRadio29,
-                                        activeColor: Color(0xFF2350A6),
+                                                                                activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
@@ -3476,7 +3603,45 @@ class _CheckListUState extends State<CheckListUnity>{
                 SizedBox(
                   height: 6,
                 ),
-                CameraW(),
+                Column(
+                  children: <Widget>[
+          Container(
+            child: imageFile == null
+                ?Text('')
+                :Image.file((imageFile)),
+          ),
+          SizedBox(height: 10),
+          Container(
+            width: 90,
+            height: 40,
+            margin: EdgeInsets.only(bottom: 14),
+            child: ButtonTheme(
+              child:
+              FlatButton(
+                onPressed: getImage,
+                color: Color(0xFFFFD100),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.camera,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Foto",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
                 SizedBox(
                   height: 6,
                 ),
@@ -3487,7 +3652,45 @@ class _CheckListUState extends State<CheckListUnity>{
                 SizedBox(
                   height: 6,
                 ),
-                CameraW(),
+      Column(
+        children: <Widget>[
+          Container(
+            child: imageFile2 == null
+                ?Text('')
+                :Image.file((imageFile2)),
+          ),
+          SizedBox(height: 10),
+          Container(
+            width: 90,
+            height: 40,
+            margin: EdgeInsets.only(bottom: 14),
+            child: ButtonTheme(
+              child:
+              FlatButton(
+                onPressed: getImage2,
+                color: Color(0xFFFFD100),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.camera,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Foto",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
                 SizedBox(
                   height: 6,
                 ),
@@ -3498,7 +3701,45 @@ class _CheckListUState extends State<CheckListUnity>{
                 SizedBox(
                   height: 6,
                 ),
-                CameraW(),
+      Column(
+        children: <Widget>[
+          Container(
+            child: imageFile3 == null
+                ?Text('')
+                :Image.file((imageFile3)),
+          ),
+          SizedBox(height: 10),
+          Container(
+            width: 90,
+            height: 40,
+            margin: EdgeInsets.only(bottom: 14),
+            child: ButtonTheme(
+              child:
+              FlatButton(
+                onPressed: getImage3,
+                color: Color(0xFFFFD100),
+                child: Row(
+                  crossAxisAlignment: CrossAxisAlignment.center,
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: <Widget>[
+                    Icon(
+                      Icons.camera,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      "Foto",
+                      style: TextStyle(
+                        fontSize: 15,
+                        color: Colors.white,
+                      ),
+                    )
+                  ],
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
                 SizedBox(
                   height: 6,
                 ),
@@ -3509,7 +3750,45 @@ class _CheckListUState extends State<CheckListUnity>{
                 SizedBox(
                   height: 6,
                 ),
-                CameraW(),
+        Column(
+          children: <Widget>[
+            Container(
+              child: imageFile4 == null
+                  ?Text('')
+                  :Image.file((imageFile4)),
+            ),
+            SizedBox(height: 10),
+            Container(
+              width: 90,
+              height: 40,
+              margin: EdgeInsets.only(bottom: 14),
+              child: ButtonTheme(
+                child:
+                FlatButton(
+                  onPressed: getImage4,
+                  color: Color(0xFFFFD100),
+                  child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: <Widget>[
+                      Icon(
+                        Icons.camera,
+                        color: Colors.white,
+                      ),
+                      Text(
+                        "Foto",
+                        style: TextStyle(
+                          fontSize: 15,
+                          color: Colors.white,
+                        ),
+                      )
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ],
+        ),
                 _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
                 _canShowButton
                     ?
@@ -3545,7 +3824,6 @@ class _CheckListUState extends State<CheckListUnity>{
                               child:  Text("Salvar"),
                               onPressed: ()  async {
                                 final sign = _sign.currentState;
-                                //retrieve image data, do whatever you want with it (send to server, save locally...)
                                 final image = await sign.getData();
                                 var data = await image.toByteData(format: ui.ImageByteFormat.png);
                                 sign.clear();
@@ -3556,6 +3834,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 debugPrint("onPressed " + encoded);
                                 Navigator.of(context).pop();
                                 setState(() => _canShowButton = !_canShowButton);
+                                uploadFirma();
                               },
 
                             ),

@@ -2,6 +2,7 @@ import 'dart:async';
 import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
+import 'package:firebase_storage/firebase_storage.dart';
 
 // YA NO SE USA :U
 class CameraW extends StatefulWidget {
@@ -10,25 +11,53 @@ class CameraW extends StatefulWidget {
 }
 
 class MyHomePageState extends State<CameraW> {
-  File image;
+  File imageFile;
+  bool isLoading;
+  String imageUrl;
+  Future uploadFile() async {
+    String fileName = DateTime.now().millisecondsSinceEpoch.toString();
+    StorageReference reference = FirebaseStorage.instance.ref().child(fileName);
+    StorageUploadTask uploadTask = reference.putFile(imageFile);
+    StorageTaskSnapshot storageTaskSnapshot = await uploadTask.onComplete;
+    storageTaskSnapshot.ref.getDownloadURL().then((downloadUrl) {
+      imageUrl = downloadUrl;
+      setState(() {
+        isLoading = false;
+        //onSendMessage(imageUrl, 1);
+      });
+    }, onError: (err) {
+      setState(() {
+        isLoading = false;
+      });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
+    });
+  }
   Future getImage() async {
     File picture = await ImagePicker.pickImage(
         source: ImageSource.camera, maxWidth: 500.0, maxHeight: 300.0,);
     setState(() {
-      image = picture;
+      imageFile = picture;
     });
+
+    if (imageFile != null) {
+      setState(() {
+        isLoading = true;
+      });
+      uploadFile();
+    }
   }
 
 
 
   @override
   Widget build(BuildContext context) {
-    return Column(
+    return
+      Column(
       children: <Widget>[
         Container(
-          child: image == null
+          child: imageFile == null
               ?Text('')
-              :Image.file((image)),
+              :Image.file((imageFile)),
         ),
         SizedBox(height: 10),
         Container(
