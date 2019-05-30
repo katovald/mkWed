@@ -882,20 +882,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Estado de la pintura',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -967,20 +964,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Estado de los Frenos',
-                                   style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                            ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -1042,46 +1036,40 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
-                                borderRadius: BorderRadius.circular(0.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                                color: Color(0xFFF3F3F3),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
                                   'Sistema Eléctrico',
-                                     style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                          ),
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
+                                  ),
                                 ),
 
                                 TextField(
                                   controller: _TextController1,
-                                  maxLines: 3,
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                    labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
+                                    maxLines: 3,
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 7.0,
+                                    style: TextStyle(fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF1D539B)
                                     ),
-                                    fillColor: Colors.blueGrey,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
+                                    decoration: InputDecoration(
+                                      labelText: 'Llenar campo de texto',
+                                      hintStyle: TextStyle(fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF1D539B)),
+                                      prefixIcon: const Icon(
+                                        Icons.chrome_reader_mode,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    onChanged:(String value){},
                                   ),
-                                  onChanged:(String value){},
-                                ),
 
                               ],
                             ),
@@ -1095,20 +1083,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'LLanta trasera izquierda',
-                                   style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                          ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -1185,20 +1170,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'LLanta trasera derecha',
-                                  style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                          ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -1276,20 +1258,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'LLanta delantera izquierda',
-                                   style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                          ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -1366,20 +1345,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'LLanta delantera derecha',
-                                   style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                          ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -1457,20 +1433,17 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'LLanta de refacción',
-                                   style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                          ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 
                               ButtonBar(
@@ -1598,21 +1571,18 @@ class _CheckListUState extends State<CheckListUnity>{
 //Separador</>
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Tanque Gasolina Titulo<>
                               Text(
                                 'Gasolina Inicial',
-                               style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 //Tanque Gasolina Titulo</>
                               ButtonBar(
@@ -1637,21 +1607,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Tarjeta Gasolina Titulo<>
                               Text(
                                 '¿Tarjeta de Gasolina?',
-                                style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
                               ),
 //Tarjeta Gasolina Titulo</>
                               ButtonBar(
@@ -1704,21 +1671,19 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Cargo Gasolina Titulo<>
                               Text(
                                 '¿Cargo Gasolina?',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                            ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 //Cargo Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -1777,47 +1742,41 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                                color: Color(0xFFF3F3F3),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
 //Titulo
                                 Text(
                                   'No. Tarjeta de Gasolina',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                  ),
-
-                                TextField(
-                                  controller: _TextController2,
-                                  maxLines: 3, //Maximo de Lineas de Texto
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
                                   ),
-//Descripcion & Estilos
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                          labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
-                                    ),
-                                    fillColor: Colors.black54,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
-                                    ),
-                                  ),
-                                  onChanged:(String value){},
                                 ),
+
+                            TextField(
+                              controller: _TextController2,
+                              maxLines: 3,
+                              cursorColor: Colors.black,
+                              cursorWidth: 7.0,
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
+                              ),
+                              decoration: InputDecoration(
+                                labelText: 'Llenar campo de texto',
+                                hintStyle: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)),
+                                prefixIcon: const Icon(
+                                  Icons.chrome_reader_mode,
+                                  color: Colors.black,
+                                ),
+                              ),
+                              onChanged:(String value){},
+                            ),
 
                               ],
                             ),
@@ -1840,47 +1799,41 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                                color: Color(0xFFF3F3F3),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
 //Titulo
                                 Text(
                                   'Saldo de Tarjeta',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                  ),
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
+                                  ),
+                                ),
 
                                 TextField(
                                   controller: _TextController3,
-                                  maxLines: 3, //Maximo de Lineas de Texto
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
-                                  ),
-//Descripcion & Estilos
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                 labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
+                                    maxLines: 3,
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 7.0,
+                                    style: TextStyle(fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF1D539B)
                                     ),
-                                    fillColor: Colors.black54,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
+                                    decoration: InputDecoration(
+                                      labelText: 'Llenar campo de texto',
+                                      hintStyle: TextStyle(fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF1D539B)),
+                                      prefixIcon: const Icon(
+                                        Icons.chrome_reader_mode,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    onChanged:(String value){},
                                   ),
-                                  onChanged:(String value){},
-                                ),
 
                               ],
                             ),
@@ -1902,47 +1855,41 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                                color: Color(0xFFF3F3F3),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
 //Titulo
                                 Text(
                                   'Hora de la Carga',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                  ),
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
+                                  ),
+                                ),
 
                                 TextField(
                                   controller: _TextController4,
-                                  maxLines: 3,  //Maximo de Lineas de Texto
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
-                                  ),
-//Descripcion & Estilos
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                      labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
+                                    maxLines: 3,
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 7.0,
+                                    style: TextStyle(fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF1D539B)
                                     ),
-                                    fillColor: Colors.black54,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
+                                    decoration: InputDecoration(
+                                      labelText: 'Llenar campo de texto',
+                                      hintStyle: TextStyle(fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF1D539B)),
+                                      prefixIcon: const Icon(
+                                        Icons.chrome_reader_mode,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    onChanged:(String value){},
                                   ),
-                                  onChanged:(String value){},
-                                ),
 
                               ],
                             ),
@@ -1957,21 +1904,19 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Info Titulo<>
                               Text(
                                 '¿Es correcta la informacion?',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 //Info Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2077,20 +2022,18 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 '¿Cuenta con fondo de estacionamientos?',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2146,45 +2089,40 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
+                                color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
                                   '¿Cuánto?',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                  ),
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
+                                  ),
+                                ),
 
                                 TextField(
                                   controller: _TextController5,
-                                  maxLines: 3,
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                       labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
+                                    maxLines: 3,
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 7.0,
+                                    style: TextStyle(fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF1D539B)
                                     ),
-                                    fillColor: Colors.black54,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
+                                    decoration: InputDecoration(
+                                      labelText: 'Llenar campo de texto',
+                                      hintStyle: TextStyle(fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF1D539B)),
+                                      prefixIcon: const Icon(
+                                        Icons.chrome_reader_mode,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    onChanged:(String value){},
                                   ),
-                                  onChanged:(String value){},
-                                ),
 
                               ],
                             ),
@@ -2203,45 +2141,40 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                                color: Color(0xFFF3F3F3),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
                                   'Número de ticket de estacionamiento',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                  ),
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
+                                  ),
+                                ),
 
                                 TextField(
                                   controller: _TextController6,
-                                  maxLines: 3,
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                       labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
+                                    maxLines: 3,
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 7.0,
+                                    style: TextStyle(fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF1D539B)
                                     ),
-                                    fillColor: Colors.black54,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
+                                    decoration: InputDecoration(
+                                      labelText: 'Llenar campo de texto',
+                                      hintStyle: TextStyle(fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF1D539B)),
+                                      prefixIcon: const Icon(
+                                        Icons.chrome_reader_mode,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    onChanged:(String value){},
                                   ),
-                                  onChanged:(String value){},
-                                ),
 
                               ],
                             ),
@@ -2261,45 +2194,40 @@ class _CheckListUState extends State<CheckListUnity>{
                           child:Container(
                             height: 127.0,
                             decoration: BoxDecoration(
-                              //border: Border.all(color: Colors.grey, width: 1.0),
-
-                                color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                            margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                                color: Color(0xFFF3F3F3),
+                                borderRadius: BorderRadius.circular(5.0)),
+                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
                                   'Total en pesos',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                  ),
+                                  style: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)
+                                  ),
+                                ),
 
                                 TextField(
                                   controller: _TextController7,
-                                  maxLines: 3,
-                                  cursorColor: Colors.black,
-                                  cursorWidth: 7.0,
-                                  style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 19.0
-                                  ),
-                                  decoration: InputDecoration(
-                                    labelText: 'Llenar campo de texto',
-                                     labelStyle: TextStyle(
-                                    fontSize: 16.0,
-                                    color: Color(0xFF969696),
-                                    fontWeight: FontWeight.w500
+                                    maxLines: 3,
+                                    cursorColor: Colors.black,
+                                    cursorWidth: 7.0,
+                                    style: TextStyle(fontSize: 16.0,
+                                        fontWeight: FontWeight.w600,
+                                        color: Color(0xFF1D539B)
                                     ),
-                                    fillColor: Colors.black54,
-                                    prefixIcon: const Icon(
-                                        Icons.textsms,
-                                        color: Colors.black
+                                    decoration: InputDecoration(
+                                      labelText: 'Llenar campo de texto',
+                                      hintStyle: TextStyle(fontSize: 16.0,
+                                          fontWeight: FontWeight.w600,
+                                          color: Color(0xFF1D539B)),
+                                      prefixIcon: const Icon(
+                                        Icons.chrome_reader_mode,
+                                        color: Colors.black,
+                                      ),
                                     ),
+                                    onChanged:(String value){},
                                   ),
-                                  onChanged:(String value){},
-                                ),
 
                               ],
                             ),
@@ -2315,20 +2243,18 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 '¿Es correcta la información?',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2431,20 +2357,18 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Cargador USB',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2501,20 +2425,18 @@ class _CheckListUState extends State<CheckListUnity>{
 
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Tag',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2571,20 +2493,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Guía roja',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2639,20 +2559,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Lámpara',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2707,20 +2625,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Paraguas',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2776,20 +2692,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Manos libres',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2845,20 +2759,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Red',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2914,20 +2826,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Extintor',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2983,20 +2893,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Gato',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3052,20 +2960,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Llave de cruz',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3121,20 +3027,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Señalamientos',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3189,20 +3093,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Kit de limpieza',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3256,20 +3158,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Aceite',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3323,20 +3223,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Anticongelante',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3390,20 +3288,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Líquido de dirección',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3457,20 +3353,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Líquido de frenos',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3524,20 +3418,18 @@ class _CheckListUState extends State<CheckListUnity>{
                         ),
                         Container(
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 '¿Es correcta la información?',
-                              style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
-                              ),                                ),
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
+                                ),
+                              ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -3596,9 +3488,8 @@ class _CheckListUState extends State<CheckListUnity>{
                 SizedBox(
                   height: 6,
                 ),
-                Text(
-                  'Foto frontal piloto-cofre ',
-                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                Divider(
+                  color: Color(0xFFD4D4D4),
                 ),
                 SizedBox(
                   height: 6,
@@ -3612,29 +3503,28 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
           SizedBox(height: 10),
           Container(
-            width: 90,
+            width: 241,
             height: 40,
             margin: EdgeInsets.only(bottom: 14),
             child: ButtonTheme(
               child:
               FlatButton(
                 onPressed: getImage,
-                color: Color(0xFFFFD100),
+                color: Color(0xFF2350A6),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.camera,
-                      color: Colors.white,
+                      Icons.photo_camera,
+                      color: Color(0xFFFFFFFF),
                     ),
                     Text(
-                      "Foto",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    )
+                      " Foto frontal piloto/cofre",
+                      style: TextStyle(fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFFFFFFFF)),
+                    ),
                   ],
                 ),
               ),
@@ -3642,12 +3532,8 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
         ],
       ),
-                SizedBox(
-                  height: 6,
-                ),
-                Text(
-                  'Foto frontal copiloto-cofre ',
-                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                Divider(
+                  color: Color(0xFFD4D4D4),
                 ),
                 SizedBox(
                   height: 6,
@@ -3661,29 +3547,28 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
           SizedBox(height: 10),
           Container(
-            width: 90,
+            width: 241,
             height: 40,
             margin: EdgeInsets.only(bottom: 14),
             child: ButtonTheme(
               child:
               FlatButton(
                 onPressed: getImage2,
-                color: Color(0xFFFFD100),
+                color: Color(0xFF2350A6),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.camera,
-                      color: Colors.white,
+                      Icons.photo_camera,
+                      color: Color(0xFFFFFFFF),
                     ),
                     Text(
-                      "Foto",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    )
+                      " Foto frontal copiloto/cofre",
+                      style: TextStyle(fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFFFFFFFF)),
+                    ),
                   ],
                 ),
               ),
@@ -3691,12 +3576,8 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
         ],
       ),
-                SizedBox(
-                  height: 6,
-                ),
-                Text(
-                  'Foto trasera piloto-cajuela ',
-                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                Divider(
+                  color: Color(0xFFD4D4D4),
                 ),
                 SizedBox(
                   height: 6,
@@ -3710,29 +3591,28 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
           SizedBox(height: 10),
           Container(
-            width: 90,
+            width: 241,
             height: 40,
             margin: EdgeInsets.only(bottom: 14),
             child: ButtonTheme(
               child:
               FlatButton(
                 onPressed: getImage3,
-                color: Color(0xFFFFD100),
+                color: Color(0xFF2350A6),
                 child: Row(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: <Widget>[
                     Icon(
-                      Icons.camera,
-                      color: Colors.white,
+                      Icons.photo_camera,
+                      color: Color(0xFFFFFFFF),
                     ),
                     Text(
-                      "Foto",
-                      style: TextStyle(
-                        fontSize: 15,
-                        color: Colors.white,
-                      ),
-                    )
+                      " Foto trasera piloto/cajuela",
+                      style: TextStyle(fontSize: 14.0,
+                          fontWeight: FontWeight.w600,
+                          color: Color(0xFFFFFFFF)),
+                    ),
                   ],
                 ),
               ),
@@ -3740,12 +3620,8 @@ class _CheckListUState extends State<CheckListUnity>{
           ),
         ],
       ),
-                SizedBox(
-                  height: 6,
-                ),
-                Text(
-                  'Foto trasera copiloto-cajuela ',
-                  style: TextStyle(color: Colors.black, fontSize: 20.0),
+                Divider(
+                  color: Color(0xFFD4D4D4),
                 ),
                 SizedBox(
                   height: 6,
@@ -3759,29 +3635,28 @@ class _CheckListUState extends State<CheckListUnity>{
             ),
             SizedBox(height: 10),
             Container(
-              width: 90,
+              width: 241,
               height: 40,
               margin: EdgeInsets.only(bottom: 14),
               child: ButtonTheme(
                 child:
                 FlatButton(
                   onPressed: getImage4,
-                  color: Color(0xFFFFD100),
+                  color: Color(0xFF2350A6),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(
-                        Icons.camera,
-                        color: Colors.white,
+                        Icons.photo_camera,
+                        color: Color(0xFFFFFFFF),
                       ),
                       Text(
-                        "Foto",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
-                      )
+                        " Foto trasera copiloto/cajuela",
+                        style: TextStyle(fontSize: 14.0,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFFFFFFFF)),
+                      ),
                     ],
                   ),
                 ),
@@ -3789,6 +3664,9 @@ class _CheckListUState extends State<CheckListUnity>{
             ),
           ],
         ),
+                Divider(
+                  color: Color(0xFFD4D4D4),
+                ),
                 _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
                 _canShowButton
                     ?
@@ -3857,7 +3735,7 @@ class _CheckListUState extends State<CheckListUnity>{
                     );
                   },
                   textColor: Colors.white,
-                  color: Color(0xFF2350A6),
+                  color: Color(0xFFFFB600),
                   padding: EdgeInsets.all(8.0),
                   child: Text(
                     "Firma electrónica",
@@ -3865,6 +3743,9 @@ class _CheckListUState extends State<CheckListUnity>{
 
                 )
                     : SizedBox(),
+                Divider(
+                  color: Color(0xFFD4D4D4),
+                ),
                 /* RaisedButton(
                   onPressed: (){
                     _recepcion();

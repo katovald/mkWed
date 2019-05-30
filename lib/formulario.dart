@@ -877,19 +877,16 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
-                              'Estado de la pintura',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500
+                              'Estado de la pintura123241',
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                             ),
 
@@ -962,19 +959,16 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Estado de los Frenos',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                             ),
 
@@ -1037,19 +1031,16 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(0.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
                                 'Sistema Eléctrico',
-                                style: TextStyle(
-                                    fontSize: 18.0,
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w500
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
                                 ),
                               ),
 
@@ -1090,19 +1081,16 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'LLanta trasera izquierda',
-                              style: TextStyle(
-                                  fontSize: 18.0,
-                                  color: Colors.black,
-                                  fontWeight: FontWeight.w500
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                             ),
 
@@ -1180,11 +1168,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -1271,11 +1257,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -1361,11 +1345,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -1452,11 +1434,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -1593,11 +1573,9 @@ class _CheckListUState extends State<Formulario>{
 //Separador</>
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
 //Tanque Gasolina Titulo<>
@@ -1632,11 +1610,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
 //Tarjeta Gasolina Titulo<>
@@ -1699,11 +1675,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
 //Cargo Gasolina Titulo<>
@@ -1772,11 +1746,9 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Titulo
@@ -1835,11 +1807,9 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Titulo
@@ -1897,11 +1867,9 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
 //Titulo
@@ -1952,11 +1920,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
 //Info Titulo<>
@@ -2072,11 +2038,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2141,11 +2105,9 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
+                              color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2198,11 +2160,9 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2256,11 +2216,9 @@ class _CheckListUState extends State<Formulario>{
                         child:Container(
                           height: 127.0,
                           decoration: BoxDecoration(
-                            //border: Border.all(color: Colors.grey, width: 1.0),
-
-                              color: Color(0xFFEAEAEA),
-                              borderRadius: BorderRadius.circular(8.0)),
-                          margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                              color: Color(0xFFF3F3F3),
+                              borderRadius: BorderRadius.circular(5.0)),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2310,11 +2268,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2426,11 +2382,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2496,11 +2450,9 @@ class _CheckListUState extends State<Formulario>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2566,11 +2518,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2634,11 +2584,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2702,11 +2650,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2771,11 +2717,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2840,11 +2784,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2909,11 +2851,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -2978,11 +2918,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3047,11 +2985,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3116,11 +3052,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3184,11 +3118,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3251,11 +3183,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3318,11 +3248,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3385,11 +3313,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3452,11 +3378,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(
@@ -3519,11 +3443,9 @@ class _CheckListUState extends State<Formulario>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(8.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
                             Text(

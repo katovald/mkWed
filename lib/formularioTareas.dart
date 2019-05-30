@@ -670,18 +670,21 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
             children: _items.map((MyItem item) {
               return  ExpansionPanel(
                 headerBuilder: (BuildContext context, bool isExpanded) {
-                  return   Column(
-                   crossAxisAlignment: CrossAxisAlignment.start,
+                  return  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
-                    Text(
-                    "Tarea",
-                    style: TextStyle(
-                        fontSize: 21.0,
-                        color: Colors.black,
-                        fontWeight: FontWeight.bold
-                    ),
-                  ),
+                      Padding(
+                        padding: const EdgeInsets.only(left: 14.0),
+                        child: Text(
+                          "Tarea",
+                          style: TextStyle(
+                              fontSize: 18.0,
+                              color: Colors.black,
+                              fontWeight: FontWeight.w500
+                          ),
+                        ),
+                      ),
                     ],
                   );
                   },
@@ -696,15 +699,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Observaciones',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
+                              ),
                             ),
 
                             ButtonBar(
@@ -755,16 +760,15 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               child: TextField(
                                 controller: _textFieldController,
 
-                                style: TextStyle(
-                                    color: Colors.black,
-                                    fontSize: 19.0
+                                style: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)
                                 ),
                                 decoration: InputDecoration(
                                   labelText: 'Observación',
-                                  labelStyle: TextStyle(
-                                      color: Colors.black,
-                                      fontWeight: FontWeight.w100
-                                  ),
+                                  hintStyle: TextStyle(fontSize: 16.0,
+                                      fontWeight: FontWeight.w600,
+                                      color: Color(0xFF1D539B)),
                                   fillColor: Colors.blueGrey,
                                   // hintText: "Enter Username",
                                 ),
@@ -784,15 +788,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Cortina(s) entrada de clientes',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -833,7 +838,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalCortinaClientes,
                                             keyboardType: TextInputType.number,
@@ -843,15 +848,13 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             cursorWidth: 7.0,
                                             style: TextStyle(
                                                 color: Colors.black,
-                                                fontSize: 19.0
+                                                fontSize: 16.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                fontWeight: FontWeight.w600,
+                                                color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -875,7 +878,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionCortinaClientes,
                                         keyboardType: TextInputType.multiline,
@@ -884,15 +887,14 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         cursorWidth: 7.0,
                                         style: TextStyle(
                                             color: Colors.black,
-                                            fontSize: 19.0
+                                            fontSize: 16.0
                                         ),
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -911,15 +913,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Cortina(s) recibo de mercancia',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -960,7 +963,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             keyboardType: TextInputType.number,
                                             controller: _totalCortinasMercancia,
@@ -976,10 +979,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1005,7 +1007,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionCortinasMercancia,
                                         keyboardType: TextInputType.multiline,
@@ -1019,10 +1021,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1043,15 +1044,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Puerta(s)',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1092,7 +1094,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalPuerta,
                                             keyboardType: TextInputType.number,
@@ -1107,10 +1109,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1136,7 +1137,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionPuerta,
                                         keyboardType: TextInputType.multiline,
@@ -1150,10 +1151,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1174,15 +1174,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Chapa(s)',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1223,7 +1224,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalChapa,
                                             keyboardType: TextInputType.number,
@@ -1238,10 +1239,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1267,7 +1267,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionChapa,
                                         keyboardType: TextInputType.multiline,
@@ -1281,10 +1281,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1304,15 +1303,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Cámara(s)',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1353,7 +1353,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalCamara,
                                             keyboardType: TextInputType.number,
@@ -1368,10 +1368,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1410,11 +1409,10 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         ),
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
-                                          hintText: 'Observación',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintText: 'Observación (opcional)',
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1435,15 +1433,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Candado(s)',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1484,7 +1483,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalCandado,
                                             keyboardType: TextInputType.number,
@@ -1499,10 +1498,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1528,7 +1526,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionCandado,
                                         keyboardType: TextInputType.multiline,
@@ -1542,10 +1540,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1566,15 +1563,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       Container
                         (
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Puerta(s) de cristal',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1615,7 +1613,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalPuertaCristal,
                                             keyboardType: TextInputType.number,
@@ -1631,10 +1629,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
 
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1660,7 +1657,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionPuertaCristal,
                                         keyboardType: TextInputType.multiline,
@@ -1674,10 +1671,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1698,15 +1694,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Fachada(s) de cristal',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1747,7 +1744,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalFachadaCristal,
                                             keyboardType: TextInputType.number,
@@ -1762,10 +1759,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1791,7 +1787,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionFachadaCristal,
                                         keyboardType: TextInputType.multiline,
@@ -1805,10 +1801,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1828,15 +1823,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Muro(s) perimetrales',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -1877,7 +1873,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalMuro,
                                             keyboardType: TextInputType.number,
@@ -1892,10 +1888,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -1921,7 +1916,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 192,
+                                      width: 175,
                                       child:  TextField(
                                         controller: _observacionMuro,
                                         keyboardType: TextInputType.multiline,
@@ -1935,10 +1930,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -1958,15 +1952,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Sirena(s)',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2007,7 +2002,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalSirena,
                                             keyboardType: TextInputType.number,
@@ -2022,10 +2017,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -2051,7 +2045,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionSirena,
                                         keyboardType: TextInputType.multiline,
@@ -2065,10 +2059,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -2089,15 +2082,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Planta(s) de luz',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2138,7 +2132,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalPlanta,
                                             keyboardType: TextInputType.number,
@@ -2153,10 +2147,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -2182,7 +2175,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 173,
+                                      width: 156,
                                       child:  TextField(
                                         controller: _observacionPlanta,
                                         keyboardType: TextInputType.multiline,
@@ -2197,10 +2190,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -2220,15 +2212,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Ventana(s) o ventanales',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2269,7 +2262,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalVentana,
                                             keyboardType: TextInputType.number,
@@ -2284,10 +2277,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -2313,7 +2305,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionVentana,
                                         keyboardType: TextInputType.multiline,
@@ -2327,10 +2319,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -2351,15 +2342,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Porton(es) de estacionamiento',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2400,7 +2392,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalPorton,
                                             keyboardType: TextInputType.number,
@@ -2415,10 +2407,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -2444,7 +2435,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionPorton,
                                         keyboardType: TextInputType.multiline,
@@ -2458,10 +2449,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -2481,15 +2471,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Puerta(s) de reja de protección',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2530,7 +2521,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                     Row(
                                       children: <Widget>[
                                         Container(
-                                          width: 116,
+                                          width: 100,
                                           child:  TextField(
                                             controller: _totalReja,
                                             keyboardType: TextInputType.number,
@@ -2545,10 +2536,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                             decoration: InputDecoration(
                                               //labelText: 'Total',
                                               hintText: 'Total',
-                                              hintStyle: TextStyle(
-                                                color: Colors.black,
-                                                fontWeight: FontWeight.w100,
-                                              ),
+                                              hintStyle: TextStyle(fontSize: 16.0,
+                                                  fontWeight: FontWeight.w600,
+                                                  color: Color(0xFF1D539B)),
                                               fillColor: Colors.blueGrey,
                                             ),
                                             onChanged:(String value){},
@@ -2574,7 +2564,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 Row(
                                   children: <Widget>[
                                     Container(
-                                      width: 200,
+                                      width: 185,
                                       child:  TextField(
                                         controller: _observacionReja,
                                         keyboardType: TextInputType.multiline,
@@ -2588,10 +2578,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                         decoration: InputDecoration(
                                           //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
-                                          hintStyle: TextStyle(
-                                            color: Colors.black,
-                                            fontWeight: FontWeight.w100,
-                                          ),
+                                          hintStyle: TextStyle(fontSize: 16.0,
+                                              fontWeight: FontWeight.w600,
+                                              color: Color(0xFF1D539B)),
                                           fillColor: Colors.blueGrey,
                                         ),
                                         onChanged:(String value){},
@@ -2611,15 +2600,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Ruidos al interior',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2668,19 +2658,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               maxLines: 3,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 19.0
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                               decoration: InputDecoration(
                                 labelText: 'Llenar campo de texto',
-                                labelStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w100
-                                ),
-                                fillColor: Colors.blueGrey,
+                                hintStyle: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)),
                                 prefixIcon: const Icon(
-                                  Icons.drive_eta,
+                                  Icons.chrome_reader_mode,
                                   color: Colors.black,
                                 ),
                               ),
@@ -2694,15 +2682,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Luz al interior',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2751,19 +2740,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               maxLines: 3,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 19.0
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                               decoration: InputDecoration(
                                 labelText: 'Llenar campo de texto',
-                                labelStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w100
-                                ),
-                                fillColor: Colors.blueGrey,
+                                hintStyle: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)),
                                 prefixIcon: const Icon(
-                                  Icons.drive_eta,
+                                  Icons.chrome_reader_mode,
                                   color: Colors.black,
                                 ),
                               ),
@@ -2777,15 +2764,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Perímetro',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2834,19 +2822,17 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                               maxLines: 3,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 19.0
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                               decoration: InputDecoration(
                                 labelText: 'Llenar campo de texto',
-                                labelStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w100
-                                ),
-                                fillColor: Colors.blueGrey,
+                                hintStyle: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)),
                                 prefixIcon: const Icon(
-                                  Icons.drive_eta,
+                                  Icons.chrome_reader_mode,
                                   color: Colors.black,
                                 ),
                               ),
@@ -2860,15 +2846,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                       Container(
                         decoration: BoxDecoration(
-                          //border: Border.all(color: Colors.grey, width: 1.0),
-                            color: Color(0xFFEAEAEA),
-                            borderRadius: BorderRadius.circular(1.0)),
-                        margin: EdgeInsets.only(left: 3.0, right: 3.0),
+                            color: Color(0xFFF3F3F3),
+                            borderRadius: BorderRadius.circular(5.0)),
+                        margin: EdgeInsets.only(left: 10.0, right: 10.0),
                         child: Column(
                           children: <Widget>[
                             Text(
                               'Hubo entrevista',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
 
                             ButtonBar(
@@ -2914,26 +2901,26 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             ),
                             Text(
                               'Nombre',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
                             TextField(
                               controller: _nombreEntrevista,
                               maxLines: 1,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 19.0
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                               decoration: InputDecoration(
                                 labelText: 'Llenar campo de texto',
-                                labelStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w100
-                                ),
-                                fillColor: Colors.blueGrey,
+                                hintStyle: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)),
                                 prefixIcon: const Icon(
-                                  Icons.drive_eta,
+                                  Icons.chrome_reader_mode,
                                   color: Colors.black,
                                 ),
                               ),
@@ -2941,26 +2928,26 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                             ),
                             Text(
                               'Puesto',
-                              style: TextStyle(color: Colors.black, fontSize: 20.0),
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)),
                             ),
                             TextField(
                               controller: _puesto,
                               maxLines: 1,
                               cursorColor: Colors.black,
                               cursorWidth: 7.0,
-                              style: TextStyle(
-                                  color: Colors.black,
-                                  fontSize: 19.0
+                              style: TextStyle(fontSize: 16.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFF1D539B)
                               ),
                               decoration: InputDecoration(
                                 labelText: 'Llenar campo de texto',
-                                labelStyle: TextStyle(
-                                    color: Colors.black,
-                                    fontWeight: FontWeight.w100
-                                ),
-                                fillColor: Colors.blueGrey,
+                                hintStyle: TextStyle(fontSize: 16.0,
+                                    fontWeight: FontWeight.w600,
+                                    color: Color(0xFF1D539B)),
                                 prefixIcon: const Icon(
-                                  Icons.drive_eta,
+                                  Icons.chrome_reader_mode,
                                   color: Colors.black,
                                 ),
                               ),
@@ -3055,20 +3042,16 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   );
                 },
                 textColor: Colors.white,
-                color: Color(0xFF2350A6),
+                color: Color(0xFFFFB600),
                 padding: EdgeInsets.all(8.0),
                 child: Text(
                   "Firma electrónica",
                 ),
 
-              )
-                  : SizedBox(),
-              Text(
-                'Fotografia fachada',
-                style: TextStyle(color: Colors.black, fontSize: 20.0),
-              ),
-              SizedBox(
-                height: 6,
+              ):
+              SizedBox(),
+              Divider(
+                color: Color(0xFFD4D4D4),
               ),
               Column(
                 children: <Widget>[
@@ -3077,31 +3060,29 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                         ?Text('')
                         :Image.file((imageFile)),
                   ),
-                  SizedBox(height: 10),
                   Container(
-                    width: 90,
+                    width: 182,
                     height: 40,
                     margin: EdgeInsets.only(bottom: 14),
                     child: ButtonTheme(
                       child:
                       FlatButton(
                         onPressed: getImage,
-                        color: Color(0xFFFFD100),
+                        color: Color(0xFF2350A6),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(
-                              Icons.camera,
-                              color: Colors.white,
+                              Icons.photo_camera,
+                              color: Color(0xFFFFFFFF),
                             ),
                             Text(
-                              "Foto",
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                              ),
-                            )
+                              " Fotografia Fachada",
+                              style: TextStyle(fontSize: 14.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFFFFFFFF)),
+                            ),
                           ],
                         ),
                       ),
@@ -3109,15 +3090,8 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   ),
                 ],
               ),
-              SizedBox(
-                height: 6,
-              ),
-              Text(
-                'Fotografia entrada',
-                style: TextStyle(color: Colors.black, fontSize: 20.0),
-              ),
-              SizedBox(
-                height: 6,
+              Divider(
+                color: Color(0xFFD4D4D4),
               ),
               Column(
                 children: <Widget>[
@@ -3126,30 +3100,28 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                         ?Text('')
                         :Image.file((imageFile2)),
                   ),
-                  SizedBox(height: 10),
                   Container(
-                    width: 90,
+                    width: 182,
                     height: 40,
                     margin: EdgeInsets.only(bottom: 14),
                     child: ButtonTheme(
                       child:
                       FlatButton(
                         onPressed: getImage2,
-                        color: Color(0xFFFFD100),
+                        color: Color(0xFF2350A6),
                         child: Row(
                           crossAxisAlignment: CrossAxisAlignment.center,
                           mainAxisAlignment: MainAxisAlignment.center,
                           children: <Widget>[
                             Icon(
-                              Icons.camera,
-                              color: Colors.white,
+                              Icons.photo_camera,
+                              color: Color(0xFFFFFFFF),
                             ),
                             Text(
-                              "Foto",
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                              ),
+                              " Fotografia Entrada",
+                              style: TextStyle(fontSize: 14.0,
+                                  fontWeight: FontWeight.w600,
+                                  color: Color(0xFFFFFFFF)),
                             )
                           ],
                         ),
@@ -3158,15 +3130,8 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   ),
                 ],
               ),
-              SizedBox(
-                height: 6,
-              ),
-              Text(
-                'Fotografia lateral',
-                style: TextStyle(color: Colors.black, fontSize: 20.0),
-              ),
-              SizedBox(
-                height: 6,
+              Divider(
+                color: Color(0xFFE5E5E5),
               ),
             Column(
           children: <Widget>[
@@ -3175,30 +3140,28 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                   ?Text('')
                   :Image.file((imageFile3)),
             ),
-            SizedBox(height: 10),
             Container(
-              width: 90,
+              width: 182,
               height: 40,
               margin: EdgeInsets.only(bottom: 14),
               child: ButtonTheme(
                 child:
                 FlatButton(
                   onPressed: getImage3,
-                  color: Color(0xFFFFD100),
+                  color: Color(0xFF2350A6),
                   child: Row(
                     crossAxisAlignment: CrossAxisAlignment.center,
                     mainAxisAlignment: MainAxisAlignment.center,
                     children: <Widget>[
                       Icon(
-                        Icons.camera,
-                        color: Colors.white,
+                        Icons.photo_camera,
+                        color: Color(0xFFFFFFFF),
                       ),
                       Text(
-                        "Foto",
-                        style: TextStyle(
-                          fontSize: 15,
-                          color: Colors.white,
-                        ),
+                        " Fotografia Lateral",
+                        style: TextStyle(fontSize: 14.0,
+                            fontWeight: FontWeight.w600,
+                            color: Color(0xFFFFFFFF)),
                       )
                     ],
                   ),
@@ -3207,6 +3170,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
             ),
           ],
         ),
+              Divider(
+                color: Color(0xFFD4D4D4),
+              ),
             /*  RaisedButton(
                 onPressed: (){
                   _tarea();
@@ -3234,11 +3200,11 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                 .pushNamedAndRemoveUntil('/item', (Route<dynamic> route) => false);
                             _tarea();
                           },
-                        color: Color(0xFF25C13A),
+                        color: Color(0xFF00E5D0),
                         child: Row( // Replace with a Row for horizontal icon + text
                           children: <Widget>[
                             Icon(
-                              Icons.arrow_right,
+                              Icons.assignment,
                               color: Colors.white,
                             ),
                             Text(
@@ -3261,11 +3227,11 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                         child:
                         FlatButton(
                           onPressed: () => Navigator.pop(context, true),
-                          color:  Color(0xFF2350A6),
+                          color:  Color(0xFFFF0051),
                           child: Row( // Replace with a Row for horizontal icon + text
                             children: <Widget>[
                               Icon(
-                                Icons.save,
+                                Icons.save_alt,
                                 color: Colors.white,
                               ),
                               Text(
@@ -3281,6 +3247,9 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       ),
                     ),
                 ],
+              ),
+              Divider(
+                color: Color(0xFFD4D4D4),
               ),
             ],
           ),
