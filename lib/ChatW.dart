@@ -9,11 +9,6 @@ import 'dart:io';
 import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 
-
-
-const String defaultUserName = "Rafael";
-
-
 class Chat extends StatefulWidget {
   @override
   State createState() => new ChatWindow();
@@ -53,13 +48,11 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       _link(_chatTextController.text);
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   TextEditingController _chatTextController =   TextEditingController();
@@ -68,32 +61,21 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
 
   bool _hasText = false;
 
-  String _name = 'Rafael Márquezgi';
-
+  String _name = 'Rafael Márquez';
+  var now = DateTime.now();
   void _link(String text) {
     _chatTextController.clear();
-    Firestore.instance.collection('links').add({
-      'name': _name,
-      'message': text,
-      'link':imageUrl,
-      'time':  DateTime.now().timeZoneName
+   Firestore.instance.collection('Chats').document('mensajes').collection('666666').add({
+        'name': _name,
+        'message': text,
+        'link':imageUrl,
+        'Hora': now,
     });
   }
   Widget buildChatList() {
     return  Expanded(
-        child:  StreamBuilder(
-            stream:Firestore.instance.collection('chats').snapshots(),
-            builder: (context, snapshot2) {
-              if (!snapshot2.hasData) return const Text(
-                'Cargando . . .',
-                style: TextStyle(
-                    fontSize: 16.0,
-                    fontWeight: FontWeight.w600,
-                    color: Color(0xFF1D539B)
-                ),
-              );
-              return  StreamBuilder(
-                  stream: Firestore.instance.collection('links').snapshots(),
+        child:   StreamBuilder(
+                  stream: Firestore.instance.collection('Chats').document('mensajes').collection('666666').snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) return const Text(
                       'Cargando . . .',
@@ -118,8 +100,8 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                           DocumentSnapshot ds = snapshot.data.documents[index];
                           return buildChatBubbleIm(ds['name'], ds['message'], ds['link']);
                         });
-                  });
-            }));
+                  }),
+           );
   }
 
 
@@ -169,7 +151,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "${name}: ",
+            "$name: ",
             style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600,

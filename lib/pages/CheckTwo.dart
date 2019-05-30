@@ -1,11 +1,6 @@
-import 'package:app_editesp/BackW.dart';
 import 'package:app_editesp/BackWGeneral.dart';
-import 'package:app_editesp/ChatW.dart';
-import 'package:app_editesp/CkeckListUnity.dart';
 import 'package:app_editesp/formularioTareas.dart';
-import 'package:app_editesp/pages/CameraPag.dart';
 import 'package:app_editesp/pages/ChatPage.dart';
-import 'package:app_editesp/pages/ItemList.dart';
 import 'package:flutter/material.dart';
 
 class CheckListTwo extends StatelessWidget {

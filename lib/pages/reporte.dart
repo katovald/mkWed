@@ -14,6 +14,7 @@ class _reporte_SiniestrosState extends State<reporte_Siniestros> {
   String _latitud = '19.415269';
   String _longitud = '-99.136779';
   var now = DateTime.now();
+  // ignore: non_constant_identifier_names
   void _siniestro(String Comentario) {
     _sinTextController.clear();
     Firestore.instance.collection('siniestros').add({
