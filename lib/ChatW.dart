@@ -175,37 +175,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
       ),
     );
   }
-
-  @override
-  void initState() {
-    super.initState();
-
-    promptName();
-  }
-
-  promptName() async {
-    String name = await showDialog(
-        context: context,
-        builder: (buildContext) {
-          return  SimpleDialog(
-              contentPadding:  EdgeInsets.all(10.0),
-              title: const Text('¿Cuál es tu nombre?'),
-              children: <Widget>[
-                Column(children: <Widget>[
-                  TextField(
-                      controller:_nameTextController,
-                      decoration:
-                      InputDecoration.collapsed(hintText: "Nombre")),
-                  FlatButton(onPressed: () {
-                    Navigator.pop(context, _nameTextController.text);
-                  }, child:  Text('Ok'))
-                ])
-              ]);
-        });
-
-    this._name = name;
-  }
-
   @override
   Widget build(BuildContext context) {
     return  Scaffold(

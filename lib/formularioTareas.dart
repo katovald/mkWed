@@ -60,7 +60,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   final _sign = GlobalKey<SignatureState>();
   bool _canShowButton = true;
   var rating;
-
+  final snackBar = SnackBar(content: Text('Se ha gurdado la información'),backgroundColor: Color(0xFF1D539B),);
   String selectedRadio;
   String selectedRadio2;
   String selectedRadio3;
@@ -348,7 +348,73 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   }
   void _tarea() {
     //_sinTextController.clear();
-    Firestore.instance.collection('Checklist').add({
+    Firestore.instance.collection('Checklist').document('Checklist1').setData({
+      'Estatus': 'Pendiente/Revisión',
+      'Observaciones': selectedRadio,
+      'Cortina_Clientes': selectedRadio2,
+      'Cortina_Mercancia': selectedRadio3,
+      'Puerta': selectedRadio4,
+      'Chapa': selectedRadio5,
+      'Camara': selectedRadio6,
+      'Candado': selectedRadio7,
+      'Puerta_cristal': selectedRadio8,
+      'Fachada_cristal': selectedRadio9,
+      'Muro': selectedRadio10,
+      'Sirena': selectedRadio11,
+      'Planta': selectedRadio12,
+      'Ventana': selectedRadio13,
+      'Porton': selectedRadio14,
+      'Reja': selectedRadio15,
+      'Ruidos': selectedRadio16,
+      'Luz': selectedRadio17,
+      'Perímetro': selectedRadio18,
+      'Entrevista': selectedRadio19,
+      'Observaciones_contenido': _textFieldController.text,
+      'Cortina_cliente_total': _totalCortinaClientes.text,
+      'Cortina_cliente_observacion':_observacionCortinaClientes.text,
+      'Cortina_mercancia_total': _totalCortinasMercancia.text,
+      'Cortina_mercancia_observacion':_observacionCortinasMercancia.text,
+      'Puerta_total': _totalPuerta.text,
+      'Puerta_observacion':_observacionPuerta.text,
+      'Chapa_total': _totalChapa.text,
+      'Chapa_observacion':_observacionChapa.text,
+      'Camara_total': _totalCamara.text,
+      'Camara_observacion':_observacionCamara.text,
+      'Candado_total': _totalCandado.text,
+      'Candado_observacion':_observacionCandado.text,
+      'Puerta_Cristal_total': _totalPuertaCristal.text,
+      'Puerta_Cristal_observacion':_observacionPuertaCristal.text,
+      'Fachada_Cristal_total': _totalFachadaCristal.text,
+      'Fachada_Cristal_observacion':_observacionFachadaCristal.text,
+      'Muro_total': _totalMuro.text,
+      'Muro_observacion':_observacionMuro.text,
+      'Sirena_total': _totalSirena.text,
+      'Sirena_observacion':_observacionSirena.text,
+      'Planta_total': _totalPlanta.text,
+      'Planta_observacion':_observacionPlanta.text,
+      'Ventana_total': _totalVentana.text,
+      'Ventana_observacion':_observacionVentana.text,
+      'Porton_total': _totalPorton.text,
+      'Porton_observacion':_observacionPorton.text,
+      'Reja_total': _totalReja.text,
+      'Reja_observacion':_observacionReja.text,
+      'Ruidos_comentario': _ruidos.text,
+      'Luz_comentario':_luz.text,
+      'Perímetro_comentario': _perimetro.text,
+      'Nombre_entrevista':_nombreEntrevista.text,
+      'Puesto': _puesto.text,
+      'Hora': now,
+      'Fachada': imageUrl,
+      'Entrada': imageUrl2,
+      'Lateral': imageUrl3,
+      'Firma': urlFirma,
+      //'Cuenta': evento.cuenta,
+    });
+  }
+  void _guardar() {
+    //_sinTextController.clear();
+    Firestore.instance.collection('Checklist').document('Checklist1').setData({
+      'Estatus': 'En espera',
       'Observaciones': selectedRadio,
       'Cortina_Clientes': selectedRadio2,
       'Cortina_Mercancia': selectedRadio3,
@@ -3225,9 +3291,12 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                       child: ButtonTheme(
                         child:
                         FlatButton(
-                          onPressed: () => Navigator.pop(context, true),
+                          onPressed: () =>{
+                          _guardar(),
+                          Scaffold.of(context).showSnackBar(snackBar),
+                          },
                           color:  Color(0xFFFF0051),
-                          child: Row( // Replace with a Row for horizontal icon + text
+                          child: Row(
                             children: <Widget>[
                               Icon(
                                 Icons.save_alt,
