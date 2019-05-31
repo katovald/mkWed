@@ -62,6 +62,9 @@ class _CheckListUState extends State<CheckListUnity>{
   List<MyItem> _items4 = <MyItem>[
     MyItem()
   ];
+  List<MyItem> _items5 = <MyItem>[
+    MyItem()
+  ];
   ByteData _img = ByteData(0);
   var color = Colors.black;
   var strokeWidth = 2.0;
@@ -836,7 +839,7 @@ class _CheckListUState extends State<CheckListUnity>{
         ),
         centerTitle: true,
         backgroundColor: Color(0xFF1D539B),
-      ),
+      ),//appbar
       body: ListView(
           children: <Widget>[
             SizedBox(
@@ -884,7 +887,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -966,7 +969,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -1038,7 +1041,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
@@ -1085,7 +1088,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -1172,7 +1175,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -1260,7 +1263,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -1347,7 +1350,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -1435,7 +1438,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -1515,9 +1518,6 @@ class _CheckListUState extends State<CheckListUnity>{
                         SizedBox(
                           height: 10,
                         ),
-
-
-
                       ],
                     ),
                   ),
@@ -1573,7 +1573,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
 //Tanque Gasolina Titulo<>
@@ -1609,7 +1609,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
 //Tarjeta Gasolina Titulo<>
@@ -1673,7 +1673,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
 //Cargo Gasolina Titulo<>
@@ -1744,7 +1744,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
 //Titulo
@@ -1801,7 +1801,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
 //Titulo
@@ -1857,7 +1857,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
 //Titulo
@@ -1906,7 +1906,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
 //Info Titulo<>
@@ -1975,7 +1975,6 @@ class _CheckListUState extends State<CheckListUnity>{
                   ),
 
                 );
-
               }).toList(),
             ),
             //AQUIIIIIIIIII
@@ -2024,7 +2023,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2091,7 +2090,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
@@ -2143,7 +2142,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
@@ -2196,7 +2195,7 @@ class _CheckListUState extends State<CheckListUnity>{
                             decoration: BoxDecoration(
                                 color: Color(0xFFF3F3F3),
                                 borderRadius: BorderRadius.circular(5.0)),
-                            margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                            margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
                                 Text(
@@ -2245,7 +2244,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2359,7 +2358,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2427,7 +2426,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2495,7 +2494,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2561,7 +2560,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2627,7 +2626,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2694,7 +2693,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2761,7 +2760,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2828,7 +2827,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2895,7 +2894,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -2962,7 +2961,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3029,7 +3028,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3095,7 +3094,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3160,7 +3159,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3225,7 +3224,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3290,7 +3289,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3355,7 +3354,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3420,7 +3419,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
+                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3483,281 +3482,325 @@ class _CheckListUState extends State<CheckListUnity>{
 
               }).toList(),
             ),
-            Column(
-              children: <Widget>[
-                SizedBox(
-                  height: 6,
-                ),
-                Divider(
-                  color: Color(0xFFD4D4D4),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-                Column(
-                  children: <Widget>[
-          Container(
-            child: imageFile == null
-                ?Text('')
-                :Image.file((imageFile)),
-          ),
-          SizedBox(height: 10),
-          Container(
-            width: 241,
-            height: 40,
-            margin: EdgeInsets.only(bottom: 14),
-            child: ButtonTheme(
-              child:
-              FlatButton(
-                onPressed: getImage,
-                color: Color(0xFF2350A6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.photo_camera,
-                      color: Color(0xFFFFFFFF),
-                    ),
-                    Text(
-                      " Foto frontal piloto/cofre",
-                      style: TextStyle(fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF)),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-                Divider(
-                  color: Color(0xFFD4D4D4),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-      Column(
-        children: <Widget>[
-          Container(
-            child: imageFile2 == null
-                ?Text('')
-                :Image.file((imageFile2)),
-          ),
-          SizedBox(height: 10),
-          Container(
-            width: 241,
-            height: 40,
-            margin: EdgeInsets.only(bottom: 14),
-            child: ButtonTheme(
-              child:
-              FlatButton(
-                onPressed: getImage2,
-                color: Color(0xFF2350A6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.photo_camera,
-                      color: Color(0xFFFFFFFF),
-                    ),
-                    Text(
-                      " Foto frontal copiloto/cofre",
-                      style: TextStyle(fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF)),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-                Divider(
-                  color: Color(0xFFD4D4D4),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-      Column(
-        children: <Widget>[
-          Container(
-            child: imageFile3 == null
-                ?Text('')
-                :Image.file((imageFile3)),
-          ),
-          SizedBox(height: 10),
-          Container(
-            width: 241,
-            height: 40,
-            margin: EdgeInsets.only(bottom: 14),
-            child: ButtonTheme(
-              child:
-              FlatButton(
-                onPressed: getImage3,
-                color: Color(0xFF2350A6),
-                child: Row(
-                  crossAxisAlignment: CrossAxisAlignment.center,
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: <Widget>[
-                    Icon(
-                      Icons.photo_camera,
-                      color: Color(0xFFFFFFFF),
-                    ),
-                    Text(
-                      " Foto trasera piloto/cajuela",
-                      style: TextStyle(fontSize: 14.0,
-                          fontWeight: FontWeight.w600,
-                          color: Color(0xFFFFFFFF)),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-                Divider(
-                  color: Color(0xFFD4D4D4),
-                ),
-                SizedBox(
-                  height: 6,
-                ),
-        Column(
-          children: <Widget>[
-            Container(
-              child: imageFile4 == null
-                  ?Text('')
-                  :Image.file((imageFile4)),
-            ),
-            SizedBox(height: 10),
-            Container(
-              width: 241,
-              height: 40,
-              margin: EdgeInsets.only(bottom: 14),
-              child: ButtonTheme(
-                child:
-                FlatButton(
-                  onPressed: getImage4,
-                  color: Color(0xFF2350A6),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: <Widget>[
-                      Icon(
-                        Icons.photo_camera,
-                        color: Color(0xFFFFFFFF),
-                      ),
-                      Text(
-                        " Foto trasera copiloto/cajuela",
-                        style: TextStyle(fontSize: 14.0,
-                            fontWeight: FontWeight.w600,
-                            color: Color(0xFFFFFFFF)),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ],
-        ),
-                Divider(
-                  color: Color(0xFFD4D4D4),
-                ),
-                _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
-                _canShowButton
-                    ?
-                RaisedButton(
-                  onPressed: (){
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
 
-                        return AlertDialog(
-                          title: Text("Firma electrónica"),
-                          content: Container(
-                            height: 150,
-                            width: 300,
-                            child: Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Signature(
-                                color: color,
-                                key: _sign,
-                                onSign: () {
-                                  final sign = _sign.currentState;
-                                  debugPrint('${sign.points.length} points in the signature');
-                                },
-                                backgroundPainter: _WatermarkPaint("2.0", "2.0"),
-                                strokeWidth: strokeWidth,
-                              ),
+            SizedBox(
+              height: 10,
+            ),
+            ExpansionPanelList(
+
+              expansionCallback: (int index, bool isExpanded) {
+                setState(() {
+                  _items5[index].isExpanded = !_items5[index].isExpanded;
+                });
+              },
+              children: _items5.map((MyItem item) {
+                return  ExpansionPanel(
+                  headerBuilder: (BuildContext context, bool isExpanded) {
+                    return     Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: <Widget>[
+                        Padding(
+                          padding: const EdgeInsets.only(left: 14.0),
+                          child: Text(
+                            "Evidencias",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500
                             ),
-                            color: Colors.black12,
                           ),
-
-                          actions: <Widget>[
-                            FlatButton(
-                              child:  Text("Salvar"),
-                              onPressed: ()  async {
-                                final sign = _sign.currentState;
-                                final image = await sign.getData();
-                                var data = await image.toByteData(format: ui.ImageByteFormat.png);
-                                sign.clear();
-                                final encoded = base64.encode(data.buffer.asUint8List());
-                                setState(() {
-                                  _img = data;
-                                });
-                                debugPrint("onPressed " + encoded);
-                                Navigator.of(context).pop();
-                                setState(() => _canShowButton = !_canShowButton);
-                                uploadFirma();
-                              },
-
-                            ),
-
-                            //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
-                            FlatButton(
-                              child:  Text("Borrar"),
-                              onPressed: () {
-                                final sign = _sign.currentState;
-                                sign.clear();
-                                setState(() {
-                                  _img = ByteData(0);
-                                });
-                                debugPrint("cleared");
-                              },
-                            ),
-                          ],
-                        );
-                      },
+                        ),
+                      ],
                     );
                   },
-                  textColor: Colors.white,
-                  color: Color(0xFFFFB600),
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Firma electrónica",
-                  ),
+                  isExpanded: item.isExpanded,
+                  body:
+                  Container(
 
-                )
-                    : SizedBox(),
-                Divider(
-                  color: Color(0xFFD4D4D4),
-                ),
-                /* RaisedButton(
-                  onPressed: (){
-                    _recepcion();
-                  },
-                  textColor: Colors.white,
-                  color: Colors.red,
-                  padding: EdgeInsets.all(8.0),
-                  child: Text(
-                    "Envíar",
+                   child: Column(
+                      children: <Widget>[
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Divider(
+                          color: Color(0xFFD4D4D4),
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Container(
+                              child: imageFile == null
+                                  ?Text('')
+                                  :Image.file((imageFile)),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              width: 241,
+                              height: 40,
+                              margin: EdgeInsets.only(bottom: 14),
+                              child: ButtonTheme(
+                                child:
+                                FlatButton(
+                                  onPressed: getImage,
+                                  color: Color(0xFF2350A6),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.photo_camera,
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                      Text(
+                                        " Foto frontal piloto/cofre",
+                                        style: TextStyle(fontSize: 14.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xFFFFFFFF)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(
+                          color: Color(0xFFD4D4D4),
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Container(
+                              child: imageFile2 == null
+                                  ?Text('')
+                                  :Image.file((imageFile2)),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              width: 241,
+                              height: 40,
+                              margin: EdgeInsets.only(bottom: 14),
+                              child: ButtonTheme(
+                                child:
+                                FlatButton(
+                                  onPressed: getImage2,
+                                  color: Color(0xFF2350A6),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.photo_camera,
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                      Text(
+                                        " Foto frontal copiloto/cofre",
+                                        style: TextStyle(fontSize: 14.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xFFFFFFFF)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(
+                          color: Color(0xFFD4D4D4),
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Container(
+                              child: imageFile3 == null
+                                  ?Text('')
+                                  :Image.file((imageFile3)),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              width: 241,
+                              height: 40,
+                              margin: EdgeInsets.only(bottom: 14),
+                              child: ButtonTheme(
+                                child:
+                                FlatButton(
+                                  onPressed: getImage3,
+                                  color: Color(0xFF2350A6),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.photo_camera,
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                      Text(
+                                        " Foto trasera piloto/cajuela",
+                                        style: TextStyle(fontSize: 14.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xFFFFFFFF)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                        Divider(
+                          color: Color(0xFFD4D4D4),
+                        ),
+                        SizedBox(
+                          height: 6,
+                        ),
+                        Column(
+                          children: <Widget>[
+                            Container(
+                              child: imageFile4 == null
+                                  ?Text('')
+                                  :Image.file((imageFile4)),
+                            ),
+                            SizedBox(height: 10),
+                            Container(
+                              width: 241,
+                              height: 40,
+                              margin: EdgeInsets.only(bottom: 14),
+                              child: ButtonTheme(
+                                child:
+                                FlatButton(
+                                  onPressed: getImage4,
+                                  color: Color(0xFF2350A6),
+                                  child: Row(
+                                    crossAxisAlignment: CrossAxisAlignment.center,
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: <Widget>[
+                                      Icon(
+                                        Icons.photo_camera,
+                                        color: Color(0xFFFFFFFF),
+                                      ),
+                                      Text(
+                                        " Foto trasera copiloto/cajuela",
+                                        style: TextStyle(fontSize: 14.0,
+                                            fontWeight: FontWeight.w600,
+                                            color: Color(0xFFFFFFFF)),
+                                      ),
+                                    ],
+                                  ),
+                                ),
+
+                              ),
+
+                            ),
+
+                          ],
+
+                        ),
+
+                        Divider(
+                          color: Color(0xFFD4D4D4),
+                        ),
+                        _img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 84.0, child: Image.memory(_img.buffer.asUint8List())),
+                        _canShowButton
+                            ?
+                        RaisedButton(
+                          onPressed: (){
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+
+                                return AlertDialog(
+                                  title: Text("Firma electrónica"),
+                                  content: Container(
+                                    height: 150,
+                                    width: 300,
+                                    child: Padding(
+                                      padding: const EdgeInsets.all(8.0),
+                                      child: Signature(
+                                        color: color,
+                                        key: _sign,
+                                        onSign: () {
+                                          final sign = _sign.currentState;
+                                          debugPrint('${sign.points.length} points in the signature');
+                                        },
+                                        backgroundPainter: _WatermarkPaint("2.0", "2.0"),
+                                        strokeWidth: strokeWidth,
+                                      ),
+                                    ),
+                                    color: Colors.black12,
+                                  ),
+
+                                  actions: <Widget>[
+                                    FlatButton(
+                                      child:  Text("Salvar"),
+                                      onPressed: ()  async {
+                                        final sign = _sign.currentState;
+                                        final image = await sign.getData();
+                                        var data = await image.toByteData(format: ui.ImageByteFormat.png);
+                                        sign.clear();
+                                        final encoded = base64.encode(data.buffer.asUint8List());
+                                        setState(() {
+                                          _img = data;
+                                        });
+                                        debugPrint("onPressed " + encoded);
+                                        Navigator.of(context).pop();
+                                        setState(() => _canShowButton = !_canShowButton);
+                                        uploadFirma();
+                                      },
+
+                                    ),
+
+                                    //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
+                                    FlatButton(
+                                      child:  Text("Borrar"),
+                                      onPressed: () {
+                                        final sign = _sign.currentState;
+                                        sign.clear();
+                                        setState(() {
+                                          _img = ByteData(0);
+                                        });
+                                        debugPrint("cleared");
+                                      },
+                                    ),
+                                  ],
+                                );
+                              },
+                            );
+                          },
+                          textColor: Colors.white,
+                          color: Color(0xFFFFB600),
+                          padding: EdgeInsets.all(8.0),
+                          child: Text(
+                            "Firma electrónica",
+                          ),
+
+                        )
+                            : SizedBox(),
+                        Divider(
+                          color: Color(0xFFD4D4D4),
+                        ),
+                        /* RaisedButton(
+            onPressed: (){
+              _recepcion();
+            },
+            textColor: Colors.white,
+            color: Colors.red,
+            padding: EdgeInsets.all(8.0),
+            child: Text(
+              "Envíar",
+            ),
+          ),*/
+                      ],
+                    ),
+
                   ),
-                ),*/
-              ],
+                );
+
+              }).toList(),
             ),
           ],
         ),
@@ -3774,6 +3817,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
       ),
 
-    );
-  }
-}
+    );//no
+  } //no
+}//no
