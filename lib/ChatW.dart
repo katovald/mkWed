@@ -65,7 +65,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
   var now = DateTime.now();
   void _link(String text) {
     _chatTextController.clear();
-   Firestore.instance.collection('Chats').document('mensajes').collection('215582').add({
+   Firestore.instance.collection('Chats').document('mensajes').collection('169861').add({
         'name': _name,
         'message': text,
         'link':imageUrl,
@@ -75,7 +75,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
   Widget buildChatList() {
     return  Expanded(
         child:   StreamBuilder(
-                  stream: Firestore.instance.collection('Chats').document('mensajes').collection('215582').snapshots(),
+                  stream: Firestore.instance.collection('Chats').document('mensajes').collection('169861').snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) return const Text(
                       'Cargando . . .',
