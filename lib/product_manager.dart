@@ -127,7 +127,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => reporte_Siniestros()),
+                      MaterialPageRoute(builder: (context) => Siniestros()),
                     );
                   },
                 ),

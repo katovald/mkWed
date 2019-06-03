@@ -13,10 +13,10 @@ import 'package:flutter_signature_pad/flutter_signature_pad.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
-class formulario_Tareas extends StatefulWidget {
+class Checklist extends StatefulWidget {
 
   @override
-  _formulario_TareasState createState() => _formulario_TareasState( );
+  _ChecklistState createState() => _ChecklistState( );
 }
 class MyItem {
   MyItem({ this.isExpanded: false,});
@@ -48,9 +48,9 @@ class _WatermarkPaint extends CustomPainter {
   int get hashCode => price.hashCode ^ watermark.hashCode;
 }
 
-class _formulario_TareasState  extends State<formulario_Tareas>{
+class _ChecklistState  extends State<Checklist>{
   final Evento evento;
-  _formulario_TareasState({Key key, this.evento});
+  _ChecklistState({Key key, this.evento});
   List<MyItem> _items = <MyItem>[
     MyItem()
   ];
@@ -61,140 +61,140 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
   bool _canShowButton = true;
   var rating;
   final snackBar = SnackBar(content: Text('Se ha gurdado la información'),backgroundColor: Color(0xFF1D539B),);
-  String selectedRadio;
-  String selectedRadio2;
-  String selectedRadio3;
-  String selectedRadio4;
-  String selectedRadio5;
-  String selectedRadio6;
-  String selectedRadio7;
-  String selectedRadio8;
-  String selectedRadio9;
-  String selectedRadio10;
-  String selectedRadio11;
-  String selectedRadio12;
-  String selectedRadio13;
-  String selectedRadio14;
-  String selectedRadio15;
-  String selectedRadio16;
-  String selectedRadio17;
-  String selectedRadio18;
-  String selectedRadio19;
+  int selectedRadio;
+  int selectedRadio2;
+  int selectedRadio3;
+  int selectedRadio4;
+  int selectedRadio5;
+  int selectedRadio6;
+  int selectedRadio7;
+  int selectedRadio8;
+  int selectedRadio9;
+  int selectedRadio10;
+  int selectedRadio11;
+  int selectedRadio12;
+  int selectedRadio13;
+  int selectedRadio14;
+  int selectedRadio15;
+  int selectedRadio16;
+  int selectedRadio17;
+  int selectedRadio18;
+  int selectedRadio19;
   @override
   void initState() {
     super.initState();
-    selectedRadio = "No";
-    selectedRadio2 = "Aplica";
-    selectedRadio3 = "Aplica";
-    selectedRadio4 = "Aplica";
-    selectedRadio5 = "Aplica";
-    selectedRadio6 = "Aplica";
-    selectedRadio7 = "Aplica";
-    selectedRadio8= "Aplica";
-    selectedRadio9 = "Aplica";
-    selectedRadio10 = "Aplica";
-    selectedRadio11 = "Aplica";
-    selectedRadio12 = "Aplica";
-    selectedRadio13 = "Aplica";
-    selectedRadio14 = "Aplica";
-    selectedRadio15 = "Si";
-    selectedRadio16 = "Si";
-    selectedRadio17 = "Si";
-    selectedRadio18 = "Si";
-    selectedRadio19 = "Si";
+    selectedRadio = 0;
+    selectedRadio2 =0;
+    selectedRadio3 =0;
+    selectedRadio4 =0;
+    selectedRadio5 =0;
+    selectedRadio6 =0;
+    selectedRadio7 =0;
+    selectedRadio8=0;
+    selectedRadio9 =0;
+    selectedRadio10 =0;
+    selectedRadio11 =0;
+    selectedRadio12 =0;
+    selectedRadio13 =0;
+    selectedRadio14 =0;
+    selectedRadio15 =0;
+    selectedRadio16 =0;
+    selectedRadio17 =0;
+    selectedRadio18 =0;
+    selectedRadio19 =0;
   }
-  setSelectedRadio (String val) {
+  setSelectedRadio (int val) {
     setState(() {
       selectedRadio = val;
       _isTextFieldVisible = !_isTextFieldVisible;
     });
   }
-  setSelectedRadio2 (String val) {
+  setSelectedRadio2 (int val) {
     setState(() {
       selectedRadio2 = val;
     });
   }
-  setSelectedRadio3 (String val) {
+  setSelectedRadio3 (int val) {
     setState(() {
       selectedRadio3 = val;
     });
   }
-  setSelectedRadio4 (String val) {
+  setSelectedRadio4 (int val) {
     setState(() {
       selectedRadio4 = val;
     });
   }
-  setSelectedRadio5 (String val) {
+  setSelectedRadio5 (int val) {
     setState(() {
       selectedRadio5 = val;
     });
   }
-  setSelectedRadio6 (String val) {
+  setSelectedRadio6 (int val) {
     setState(() {
       selectedRadio6 = val;
     });
   }
-  setSelectedRadio7 (String val) {
+  setSelectedRadio7 (int val) {
     setState(() {
       selectedRadio7 = val;
     });
   }
-  setSelectedRadio8 (String val) {
+  setSelectedRadio8 (int val) {
     setState(() {
       selectedRadio8 = val;
     });
   }
-  setSelectedRadio9 (String val) {
+  setSelectedRadio9 (int val) {
     setState(() {
       selectedRadio9 = val;
     });
   }
-  setSelectedRadio10 (String val) {
+  setSelectedRadio10 (int val) {
     setState(() {
       selectedRadio10 = val;
     });
   }
-  setSelectedRadio11 (String val) {
+  setSelectedRadio11 (int val) {
     setState(() {
       selectedRadio11 = val;
     });
   }
-  setSelectedRadio12 (String val) {
+  setSelectedRadio12 (int val) {
     setState(() {
       selectedRadio12 = val;
     });
   }
-  setSelectedRadio13 (String val) {
+  setSelectedRadio13 (int val) {
     setState(() {
       selectedRadio13 = val;
     });
   }
-  setSelectedRadio14 (String val) {
+  setSelectedRadio14 (int val) {
     setState(() {
       selectedRadio14 = val;
     });
   }
-  setSelectedRadio15 (String val) {
+  setSelectedRadio15 (int val) {
     setState(() {
       selectedRadio15 = val;
     });
   }
-  setSelectedRadio16 (String val) {
+  setSelectedRadio16 (int val) {
     setState(() {
       selectedRadio16 = val;
     });
   }
-  setSelectedRadio17 (String val) {
+  setSelectedRadio17 (int val) {
     setState(() {
       selectedRadio17 = val;
     });
   }
-  setSelectedRadio18 (String val) {
+  setSelectedRadio18 (int val) {
     setState(() {
       selectedRadio18 = val;
     });
   }
-  setSelectedRadio19 (String val) {
+  setSelectedRadio19 (int val) {
     setState(() {
       selectedRadio19 = val;
     });
@@ -325,7 +325,6 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFirma() async {
@@ -343,20 +342,18 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   void _tarea() {
-    //_sinTextController.clear();
-    Firestore.instance.collection('Checklist').document('Checklist1').setData({
-      'Estatus': 'Pendiente/Revisión',
+    Firestore.instance.collection('Checklist').add({
+      'ID_Tarea': 125656788,
       'Observaciones': selectedRadio,
       'Cortina_Clientes': selectedRadio2,
       'Cortina_Mercancia': selectedRadio3,
       'Puerta': selectedRadio4,
-      'Chapa': selectedRadio5,
-      'Camara': selectedRadio6,
-      'Candado': selectedRadio7,
+      'Chapa':[int.parse(_totalChapa.text), _itemDown9().value],
+      'Camara':[_totalCamara.text, _itemDown11().value],
+      'Candado':[_totalCandado.text, _itemDown10().value],
       'Puerta_cristal': selectedRadio8,
       'Fachada_cristal': selectedRadio9,
       'Muro': selectedRadio10,
@@ -378,8 +375,6 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
       'Puerta_observacion':_observacionPuerta.text,
       'Chapa_total': _totalChapa.text,
       'Chapa_observacion':_observacionChapa.text,
-      'Camara_total': _totalCamara.text,
-      'Camara_observacion':_observacionCamara.text,
       'Candado_total': _totalCandado.text,
       'Candado_observacion':_observacionCandado.text,
       'Puerta_Cristal_total': _totalPuertaCristal.text,
@@ -412,9 +407,8 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
     });
   }
   void _guardar() {
-    //_sinTextController.clear();
-    Firestore.instance.collection('Checklist').document('Checklist1').setData({
-      'Estatus': 'En espera',
+    Firestore.instance.collection('Checklist').add({
+      'ID_Tarea': 160456788,
       'Observaciones': selectedRadio,
       'Cortina_Clientes': selectedRadio2,
       'Cortina_Mercancia': selectedRadio3,
@@ -657,7 +651,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
         _value11 = newValue;
       });
     },
-    items: <String>['Rotas', 'Sustraidas', 'Desviadas', 'Pintadas', 'Sustraidas', 'Golpeadas', 'Otros']
+    items: <String>['Rotas', 'Sustraidas', 'Desviadas', 'Pintadas', 'Golpeadas', 'Otros']
         .map<DropdownMenuItem<String>>((String value) {
       return DropdownMenuItem<String>(
         value: value,
@@ -791,7 +785,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio(val);
                                       },
-                                      value: "Si",
+                                      value: 1,
                                       groupValue: selectedRadio,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -808,7 +802,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio(val);
                                       },
-                                      value: "No",
+                                      value: 0,
                                       groupValue: selectedRadio,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -879,7 +873,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio2(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio2,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -896,7 +890,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio2(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio2,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1004,7 +998,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio3(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio3,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1021,7 +1015,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio3(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio3,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1135,7 +1129,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio4(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio4,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1152,7 +1146,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio4(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio4,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1265,7 +1259,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio5(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio5,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1282,7 +1276,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio5(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio5,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1394,7 +1388,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio6(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio6,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1411,7 +1405,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio6(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio6,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1524,7 +1518,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio7(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio7,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1541,7 +1535,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio7(val);
                                       },
-                                      value: "No aplica",
+                                      value:0,
                                       groupValue: selectedRadio7,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1654,7 +1648,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio8(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio8,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1671,7 +1665,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio8(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio8,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1785,7 +1779,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio9(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio9,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1802,7 +1796,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio9(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio9,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1914,7 +1908,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio10(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio10,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -1931,7 +1925,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio10(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio10,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2043,7 +2037,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio11(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio11,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2060,7 +2054,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio11(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio11,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2173,7 +2167,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio12(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio12,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2190,7 +2184,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio12(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio12,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2303,7 +2297,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio13(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio13,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2320,7 +2314,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio13(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio13,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2433,7 +2427,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio14(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio14,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2450,7 +2444,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio14(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio14,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2562,7 +2556,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio15(val);
                                       },
-                                      value: "Aplica",
+                                      value: 1,
                                       groupValue: selectedRadio15,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2579,7 +2573,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio15(val);
                                       },
-                                      value: "No aplica",
+                                      value: 0,
                                       groupValue: selectedRadio15,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2691,7 +2685,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio16(val);
                                       },
-                                      value: "Si",
+                                      value:1,
                                       groupValue: selectedRadio16,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2708,7 +2702,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio16(val);
                                       },
-                                      value: "No",
+                                      value:0,
                                       groupValue: selectedRadio16,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2773,7 +2767,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio17(val);
                                       },
-                                      value: "Si",
+                                      value:1,
                                       groupValue: selectedRadio17,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2790,7 +2784,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio17(val);
                                       },
-                                      value: "No",
+                                      value: 0,
                                       groupValue: selectedRadio17,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2855,7 +2849,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio18(val);
                                       },
-                                      value:"Si",
+                                      value:1,
                                       groupValue: selectedRadio18,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2872,7 +2866,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio18(val);
                                       },
-                                      value: "No",
+                                      value: 0,
                                       groupValue: selectedRadio18,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2937,7 +2931,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio19(val);
                                       },
-                                      value: "Si",
+                                      value: 1,
                                       groupValue: selectedRadio19,
                                       activeColor: Color(0xFF2350A6),
                                     ),
@@ -2954,7 +2948,7 @@ class _formulario_TareasState  extends State<formulario_Tareas>{
                                       onChanged: (val){
                                         setSelectedRadio19(val);
                                       },
-                                      value: "No",
+                                      value: 0,
                                       groupValue: selectedRadio19,
                                       activeColor: Color(0xFF2350A6),
                                     ),

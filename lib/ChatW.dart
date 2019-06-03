@@ -56,7 +56,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
     });
   }
   TextEditingController _chatTextController =   TextEditingController();
-  TextEditingController _nameTextController =  TextEditingController();
   ScrollController _scrollController =  ScrollController();
 
   bool _hasText = false;

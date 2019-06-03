@@ -72,17 +72,12 @@ class CheckListTwo extends StatelessWidget {
             child:Column(
               crossAxisAlignment: CrossAxisAlignment.end,
               children: <Widget>[
-
-                //CheckListUnity(),
-                formulario_Tareas(),
+               Checklist(),
               ],
             ),
           )
         ],
       ),
-
-
     );
-
   }
 }

@@ -74,13 +74,13 @@ class _CheckListUState extends State<Formulario>{
   var color = Colors.black;
   var strokeWidth = 2.0;
   final _sign = GlobalKey<SignatureState>();
-  TextEditingController _TextController1 =   TextEditingController();
-  TextEditingController _TextController2 =   TextEditingController();
-  TextEditingController _TextController3 =   TextEditingController();
-  TextEditingController _TextController4 =   TextEditingController();
-  TextEditingController _TextController5 =   TextEditingController();
-  TextEditingController _TextController6 =   TextEditingController();
-  TextEditingController _TextController7 =   TextEditingController();
+  TextEditingController _textController1 =   TextEditingController();
+  TextEditingController _textController2 =   TextEditingController();
+  TextEditingController _textController3 =   TextEditingController();
+  TextEditingController _textController4 =   TextEditingController();
+  TextEditingController _textController5 =   TextEditingController();
+  TextEditingController _textController6 =   TextEditingController();
+  TextEditingController _textController7 =   TextEditingController();
   bool _canShowButton = true;
   var _value1 = "Nuevo";
   var _value2 = "Nuevo";
@@ -239,12 +239,11 @@ class _CheckListUState extends State<Formulario>{
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
-  void _devolucion() {
-    Firestore.instance.collection('Devolucion').add({
-    'Matricula: 2CK-CAM':{
+  String numEconomico = '76AB2X';
+  Future _devolucion() async {
+   final dev = await Firestore.instance.collection('Documentos-Vehiculos').document('$numEconomico').collection('Devoluciones').add({
     'Pintura': selectedRadio,
     'Frenos': selectedRadio2,
     'Llanta_trasera_izquierda': selectedRadio3,
@@ -275,13 +274,13 @@ class _CheckListUState extends State<Formulario>{
     'Líquido_frenos': selectedRadio28,
     'Info_Correcta_Accesorios': selectedRadio29,
     'Gasolina_inicial': _itemGasolina().value,
-    'Sistema_Eléctico': _TextController1.text,
-    'No._Tarjeta_de_gasolina ': _TextController2.text,
-    'Saldo_de_trajeta': _TextController3.text,
-    'Hora_de_la_carga': _TextController4.text,
-    'Fondo_de_estacionamiento': _TextController5.text,
-    'Número_de_ticket': _TextController6.text,
-    'Total': _TextController7.text,
+    'Sistema_Eléctico': _textController1.text,
+    'No._Tarjeta_de_gasolina ': _textController2.text,
+    'Saldo_de_trajeta': _textController3.text,
+    'Hora_de_la_carga': _textController4.text,
+    'Fondo_de_estacionamiento': _textController5.text,
+    'Número_de_ticket': _textController6.text,
+    'Total': _textController7.text,
     'Estatus_Cargador_USB': _itemDown().value,
     'Estatus_Tag': _itemDown2().value,
     'Estatus_Guía_Roja': _itemDown3().value,
@@ -304,7 +303,16 @@ class _CheckListUState extends State<Formulario>{
     'Foto_trasera_piloto': imageUrl3,
     'Foto_trasera_copiloto': imageUrl4,
     'Firma': urlFirma,
-    }});
+   });
+   String id = dev.documentID;
+   //print("ID: $id");
+   Firestore.instance.collection('Asignaciones').add({
+     'Hora': now,
+     'NoEmpeado': 166487,
+     'Placa': numEconomico,
+     'Tipo': 'Devolucion',
+     'id':id,
+   });
   }
 
   DropdownButton _itemGasolina() => DropdownButton<String>(
@@ -1053,7 +1061,7 @@ class _CheckListUState extends State<Formulario>{
                               ),
 
                               TextField(
-                                controller: _TextController1,
+                                controller: _textController1,
                                 maxLines: 3,
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
@@ -1760,7 +1768,7 @@ class _CheckListUState extends State<Formulario>{
                                 ),                ),
 
                               TextField(
-                                controller: _TextController2,
+                                controller: _textController2,
                                 maxLines: 3, //Maximo de Lineas de Texto
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
@@ -1820,7 +1828,7 @@ class _CheckListUState extends State<Formulario>{
                                 ),                  ),
 
                               TextField(
-                                controller: _TextController3,
+                                controller: _textController3,
                                 maxLines: 3, //Maximo de Lineas de Texto
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
@@ -1879,7 +1887,7 @@ class _CheckListUState extends State<Formulario>{
                                 ),          ),
 
                               TextField(
-                                controller: _TextController4,
+                                controller: _textController4,
                                 maxLines: 3,  //Maximo de Lineas de Texto
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
@@ -2113,7 +2121,7 @@ class _CheckListUState extends State<Formulario>{
                                 ),                            ),
 
                               TextField(
-                                controller: _TextController5,
+                                controller: _textController5,
                                 maxLines: 3,
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
@@ -2167,7 +2175,7 @@ class _CheckListUState extends State<Formulario>{
                                 ),              ),
 
                               TextField(
-                                controller: _TextController6,
+                                controller: _textController6,
                                 maxLines: 3,
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
@@ -2222,7 +2230,7 @@ class _CheckListUState extends State<Formulario>{
                                 ),        ),
 
                               TextField(
-                                controller: _TextController7,
+                                controller: _textController7,
                                 maxLines: 3,
                                 cursorColor: Colors.black,
                                 cursorWidth: 7.0,
