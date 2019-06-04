@@ -344,130 +344,297 @@ class _ChecklistState  extends State<Checklist>{
       });
     });
   }
-  void _tarea() {
+  var cortinaC;
+  var cam;
+  var cortinaM;
+  var puerta;
+  var chapa;
+  var candado;
+  var puerta_cristal;
+  var fachada_cristal;
+  var muro;
+  var sirena;
+  var planta;
+  var ventana;
+  var porton;
+  var reja;
+  var ruidos;
+  var luz;
+  var perimetro;
+  var entrevista;
+  var ob;
+ Future _tarea() async {
+   if (selectedRadio == 1) {
+     ob = _textFieldController.text;
+   } else {
+     ob = 0;
+   }
+    if (selectedRadio2 == 1) {
+      cortinaC = [int.parse(_totalCortinaClientes.text), _itemDown().value];
+    } else {
+      cortinaC  = 0;
+    }
+    if (selectedRadio3 == 1) {
+      cortinaM = [int.parse(_totalCortinasMercancia.text), _itemDown2().value];
+    } else {
+      cortinaM  = 0;
+    }
+    if (selectedRadio4 == 1) {
+      puerta = [int.parse(_totalPuerta.text), _itemDown3().value];
+    } else {
+      puerta  = 0;
+    }
+    if (selectedRadio5 == 1) {
+      chapa = [int.parse(_totalChapa.text), _itemDown9().value];
+    } else {
+      chapa  = 0;
+    }
+    if (selectedRadio6 == 1) {
+     cam = [int.parse(_totalCamara.text), _itemDown11().value];
+    } else {
+   cam  = 0;
+    }
+    if (selectedRadio7 == 1) {
+      candado = [int.parse(_totalCandado.text), _itemDown10().value];
+    } else {
+      candado = 0;
+    }
+    if (selectedRadio8 == 1) {
+      puerta_cristal = [int.parse(_totalPuertaCristal.text), _itemDown4().value];
+    } else {
+      puerta_cristal = 0;
+    }
+    if (selectedRadio9 == 1) {
+      fachada_cristal = [int.parse(_totalFachadaCristal.text), _itemDown5().value];
+    } else {
+      fachada_cristal = 0;
+    }
+    if (selectedRadio10 == 1) {
+      muro = [int.parse(_totalMuro.text), _itemDown14().value];
+    } else {
+      muro = 0;
+    }
+    if (selectedRadio11 == 1) {
+      sirena = [int.parse(_totalSirena.text), _itemDown12().value];
+    } else {
+      sirena = 0;
+    }
+    if (selectedRadio12 == 1) {
+      planta = [int.parse(_totalPlanta.text), _itemDown13().value];
+    } else {
+     planta = 0;
+    }
+    if (selectedRadio13 == 1) {
+      ventana = [int.parse(_totalVentana.text), _itemDown6().value];
+    } else {
+      ventana = 0;
+    }
+    if (selectedRadio14 == 1) {
+      porton = [int.parse(_totalPorton.text), _itemDown7().value];
+    } else {
+      porton = 0;
+    }
+    if (selectedRadio15 == 1) {
+      reja = [int.parse(_totalReja.text), _itemDown8().value];
+    } else {
+      reja = 0;
+    }
+    if (selectedRadio16 == 1) {
+      ruidos = _ruidos.text;
+    } else {
+      ruidos = 0;
+    }
+    if (selectedRadio17 == 1) {
+      luz =_luz.text;
+    } else {
+      luz = 0;
+    }
+    if (selectedRadio18 == 1) {
+      perimetro = _perimetro.text;
+    } else {
+      perimetro = 0;
+    }
+    if (selectedRadio19 == 1) {
+      entrevista = [_nombreEntrevista.text, _puesto.text];
+    } else {
+      entrevista = 0;
+    }
     Firestore.instance.collection('Checklist').add({
       'ID_Tarea': 125656788,
-      'Observaciones': selectedRadio,
-      'Cortina_Clientes': selectedRadio2,
-      'Cortina_Mercancia': selectedRadio3,
-      'Puerta': selectedRadio4,
-      'Chapa':[int.parse(_totalChapa.text), _itemDown9().value],
-      'Camara':[_totalCamara.text, _itemDown11().value],
-      'Candado':[_totalCandado.text, _itemDown10().value],
-      'Puerta_cristal': selectedRadio8,
-      'Fachada_cristal': selectedRadio9,
-      'Muro': selectedRadio10,
-      'Sirena': selectedRadio11,
-      'Planta': selectedRadio12,
-      'Ventana': selectedRadio13,
-      'Porton': selectedRadio14,
-      'Reja': selectedRadio15,
-      'Ruidos': selectedRadio16,
-      'Luz': selectedRadio17,
-      'Perímetro': selectedRadio18,
-      'Entrevista': selectedRadio19,
-      'Observaciones_contenido': _textFieldController.text,
-      'Cortina_cliente_total': _totalCortinaClientes.text,
+      'Observaciones': ob,
+      'Cortina_Clientes': cortinaC,
+      'Cortina_Mercancia': cortinaM,
+      'Puerta': puerta,
+      'Chapa':chapa,
+      'Camara': cam,
+      'Candado':candado,
+      'Puerta_cristal': puerta_cristal,
+      'Fachada_cristal': fachada_cristal,
+      'Muro': muro,
+      'Sirena': sirena,
+      'Planta': planta,
+      'Ventana': ventana,
+      'Porton': porton,
+      'Reja': reja,
+      'Ruidos': ruidos,
+      'Luz': luz,
+      'Perímetro': perimetro,
+      'Entrevista': entrevista,
       'Cortina_cliente_observacion':_observacionCortinaClientes.text,
-      'Cortina_mercancia_total': _totalCortinasMercancia.text,
       'Cortina_mercancia_observacion':_observacionCortinasMercancia.text,
-      'Puerta_total': _totalPuerta.text,
       'Puerta_observacion':_observacionPuerta.text,
-      'Chapa_total': _totalChapa.text,
       'Chapa_observacion':_observacionChapa.text,
-      'Candado_total': _totalCandado.text,
       'Candado_observacion':_observacionCandado.text,
-      'Puerta_Cristal_total': _totalPuertaCristal.text,
       'Puerta_Cristal_observacion':_observacionPuertaCristal.text,
-      'Fachada_Cristal_total': _totalFachadaCristal.text,
       'Fachada_Cristal_observacion':_observacionFachadaCristal.text,
-      'Muro_total': _totalMuro.text,
       'Muro_observacion':_observacionMuro.text,
-      'Sirena_total': _totalSirena.text,
       'Sirena_observacion':_observacionSirena.text,
-      'Planta_total': _totalPlanta.text,
       'Planta_observacion':_observacionPlanta.text,
-      'Ventana_total': _totalVentana.text,
       'Ventana_observacion':_observacionVentana.text,
-      'Porton_total': _totalPorton.text,
       'Porton_observacion':_observacionPorton.text,
-      'Reja_total': _totalReja.text,
       'Reja_observacion':_observacionReja.text,
-      'Ruidos_comentario': _ruidos.text,
-      'Luz_comentario':_luz.text,
-      'Perímetro_comentario': _perimetro.text,
-      'Nombre_entrevista':_nombreEntrevista.text,
-      'Puesto': _puesto.text,
       'Hora': now,
       'Fachada': imageUrl,
       'Entrada': imageUrl2,
       'Lateral': imageUrl3,
       'Firma': urlFirma,
-      //'Cuenta': evento.cuenta,
     });
   }
   void _guardar() {
+    if (selectedRadio == 1) {
+      ob = _textFieldController.text;
+    } else {
+      ob = 0;
+    }
+    if (selectedRadio2 == 1) {
+      cortinaC = [int.parse(_totalCortinaClientes.text), _itemDown().value];
+    } else {
+      cortinaC  = 0;
+    }
+    if (selectedRadio3 == 1) {
+      cortinaM = [int.parse(_totalCortinasMercancia.text), _itemDown2().value];
+    } else {
+      cortinaM  = 0;
+    }
+    if (selectedRadio4 == 1) {
+      puerta = [int.parse(_totalPuerta.text), _itemDown3().value];
+    } else {
+      puerta  = 0;
+    }
+    if (selectedRadio5 == 1) {
+      chapa = [int.parse(_totalChapa.text), _itemDown9().value];
+    } else {
+      chapa  = 0;
+    }
+    if (selectedRadio6 == 1) {
+      cam = [int.parse(_totalCamara.text), _itemDown11().value];
+    } else {
+      cam  = 0;
+    }
+    if (selectedRadio7 == 1) {
+      candado = [int.parse(_totalCandado.text), _itemDown10().value];
+    } else {
+      candado = 0;
+    }
+    if (selectedRadio8 == 1) {
+      puerta_cristal = [int.parse(_totalPuertaCristal.text), _itemDown4().value];
+    } else {
+      puerta_cristal = 0;
+    }
+    if (selectedRadio9 == 1) {
+      fachada_cristal = [int.parse(_totalFachadaCristal.text), _itemDown5().value];
+    } else {
+      fachada_cristal = 0;
+    }
+    if (selectedRadio10 == 1) {
+      muro = [int.parse(_totalMuro.text), _itemDown14().value];
+    } else {
+      muro = 0;
+    }
+    if (selectedRadio11 == 1) {
+      sirena = [int.parse(_totalSirena.text), _itemDown12().value];
+    } else {
+      sirena = 0;
+    }
+    if (selectedRadio12 == 1) {
+      planta = [int.parse(_totalPlanta.text), _itemDown13().value];
+    } else {
+      planta = 0;
+    }
+    if (selectedRadio13 == 1) {
+      ventana = [int.parse(_totalVentana.text), _itemDown6().value];
+    } else {
+      ventana = 0;
+    }
+    if (selectedRadio14 == 1) {
+      porton = [int.parse(_totalPorton.text), _itemDown7().value];
+    } else {
+      porton = 0;
+    }
+    if (selectedRadio15 == 1) {
+      reja = [int.parse(_totalReja.text), _itemDown8().value];
+    } else {
+      reja = 0;
+    }
+    if (selectedRadio16 == 1) {
+      ruidos = _ruidos.text;
+    } else {
+      ruidos = 0;
+    }
+    if (selectedRadio17 == 1) {
+      luz =_luz.text;
+    } else {
+      luz = 0;
+    }
+    if (selectedRadio18 == 1) {
+      perimetro = _perimetro.text;
+    } else {
+      perimetro = 0;
+    }
+    if (selectedRadio19 == 1) {
+      entrevista = [_nombreEntrevista.text, _puesto.text];
+    } else {
+      entrevista = 0;
+    }
     Firestore.instance.collection('Checklist').add({
-      'ID_Tarea': 160456788,
-      'Observaciones': selectedRadio,
-      'Cortina_Clientes': selectedRadio2,
-      'Cortina_Mercancia': selectedRadio3,
-      'Puerta': selectedRadio4,
-      'Chapa': selectedRadio5,
-      'Camara': selectedRadio6,
-      'Candado': selectedRadio7,
-      'Puerta_cristal': selectedRadio8,
-      'Fachada_cristal': selectedRadio9,
-      'Muro': selectedRadio10,
-      'Sirena': selectedRadio11,
-      'Planta': selectedRadio12,
-      'Ventana': selectedRadio13,
-      'Porton': selectedRadio14,
-      'Reja': selectedRadio15,
-      'Ruidos': selectedRadio16,
-      'Luz': selectedRadio17,
-      'Perímetro': selectedRadio18,
-      'Entrevista': selectedRadio19,
-      'Observaciones_contenido': _textFieldController.text,
-      'Cortina_cliente_total': _totalCortinaClientes.text,
+      'ID_Tarea': 125656788,
+      'Observaciones': ob,
+      'Cortina_Clientes': cortinaC,
+      'Cortina_Mercancia': cortinaM,
+      'Puerta': puerta,
+      'Chapa':chapa,
+      'Camara': cam,
+      'Candado':candado,
+      'Puerta_cristal': puerta_cristal,
+      'Fachada_cristal': fachada_cristal,
+      'Muro': muro,
+      'Sirena': sirena,
+      'Planta': planta,
+      'Ventana': ventana,
+      'Porton': porton,
+      'Reja': reja,
+      'Ruidos': ruidos,
+      'Luz': luz,
+      'Perímetro': perimetro,
+      'Entrevista': entrevista,
       'Cortina_cliente_observacion':_observacionCortinaClientes.text,
-      'Cortina_mercancia_total': _totalCortinasMercancia.text,
       'Cortina_mercancia_observacion':_observacionCortinasMercancia.text,
-      'Puerta_total': _totalPuerta.text,
       'Puerta_observacion':_observacionPuerta.text,
-      'Chapa_total': _totalChapa.text,
       'Chapa_observacion':_observacionChapa.text,
-      'Camara_total': _totalCamara.text,
-      'Camara_observacion':_observacionCamara.text,
-      'Candado_total': _totalCandado.text,
       'Candado_observacion':_observacionCandado.text,
-      'Puerta_Cristal_total': _totalPuertaCristal.text,
       'Puerta_Cristal_observacion':_observacionPuertaCristal.text,
-      'Fachada_Cristal_total': _totalFachadaCristal.text,
       'Fachada_Cristal_observacion':_observacionFachadaCristal.text,
-      'Muro_total': _totalMuro.text,
       'Muro_observacion':_observacionMuro.text,
-      'Sirena_total': _totalSirena.text,
       'Sirena_observacion':_observacionSirena.text,
-      'Planta_total': _totalPlanta.text,
       'Planta_observacion':_observacionPlanta.text,
-      'Ventana_total': _totalVentana.text,
       'Ventana_observacion':_observacionVentana.text,
-      'Porton_total': _totalPorton.text,
       'Porton_observacion':_observacionPorton.text,
-      'Reja_total': _totalReja.text,
       'Reja_observacion':_observacionReja.text,
-      'Ruidos_comentario': _ruidos.text,
-      'Luz_comentario':_luz.text,
-      'Perímetro_comentario': _perimetro.text,
-      'Nombre_entrevista':_nombreEntrevista.text,
-      'Puesto': _puesto.text,
       'Hora': now,
       'Fachada': imageUrl,
       'Entrada': imageUrl2,
       'Lateral': imageUrl3,
       'Firma': urlFirma,
-      //'Cuenta': evento.cuenta,
     });
   }
   var _value1 = "Abierto";
