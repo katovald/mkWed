@@ -33,6 +33,7 @@ dependencies:
   firebase_storage: ^2.0.0
   firebase_
   flutter_linkify: ^2.1.0
+  geolocator: ^5.0.0
 dev_dependencies:
   flutter_test:
     sdk: flutter
@@ -71,6 +72,12 @@ flutter:
   - assets/rafa.png
   - assets/banner1.png
   - assets/banner2.jpg
+  - assets/chimuelo.png
+  - assets/chimuelo2.png
+  - assets/chimuelo3.png
+  - assets/chimuelo4.png
+  - assets/chimuelo5.png
+
 
 
   # An image asset can refer to one or more resolution-specific "variants", see

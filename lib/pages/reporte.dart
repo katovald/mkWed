@@ -1,27 +1,59 @@
+import 'dart:async';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:flutter/material.dart';
+import 'package:geolocator/geolocator.dart';
+import 'package:google_maps_flutter/google_maps_flutter.dart';
 
-class reporte_Siniestros extends StatefulWidget {
+class Siniestros extends StatefulWidget {
   @override
-  _reporte_SiniestrosState createState() => _reporte_SiniestrosState();
+  _SiniestrosState createState() => _SiniestrosState();
 }
-
-class _reporte_SiniestrosState extends State<reporte_Siniestros> {
+class _SiniestrosState extends State<Siniestros> {
   var _value1 = "Accidente de transito";
   TextEditingController _sinTextController =   TextEditingController();
-  String _numero = '169861';
-  String _latitud = '19.415269';
-  String _longitud = '-99.136779';
+  String _numero = '369888';
+  LatLng _center ;
+  Position currentLocation;
+
+  @override
+  void initState() {
+    super.initState();
+    getUserLocation();
+  }
+
+  Future<Position> locateUser() async {
+    return Geolocator()
+        .getCurrentPosition(desiredAccuracy: LocationAccuracy.high);
+  }
+
+  getUserLocation() async {
+    currentLocation = await locateUser();
+    setState(() {
+      _center = LatLng(currentLocation.latitude, currentLocation.longitude);
+    });
+    print('center $_center');
+  }
   var now = DateTime.now();
-  void _siniestro(String Comentario) {
+  String numEconomico = "76AB2X";
+  Future _siniestro(String comentario) async {
     _sinTextController.clear();
-    Firestore.instance.collection('siniestros').add({
+   final sin = await Firestore.instance.collection('Documentos-Vehiculos').document('$numEconomico').collection('Siniestros').add({
       'Número de empleado': _numero,
-      'Punto': '($_latitud, $_longitud)',
+     'Punto':'${currentLocation.latitude},${currentLocation.longitude}',
       'Siniestro': _itemDown().value,
-      'Comentario': Comentario,
+      'Comentario': comentario,
+      'Hora': now
+    });
+   String id = sin.documentID;
+    //print("ID: $id");
+    Firestore.instance.collection('Asignaciones').add({
       'Hora': now,
+      'NoEmpeado': 166487,
+      'Placa': numEconomico,
+      'Tipo': 'Siniestro',
+      'id':id,
     });
   }
   DropdownButton _itemDown() =>

@@ -1,8 +1,6 @@
 import 'dart:async';
-import 'package:app_editesp/BackW.dart';
 import 'package:app_editesp/pages/CheckOne.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
-import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/pages/home.dart';
 import 'package:flutter/material.dart';

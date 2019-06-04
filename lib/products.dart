@@ -1,8 +1,9 @@
+import 'dart:async';
+
 import 'package:app_editesp/pages/CheckTwo.dart';
-import 'package:app_editesp/swipe_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
-import 'dart:io';
+
 //STATEFUL WIDGET - CREATE ELEMENTS-ITEMS & LIST OF PRODUCTS
 class Products extends StatefulWidget {
 

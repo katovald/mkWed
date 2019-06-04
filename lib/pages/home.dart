@@ -13,7 +13,6 @@ class HomePage extends StatefulWidget {
 }
 class MyAppState extends State<HomePage>{
 
-  final TextEditingController _singleTextFieldController = TextEditingController();
  TextEditingController loginPasswordController =  TextEditingController();
 
   void onPressed(){
