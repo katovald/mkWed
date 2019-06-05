@@ -1,10 +1,12 @@
+import 'dart:async';
 import 'package:app_editesp/VarGlobals.dart' as globals;
-import 'package:app_editesp/pages/CheckOne.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 class HomePage extends StatefulWidget {
   @override
   MyAppState createState() {
@@ -12,13 +14,112 @@ class HomePage extends StatefulWidget {
   }
 }
 class MyAppState extends State<HomePage>{
+  String phoneNo;
+  String smsCode;
+  String verificationId;
 
- TextEditingController loginPasswordController =  TextEditingController();
+  Future<void> verifyPhone() async {
+     final num = Firestore.instance.collection('Usuarios').document('169861').documentID;
+    if(empleadoController.text == num){
+      final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
+        this.verificationId = verId;
+        print('Time out');
+      };
 
+      final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
+        this.verificationId = verId;
+        smsCodeDialog(context).then((value) {
+          print('Signed in');
+        });
+      };
+
+      final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
+        print('verified');
+          Navigator.of(context).pop();
+          Navigator.of(context).pushReplacementNamed('/check1');
+      };
+
+      final PhoneVerificationFailed veriFailed = (AuthException exception) {
+        print('${exception.message}');
+      };
+
+      await FirebaseAuth.instance.verifyPhoneNumber(
+          phoneNumber: this.phoneNo,
+          codeAutoRetrievalTimeout: autoRetrieve,
+          codeSent: smsCodeSent,
+          timeout: const Duration(seconds: 5),
+          verificationCompleted: verifiedSuccess,
+          verificationFailed: veriFailed);
+    }else{
+      return showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: Text('Error'),
+              content: Text ('Tu número de empleado o de teléfono son incorrectos'),
+              contentPadding: EdgeInsets.all(10.0),
+              actions: <Widget>[
+                new FlatButton(
+                  child: Text('Aceptar'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    }
+
+  }
+  Future<bool> smsCodeDialog(BuildContext context) {
+      return showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: Text('Ingresa tu código de verificación'),
+              content: TextField(
+                onChanged: (value) {
+                  this.smsCode = value;
+                },
+              ),
+              contentPadding: EdgeInsets.all(10.0),
+              actions: <Widget>[
+                new FlatButton(
+                  child: Text('Aceptar'),
+                  onPressed: () {
+                    FirebaseAuth.instance.currentUser().then((user) {
+                      if (user != null) {
+                        Navigator.of(context).pushReplacementNamed('/check1');
+                        _Signin();
+                        Navigator.of(context).pop();
+                      } else {
+                        Navigator.of(context).pop();
+                      }
+                    });
+                  },
+                )
+              ],
+            );
+          });
+  }
+  Future<String> _Signin() async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    final AuthCredential credential = PhoneAuthProvider.getCredential(
+      verificationId: verificationId,
+      smsCode: smsCode,
+    );
+    final FirebaseUser user = await _auth.signInWithCredential(credential);
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
+    return 'signInWithPhoneNumber succeeded: $user';
+  }
+  TextEditingController loginPasswordController =  TextEditingController();
+  TextEditingController empleadoController =  TextEditingController();
   void onPressed(){
     print("Button pressed");
   }
-
 _callMe() async {
     // Android
     const uri = 'tel:+521 55 37 01 34 31';
@@ -118,7 +219,7 @@ bool _obscureTextLogin = true;
                             padding: EdgeInsets.only(
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                             child: TextFormField(
-
+                              controller: empleadoController,
                               keyboardType: TextInputType.emailAddress,
                               validator: (value) {
                                 if (value.isEmpty) {
@@ -137,24 +238,23 @@ bool _obscureTextLogin = true;
                                   color: Colors.black,
                                   size: 22.0,
                                 ),
-                                hintText: "Usuario",
+                                hintText: "No de empleado",
                                 hintStyle: TextStyle(
                                     fontFamily: "WorkSansSemiBold", fontSize: 17.0),
                               ),
                             ),
                           ),
-                         /* Container(
-                            width: 250.0,
-                            height: 1.0,
-                            color: Colors.grey[400],
-                          ),*/
                           Padding(
                             padding: EdgeInsets.only(
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
-                            child: TextFormField(
-                               focusNode: myFocusNodePassword,
+                            child: TextField(
+                              /*focusNode: myFocusNodePassword,
                               controller: loginPasswordController,
-                              obscureText: _obscureTextLogin,
+                              obscureText: _obscureTextLogin,*/
+                              keyboardType: TextInputType.phone,
+                              onChanged: (value) {
+                                this.phoneNo = value;
+                              },
                               style: TextStyle(
                                   fontFamily: "WorkSansSemiBold",
                                   fontSize: 16.0,
@@ -162,16 +262,15 @@ bool _obscureTextLogin = true;
                               decoration: InputDecoration(
                                 //border: InputBorder.none,
                                 icon: Icon(
-                                  Icons.lock,
-                                  //FontAwesomeIcons.lock,
+                                  Icons.phone,
                                   size: 22.0,
                                   color: Colors.black,
                                 ),
-                                hintText: "Contraseña",
+                                hintText: "No de teléfono",
                                 hintStyle: TextStyle(
                                fontFamily: "WorkSansSemiBold", fontSize: 17.0
                                ),
-                                suffixIcon: GestureDetector(
+                              /*  suffixIcon: GestureDetector(
                                 onTap: _toggleLogin,
                                   child: Icon(
                                     Icons.visibility,
@@ -179,7 +278,7 @@ bool _obscureTextLogin = true;
                                     size: 15.0,
                                     color: Colors.black,
                                   ),
-                                ),
+                                ),*/
                               ),
                             ),
                           ),
@@ -217,13 +316,11 @@ bool _obscureTextLogin = true;
                         ),
                       ),
                       onPressed: () {
-                        //Navigator.pushNamed(context, '/second');
-                       Navigator.push(
+                      /* Navigator.push(
                           context,
                           MaterialPageRoute(builder: (context) => CheckListOne()),
-                        );
-                        //Navigator.pushNamedAndRemoveUntil(context, '/second', (_) => false);
-            
+                        );*/
+                        verifyPhone();
                          },
                     ),
                   ),
