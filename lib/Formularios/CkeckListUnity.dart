@@ -3,7 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
@@ -156,13 +156,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile2() async {
@@ -174,13 +172,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl2 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile3() async {
@@ -192,13 +188,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl3 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile4() async {
@@ -210,13 +204,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl4 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFirma() async {
@@ -228,13 +220,11 @@ class _CheckListUState extends State<CheckListUnity>{
       urlFirma = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   String numEconomico = '76AB2X';
@@ -878,11 +868,7 @@ class _CheckListUState extends State<CheckListUnity>{
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.exit_to_app),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        leading: Container(
         ),
         title: Text("Recepción de Vehículo",
           style: TextStyle(
@@ -965,13 +951,11 @@ class _CheckListUState extends State<CheckListUnity>{
                   isExpanded: item.isExpanded,
                   body:
                   Container(
-
                     child:  Column(
                       children: <Widget>[
                         SizedBox(
                           height: 6,
                         ),
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -986,7 +970,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -1007,7 +990,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1024,7 +1006,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1041,19 +1022,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1068,7 +1044,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -1090,7 +1065,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1107,20 +1081,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
-
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1167,12 +1135,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1187,12 +1152,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1209,7 +1171,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1226,7 +1187,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1243,23 +1203,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1274,12 +1225,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1313,7 +1261,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1330,24 +1277,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1362,7 +1299,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -1417,24 +1353,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1506,23 +1432,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1614,7 +1531,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
               }).toList(),
             ),
-            //AQUIIIIIIIIII
             SizedBox(
               height: 10,
             ),
@@ -1648,16 +1564,11 @@ class _CheckListUState extends State<CheckListUnity>{
                   },
                   isExpanded: item.isExpanded,
                   body: Container(
-//Diseño de la caja <>
-
                     child:  Column(
                       children: <Widget>[
-//Diseño de la caja </>
-//Separador<>
                         SizedBox(
                           height: 6,
                         ),
-//Separador</>
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1665,7 +1576,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Tanque Gasolina Titulo<>
                               Text(
                                 'Gasolina Inicial',
                                 style: TextStyle(fontSize: 16.0,
@@ -1673,18 +1583,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Tanque Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Tanque<>
-// MENU
                                   Row(
                                     children: <Widget>[
                                       _itemGasolina(),
                                     ],
                                   ),
-//Opciones Tanque</>
                                 ],
                               ),
                             ],
@@ -1701,7 +1607,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Tarjeta Gasolina Titulo<>
                               Text(
                                 '¿Tarjeta de Gasolina?',
                                 style: TextStyle(fontSize: 16.0,
@@ -1709,11 +1614,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Tarjeta Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Tarjeta<>
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1747,7 +1650,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-//Opciones Tarjeta</>
                                 ],
                               ),
                             ],
@@ -1765,7 +1667,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Cargo Gasolina Titulo<>
                               Text(
                                 '¿Cargo Gasolina?',
                                 style: TextStyle(fontSize: 16.0,
@@ -1773,11 +1674,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Cargo Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Cargo<>
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1811,7 +1710,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-//Opciones Cargo</>
                                 ],
                               ),
                             ],
@@ -1821,9 +1719,6 @@ class _CheckListUState extends State<CheckListUnity>{
                         SizedBox(
                           height: 6,
                         ),
-
-//Cuadros de Texto  <>
-//Caja de comentarios <>
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1836,7 +1731,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
-//Titulo
                                 Text(
                                   'No. Tarjeta de Gasolina',
                                   style: TextStyle(fontSize: 16.0,
@@ -1844,7 +1738,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       color: Color(0xFF1D539B)
                                   ),
                                 ),
-
                             TextField(
                               controller: _textController2,
                               maxLines: 3,
@@ -1871,16 +1764,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-//Cuadros de Texto  </>
-//Caja de comentarios </>
-
-
                         SizedBox(
                           height: 6,
                         ),
-//Cuadros de Texto <>
-//Caja de comentarios <>
-
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1893,7 +1779,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
-//Titulo
                                 Text(
                                   'Saldo de Tarjeta',
                                   style: TextStyle(fontSize: 16.0,
@@ -1928,15 +1813,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-//Cuadros de Texto  </>
-//Caja de comentarios </>
-
                         SizedBox(
                           height: 6,
                         ),
-
-//Cuadros de Texto  <>
-//Caja de comentarios </>
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1949,7 +1828,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
-//Titulo
                                 Text(
                                   'Hora de la Carga',
                                   style: TextStyle(fontSize: 16.0,
@@ -1984,9 +1862,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-//Cuadros de Texto </>
-//Caja de comentarios </>
-
                         SizedBox(
                           height: 6,
                         ),
@@ -1998,7 +1873,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Info Titulo<>
                               Text(
                                 '¿Es correcta la informacion?',
                                 style: TextStyle(fontSize: 16.0,
@@ -2006,11 +1880,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Info Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Info<>
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2044,7 +1916,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-//Opciones Info</>
                                 ],
                               ),
                             ],
@@ -2066,8 +1937,6 @@ class _CheckListUState extends State<CheckListUnity>{
                 );
               }).toList(),
             ),
-            //AQUIIIIIIIIII
-
             SizedBox(
               height: 10,
             ),
@@ -2272,9 +2141,6 @@ class _CheckListUState extends State<CheckListUnity>{
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -2321,14 +2187,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -2343,12 +2204,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2387,14 +2245,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 10,
                         ),
-
-
-
                       ],
                     ),
                   ),
@@ -2406,7 +2259,6 @@ class _CheckListUState extends State<CheckListUnity>{
               height: 10,
             ),
             ExpansionPanelList(
-
               expansionCallback: (int index, bool isExpanded) {
                 setState(() {
                   _items4[index].isExpanded = !_items4[index].isExpanded;
@@ -2655,11 +2507,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),              ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2676,7 +2526,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2703,7 +2552,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2720,7 +2568,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),        ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -2741,7 +2588,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2763,13 +2609,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                       _itemDown5(),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2786,11 +2630,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),       ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2807,7 +2649,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2829,13 +2670,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                       _itemDown6(),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2852,11 +2691,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),         ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2873,7 +2710,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2901,7 +2737,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2918,11 +2753,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),            ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2939,7 +2772,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2967,7 +2799,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2984,11 +2815,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),            ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3005,7 +2834,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3027,13 +2855,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                       _itemDown9(),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -3050,11 +2876,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),   ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3071,7 +2895,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3099,7 +2922,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -3116,11 +2938,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),   ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3164,7 +2984,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -3181,11 +3000,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),   ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3202,7 +3019,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3245,11 +3061,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),       ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3308,12 +3122,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),    ),
-
+                                ),
+                              ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3330,7 +3143,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3372,12 +3184,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),      ),
-
+                                ),
+                              ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3394,7 +3205,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3436,12 +3246,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),        ),
-
+                                ),
+                              ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3458,7 +3267,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3500,12 +3308,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),   ),
-
+                                ),
+                              ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3522,7 +3329,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3551,10 +3357,8 @@ class _CheckListUState extends State<CheckListUnity>{
                     ),
                   ),
                 );
-
               }).toList(),
             ),
-
             SizedBox(
               height: 10,
             ),
@@ -3764,13 +3568,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     ],
                                   ),
                                 ),
-
                               ),
-
                             ),
-
                           ],
-
                         ),
 
                         Divider(
@@ -3805,7 +3605,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     ),
                                     color: Colors.black12,
                                   ),
-
                                   actions: <Widget>[
                                     FlatButton(
                                       child:  Text("Salvar"),
@@ -3823,10 +3622,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         setState(() => _canShowButton = !_canShowButton);
                                         uploadFirma();
                                       },
-
                                     ),
-
-                                    //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
                                     FlatButton(
                                       child:  Text("Borrar"),
                                       onPressed: () {
@@ -3855,23 +3651,11 @@ class _CheckListUState extends State<CheckListUnity>{
                         Divider(
                           color: Color(0xFFD4D4D4),
                         ),
-                        /* RaisedButton(
-            onPressed: (){
-              _recepcion();
-            },
-            textColor: Colors.white,
-            color: Colors.red,
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              "Envíar",
-            ),
-          ),*/
                       ],
                     ),
 
                   ),
                 );
-
               }).toList(),
             ),
           ],
@@ -3889,6 +3673,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
       ),
 
-    );//no
-  } //no
-}//no
+    );
+  }
+}

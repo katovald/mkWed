@@ -16,16 +16,12 @@ class Products extends StatefulWidget {
     return _ProductsState();
   }
 }
-//:::::::::::::::::::::::::::::::::::::::::::::::::::::::: SPECIAL CLASS ENUM I
 enum MyDialogAction{
   yes,
   no,
   maybe }
-//::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::
-//PRODUCTS
 class _ProductsState extends State<Products> {
 
-  //:::::::::::::::::::::::::::::::::::::::::::::::::::::::: POP-UPS EVENTS II
   void _dialogResultAccept(int index, MyDialogAction value) {
     widget.products.removeAt(index);
     Navigator.pop(context);
@@ -51,7 +47,6 @@ class _ProductsState extends State<Products> {
     }
   }
 
-  //::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHODS showAlertgit
   void _showAlertFinish(index){
 
     AlertDialog dialog = new AlertDialog(
@@ -75,7 +70,6 @@ class _ProductsState extends State<Products> {
     showDialog(
         context: context,
     );
-    ///////////////////////////////////////////////////////////
 
   }
 
@@ -101,11 +95,9 @@ class _ProductsState extends State<Products> {
     showDialog(
         context: context,
     );
-    ///////////////////////////////////////////////////////////
 
   }
 
-  //:::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::METHOD REFRESH
   Future<Null> refreshList() async{
     await Future.delayed(Duration(seconds: 1));
     setState((){
@@ -113,7 +105,6 @@ class _ProductsState extends State<Products> {
     });
     return null;
   }
-  /////////////////////////////////////////////////////////////////// END METHOD
 
 
   Widget _buildWorksItem(BuildContext context, int index) {
@@ -205,8 +196,7 @@ class _ProductsState extends State<Products> {
       ),
     );
 
-  } ///////////////////////////////////////////// END METHOD
-
+  }
   Widget _buildWorksList() {
     Widget productCards;
     if (widget.products.length > 0) {
@@ -234,8 +224,7 @@ class _ProductsState extends State<Products> {
       );
     }
     return productCards;
-  } /////////////////////////////////// END METHOD
-
+  }
   @override
   Widget build(BuildContext context) {
     print('[Products Widget] build()');

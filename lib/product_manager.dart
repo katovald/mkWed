@@ -1,13 +1,11 @@
-import 'package:app_editesp/pages/ChatPage.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/mural.dart';
-import 'package:app_editesp/pages/reporte.dart';
+import 'package:app_editesp/Formularios/reporte.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert' as JSON;
-import './products.dart';
 
 //TODO: url http://apicamsavpro/tareas/{numerodeempleado}
 
@@ -16,7 +14,7 @@ final String myJSONProducts = '{"eventos":[{"cuenta":"40030177","telefono":"5530
     '{"cuenta":"40030179","telefono":"5530127033","latitud":19.425205,"longitud":-99.173796,"estatus": "pendiente"}'
     ']}';
 
-//STATEFUL
+
 class TaskMapManager extends StatefulWidget { //Widget Class
   @override
   _MapState createState() => _MapState();
