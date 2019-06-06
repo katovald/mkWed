@@ -20,6 +20,10 @@ class MyAppState extends State<HomePage>{
 
   Future<void> verifyPhone() async {
      final num = Firestore.instance.collection('Usuarios').document('169861').documentID;
+     final QuerySnapshot result =
+     await Firestore.instance.collection('Usuarios').getDocuments();
+     final List<DocumentSnapshot> documents = result.documents;
+     documents.forEach((data) => print(data.documentID));
     if(empleadoController.text == num){
       final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
         this.verificationId = verId;
