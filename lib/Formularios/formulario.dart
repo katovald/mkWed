@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:ui' as ui;
@@ -3772,10 +3773,14 @@ class _CheckListUState extends State<Formulario>{
             Icons.verified_user,
             color: Colors.white,),
           onPressed: () {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
-            _devolucion();
-          }
+            FirebaseAuth.instance.signOut().then((action) {
+              Navigator
+                  .of(context)
+                  .pushReplacementNamed('/');
+            }).catchError((e) {
+              print(e);
+            });
+          },
 
       ),
 
