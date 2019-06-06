@@ -3,24 +3,32 @@ import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
 
 final List<String> imgList = [
+  'https://firebasestorage.googleapis.com/v0/b/camsa-vpro.appspot.com/o/Periodico%20Mural%2Fchimuelo.png?alt=media&token=e53009d9-1a60-48a2-80a2-788c08417bc4',
+  'https://firebasestorage.googleapis.com/v0/b/camsa-vpro.appspot.com/o/Periodico%20Mural%2Fchimuelo2.png?alt=media&token=5f927513-6492-40fd-af74-a18738085a02',
+  'https://firebasestorage.googleapis.com/v0/b/camsa-vpro.appspot.com/o/Periodico%20Mural%2Fchimuelo3.png?alt=media&token=2ff38b3d-e180-4dd6-aa92-c3bfeeb3d83d',
+  'https://firebasestorage.googleapis.com/v0/b/camsa-vpro.appspot.com/o/Periodico%20Mural%2Fchimuelo4.png?alt=media&token=2b04f70d-e0ab-4a15-91dc-e365534b0c67',
+  'https://firebasestorage.googleapis.com/v0/b/camsa-vpro.appspot.com/o/Periodico%20Mural%2Fchimuelo5.png?alt=media&token=0a4d53cb-949f-4dd4-b686-e5a145725282',
+  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
+];
+
+/*final List<String> imgList = [
   'assets/chimuelo.png',
   'assets/chimuelo5.png',
   'assets/chimuelo2.png',
   'assets/chimuelo3.png',
   'assets/chimuelo4.png',
-];
+];*/
 int _current = 0;
 final List child = map<Widget>(
   imgList,
-      (index, i) {
+      (index, url) {
     return Container(
 
       margin: EdgeInsets.all(5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(5.0)),
         child: Stack(children: <Widget>[
-          Image.asset(i,
-
+          Image.network(url,
             fit: BoxFit.fill,
             width: 1000,
 
@@ -76,12 +84,12 @@ class _State extends State<Mural> {
           });
         },
         items: imgList.map(
-              (i) {
+              (url) {
             return Container(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                child: Image.asset(
-                  i,
+                child: Image.network(
+                  url,
                   fit: BoxFit.fill,
                   width: 1000.0,
                 ),
@@ -118,7 +126,7 @@ class _State extends State<Mural> {
              mainAxisAlignment: MainAxisAlignment.center,
              children: map<Widget>(
                imgList,
-                   (index, i) {
+                   (index, url) {
                  return Container(
                    width: 8.0,
                    height: 8.0,
