@@ -224,7 +224,7 @@ bool _obscureTextLogin = true;
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                             child: TextFormField(
                               controller: empleadoController,
-                              keyboardType: TextInputType.emailAddress,
+                              keyboardType: TextInputType.number,
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return 'Por favor ingrese su número de empleado';
@@ -257,7 +257,7 @@ bool _obscureTextLogin = true;
                               obscureText: _obscureTextLogin,*/
                               keyboardType: TextInputType.phone,
                               onChanged: (value) {
-                                this.phoneNo = value;
+                                this.phoneNo = '+52$value';
                               },
                               style: TextStyle(
                                   fontFamily: "WorkSansSemiBold",
