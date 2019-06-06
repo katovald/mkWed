@@ -3,6 +3,7 @@ import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/mural.dart';
 import 'package:app_editesp/Formularios/reporte.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert' as JSON;
@@ -145,14 +146,17 @@ class _MapState extends State<TaskMapManager> { //State Class
                 Divider(
                   height: 2.0,
                 ),
-                Divider(
-                  height: 2.0,
-                ),
                 ListTile(
                   leading: Icon(Icons.exit_to_app),
-                  title: Text('Cerrar sesión'),
+                  title: Text('Terminar Turno'),
                   onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+                    FirebaseAuth.instance.signOut().then((action) {
+                      Navigator
+                          .of(context)
+                          .pushReplacementNamed('/');
+                    }).catchError((e) {
+                      print(e);
+                    });
                   },
                 ),
                 Divider(
