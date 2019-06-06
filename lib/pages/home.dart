@@ -3,6 +3,7 @@ import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -17,14 +18,22 @@ class MyAppState extends State<HomePage>{
   String phoneNo;
   String smsCode;
   String verificationId;
-
   Future<void> verifyPhone() async {
-     final num = Firestore.instance.collection('Usuarios').document('169861').documentID;
-     final QuerySnapshot result =
-     await Firestore.instance.collection('Usuarios').getDocuments();
-     final List<DocumentSnapshot> documents = result.documents;
-     documents.forEach((data) => print(data.documentID));
-    if(empleadoController.text == num){
+    DocumentSnapshot ds;
+    String id;
+   StreamBuilder(
+     stream: Firestore.instance.collection('Usuarios').document('169861').snapshots(),
+       builder: (context, snapshot) {
+         return  ListView.builder(
+             itemCount: snapshot.data.documents.length,
+             itemBuilder: (context, index) {
+               ds = snapshot.data.documents[index];
+               id = ds['Empleado'];
+             });
+       }
+   );
+    print('id: $id');
+    if(empleadoController.text == id){
       final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
         this.verificationId = verId;
         print('Time out');
@@ -147,8 +156,8 @@ _callMe() async {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: Text("Recuperar Contraseña"),
-          content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una nueva contraseña, ¿Deseas continuar?"),
+          title: Text("No puedo iniciar sesión"),
+          content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una cuenta, ¿Deseas continuar?"),
           backgroundColor: Color(0xFFF4F4F4),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
@@ -176,8 +185,6 @@ bool _obscureTextLogin = true;
  @override
   void dispose() {
     myFocusNodePassword.dispose();
-    
-   
     super.dispose();
   }
   @override
@@ -336,7 +343,7 @@ bool _obscureTextLogin = true;
                       _showDialog();
                   },
                     child: Text(
-                      "Recuperar Contraseña",
+                      "No puedo iniciar sesión",
                       style: TextStyle(
                           decoration: TextDecoration.underline,
                           color: Colors.white,
