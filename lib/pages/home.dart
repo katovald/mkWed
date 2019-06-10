@@ -17,9 +17,35 @@ class MyAppState extends State<HomePage>{
   String phoneNo;
   String smsCode;
   String verificationId;
+  var telefono;
+  DocumentSnapshot snapshot;
   Future<void> verifyPhone() async {
-    DocumentSnapshot snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
-    var telefono = snapshot['Telefono'];
+   snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get().whenComplete((){
+     if (snapshot != null){
+       print('Existe');
+     }else {
+       print('No existe el documento');
+       return showDialog(
+           context: context,
+           barrierDismissible: false,
+           builder: (BuildContext context) {
+             return new AlertDialog(
+               title: Text('Error'),
+               content: Text ('Tu número de empleado o de teléfono son incorrectos'),
+               contentPadding: EdgeInsets.all(10.0),
+               actions: <Widget>[
+                 new FlatButton(
+                   child: Text('Aceptar'),
+                   onPressed: () {
+                     Navigator.of(context).pop();
+                   },
+                 )
+               ],
+             );
+           });
+     }
+   });
+    telefono = snapshot['Telefono'];
     print('Tel: $telefono');
     if(phoneController.text == telefono){
       final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
@@ -167,12 +193,9 @@ _callMe() async {
       },
     );
   }
-  
-final FocusNode myFocusNodePassword = FocusNode();
-bool _obscureTextLogin = true;
+
  @override
   void dispose() {
-    myFocusNodePassword.dispose();
     super.dispose();
   }
   @override
@@ -329,6 +352,26 @@ bool _obscureTextLogin = true;
                           MaterialPageRoute(builder: (context) => CheckListOne()),
                         );*/
                         verifyPhone();
+                        if(empleadoController.text.isEmpty || phoneController.text.isEmpty){
+                          return showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return new AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text ('Tu número de empleado o de teléfono son incorrectos'),
+                                  contentPadding: EdgeInsets.all(10.0),
+                                  actions: <Widget>[
+                                    new FlatButton(
+                                      child: Text('Aceptar'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    )
+                                  ],
+                                );
+                              });
+                                                }
                          },
                     ),
                   ),
@@ -338,7 +381,6 @@ bool _obscureTextLogin = true;
                 child: FlatButton(
                     onPressed: (){
                       _showDialog();
-                     // getChannelName();
                   },
                     child: Text(
                       "No puedo iniciar sesión",
@@ -365,17 +407,7 @@ bool _obscureTextLogin = true;
                ),
              ],          
             ),
-
-                
     ),
     );
-        
-    
-
-  }
-  void _toggleLogin() {
-    setState(() {
-      _obscureTextLogin = !_obscureTextLogin;
-    });
   }
 }
