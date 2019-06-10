@@ -3,7 +3,6 @@ import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
@@ -19,21 +18,10 @@ class MyAppState extends State<HomePage>{
   String smsCode;
   String verificationId;
   Future<void> verifyPhone() async {
-    DocumentSnapshot ds;
-    String id;
-   StreamBuilder(
-     stream: Firestore.instance.collection('Usuarios').document('169861').snapshots(),
-       builder: (context, snapshot) {
-         return  ListView.builder(
-             itemCount: snapshot.data.documents.length,
-             itemBuilder: (context, index) {
-               ds = snapshot.data.documents[index];
-               id = ds['Empleado'];
-             });
-       }
-   );
-    print('id: $id');
-    if(empleadoController.text == id){
+    DocumentSnapshot snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
+    var telefono = snapshot['Telefono'];
+    print('Tel: $telefono');
+    if(phoneController.text == telefono){
       final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
         this.verificationId = verId;
         print('Time out');
@@ -128,7 +116,7 @@ class MyAppState extends State<HomePage>{
     assert(user.uid == currentUser.uid);
     return 'signInWithPhoneNumber succeeded: $user';
   }
-  TextEditingController loginPasswordController =  TextEditingController();
+  TextEditingController phoneController =  TextEditingController();
   TextEditingController empleadoController =  TextEditingController();
   void onPressed(){
     print("Button pressed");
@@ -186,6 +174,17 @@ bool _obscureTextLogin = true;
   void dispose() {
     myFocusNodePassword.dispose();
     super.dispose();
+  }
+  @override
+  void initState() {
+    super.initState();
+    FirebaseAuth.instance.currentUser().then((user) {
+      if (user != null) {
+        Navigator.of(context).pushReplacementNamed('/check1');
+      } else {
+        print('No sesión');
+      }
+    });
   }
   @override
   Widget build(BuildContext context) {
@@ -259,9 +258,7 @@ bool _obscureTextLogin = true;
                             padding: EdgeInsets.only(
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                             child: TextField(
-                              /*focusNode: myFocusNodePassword,
-                              controller: loginPasswordController,
-                              obscureText: _obscureTextLogin,*/
+                              controller: phoneController,
                               keyboardType: TextInputType.phone,
                               onChanged: (value) {
                                 this.phoneNo = '+52$value';
@@ -341,6 +338,7 @@ bool _obscureTextLogin = true;
                 child: FlatButton(
                     onPressed: (){
                       _showDialog();
+                     // getChannelName();
                   },
                     child: Text(
                       "No puedo iniciar sesión",

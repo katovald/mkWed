@@ -3773,6 +3773,7 @@ class _CheckListUState extends State<Formulario>{
             Icons.verified_user,
             color: Colors.white,),
           onPressed: () {
+            _devolucion();
             FirebaseAuth.instance.signOut().then((action) {
               Navigator
                   .of(context)
