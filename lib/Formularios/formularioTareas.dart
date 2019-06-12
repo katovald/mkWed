@@ -357,6 +357,7 @@ class _ChecklistState  extends State<Checklist>{
   var perimetro;
   var entrevista;
   var ob;
+  String id;
  Future _tarea() async {
    if (selectedRadio == 1) {
      ob = _textFieldController.text;
@@ -453,7 +454,7 @@ class _ChecklistState  extends State<Checklist>{
     } else {
       entrevista = 0;
     }
-    Firestore.instance.collection('Checklist').add({
+   final enviar = await Firestore.instance.collection('Checklist').add({
       'ID_Tarea': 125656788,
       'Observaciones': ob,
       'Cortina_Clientes': cortinaC,
@@ -493,6 +494,7 @@ class _ChecklistState  extends State<Checklist>{
       'Lateral': imageUrl3,
       'Firma': urlFirma,
     });
+    id = enviar.documentID;
   }
   void _guardar() {
     if (selectedRadio == 1) {
@@ -590,7 +592,8 @@ class _ChecklistState  extends State<Checklist>{
     } else {
       entrevista = 0;
     }
-    Firestore.instance.collection('Checklist').add({
+    print('Prueba: $id');
+    Firestore.instance.collection('Checklist').document(id).setData({
       'ID_Tarea': 125656788,
       'Observaciones': ob,
       'Cortina_Clientes': cortinaC,

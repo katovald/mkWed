@@ -20,31 +20,7 @@ class MyAppState extends State<HomePage>{
   var telefono;
   DocumentSnapshot snapshot;
   Future<void> verifyPhone() async {
-   snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get().whenComplete((){
-     if (snapshot != null){
-       print('Existe');
-     }else {
-       print('No existe el documento');
-       return showDialog(
-           context: context,
-           barrierDismissible: false,
-           builder: (BuildContext context) {
-             return new AlertDialog(
-               title: Text('Error'),
-               content: Text ('Tu número de empleado o de teléfono son incorrectos'),
-               contentPadding: EdgeInsets.all(10.0),
-               actions: <Widget>[
-                 new FlatButton(
-                   child: Text('Aceptar'),
-                   onPressed: () {
-                     Navigator.of(context).pop();
-                   },
-                 )
-               ],
-             );
-           });
-     }
-   });
+   snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
     telefono = snapshot['Telefono'];
     print('Tel: $telefono');
     if(phoneController.text == telefono){

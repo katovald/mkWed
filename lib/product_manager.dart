@@ -2,6 +2,7 @@ import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/mural.dart';
 import 'package:app_editesp/Formularios/reporte.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
@@ -77,6 +78,16 @@ class _MapState extends State<TaskMapManager> { //State Class
       this._addTaskMarker(Evento.fromJson(element))
     });
   }
+  List<DocumentSnapshot> query;
+  var Links = List<String>();
+  QuerySnapshot snapshot;
+  Future link() async{
+    snapshot = await Firestore.instance.collection('Multimedia').where('Estatus', isEqualTo: 'Activo').getDocuments();
+    query = snapshot.documents;
+   // query.forEach((query) => print(query['Link']));
+    query.forEach((query) =>  Links.add(query['Link']));
+    print('Links: $Links');
+  }
 
   @override
   Widget build(BuildContext context){
@@ -137,9 +148,14 @@ class _MapState extends State<TaskMapManager> { //State Class
                   leading: Icon(Icons.accessibility),
                   title: Text('CAMSA contigo'),
                   onTap: () {
+                    link();
+    Future.delayed(Duration(seconds: 1), () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Mural()),
+                      MaterialPageRoute(builder: (BuildContext context) => Mural(Link: Links),
+                    ),
+                    );
+                  },
                     );
                   },
                 ),
