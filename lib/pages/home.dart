@@ -1,5 +1,7 @@
 import 'dart:async';
+import 'package:app_editesp/Formularios/CkeckListUnity.dart';
 import 'package:app_editesp/VarGlobals.dart' as globals;
+import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -18,11 +20,14 @@ class MyAppState extends State<HomePage>{
   String smsCode;
   String verificationId;
   var telefono;
+  var Estado;
   DocumentSnapshot snapshot;
   Future<void> verifyPhone() async {
    snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
     telefono = snapshot['Telefono'];
+    Estado = snapshot['Estatus'];
     print('Tel: $telefono');
+    print('Tel: $Estado');
     if(phoneController.text == telefono){
       final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
         this.verificationId = verId;
@@ -38,8 +43,22 @@ class MyAppState extends State<HomePage>{
 
       final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
         print('verified');
+        if(Estado == 'Inactivo'){
           Navigator.of(context).pop();
-          Navigator.of(context).pushReplacementNamed('/check1');
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
+            ),
+          );
+        }else if(Estado == 'Activo'){
+          Navigator.of(context).pop();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => ItemList(id: id),
+            ),
+          );
+        }
+
       };
 
       final PhoneVerificationFailed veriFailed = (AuthException exception) {
@@ -177,17 +196,19 @@ _callMe() async {
   @override
   void initState() {
     super.initState();
-    FirebaseAuth.instance.currentUser().then((user) {
+   /* FirebaseAuth.instance.currentUser().then((user) {
       if (user != null) {
         Navigator.of(context).pushReplacementNamed('/check1');
       } else {
         print('No sesión');
       }
-    });
+    });*/
   }
+  String id;
   @override
   Widget build(BuildContext context) {
     print(globals.isLoggedIn);
+    id = empleadoController.text;
     //RETORNAMOS un CONTAINER con un CHILD que es un SCAFFOLD, hacemos esto...
     //...para que al aparecer el teclado no cambie de tamaño la imagen de fondo
     return  
@@ -323,9 +344,10 @@ _callMe() async {
                         ),
                       ),
                       onPressed: () {
-                      /* Navigator.push(
+                      /*  Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => CheckListOne()),
+                          MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
+                          ),
                         );*/
                         verifyPhone();
                         if(empleadoController.text.isEmpty || phoneController.text.isEmpty){

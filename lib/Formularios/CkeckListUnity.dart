@@ -1,5 +1,7 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:app_editesp/pages/ItemList.dart';
+import 'package:app_editesp/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
@@ -11,7 +13,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class CheckListUnity extends StatefulWidget{
-
+  final String id;
+ CheckListUnity({Key key, this.id}) : super (key: key);
   @override
   State<StatefulWidget> createState() {
 
@@ -378,6 +381,15 @@ class _CheckListUState extends State<CheckListUnity>{
      'Placa': numEconomico,
      'Tipo': 'Recepcion',
      'id':id,
+   });
+   Firestore.instance.collection('Usuarios').document(widget.id).updateData({
+     'Empleado': '169861',
+     'Telefono': '5611247753',
+     'Nombre': 'Juan',
+     'Estatus': 'Activo',
+   });
+   Firestore.instance.collection('Usuarios').document(widget.id).collection('Entradas').add({
+     'Hora': now,
    });
   }
 
@@ -3666,8 +3678,11 @@ class _CheckListUState extends State<CheckListUnity>{
             Icons.verified_user,
             color: Colors.white,),
           onPressed: () {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/item', (Route<dynamic> route) => false);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => ItemList(id: widget.id),
+              ),
+            );
             _recepcion();
           }
 

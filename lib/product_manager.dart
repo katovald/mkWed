@@ -18,7 +18,9 @@ final String myJSONProducts = '{"eventos":[{"cuenta":"40030177","telefono":"5530
     ']}';
 
 
-class TaskMapManager extends StatefulWidget { //Widget Class
+class TaskMapManager extends StatefulWidget {
+  final String id;
+  TaskMapManager({Key key, this.id}) : super (key: key);//Widget Class
   @override
   _MapState createState() => _MapState();
 }
@@ -92,6 +94,7 @@ class _MapState extends State<TaskMapManager> { //State Class
 
   @override
   Widget build(BuildContext context){
+    print  ('idMapa: ${widget.id}');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -163,7 +166,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Formulario()),
+                      MaterialPageRoute(builder: (context) => Formulario(id: widget.id,)),
                     );
                   },
                 ),

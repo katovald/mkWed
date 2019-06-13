@@ -12,7 +12,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class Formulario extends StatefulWidget{
-
+  final String id;
+  Formulario({Key key, this.id}) : super (key: key);//Widget Class
   @override
   State<StatefulWidget> createState() {
 
@@ -386,6 +387,15 @@ class _CheckListUState extends State<Formulario>{
      'Tipo': 'Devolucion',
      'id':id,
    });
+    Firestore.instance.collection('Usuarios').document(widget.id).updateData({
+      'Empleado': '169861',
+      'Telefono': '5611247753',
+      'Nombre': 'Juan',
+      'Estatus': 'Inactivo',
+    });
+    Firestore.instance.collection('Usuarios').document(widget.id).collection('Salidas').add({
+      'Hora': now,
+    });
   }
 
   DropdownButton _itemGasolina() => DropdownButton<String>(
@@ -871,7 +881,7 @@ class _CheckListUState extends State<Formulario>{
   }
   @override
   Widget build(BuildContext context) {
-
+    print  ('idFor: ${widget.id}');
     return Scaffold(
       appBar: AppBar(
         title: Text("Devolución de Vehículo",
@@ -3774,13 +3784,16 @@ class _CheckListUState extends State<Formulario>{
             color: Colors.white,),
           onPressed: () {
             _devolucion();
-            FirebaseAuth.instance.signOut().then((action) {
+           /* FirebaseAuth.instance.signOut().then((action) {
               Navigator
                   .of(context)
                   .pushReplacementNamed('/');
             }).catchError((e) {
               print(e);
-            });
+            });*/
+            Navigator
+                .of(context)
+                .pushReplacementNamed('/');
           },
 
       ),
