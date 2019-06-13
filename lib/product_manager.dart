@@ -1,3 +1,4 @@
+import 'package:app_editesp/Formularios/formulario.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/mural.dart';
@@ -95,15 +96,9 @@ class _MapState extends State<TaskMapManager> { //State Class
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_left),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CheckListThree()),
-              );
-            },
-          ),
+        leading: Container(
+
+        ),
           title: Text("Lista de Tareas",
             style: TextStyle(
               color: Colors.white,
@@ -166,13 +161,10 @@ class _MapState extends State<TaskMapManager> { //State Class
                   leading: Icon(Icons.exit_to_app),
                   title: Text('Terminar Turno'),
                   onTap: () {
-                    FirebaseAuth.instance.signOut().then((action) {
-                      Navigator
-                          .of(context)
-                          .pushReplacementNamed('/');
-                    }).catchError((e) {
-                      print(e);
-                    });
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Formulario()),
+                    );
                   },
                 ),
                 Divider(
