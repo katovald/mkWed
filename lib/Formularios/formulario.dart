@@ -396,6 +396,13 @@ class _CheckListUState extends State<Formulario>{
     Firestore.instance.collection('Usuarios').document(widget.id).collection('Salidas').add({
       'Hora': now,
     });
+    FirebaseAuth.instance.signOut().then((action) {
+      Navigator
+          .of(context)
+          .pushReplacementNamed('/');
+    }).catchError((e) {
+      print(e);
+    });
   }
 
   DropdownButton _itemGasolina() => DropdownButton<String>(
@@ -3784,16 +3791,9 @@ class _CheckListUState extends State<Formulario>{
             color: Colors.white,),
           onPressed: () {
             _devolucion();
-           /* FirebaseAuth.instance.signOut().then((action) {
-              Navigator
-                  .of(context)
-                  .pushReplacementNamed('/');
-            }).catchError((e) {
-              print(e);
-            });*/
-            Navigator
+           /* Navigator
                 .of(context)
-                .pushReplacementNamed('/');
+                .pushReplacementNamed('/');*/
           },
 
       ),
