@@ -283,13 +283,11 @@ class _ChecklistState  extends State<Checklist>{
       imageUrl = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile2() async {
@@ -301,13 +299,11 @@ class _ChecklistState  extends State<Checklist>{
       imageUrl2 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile3() async {
@@ -319,7 +315,6 @@ class _ChecklistState  extends State<Checklist>{
       imageUrl3 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
@@ -336,7 +331,6 @@ class _ChecklistState  extends State<Checklist>{
       urlFirma = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
@@ -363,6 +357,7 @@ class _ChecklistState  extends State<Checklist>{
   var perimetro;
   var entrevista;
   var ob;
+  String id;
  Future _tarea() async {
    if (selectedRadio == 1) {
      ob = _textFieldController.text;
@@ -459,7 +454,7 @@ class _ChecklistState  extends State<Checklist>{
     } else {
       entrevista = 0;
     }
-    Firestore.instance.collection('Checklist').add({
+   final enviar = await Firestore.instance.collection('Checklist').add({
       'ID_Tarea': 125656788,
       'Observaciones': ob,
       'Cortina_Clientes': cortinaC,
@@ -499,6 +494,7 @@ class _ChecklistState  extends State<Checklist>{
       'Lateral': imageUrl3,
       'Firma': urlFirma,
     });
+    id = enviar.documentID;
   }
   void _guardar() {
     if (selectedRadio == 1) {
@@ -596,7 +592,8 @@ class _ChecklistState  extends State<Checklist>{
     } else {
       entrevista = 0;
     }
-    Firestore.instance.collection('Checklist').add({
+    print('Prueba: $id');
+    Firestore.instance.collection('Checklist').document(id).setData({
       'ID_Tarea': 125656788,
       'Observaciones': ob,
       'Cortina_Clientes': cortinaC,
@@ -995,9 +992,7 @@ class _ChecklistState  extends State<Checklist>{
                                   hintStyle: TextStyle(fontSize: 16.0,
                                       fontWeight: FontWeight.w600,
                                       color: Color(0xFF1D539B)),
-                                  fillColor: Colors.blueGrey,
-                                  // hintText: "Enter Username",
-                                ),
+                                  fillColor: Colors.blueGrey,),
                               ),
                             )
                                 :SizedBox(),
@@ -1108,7 +1103,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionCortinaClientes,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1116,7 +1110,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 16.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1203,7 +1196,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -1237,7 +1229,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionCortinasMercancia,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1245,7 +1236,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1333,7 +1323,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -1367,7 +1356,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionPuerta,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1375,7 +1363,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1463,7 +1450,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -1481,7 +1467,6 @@ class _ChecklistState  extends State<Checklist>{
 
                               ],
                             ),
-
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
@@ -1497,7 +1482,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionChapa,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1505,7 +1489,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1592,7 +1575,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -1626,7 +1608,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionCamara,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1634,7 +1615,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1722,7 +1702,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -1756,7 +1735,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionCandado,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1764,7 +1742,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1852,8 +1829,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -1887,7 +1862,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionPuertaCristal,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -1895,7 +1869,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -1983,7 +1956,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2017,7 +1989,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionFachadaCristal,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2025,7 +1996,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -2112,7 +2082,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2146,7 +2115,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionMuro,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2154,7 +2122,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -2241,7 +2208,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2275,7 +2241,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionSirena,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2283,7 +2248,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -2371,7 +2335,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2405,7 +2368,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionPlanta,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2414,7 +2376,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -2501,7 +2462,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2535,7 +2495,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionVentana,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2543,7 +2502,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -2631,7 +2589,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2665,7 +2622,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionPorton,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2673,7 +2629,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -2760,7 +2715,6 @@ class _ChecklistState  extends State<Checklist>{
                                                 fontSize: 19.0
                                             ),
                                             decoration: InputDecoration(
-                                              //labelText: 'Total',
                                               hintText: 'Total',
                                               hintStyle: TextStyle(fontSize: 16.0,
                                                   fontWeight: FontWeight.w600,
@@ -2794,7 +2748,6 @@ class _ChecklistState  extends State<Checklist>{
                                       child:  TextField(
                                         controller: _observacionReja,
                                         keyboardType: TextInputType.multiline,
-                                        // maxLines: 3,
                                         cursorColor: Colors.black,
                                         cursorWidth: 7.0,
                                         style: TextStyle(
@@ -2802,7 +2755,6 @@ class _ChecklistState  extends State<Checklist>{
                                             fontSize: 19.0
                                         ),
                                         decoration: InputDecoration(
-                                          //labelText: 'Total',
                                           hintText: 'Observación (opcional)',
                                           hintStyle: TextStyle(fontSize: 16.0,
                                               fontWeight: FontWeight.w600,
@@ -3234,7 +3186,6 @@ class _ChecklistState  extends State<Checklist>{
                             child:  Text("Salvar"),
                             onPressed: ()  async {
                               final sign = _sign.currentState;
-                              //retrieve image data, do whatever you want with it (send to server, save locally...)
                               final image = await sign.getData();
                               var data = await image.toByteData(format: ui.ImageByteFormat.png);
                               sign.clear();
@@ -3247,10 +3198,7 @@ class _ChecklistState  extends State<Checklist>{
                               setState(() => _canShowButton = !_canShowButton);
                               uploadFirma();
                             },
-
                           ),
-
-                          //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
                           FlatButton(
                             child:  Text("Borrar"),
                             onPressed: () {
@@ -3399,17 +3347,6 @@ class _ChecklistState  extends State<Checklist>{
               Divider(
                 color: Color(0xFFD4D4D4),
               ),
-            /*  RaisedButton(
-                onPressed: (){
-                  _tarea();
-                },
-                textColor: Colors.white,
-                color: Colors.green,
-                padding: EdgeInsets.all(8.0),
-                child: Text(
-                  "Envíar",
-                ),
-              ),*/
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -3427,7 +3364,7 @@ class _ChecklistState  extends State<Checklist>{
                             _tarea();
                           },
                         color: Color(0xFF00E5D0),
-                        child: Row( // Replace with a Row for horizontal icon + text
+                        child: Row(
                           children: <Widget>[
                             Icon(
                               Icons.assignment,

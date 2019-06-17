@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
@@ -138,8 +138,6 @@ class _SiniestrosState extends State<Siniestros> {
             children: <Widget>[
               Expanded(
                child: ListView(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
 
                     Align(

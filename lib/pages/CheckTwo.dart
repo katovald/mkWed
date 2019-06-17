@@ -1,6 +1,6 @@
 import 'package:app_editesp/BackWGeneral.dart';
-import 'package:app_editesp/formularioTareas.dart';
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/Formularios/formularioTareas.dart';
+import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:flutter/material.dart';
 
 class CheckListTwo extends StatelessWidget {

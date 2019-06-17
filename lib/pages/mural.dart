@@ -1,33 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-/*final List<String> imgList = [
-  'https://images.unsplash.com/photo-1520342868574-5fa3804e551c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=6ff92caffcdd63681a35134a6770ed3b&auto=format&fit=crop&w=1951&q=80',
-  'https://images.unsplash.com/photo-1522205408450-add114ad53fe?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=368f45b0888aeb0b7b08e3a1084d3ede&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1519125323398-675f0ddb6308?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=94a1e718d89ca60a6337a6008341ca50&auto=format&fit=crop&w=1950&q=80',
-  'https://images.unsplash.com/photo-1523205771623-e0faa4d2813d?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=89719a0d55dd05e2deae4120227e6efc&auto=format&fit=crop&w=1953&q=80',
-  'https://images.unsplash.com/photo-1508704019882-f9cf40e475b4?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=8c6e5e3aba713b17aa1fe71ab4f0ae5b&auto=format&fit=crop&w=1352&q=80',
-  'https://images.unsplash.com/photo-1519985176271-adb1088fa94c?ixlib=rb-0.3.5&ixid=eyJhcHBfaWQiOjEyMDd9&s=a0c8d632e977f94e5d312d9893258f59&auto=format&fit=crop&w=1355&q=80'
-];*/
-final List<String> imgList = [
-  'assets/chimuelo.png',
-  'assets/chimuelo5.png',
-  'assets/chimuelo2.png',
-  'assets/chimuelo3.png',
-  'assets/chimuelo4.png',
-];
+
+final List<String> imgList = linkM;
 int _current = 0;
 final List child = map<Widget>(
   imgList,
-      (index, i) {
+      (index, url) {
     return Container(
 
       margin: EdgeInsets.all(5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(5.0)),
         child: Stack(children: <Widget>[
-          Image.asset(i,
-
+          Image.network(url,
             fit: BoxFit.fill,
             width: 1000,
 
@@ -62,16 +48,19 @@ List<T> map<T>(List list, Function handler) {
 
   return result;
 }
-
+  var linkM;
 class Mural extends StatefulWidget {
+  final List<String> Link;
+  Mural({Key key, this.Link}) : super (key: key);
   @override
   _State createState() => _State();
 }
 
 class _State extends State<Mural> {
+
   @override
   Widget build(BuildContext context) {
-
+    linkM = widget.Link;
     CarouselSlider getFullScreenCarousel(BuildContext mediaContext) {
       return
         CarouselSlider(
@@ -83,12 +72,12 @@ class _State extends State<Mural> {
           });
         },
         items: imgList.map(
-              (i) {
+              (url) {
             return Container(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                child: Image.asset(
-                  i,
+                child: Image.network(
+                  url,
                   fit: BoxFit.fill,
                   width: 1000.0,
                 ),
@@ -125,7 +114,7 @@ class _State extends State<Mural> {
              mainAxisAlignment: MainAxisAlignment.center,
              children: map<Widget>(
                imgList,
-                   (index, i) {
+                   (index, url) {
                  return Container(
                    width: 8.0,
                    height: 8.0,

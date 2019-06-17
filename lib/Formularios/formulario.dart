@@ -3,7 +3,8 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
@@ -11,7 +12,8 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class Formulario extends StatefulWidget{
-
+  final String id;
+  Formulario({Key key, this.id}) : super (key: key);//Widget Class
   @override
   State<StatefulWidget> createState() {
 
@@ -23,7 +25,7 @@ class Formulario extends StatefulWidget{
 class MyItem {
   MyItem({
     this.isExpanded: false,
-git  });
+  });
 
 
   bool isExpanded;
@@ -161,13 +163,11 @@ class _CheckListUState extends State<Formulario>{
       imageUrl = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile2() async {
@@ -179,13 +179,11 @@ class _CheckListUState extends State<Formulario>{
       imageUrl2 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile3() async {
@@ -197,13 +195,11 @@ class _CheckListUState extends State<Formulario>{
       imageUrl3 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile4() async {
@@ -215,13 +211,11 @@ class _CheckListUState extends State<Formulario>{
       imageUrl4 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFirma() async {
@@ -233,7 +227,6 @@ class _CheckListUState extends State<Formulario>{
       urlFirma = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
@@ -372,28 +365,12 @@ class _CheckListUState extends State<Formulario>{
     'Info_Correcta_Accesorios': selectedRadio29,
     'Gasolina_inicial': _itemGasolina().value,
     'Sistema_Eléctico': _textController1.text,
-    'No._Tarjeta_de_gasolina ': _textController2.text,
+    'No_Tarjeta_de_gasolina ': _textController2.text,
     'Saldo_de_trajeta': _textController3.text,
     'Hora_de_la_carga': _textController4.text,
     'Fondo_de_estacionamiento': _textController5.text,
     'Número_de_ticket': _textController6.text,
     'Total': _textController7.text,
-    'Estatus_Cargador_USB': _itemDown().value,
-    'Estatus_Tag': _itemDown2().value,
-    'Estatus_Guía_Roja': _itemDown3().value,
-    'Estatus_Lámpara': _itemDown4().value,
-    'Estatus_Paraguas': _itemDown5().value,
-    'Estatus_Manos_libes': _itemDown6().value,
-    'Estatus_Red': _itemDown7().value,
-    'Estatus_Extintor': _itemDown8().value,
-    'Estatus_Gato': _itemDown9().value,
-    'Estatus_Llave_de_cruz': _itemDown10().value,
-    'Estatus_Señalamientos': _itemDown11().value,
-    'Estatus_Kit_de_limpieza': _itemDown12().value,
-    'Estatus_Aceite': _itemaceite().value,
-    'Estatus_Anticongelante': _itemdmanti().value,
-    'Estatus_Líquido_de_dirección': _itemdireccion().value,
-    'Estatus_Líquido_de_frenos': _itemfrenos().value,
     'Hora': now,
     'Foto_frontal_piloto': imageUrl,
     'Foto_frontal_copiloto': imageUrl2,
@@ -410,6 +387,22 @@ class _CheckListUState extends State<Formulario>{
      'Tipo': 'Devolucion',
      'id':id,
    });
+    Firestore.instance.collection('Usuarios').document(widget.id).updateData({
+      'Empleado': '169861',
+      'Telefono': '5611247753',
+      'Nombre': 'Juan',
+      'Estatus': 'Inactivo',
+    });
+    Firestore.instance.collection('Usuarios').document(widget.id).collection('Salidas').add({
+      'Hora': now,
+    });
+    FirebaseAuth.instance.signOut().then((action) {
+      Navigator
+          .of(context)
+          .pushReplacementNamed('/');
+    }).catchError((e) {
+      print(e);
+    });
   }
 
   DropdownButton _itemGasolina() => DropdownButton<String>(
@@ -429,7 +422,6 @@ class _CheckListUState extends State<Formulario>{
         .toList(),
   );
 
-  //// MI LISTA </>
   DropdownButton _itemDown() =>  DropdownButton<String>(
     value: _value1,
     onChanged: (String newValue) {
@@ -896,7 +888,7 @@ class _CheckListUState extends State<Formulario>{
   }
   @override
   Widget build(BuildContext context) {
-
+    print  ('idFor: ${widget.id}');
     return Scaffold(
       appBar: AppBar(
         title: Text("Devolución de Vehículo",
@@ -1636,7 +1628,6 @@ class _CheckListUState extends State<Formulario>{
 
             }).toList(),
           ),
-          //AQUIIIIIIIIII
           SizedBox(
             height: 10,
           ),
@@ -1669,16 +1660,12 @@ class _CheckListUState extends State<Formulario>{
                 },
                 isExpanded: item.isExpanded,
                 body: Container(
-//Diseño de la caja <>
 
                   child:  Column(
                     children: <Widget>[
-//Diseño de la caja </>
-//Separador<>
                       SizedBox(
                         height: 6,
                       ),
-//Separador</>
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xFFF3F3F3),
@@ -1686,7 +1673,6 @@ class _CheckListUState extends State<Formulario>{
                         margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
-//Tanque Gasolina Titulo<>
                             Text(
                               'Gasolina Inicial',
                               style: TextStyle(fontSize: 16.0,
@@ -1694,18 +1680,14 @@ class _CheckListUState extends State<Formulario>{
                                   color: Color(0xFF1D539B)
                               ),
                             ),
-//Tanque Gasolina Titulo</>
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-//Opciones Tanque<>
-// MENU
                                 Row(
                                   children: <Widget>[
                                     _itemGasolina(),
                                   ],
                                 ),
-//Opciones Tanque</>
                               ],
                             ),
                           ],
@@ -1722,7 +1704,6 @@ class _CheckListUState extends State<Formulario>{
                         margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
-//Tarjeta Gasolina Titulo<>
                             Text(
                               '¿Tarjeta de Gasolina?',
                               style: TextStyle(fontSize: 16.0,
@@ -1730,11 +1711,9 @@ class _CheckListUState extends State<Formulario>{
                                   color: Color(0xFF1D539B)
                               ),
                             ),
-//Tarjeta Gasolina Titulo</>
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-//Opciones Tarjeta<>
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -1751,7 +1730,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -1768,7 +1746,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-//Opciones Tarjeta</>
                               ],
                             ),
                           ],
@@ -1786,18 +1763,15 @@ class _CheckListUState extends State<Formulario>{
                         margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
-//Cargo Gasolina Titulo<>
                             Text(
                               '¿Cargo Gasolina?',
                               style: TextStyle(fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
                               ),  ),
-//Cargo Gasolina Titulo</>
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-//Opciones Cargo<>
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -1831,7 +1805,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-//Opciones Cargo</>
                               ],
                             ),
                           ],
@@ -1841,9 +1814,6 @@ class _CheckListUState extends State<Formulario>{
                       SizedBox(
                         height: 6,
                       ),
-
-//Cuadros de Texto  <>
-//Caja de comentarios <>
                       GestureDetector(
                         onTap:(){
                           FocusScope.of(context).requestFocus(FocusNode());
@@ -1856,7 +1826,6 @@ class _CheckListUState extends State<Formulario>{
                           margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
-//Titulo
                               Text(
                                 'No. Tarjeta de Gasolina',
                                 style: TextStyle(fontSize: 16.0,
@@ -1873,7 +1842,6 @@ class _CheckListUState extends State<Formulario>{
                                     color: Colors.black,
                                     fontSize: 19.0
                                 ),
-//Descripcion & Estilos
                                 decoration: InputDecoration(
                                   labelText: 'Llenar campo de texto',
                                   labelStyle: TextStyle(
@@ -1894,16 +1862,9 @@ class _CheckListUState extends State<Formulario>{
                           ),
                         ),
                       ),
-//Cuadros de Texto  </>
-//Caja de comentarios </>
-
-
                       SizedBox(
                         height: 6,
                       ),
-//Cuadros de Texto <>
-//Caja de comentarios <>
-
                       GestureDetector(
                         onTap:(){
                           FocusScope.of(context).requestFocus(FocusNode());
@@ -1916,14 +1877,12 @@ class _CheckListUState extends State<Formulario>{
                           margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
-//Titulo
                               Text(
                                 'Saldo de Tarjeta',
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
                                 ),                  ),
-
                               TextField(
                                 controller: _textController3,
                                 maxLines: 3, //Maximo de Lineas de Texto
@@ -1933,7 +1892,6 @@ class _CheckListUState extends State<Formulario>{
                                     color: Colors.black,
                                     fontSize: 19.0
                                 ),
-//Descripcion & Estilos
                                 decoration: InputDecoration(
                                   labelText: 'Llenar campo de texto',
                                   labelStyle: TextStyle(
@@ -1954,15 +1912,10 @@ class _CheckListUState extends State<Formulario>{
                           ),
                         ),
                       ),
-//Cuadros de Texto  </>
-//Caja de comentarios </>
 
                       SizedBox(
                         height: 6,
                       ),
-
-//Cuadros de Texto  <>
-//Caja de comentarios </>
                       GestureDetector(
                         onTap:(){
                           FocusScope.of(context).requestFocus(FocusNode());
@@ -1975,7 +1928,7 @@ class _CheckListUState extends State<Formulario>{
                           margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
-//Titulo
+
                               Text(
                                 'Hora de la Carga',
                                 style: TextStyle(fontSize: 16.0,
@@ -1992,7 +1945,6 @@ class _CheckListUState extends State<Formulario>{
                                     color: Colors.black,
                                     fontSize: 19.0
                                 ),
-//Descripcion & Estilos
                                 decoration: InputDecoration(
                                   labelText: 'Llenar campo de texto',
                                   labelStyle: TextStyle(
@@ -2013,9 +1965,6 @@ class _CheckListUState extends State<Formulario>{
                           ),
                         ),
                       ),
-//Cuadros de Texto </>
-//Caja de comentarios </>
-
                       SizedBox(
                         height: 6,
                       ),
@@ -2027,18 +1976,15 @@ class _CheckListUState extends State<Formulario>{
                         margin: EdgeInsets.only(left: 8.0, right: 8.0),
                         child: Column(
                           children: <Widget>[
-//Info Titulo<>
                             Text(
                               '¿Es correcta la informacion?',
                               style: TextStyle(fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
                               ),             ),
-//Info Titulo</>
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-//Opciones Info<>
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2072,31 +2018,21 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-//Opciones Info</>
                               ],
                             ),
                           ],
                         ),
                       ),
-
-
-
                       SizedBox(
                         height: 10,
                       ),
-
-
-
                     ],
                   ),
                 ),
 
               );
-
             }).toList(),
           ),
-          //AQUIIIIIIIIII
-
           SizedBox(
             height: 10,
           ),
@@ -2136,7 +2072,6 @@ class _CheckListUState extends State<Formulario>{
                       SizedBox(
                         height: 6,
                       ),
-
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xFFF3F3F3),
@@ -2150,11 +2085,9 @@ class _CheckListUState extends State<Formulario>{
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
                               ),          ),
-
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2193,11 +2126,9 @@ class _CheckListUState extends State<Formulario>{
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: 6,
                       ),
-
                       GestureDetector(
                         onTap:(){
                           FocusScope.of(context).requestFocus(FocusNode());
@@ -2215,8 +2146,8 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),                            ),
-
+                                ),
+                              ),
                               TextField(
                                 controller: _textController5,
                                 maxLines: 3,
@@ -2241,7 +2172,6 @@ class _CheckListUState extends State<Formulario>{
                                 ),
                                 onChanged:(String value){},
                               ),
-
                             ],
                           ),
                         ),
@@ -2250,8 +2180,6 @@ class _CheckListUState extends State<Formulario>{
                       SizedBox(
                         height: 6,
                       ),
-
-
                       GestureDetector(
                         onTap:(){
                           FocusScope.of(context).requestFocus(FocusNode());
@@ -2269,8 +2197,8 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),              ),
-
+                                ),
+                              ),
                               TextField(
                                 controller: _textController6,
                                 maxLines: 3,
@@ -2304,9 +2232,6 @@ class _CheckListUState extends State<Formulario>{
                       SizedBox(
                         height: 6,
                       ),
-
-
-
                       GestureDetector(
                         onTap:(){
                           FocusScope.of(context).requestFocus(FocusNode());
@@ -2324,8 +2249,8 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),        ),
-
+                                ),
+                              ),
                               TextField(
                                 controller: _textController7,
                                 maxLines: 3,
@@ -2355,14 +2280,9 @@ class _CheckListUState extends State<Formulario>{
                           ),
                         ),
                       ),
-
-
                       SizedBox(
                         height: 6,
                       ),
-
-
-
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xFFF3F3F3),
@@ -2375,13 +2295,11 @@ class _CheckListUState extends State<Formulario>{
                               style: TextStyle(fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
-                              ),        ),
-
+                              ),
+                            ),
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2398,7 +2316,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2420,14 +2337,9 @@ class _CheckListUState extends State<Formulario>{
                           ],
                         ),
                       ),
-
-
                       SizedBox(
                         height: 10,
                       ),
-
-
-
                     ],
                   ),
                 ),
@@ -2439,7 +2351,6 @@ class _CheckListUState extends State<Formulario>{
             height: 10,
           ),
           ExpansionPanelList(
-
             expansionCallback: (int index, bool isExpanded) {
               setState(() {
                 _items4[index].isExpanded = !_items4[index].isExpanded;
@@ -2475,7 +2386,6 @@ class _CheckListUState extends State<Formulario>{
                       SizedBox(
                         height: 6,
                       ),
-
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xFFF3F3F3),
@@ -2488,12 +2398,11 @@ class _CheckListUState extends State<Formulario>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),          ),
-
+                                ),
+                            ),
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2510,7 +2419,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2527,7 +2435,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   children: <Widget>[
                                     _itemDown(),
@@ -2538,11 +2445,9 @@ class _CheckListUState extends State<Formulario>{
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: 6,
                       ),
-
                       Container(
                         decoration: BoxDecoration(
                             color: Color(0xFFF3F3F3),
@@ -2555,13 +2460,11 @@ class _CheckListUState extends State<Formulario>{
                               style: TextStyle(fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
-                              ),           ),
-
+                              ),
+                            ),
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2578,7 +2481,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2605,8 +2507,6 @@ class _CheckListUState extends State<Formulario>{
                           ],
                         ),
                       ),
-
-
                       SizedBox(
                         height: 10,
                       ),
@@ -2622,12 +2522,11 @@ class _CheckListUState extends State<Formulario>{
                               style: TextStyle(fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
-                              ),             ),
-
+                              ),
+                            ),
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2644,7 +2543,6 @@ class _CheckListUState extends State<Formulario>{
                                     ),
                                   ],
                                 ),
-
                                 Row(
                                   children: <Widget>[
                                     Text(
@@ -2671,7 +2569,6 @@ class _CheckListUState extends State<Formulario>{
                           ],
                         ),
                       ),
-
                       SizedBox(
                         height: 6,
                       ),
@@ -2687,8 +2584,8 @@ class _CheckListUState extends State<Formulario>{
                               style: TextStyle(fontSize: 16.0,
                                   fontWeight: FontWeight.w600,
                                   color: Color(0xFF1D539B)
-                              ),              ),
-
+                              ),
+                            ),
                             ButtonBar(
                               alignment: MainAxisAlignment.start,
                               children: <Widget>[
@@ -3849,8 +3746,6 @@ class _CheckListUState extends State<Formulario>{
                                     },
 
                                   ),
-
-                                  //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
                                   FlatButton(
                                     child:  Text("Borrar"),
                                     onPressed: () {
@@ -3879,17 +3774,6 @@ class _CheckListUState extends State<Formulario>{
                       Divider(
                         color: Color(0xFFD4D4D4),
                       ),
-                      /* RaisedButton(
-        onPressed: (){
-          _devolucion();
-        },
-        textColor: Colors.white,
-        color: Colors.red,
-        padding: EdgeInsets.all(8.0),
-        child: Text(
-          "Envíar",
-        ),
-      ),*/
                     ],
                   ),
 
@@ -3898,7 +3782,6 @@ class _CheckListUState extends State<Formulario>{
 
             }).toList(),
           ),
-          //-----------------------
         ],
       ),
       floatingActionButton:  FloatingActionButton(
@@ -3907,10 +3790,11 @@ class _CheckListUState extends State<Formulario>{
             Icons.verified_user,
             color: Colors.white,),
           onPressed: () {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/', (Route<dynamic> route) => false);
             _devolucion();
-          }
+           /* Navigator
+                .of(context)
+                .pushReplacementNamed('/');*/
+          },
 
       ),
 
