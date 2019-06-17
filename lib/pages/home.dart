@@ -2,6 +2,7 @@ import 'dart:async';
 import 'package:app_editesp/Formularios/CkeckListUnity.dart';
 import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/pages/ItemList.dart';
+import 'package:app_editesp/pages/password.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
@@ -14,6 +15,8 @@ class HomePage extends StatefulWidget {
   MyAppState createState() {
     return MyAppState();
   }
+  final Function main;
+  HomePage(this.main);
 }
 class MyAppState extends State<HomePage>{
   String phoneNo;
@@ -27,7 +30,7 @@ class MyAppState extends State<HomePage>{
     telefono = snapshot['Telefono'];
     Estado = snapshot['Estatus'];
     print('Tel: $telefono');
-    print('Tel: $Estado');
+    print('Estado: $Estado');
     if(phoneController.text == telefono){
       final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
         this.verificationId = verId;
@@ -43,11 +46,11 @@ class MyAppState extends State<HomePage>{
 
       final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
         print('verified');
-        if(Estado == 'Inactivo'){
+        if(Estado == 'Inactivo' || Estado == null){
           Navigator.of(context).pop();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
+            MaterialPageRoute(builder: (BuildContext context) => Pass(id: id,),
             ),
           );
         }else if(Estado == 'Activo'){
@@ -196,6 +199,7 @@ _callMe() async {
   @override
   void initState() {
     super.initState();
+      widget.main();
    /* FirebaseAuth.instance.currentUser().then((user) {
       if (user != null) {
         Navigator.of(context).pushReplacementNamed('/check1');
