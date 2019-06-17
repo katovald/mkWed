@@ -13,7 +13,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 class Formulario extends StatefulWidget{
   final String id;
-  Formulario({Key key, this.id}) : super (key: key);//Widget Class
+  final String nombre;
+  Formulario({Key key, this.id, this.nombre}) : super (key: key);
   @override
   State<StatefulWidget> createState() {
 
@@ -388,9 +389,7 @@ class _CheckListUState extends State<Formulario>{
      'id':id,
    });
     Firestore.instance.collection('Usuarios').document(widget.id).updateData({
-      'Empleado': '169861',
       'Telefono': '5611247753',
-      'Nombre': 'Juan',
       'Estatus': 'Inactivo',
     });
     Firestore.instance.collection('Usuarios').document(widget.id).collection('Salidas').add({
@@ -904,7 +903,7 @@ class _CheckListUState extends State<Formulario>{
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => ChatPage(),
+                builder: (BuildContext context) => ChatPage(id: widget.id, nombre: widget.nombre,),
               ),
             ),
             child: Container(

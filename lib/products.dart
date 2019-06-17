@@ -157,8 +157,7 @@ class _ProductsState extends State<Products> {
                       .push<bool>(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => CheckListTwo(
-                          widget.products[index]),
+                      builder: (BuildContext context) => CheckListTwo(),
                     ),
                   )
                       .then((bool value) {

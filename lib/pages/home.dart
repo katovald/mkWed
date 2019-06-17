@@ -24,11 +24,13 @@ class MyAppState extends State<HomePage>{
   String verificationId;
   var telefono;
   var Estado;
+  var nombre;
   DocumentSnapshot snapshot;
   Future<void> verifyPhone() async {
    snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
     telefono = snapshot['Telefono'];
     Estado = snapshot['Estatus'];
+    nombre = snapshot['Nombre'];
     print('Tel: $telefono');
     print('Estado: $Estado');
     if(phoneController.text == telefono){
@@ -50,14 +52,14 @@ class MyAppState extends State<HomePage>{
           Navigator.of(context).pop();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (BuildContext context) => Pass(id: id,),
+            MaterialPageRoute(builder: (BuildContext context) => Pass(id: empleadoController.text, nombre: nombre,),
             ),
           );
         }else if(Estado == 'Activo'){
           Navigator.of(context).pop();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (BuildContext context) => ItemList(id: id),
+            MaterialPageRoute(builder: (BuildContext context) => ItemList(id: empleadoController.text),
             ),
           );
         }

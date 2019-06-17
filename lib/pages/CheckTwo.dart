@@ -4,12 +4,10 @@ import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:flutter/material.dart';
 
 class CheckListTwo extends StatelessWidget {
-
+  final String id;
   final String title;
-  CheckListTwo(this.title);
-
-
-
+  final String nombre;
+  CheckListTwo({Key key, this.id, this.title, this.nombre}) : super (key: key);
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -32,7 +30,7 @@ class CheckListTwo extends StatelessWidget {
               onTap: () => Navigator.push(
                     context,
                     MaterialPageRoute(
-                      builder: (BuildContext context) => ChatPage(),
+                      builder: (BuildContext context) => ChatPage(id: id, nombre: nombre,),
                      ),
                      ),
           child: Container(

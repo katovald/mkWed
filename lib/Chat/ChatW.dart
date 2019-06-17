@@ -10,6 +10,9 @@ import 'package:flutter_linkify/flutter_linkify.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Chat extends StatefulWidget {
+  final String id;
+  final String nombre;
+  Chat({Key key, this.id, this.nombre}) : super (key: key);
   @override
   State createState() => new ChatWindow();
 }
@@ -59,13 +62,12 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
   ScrollController _scrollController =  ScrollController();
 
   bool _hasText = false;
-
   String _name = 'Rafael Márquez';
   var now = DateTime.now();
   void _link(String text) {
     _chatTextController.clear();
-   Firestore.instance.collection('Chats').document('mensajes').collection('169861').add({
-        'name': _name,
+   Firestore.instance.collection('Chats').document('mensajes').collection(widget.id).add({
+        'name': widget.nombre,
         'message': text,
         'link':imageUrl,
         'Hora': now,
@@ -74,7 +76,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
   Widget buildChatList() {
     return  Expanded(
         child:   StreamBuilder(
-                  stream: Firestore.instance.collection('Chats').document('mensajes').collection('169861').snapshots(),
+                  stream: Firestore.instance.collection('Chats').document('mensajes').collection(widget.id).snapshots(),
                   builder: (context, snapshot) {
                     if (!snapshot.hasData) return const Text(
                       'Cargando . . .',
@@ -97,7 +99,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
                             );
                           });
                           DocumentSnapshot ds = snapshot.data.documents[index];
-                          return buildChatBubbleIm(ds['name'], ds['message'], ds['link']);
+                          return buildChatBubbleIm(widget.nombre, ds['message'], ds['link']);
                         });
                   }),
            );
@@ -148,7 +150,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: <Widget>[
           Text(
-            "$name: ",
+            name,
             style: TextStyle(
                 fontSize: 16.0,
                 fontWeight: FontWeight.w600,
@@ -173,6 +175,7 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
   }
   @override
   Widget build(BuildContext context) {
+    print('id: ${widget.id}');
     return  Scaffold(
       appBar: AppBar(
         actions: <Widget>[
