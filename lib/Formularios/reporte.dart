@@ -1,12 +1,15 @@
 import 'dart:async';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:flutter/material.dart';
 import 'package:geolocator/geolocator.dart';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 
 class Siniestros extends StatefulWidget {
+  final String id;
+  final String nombre;
+ Siniestros({Key key, this.id, this.nombre}) : super (key: key);
   @override
   _SiniestrosState createState() => _SiniestrosState();
 }
@@ -75,6 +78,7 @@ class _SiniestrosState extends State<Siniestros> {
       );
   @override
   Widget build(BuildContext context) {
+    print('nombressR: ${widget.nombre}');
     return Scaffold(
       resizeToAvoidBottomPadding: false,
       appBar: AppBar(
@@ -96,7 +100,7 @@ class _SiniestrosState extends State<Siniestros> {
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => ChatPage(),
+                builder: (BuildContext context) => ChatPage(id: widget.id,nombre: widget.nombre,),
               ),
             ),
             child: Container(
@@ -138,8 +142,6 @@ class _SiniestrosState extends State<Siniestros> {
             children: <Widget>[
               Expanded(
                child: ListView(
-                  //mainAxisAlignment: MainAxisAlignment.center,
-                  //crossAxisAlignment: CrossAxisAlignment.center,
                   children: <Widget>[
 
                     Align(

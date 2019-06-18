@@ -23,11 +23,13 @@ class MyHomePageState extends State<CameraW> {
       imageUrl = downloadUrl;
       setState(() {
         isLoading = false;
+        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
+      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future getImage() async {

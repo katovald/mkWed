@@ -1,4 +1,4 @@
-import 'package:app_editesp/CameraAcc.dart';
+import 'package:app_editesp/Camara/CameraAcc.dart';
 import 'package:flutter/material.dart';
 
 

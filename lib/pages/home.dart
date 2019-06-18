@@ -1,24 +1,152 @@
+import 'dart:async';
+import 'package:app_editesp/Formularios/CkeckListUnity.dart';
 import 'package:app_editesp/VarGlobals.dart' as globals;
-import 'package:app_editesp/pages/CheckOne.dart';
+import 'package:app_editesp/pages/ItemList.dart';
+import 'package:app_editesp/pages/password.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 class HomePage extends StatefulWidget {
   @override
   MyAppState createState() {
     return MyAppState();
   }
+  final Function main;
+  HomePage(this.main);
 }
 class MyAppState extends State<HomePage>{
+  String phoneNo;
+  String smsCode;
+  String verificationId;
+  var telefono;
+  var Estado;
+  var nombre;
+  DocumentSnapshot snapshot;
+  Future<void> verifyPhone() async {
+   snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
+    telefono = snapshot['Telefono'];
+    Estado = snapshot['Estatus'];
+    nombre = snapshot['Nombre'];
+    print('Tel: $telefono');
+    print('Estado: $Estado');
+    if(phoneController.text == telefono){
+      final PhoneCodeAutoRetrievalTimeout autoRetrieve = (String verId) {
+        this.verificationId = verId;
+        print('Time out');
+      };
 
- TextEditingController loginPasswordController =  TextEditingController();
+      final PhoneCodeSent smsCodeSent = (String verId, [int forceCodeResend]) {
+        this.verificationId = verId;
+        smsCodeDialog(context).then((value) {
+          print('Signed in');
+        });
+      };
 
+      final PhoneVerificationCompleted verifiedSuccess = (FirebaseUser user) {
+        print('verified');
+        if(Estado == 'Inactivo' || Estado == null){
+          Navigator.of(context).pop();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => Pass(id: empleadoController.text, nombre: nombre,),
+            ),
+          );
+        }else if(Estado == 'Activo'){
+          Navigator.of(context).pop();
+          Navigator.pushReplacement(
+            context,
+            MaterialPageRoute(builder: (BuildContext context) => ItemList(id: empleadoController.text),
+            ),
+          );
+        }
+
+      };
+
+      final PhoneVerificationFailed veriFailed = (AuthException exception) {
+        print('${exception.message}');
+      };
+
+      await FirebaseAuth.instance.verifyPhoneNumber(
+          phoneNumber: this.phoneNo,
+          codeAutoRetrievalTimeout: autoRetrieve,
+          codeSent: smsCodeSent,
+          timeout: const Duration(seconds: 5),
+          verificationCompleted: verifiedSuccess,
+          verificationFailed: veriFailed);
+    }else{
+      return showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: Text('Error'),
+              content: Text ('Tu número de empleado o de teléfono son incorrectos'),
+              contentPadding: EdgeInsets.all(10.0),
+              actions: <Widget>[
+                new FlatButton(
+                  child: Text('Aceptar'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
+    }
+
+  }
+  Future<bool> smsCodeDialog(BuildContext context) {
+      return showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return new AlertDialog(
+              title: Text('Ingresa tu código de verificación'),
+              content: TextField(
+                onChanged: (value) {
+                  this.smsCode = value;
+                },
+              ),
+              contentPadding: EdgeInsets.all(10.0),
+              actions: <Widget>[
+                new FlatButton(
+                  child: Text('Aceptar'),
+                  onPressed: () {
+                    FirebaseAuth.instance.currentUser().then((user) {
+                      if (user != null) {
+                        Navigator.of(context).pushReplacementNamed('/check1');
+                        _Signin();
+                        Navigator.of(context).pop();
+                      } else {
+                        Navigator.of(context).pop();
+                      }
+                    });
+                  },
+                )
+              ],
+            );
+          });
+  }
+  Future<String> _Signin() async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    final AuthCredential credential = PhoneAuthProvider.getCredential(
+      verificationId: verificationId,
+      smsCode: smsCode,
+    );
+    final FirebaseUser user = await _auth.signInWithCredential(credential);
+    final FirebaseUser currentUser = await _auth.currentUser();
+    assert(user.uid == currentUser.uid);
+    return 'signInWithPhoneNumber succeeded: $user';
+  }
+  TextEditingController phoneController =  TextEditingController();
+  TextEditingController empleadoController =  TextEditingController();
   void onPressed(){
     print("Button pressed");
   }
-
 _callMe() async {
     // Android
     const uri = 'tel:+521 55 37 01 34 31';
@@ -42,8 +170,8 @@ _callMe() async {
       builder: (BuildContext context) {
         // return object of type Dialog
         return AlertDialog(
-          title: Text("Recuperar Contraseña"),
-          content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una nueva contraseña, ¿Deseas continuar?"),
+          title: Text("No puedo iniciar sesión"),
+          content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una cuenta, ¿Deseas continuar?"),
           backgroundColor: Color(0xFFF4F4F4),
           actions: <Widget>[
             // usually buttons at the bottom of the dialog
@@ -65,19 +193,28 @@ _callMe() async {
       },
     );
   }
-  
-final FocusNode myFocusNodePassword = FocusNode();
-bool _obscureTextLogin = true;
+
  @override
   void dispose() {
-    myFocusNodePassword.dispose();
-    
-   
     super.dispose();
   }
   @override
+  void initState() {
+    super.initState();
+      widget.main();
+   /* FirebaseAuth.instance.currentUser().then((user) {
+      if (user != null) {
+        Navigator.of(context).pushReplacementNamed('/check1');
+      } else {
+        print('No sesión');
+      }
+    });*/
+  }
+  String id;
+  @override
   Widget build(BuildContext context) {
     print(globals.isLoggedIn);
+    id = empleadoController.text;
     //RETORNAMOS un CONTAINER con un CHILD que es un SCAFFOLD, hacemos esto...
     //...para que al aparecer el teclado no cambie de tamaño la imagen de fondo
     return  
@@ -118,8 +255,8 @@ bool _obscureTextLogin = true;
                             padding: EdgeInsets.only(
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
                             child: TextFormField(
-
-                              keyboardType: TextInputType.emailAddress,
+                              controller: empleadoController,
+                              keyboardType: TextInputType.number,
                               validator: (value) {
                                 if (value.isEmpty) {
                                   return 'Por favor ingrese su número de empleado';
@@ -137,24 +274,21 @@ bool _obscureTextLogin = true;
                                   color: Colors.black,
                                   size: 22.0,
                                 ),
-                                hintText: "Usuario",
+                                hintText: "No de empleado",
                                 hintStyle: TextStyle(
                                     fontFamily: "WorkSansSemiBold", fontSize: 17.0),
                               ),
                             ),
                           ),
-                         /* Container(
-                            width: 250.0,
-                            height: 1.0,
-                            color: Colors.grey[400],
-                          ),*/
                           Padding(
                             padding: EdgeInsets.only(
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
-                            child: TextFormField(
-                               focusNode: myFocusNodePassword,
-                              controller: loginPasswordController,
-                              obscureText: _obscureTextLogin,
+                            child: TextField(
+                              controller: phoneController,
+                              keyboardType: TextInputType.phone,
+                              onChanged: (value) {
+                                this.phoneNo = '+52$value';
+                              },
                               style: TextStyle(
                                   fontFamily: "WorkSansSemiBold",
                                   fontSize: 16.0,
@@ -162,16 +296,15 @@ bool _obscureTextLogin = true;
                               decoration: InputDecoration(
                                 //border: InputBorder.none,
                                 icon: Icon(
-                                  Icons.lock,
-                                  //FontAwesomeIcons.lock,
+                                  Icons.phone,
                                   size: 22.0,
                                   color: Colors.black,
                                 ),
-                                hintText: "Contraseña",
+                                hintText: "No de teléfono",
                                 hintStyle: TextStyle(
                                fontFamily: "WorkSansSemiBold", fontSize: 17.0
                                ),
-                                suffixIcon: GestureDetector(
+                              /*  suffixIcon: GestureDetector(
                                 onTap: _toggleLogin,
                                   child: Icon(
                                     Icons.visibility,
@@ -179,7 +312,7 @@ bool _obscureTextLogin = true;
                                     size: 15.0,
                                     color: Colors.black,
                                   ),
-                                ),
+                                ),*/
                               ),
                             ),
                           ),
@@ -217,13 +350,32 @@ bool _obscureTextLogin = true;
                         ),
                       ),
                       onPressed: () {
-                        //Navigator.pushNamed(context, '/second');
-                       Navigator.push(
+                      /*  Navigator.pushReplacement(
                           context,
-                          MaterialPageRoute(builder: (context) => CheckListOne()),
-                        );
-                        //Navigator.pushNamedAndRemoveUntil(context, '/second', (_) => false);
-            
+                          MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
+                          ),
+                        );*/
+                        verifyPhone();
+                        if(empleadoController.text.isEmpty || phoneController.text.isEmpty){
+                          return showDialog(
+                              context: context,
+                              barrierDismissible: false,
+                              builder: (BuildContext context) {
+                                return new AlertDialog(
+                                  title: Text('Error'),
+                                  content: Text ('Tu número de empleado o de teléfono son incorrectos'),
+                                  contentPadding: EdgeInsets.all(10.0),
+                                  actions: <Widget>[
+                                    new FlatButton(
+                                      child: Text('Aceptar'),
+                                      onPressed: () {
+                                        Navigator.of(context).pop();
+                                      },
+                                    )
+                                  ],
+                                );
+                              });
+                                                }
                          },
                     ),
                   ),
@@ -235,7 +387,7 @@ bool _obscureTextLogin = true;
                       _showDialog();
                   },
                     child: Text(
-                      "Recuperar Contraseña",
+                      "No puedo iniciar sesión",
                       style: TextStyle(
                           decoration: TextDecoration.underline,
                           color: Colors.white,
@@ -259,17 +411,7 @@ bool _obscureTextLogin = true;
                ),
              ],          
             ),
-
-                
     ),
     );
-        
-    
-
-  }
-  void _toggleLogin() {
-    setState(() {
-      _obscureTextLogin = !_obscureTextLogin;
-    });
   }
 }

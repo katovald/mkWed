@@ -1,25 +1,19 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-final List<String> imgList = [
-  'assets/chimuelo.png',
-  'assets/chimuelo5.png',
-  'assets/chimuelo2.png',
-  'assets/chimuelo3.png',
-  'assets/chimuelo4.png',
-];
+
+final List<String> imgList = linkM;
 int _current = 0;
 final List child = map<Widget>(
   imgList,
-      (index, i) {
+      (index, url) {
     return Container(
 
       margin: EdgeInsets.all(5.0),
       child: ClipRRect(
         borderRadius: BorderRadius.all(Radius.circular(5.0)),
         child: Stack(children: <Widget>[
-          Image.asset(i,
-
+          Image.network(url,
             fit: BoxFit.fill,
             width: 1000,
 
@@ -54,16 +48,19 @@ List<T> map<T>(List list, Function handler) {
 
   return result;
 }
-
+  var linkM;
 class Mural extends StatefulWidget {
+  final List<String> Link;
+  Mural({Key key, this.Link}) : super (key: key);
   @override
   _State createState() => _State();
 }
 
 class _State extends State<Mural> {
+
   @override
   Widget build(BuildContext context) {
-
+    linkM = widget.Link;
     CarouselSlider getFullScreenCarousel(BuildContext mediaContext) {
       return
         CarouselSlider(
@@ -75,12 +72,12 @@ class _State extends State<Mural> {
           });
         },
         items: imgList.map(
-              (i) {
+              (url) {
             return Container(
               child: ClipRRect(
                 borderRadius: BorderRadius.all(Radius.circular(0.0)),
-                child: Image.asset(
-                  i,
+                child: Image.network(
+                  url,
                   fit: BoxFit.fill,
                   width: 1000.0,
                 ),
@@ -117,7 +114,7 @@ class _State extends State<Mural> {
              mainAxisAlignment: MainAxisAlignment.center,
              children: map<Widget>(
                imgList,
-                   (index, i) {
+                   (index, url) {
                  return Container(
                    width: 8.0,
                    height: 8.0,

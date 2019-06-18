@@ -1,9 +1,11 @@
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/Formularios/formulario.dart';
 import 'package:app_editesp/pages/CheckThree.dart';
 import 'package:app_editesp/pages/CheckTwo.dart';
 import 'package:app_editesp/pages/mural.dart';
-import 'package:app_editesp/pages/reporte.dart';
+import 'package:app_editesp/Formularios/reporte.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'dart:async';
 import 'package:google_maps_flutter/google_maps_flutter.dart';
 import 'dart:convert' as JSON;
@@ -15,8 +17,11 @@ final String myJSONProducts = '{"eventos":[{"cuenta":"40030177","telefono":"5530
     '{"cuenta":"40030179","telefono":"5530127033","latitud":19.425205,"longitud":-99.173796,"estatus": "pendiente"}'
     ']}';
 
-//STATEFUL
-class TaskMapManager extends StatefulWidget { //Widget Class
+
+class TaskMapManager extends StatefulWidget {
+  final String id;
+  final String nombre;
+  TaskMapManager({Key key, this.id, this.nombre}) : super (key: key);
   @override
   _MapState createState() => _MapState();
 }
@@ -45,7 +50,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                 .push<bool>(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => CheckListTwo(e.cuenta),
+                builder: (BuildContext context) => CheckListTwo(title: e.cuenta, id: widget.id, nombre: widget.nombre,),
               ),
             );
           },
@@ -77,22 +82,28 @@ class _MapState extends State<TaskMapManager> { //State Class
       this._addTaskMarker(Evento.fromJson(element))
     });
   }
+  List<DocumentSnapshot> query;
+  var Links = List<String>();
+  QuerySnapshot snapshot;
+  Future link() async{
+    snapshot = await Firestore.instance.collection('Multimedia').where('Estatus', isEqualTo: 'Activo').getDocuments();
+    query = snapshot.documents;
+   // query.forEach((query) => print(query['Link']));
+    query.forEach((query) =>  Links.add(query['Link']));
+    print('Links: $Links');
+  }
 
   @override
   Widget build(BuildContext context){
+    print  ('idMapa: ${widget.id}');
+    print('nombressR: ${widget.nombre}');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
         appBar: AppBar(
-          leading: IconButton(
-            icon: Icon(Icons.arrow_left),
-            onPressed: () {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => CheckListThree()),
-              );
-            },
-          ),
+        leading: Container(
+
+        ),
           title: Text("Lista de Tareas",
             style: TextStyle(
               color: Colors.white,
@@ -126,7 +137,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Siniestros()),
+                      MaterialPageRoute(builder: (context) => Siniestros(id: widget.id, nombre: widget.nombre,)),
                     );
                   },
                 ),
@@ -137,23 +148,28 @@ class _MapState extends State<TaskMapManager> { //State Class
                   leading: Icon(Icons.accessibility),
                   title: Text('CAMSA contigo'),
                   onTap: () {
+                    link();
+    Future.delayed(Duration(seconds: 1), () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Mural()),
+                      MaterialPageRoute(builder: (BuildContext context) => Mural(Link: Links),
+                    ),
+                    );
+                  },
                     );
                   },
                 ),
                 Divider(
                   height: 2.0,
                 ),
-                Divider(
-                  height: 2.0,
-                ),
                 ListTile(
                   leading: Icon(Icons.exit_to_app),
-                  title: Text('Cerrar sesión'),
+                  title: Text('Terminar Turno'),
                   onTap: () {
-                    Navigator.pushNamedAndRemoveUntil(context, '/', (_) => false);
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => Formulario(id: widget.id, nombre: widget.nombre,)),
+                    );
                   },
                 ),
                 Divider(

@@ -1,9 +1,11 @@
 import 'dart:async';
 import 'dart:io';
+import 'package:app_editesp/pages/ItemList.dart';
+import 'package:app_editesp/pages/home.dart';
 import 'package:flutter/material.dart';
 import 'dart:convert';
 import 'dart:typed_data';
-import 'package:app_editesp/pages/ChatPage.dart';
+import 'package:app_editesp/Chat/ChatPage.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'dart:ui' as ui;
 import 'package:flutter_signature_pad/flutter_signature_pad.dart';
@@ -11,7 +13,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class CheckListUnity extends StatefulWidget{
-
+  final String id;
+  final String nombre;
+ CheckListUnity({Key key, this.id, this.nombre}) : super (key: key);
   @override
   State<StatefulWidget> createState() {
 
@@ -156,13 +160,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile2() async {
@@ -174,13 +176,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl2 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile3() async {
@@ -192,13 +192,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl3 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFile4() async {
@@ -210,13 +208,11 @@ class _CheckListUState extends State<CheckListUnity>{
       imageUrl4 = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   Future uploadFirma() async {
@@ -228,86 +224,170 @@ class _CheckListUState extends State<CheckListUnity>{
       urlFirma = downloadUrl;
       setState(() {
         isLoading = false;
-        //onSendMessage(imageUrl, 1);
       });
     }, onError: (err) {
       setState(() {
         isLoading = false;
       });
-      //Fluttertoast.showToast(msg: 'Este archivo no es una imagen');
     });
   }
   String numEconomico = '76AB2X';
+  var cargador;
+  var tag;
+  var guia;
+  var lampara;
+  var paraguas;
+  var manos;
+  var red;
+  var extintor;
+  var gato;
+  var llave;
+  var senalamientos;
+  var kit;
+  var anticongelante;
+  var direccion;
+  var frenos;
+  var aceite;
  Future _recepcion() async {
+   if (selectedRadio13 == 1) {
+     cargador = _itemDown().value;
+   } else {
+     cargador = 0;
+   }
+   if (selectedRadio14 == 1) {
+     tag = _itemDown2().value;
+   } else {
+     tag = 0;
+   }
+   if (selectedRadio15 == 1) {
+     guia = _itemDown3().value;
+   } else {
+     guia = 0;
+   }
+   if (selectedRadio16 == 1) {
+     lampara= _itemDown4().value;
+   } else {
+     lampara= 0;
+   }
+   if (selectedRadio17 == 1) {
+     paraguas = _itemDown5().value;
+   } else {
+     paraguas = 0;
+   }
+   if (selectedRadio18 == 1) {
+     manos = _itemDown6().value;
+   } else {
+     manos = 0;
+   }
+   if (selectedRadio19 == 1) {
+     red = _itemDown7().value;
+   } else {
+     red = 0;
+   }
+   if (selectedRadio20 == 1) {
+     extintor = _itemDown8().value;
+   } else {
+     extintor = 0;
+   }
+   if (selectedRadio21 == 1) {
+     gato = _itemDown9().value;
+   } else {
+     gato = 0;
+   }
+   if (selectedRadio22 == 1) {
+     llave = _itemDown10().value;
+   } else {
+     llave = 0;
+   }
+   if (selectedRadio23 == 1) {
+     senalamientos = _itemDown11().value;
+   } else {
+     senalamientos = 0;
+   }
+   if (selectedRadio24 == 1) {
+     kit = _itemDown12().value;
+   } else {
+     kit = 0;
+   }
+   if (selectedRadio25 == 1) {
+     aceite = _itemaceite().value;
+   } else {
+     aceite = 0;
+   }
+   if (selectedRadio26 == 1) {
+     anticongelante = _itemdmanti().value;
+   } else {
+     anticongelante = 0;
+   }
+   if (selectedRadio27 == 1) {
+     direccion = _itemdireccion().value;
+   } else {
+     direccion = 0;
+   }
+   if (selectedRadio28 == 1) {
+     frenos = _itemfrenos().value;
+   } else {
+     frenos = 0;
+   }
    final recep = await Firestore.instance.collection('Documentos-Vehiculos').document('$numEconomico').collection('Recepciones').add({
-        'Pintura': selectedRadio,
-        'Frenos': selectedRadio2,
-        'Llanta_trasera_izquierda': selectedRadio3,
-        'Llanta_trasera_derecha': selectedRadio4,
-        'Llanta_delantera_izquierda': selectedRadio5,
-        'Llanta_delantera_derecha': selectedRadio6,
-        'Llanta_refacción': selectedRadio7,
-        'Tarjeta_gasolina': selectedRadio8,
-        'Cargo_gasolina': selectedRadio9,
-        'Info_Correcta_Gasolina': selectedRadio10,
-        'Estacionamiento_fondo': selectedRadio11,
-        'Info_Correcta_Estacionamiento': selectedRadio12,
-        'Cargador_USB': selectedRadio13,
-        'Tag': selectedRadio14,
-        'Guía_roja': selectedRadio15,
-        'Lámpara': selectedRadio16,
-        'Paraguas': selectedRadio17,
-        'Manos_libres': selectedRadio18,
-        'Red': selectedRadio19,
-        'Extintor': selectedRadio20,
-        'Gato': selectedRadio21,
-        'Llave_de_cruz': selectedRadio22,
-        'Señalamientos': selectedRadio23,
-        'Kit_de_Limpieza': selectedRadio24,
-        'Aceite': selectedRadio25,
-        'Anticongelante': selectedRadio26,
-        'Líquido_direccion': selectedRadio27,
-        'Líquido_frenos': selectedRadio28,
-        'Info_Correcta_Accesorios': selectedRadio29,
-        'Gasolina_inicial': _itemGasolina().value,
-        'Sistema_Eléctico': _textController1.text,
-        'No._Tarjeta_de_gasolina ': _textController2.text,
-        'Saldo_de_trajeta': _textController3.text,
-        'Hora_de_la_carga': _textController4.text,
-        'Fondo_de_estacionamiento': _textController5.text,
-        'Número_de_ticket': _textController6.text,
-        'Total': _textController7.text,
-        'Estatus_Cargador_USB': _itemDown().value,
-        'Estatus_Tag': _itemDown2().value,
-        'Estatus_Guía_Roja': _itemDown3().value,
-        'Estatus_Lámpara': _itemDown4().value,
-        'Estatus_Paraguas': _itemDown5().value,
-        'Estatus_Manos_libes': _itemDown6().value,
-        'Estatus_Red': _itemDown7().value,
-        'Estatus_Extintor': _itemDown8().value,
-        'Estatus_Gato': _itemDown9().value,
-        'Estatus_Llave_de_cruz': _itemDown10().value,
-        'Estatus_Señalamientos': _itemDown11().value,
-        'Estatus_Kit_de_limpieza': _itemDown12().value,
-        'Estatus_Aceite': _itemaceite().value,
-        'Estatus_Anticongelante': _itemdmanti().value,
-        'Estatus_Líquido_de_dirección': _itemdireccion().value,
-        'Estatus_Líquido_de_frenos': _itemfrenos().value,
-        'Hora': now,
-        'Foto_frontal_piloto': imageUrl,
-        'Foto_frontal_copiloto': imageUrl2,
-        'Foto_trasera_piloto': imageUrl3,
-        'Foto_trasera_copiloto': imageUrl4,
-        'Firma': urlFirma,
+     'Pintura': selectedRadio,
+     'Frenos': selectedRadio2,
+     'Llanta_trasera_izquierda': selectedRadio3,
+     'Llanta_trasera_derecha': selectedRadio4,
+     'Llanta_delantera_izquierda': selectedRadio5,
+     'Llanta_delantera_derecha': selectedRadio6,
+     'Llanta_refacción': selectedRadio7,
+     'Tarjeta_gasolina': selectedRadio8,
+     'Cargo_gasolina': selectedRadio9,
+     'Info_Correcta_Gasolina': selectedRadio10,
+     'Estacionamiento_fondo': selectedRadio11,
+     'Info_Correcta_Estacionamiento': selectedRadio12,
+     'Cargador_USB': cargador,
+     'Tag': tag,
+     'Guía_roja': guia,
+     'Lámpara': lampara,
+     'Paraguas': paraguas,
+     'Manos_libres': manos,
+     'Red': red,
+     'Extintor': extintor,
+     'Gato': gato,
+     'Llave_de_cruz': llave,
+     'Señalamientos': senalamientos,
+     'Kit_de_Limpieza': kit,
+     'Aceite': aceite,
+     'Anticongelante': anticongelante,
+     'Líquido_direccion': direccion,
+     'Líquido_frenos': frenos,
+     'Info_Correcta_Accesorios': selectedRadio29,
+     'Gasolina_inicial': _itemGasolina().value,
+     'Sistema_Eléctico': _textController1.text,
+     'No_Tarjeta_de_gasolina ': _textController2.text,
+     'Saldo_de_trajeta': _textController3.text,
+     'Hora_de_la_carga': _textController4.text,
+     'Fondo_de_estacionamiento': _textController5.text,
+     'Número_de_ticket': _textController6.text,
+     'Total': _textController7.text,
+     'Hora': now,
+     'Foto_frontal_piloto': imageUrl,
+     'Foto_frontal_copiloto': imageUrl2,
+     'Foto_trasera_piloto': imageUrl3,
+     'Foto_trasera_copiloto': imageUrl4,
+     'Firma': urlFirma,
     });
    String id = recep.documentID;
-   //print("ID: $id");
    Firestore.instance.collection('Asignaciones').add({
      'Hora': now,
      'NoEmpeado': 166487,
      'Placa': numEconomico,
      'Tipo': 'Recepcion',
      'id':id,
+   });
+   Firestore.instance.collection('Usuarios').document(widget.id).updateData({
+     'Telefono': '5611247753',
+     'Estatus': 'Activo',
+   });
+   Firestore.instance.collection('Usuarios').document(widget.id).collection('Entradas').add({
+     'Hora': now,
    });
   }
 
@@ -598,22 +678,22 @@ class _CheckListUState extends State<CheckListUnity>{
   String selectedRadio10;
   String selectedRadio11;
   String selectedRadio12;
-  String selectedRadio13;
-  String selectedRadio14;
-  String selectedRadio15;
-  String selectedRadio16;
-  String selectedRadio17;
-  String selectedRadio18;
-  String selectedRadio19;
-  String selectedRadio20;
-  String selectedRadio21;
-  String selectedRadio22;
-  String selectedRadio23;
-  String selectedRadio24;
-  String selectedRadio25;
-  String selectedRadio26;
-  String selectedRadio27;
-  String selectedRadio28;
+  int selectedRadio13;
+  int selectedRadio14;
+  int selectedRadio15;
+  int selectedRadio16;
+  int selectedRadio17;
+  int selectedRadio18;
+  int selectedRadio19;
+  int selectedRadio20;
+  int selectedRadio21;
+  int selectedRadio22;
+  int selectedRadio23;
+  int selectedRadio24;
+  int selectedRadio25;
+  int selectedRadio26;
+  int selectedRadio27;
+  int selectedRadio28;
   String selectedRadio29;
   @override
   void initState() {
@@ -630,22 +710,22 @@ class _CheckListUState extends State<CheckListUnity>{
     selectedRadio10 = "Si";
     selectedRadio11 = "Si";
     selectedRadio12 = "Si";
-    selectedRadio13 = "Si";
-    selectedRadio14 = "Si";
-    selectedRadio15 = "Si";
-    selectedRadio16 = "Si";
-    selectedRadio17 = "Si";
-    selectedRadio18 = "Si";
-    selectedRadio19 = "Si";
-    selectedRadio20= "Si";
-    selectedRadio21 = "Si";
-    selectedRadio22 = "Si";
-    selectedRadio23 = "Si";
-    selectedRadio24 = "Si";
-    selectedRadio25= "Si";
-    selectedRadio26 = "Si";
-    selectedRadio27 = "Si";
-    selectedRadio28 = "Si";
+    selectedRadio13 =0;
+    selectedRadio14 =0;
+    selectedRadio15 =0;
+    selectedRadio16 =0;
+    selectedRadio17 =0;
+    selectedRadio18 =0;
+    selectedRadio19 =0;
+    selectedRadio20=0;
+    selectedRadio21 =0;
+    selectedRadio22 =0;
+    selectedRadio23 =0;
+    selectedRadio24 =0;
+    selectedRadio25=0;
+    selectedRadio26 =0;
+    selectedRadio27 =0;
+    selectedRadio28 =0;
     selectedRadio29 = "Si";
   }
   setSelectedRadio (String val) {
@@ -708,82 +788,82 @@ class _CheckListUState extends State<CheckListUnity>{
       selectedRadio12 = val;
     });
   }
-  setSelectedRadio13 (String val) {
+  setSelectedRadio13 (int val) {
     setState(() {
       selectedRadio13 = val;
     });
   }
-  setSelectedRadio14 (String val) {
+  setSelectedRadio14 (int val) {
     setState(() {
       selectedRadio14 = val;
     });
   }
-  setSelectedRadio15 (String val) {
+  setSelectedRadio15 (int val) {
     setState(() {
       selectedRadio15 = val;
     });
   }
-  setSelectedRadio16 (String val) {
+  setSelectedRadio16 (int val) {
     setState(() {
       selectedRadio16 = val;
     });
   }
-  setSelectedRadio17 (String val) {
+  setSelectedRadio17 (int val) {
     setState(() {
       selectedRadio17 = val;
     });
   }
-  setSelectedRadio18 (String val) {
+  setSelectedRadio18 (int val) {
     setState(() {
       selectedRadio18 = val;
     });
   }
-  setSelectedRadio19 (String val) {
+  setSelectedRadio19 (int val) {
     setState(() {
       selectedRadio19 = val;
     });
   }
-  setSelectedRadio20 (String val) {
+  setSelectedRadio20 (int val) {
     setState(() {
       selectedRadio20 = val;
     });
   }
-  setSelectedRadio21 (String val) {
+  setSelectedRadio21 (int val) {
     setState(() {
       selectedRadio21 = val;
     });
   }
-  setSelectedRadio22 (String val) {
+  setSelectedRadio22 (int val) {
     setState(() {
       selectedRadio22 = val;
     });
   }
-  setSelectedRadio23 (String val) {
+  setSelectedRadio23 (int val) {
     setState(() {
       selectedRadio23 = val;
     });
   }
-  setSelectedRadio24 (String val) {
+  setSelectedRadio24 (int val) {
     setState(() {
       selectedRadio24 = val;
     });
   }
-  setSelectedRadio25 (String val) {
+  setSelectedRadio25 (int val) {
     setState(() {
       selectedRadio25 = val;
     });
   }
-  setSelectedRadio26 (String val) {
+  setSelectedRadio26 (int val) {
     setState(() {
       selectedRadio26 = val;
     });
   }
-  setSelectedRadio27 (String val) {
+  setSelectedRadio27 (int val) {
     setState(() {
       selectedRadio27 = val;
     });
   }
-  setSelectedRadio28 (String val) {
+  setSelectedRadio28 (int val) {
     setState(() {
       selectedRadio28 = val;
     });
@@ -795,14 +875,12 @@ class _CheckListUState extends State<CheckListUnity>{
   }
   @override
   Widget build(BuildContext context) {
+    print('id: ${widget.id}');
+    print('nombress: ${widget.nombre}');
 
     return Scaffold(
       appBar: AppBar(
-        leading: IconButton(
-          icon: Icon(Icons.exit_to_app),
-          onPressed: () {
-            Navigator.pop(context);
-          },
+        leading: Container(
         ),
         title: Text("Recepción de Vehículo",
           style: TextStyle(
@@ -816,7 +894,7 @@ class _CheckListUState extends State<CheckListUnity>{
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => ChatPage(),
+                builder: (BuildContext context) => ChatPage(id: widget.id, nombre: widget.nombre,),
               ),
             ),
             child: Container(
@@ -885,13 +963,11 @@ class _CheckListUState extends State<CheckListUnity>{
                   isExpanded: item.isExpanded,
                   body:
                   Container(
-
                     child:  Column(
                       children: <Widget>[
                         SizedBox(
                           height: 6,
                         ),
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -906,7 +982,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -927,7 +1002,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -944,7 +1018,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -961,19 +1034,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -988,7 +1056,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -1010,7 +1077,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1027,20 +1093,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
-
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1087,12 +1147,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1107,12 +1164,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1129,7 +1183,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1146,7 +1199,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1163,23 +1215,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1194,12 +1237,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1233,7 +1273,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1250,24 +1289,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1282,7 +1311,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -1337,24 +1365,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1426,23 +1444,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
-
-
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1534,7 +1543,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
               }).toList(),
             ),
-            //AQUIIIIIIIIII
             SizedBox(
               height: 10,
             ),
@@ -1568,16 +1576,11 @@ class _CheckListUState extends State<CheckListUnity>{
                   },
                   isExpanded: item.isExpanded,
                   body: Container(
-//Diseño de la caja <>
-
                     child:  Column(
                       children: <Widget>[
-//Diseño de la caja </>
-//Separador<>
                         SizedBox(
                           height: 6,
                         ),
-//Separador</>
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -1585,7 +1588,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Tanque Gasolina Titulo<>
                               Text(
                                 'Gasolina Inicial',
                                 style: TextStyle(fontSize: 16.0,
@@ -1593,18 +1595,14 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Tanque Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Tanque<>
-// MENU
                                   Row(
                                     children: <Widget>[
                                       _itemGasolina(),
                                     ],
                                   ),
-//Opciones Tanque</>
                                 ],
                               ),
                             ],
@@ -1621,7 +1619,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Tarjeta Gasolina Titulo<>
                               Text(
                                 '¿Tarjeta de Gasolina?',
                                 style: TextStyle(fontSize: 16.0,
@@ -1629,11 +1626,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Tarjeta Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Tarjeta<>
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1667,7 +1662,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-//Opciones Tarjeta</>
                                 ],
                               ),
                             ],
@@ -1685,7 +1679,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Cargo Gasolina Titulo<>
                               Text(
                                 '¿Cargo Gasolina?',
                                 style: TextStyle(fontSize: 16.0,
@@ -1693,11 +1686,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Cargo Gasolina Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Cargo<>
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1731,7 +1722,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-//Opciones Cargo</>
                                 ],
                               ),
                             ],
@@ -1741,9 +1731,6 @@ class _CheckListUState extends State<CheckListUnity>{
                         SizedBox(
                           height: 6,
                         ),
-
-//Cuadros de Texto  <>
-//Caja de comentarios <>
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1756,7 +1743,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
-//Titulo
                                 Text(
                                   'No. Tarjeta de Gasolina',
                                   style: TextStyle(fontSize: 16.0,
@@ -1764,7 +1750,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       color: Color(0xFF1D539B)
                                   ),
                                 ),
-
                             TextField(
                               controller: _textController2,
                               maxLines: 3,
@@ -1791,16 +1776,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-//Cuadros de Texto  </>
-//Caja de comentarios </>
-
-
                         SizedBox(
                           height: 6,
                         ),
-//Cuadros de Texto <>
-//Caja de comentarios <>
-
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1813,7 +1791,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
-//Titulo
                                 Text(
                                   'Saldo de Tarjeta',
                                   style: TextStyle(fontSize: 16.0,
@@ -1848,15 +1825,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-//Cuadros de Texto  </>
-//Caja de comentarios </>
-
                         SizedBox(
                           height: 6,
                         ),
-
-//Cuadros de Texto  <>
-//Caja de comentarios </>
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -1869,7 +1840,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             margin: EdgeInsets.only(left: 4.0, right: 4.0),
                             child: Column(
                               children: <Widget>[
-//Titulo
                                 Text(
                                   'Hora de la Carga',
                                   style: TextStyle(fontSize: 16.0,
@@ -1904,9 +1874,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-//Cuadros de Texto </>
-//Caja de comentarios </>
-
                         SizedBox(
                           height: 6,
                         ),
@@ -1918,7 +1885,6 @@ class _CheckListUState extends State<CheckListUnity>{
                           margin: EdgeInsets.only(left: 4.0, right: 4.0),
                           child: Column(
                             children: <Widget>[
-//Info Titulo<>
                               Text(
                                 '¿Es correcta la informacion?',
                                 style: TextStyle(fontSize: 16.0,
@@ -1926,11 +1892,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-//Info Titulo</>
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-//Opciones Info<>
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -1964,7 +1928,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-//Opciones Info</>
                                 ],
                               ),
                             ],
@@ -1986,8 +1949,6 @@ class _CheckListUState extends State<CheckListUnity>{
                 );
               }).toList(),
             ),
-            //AQUIIIIIIIIII
-
             SizedBox(
               height: 10,
             ),
@@ -2192,9 +2153,6 @@ class _CheckListUState extends State<CheckListUnity>{
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         GestureDetector(
                           onTap:(){
                             FocusScope.of(context).requestFocus(FocusNode());
@@ -2241,14 +2199,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ),
                           ),
                         ),
-
-
                         SizedBox(
                           height: 6,
                         ),
-
-
-
                         Container(
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
@@ -2263,12 +2216,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2307,14 +2257,9 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
-
                         SizedBox(
                           height: 10,
                         ),
-
-
-
                       ],
                     ),
                   ),
@@ -2326,7 +2271,6 @@ class _CheckListUState extends State<CheckListUnity>{
               height: 10,
             ),
             ExpansionPanelList(
-
               expansionCallback: (int index, bool isExpanded) {
                 setState(() {
                   _items4[index].isExpanded = !_items4[index].isExpanded;
@@ -2339,16 +2283,16 @@ class _CheckListUState extends State<CheckListUnity>{
                       crossAxisAlignment: CrossAxisAlignment.start,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: <Widget>[
-                       Padding(
-                        padding: const EdgeInsets.only(left: 14.0),
-                        child: Text(
-                          "Accesorios",
-                          style: TextStyle(
-                              fontSize: 18.0,
-                              color: Colors.black,
-                              fontWeight: FontWeight.w500
+                        Padding(
+                          padding: const EdgeInsets.only(left: 14.0),
+                          child: Text(
+                            "Accesorios",
+                            style: TextStyle(
+                                fontSize: 18.0,
+                                color: Colors.black,
+                                fontWeight: FontWeight.w500
+                            ),
                           ),
-                        ),
                         ),
                       ],
                     );
@@ -2375,8 +2319,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
+                                ),          ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2392,7 +2335,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio13(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio13,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2409,7 +2352,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio13(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio13,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2443,8 +2386,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
+                                ),           ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2461,7 +2403,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio14(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio14,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2478,7 +2420,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio14(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio14,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2511,8 +2453,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
+                                ),             ),
 
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
@@ -2528,7 +2469,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio15(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio15,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2545,7 +2486,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio15(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio15,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2577,13 +2518,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),              ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2594,13 +2532,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio16(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio16,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2611,7 +2548,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio16(val);
                                         },
-                                        value: "No",
+                                        value:0,
                                         groupValue: selectedRadio16,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2627,7 +2564,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2643,9 +2579,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),        ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
@@ -2660,13 +2594,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio17(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio17,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2677,7 +2610,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio17(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio17,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2688,13 +2621,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                       _itemDown5(),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2710,13 +2641,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),       ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2727,13 +2655,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio18(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio18,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2744,7 +2671,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio18(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio18,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2755,13 +2682,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                       _itemDown6(),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2777,13 +2702,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),         ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2794,13 +2716,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio19(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio19,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2811,7 +2732,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio19(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio19,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2828,7 +2749,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2844,13 +2764,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),            ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2861,13 +2778,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio20(val);
                                         },
-                                        value: "Si",
+                                        value:1,
                                         groupValue: selectedRadio20,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2878,7 +2794,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio20(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio20,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2895,7 +2811,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2911,13 +2826,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),            ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2928,13 +2840,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio21(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio21,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2945,7 +2856,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio21(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio21,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -2956,13 +2867,11 @@ class _CheckListUState extends State<CheckListUnity>{
                                       _itemDown9(),
                                     ],
                                   ),
-
                                 ],
                               ),
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -2978,13 +2887,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),   ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -2995,13 +2901,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio22(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio22,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3012,7 +2917,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio22(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio22,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3029,7 +2934,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -3045,13 +2949,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),   ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3062,7 +2963,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio23(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio23,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3079,7 +2980,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio23(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio23,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3095,7 +2996,6 @@ class _CheckListUState extends State<CheckListUnity>{
                             ],
                           ),
                         ),
-
                         SizedBox(
                           height: 6,
                         ),
@@ -3111,13 +3011,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),   ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3128,13 +3025,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio24(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio24,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3145,7 +3041,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio24(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio24,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3176,13 +3072,10 @@ class _CheckListUState extends State<CheckListUnity>{
                                 style: TextStyle(fontSize: 16.0,
                                     fontWeight: FontWeight.w600,
                                     color: Color(0xFF1D539B)
-                                ),
-                              ),
-
+                                ),       ),
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3193,7 +3086,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio25(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio25,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3210,7 +3103,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio25(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio25,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3243,11 +3136,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3258,13 +3149,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio26(val);
                                         },
-                                        value: "Si",
+                                        value:1,
                                         groupValue: selectedRadio26,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3275,7 +3165,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio26(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio26,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3308,11 +3198,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3323,13 +3211,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio27(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio27,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3340,7 +3227,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio27(val);
                                         },
-                                        value: "No",
+                                        value: 0,
                                         groupValue: selectedRadio27,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3363,7 +3250,7 @@ class _CheckListUState extends State<CheckListUnity>{
                           decoration: BoxDecoration(
                               color: Color(0xFFF3F3F3),
                               borderRadius: BorderRadius.circular(5.0)),
-                          margin: EdgeInsets.only(left: 4.0, right: 4.0),
+                          margin: EdgeInsets.only(left: 8.0, right: 8.0),
                           child: Column(
                             children: <Widget>[
                               Text(
@@ -3373,11 +3260,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3388,13 +3273,12 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio28(val);
                                         },
-                                        value: "Si",
+                                        value: 1,
                                         groupValue: selectedRadio28,
                                         activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3405,7 +3289,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         onChanged: (val){
                                           setSelectedRadio28(val);
                                         },
-                                        value: "No",
+                                        value:0,
                                         groupValue: selectedRadio28,
                                         activeColor: Color(0xFF2350A6),
                                       ),
@@ -3438,11 +3322,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     color: Color(0xFF1D539B)
                                 ),
                               ),
-
                               ButtonBar(
                                 alignment: MainAxisAlignment.start,
                                 children: <Widget>[
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3459,7 +3341,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                       ),
                                     ],
                                   ),
-
                                   Row(
                                     children: <Widget>[
                                       Text(
@@ -3472,7 +3353,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         },
                                         value: "No",
                                         groupValue: selectedRadio29,
-                                                                                activeColor: Color(0xFF2350A6),
+                                        activeColor: Color(0xFF2350A6),
                                       ),
                                     ],
                                   ),
@@ -3488,10 +3369,8 @@ class _CheckListUState extends State<CheckListUnity>{
                     ),
                   ),
                 );
-
               }).toList(),
             ),
-
             SizedBox(
               height: 10,
             ),
@@ -3701,13 +3580,9 @@ class _CheckListUState extends State<CheckListUnity>{
                                     ],
                                   ),
                                 ),
-
                               ),
-
                             ),
-
                           ],
-
                         ),
 
                         Divider(
@@ -3742,7 +3617,6 @@ class _CheckListUState extends State<CheckListUnity>{
                                     ),
                                     color: Colors.black12,
                                   ),
-
                                   actions: <Widget>[
                                     FlatButton(
                                       child:  Text("Salvar"),
@@ -3760,10 +3634,7 @@ class _CheckListUState extends State<CheckListUnity>{
                                         setState(() => _canShowButton = !_canShowButton);
                                         uploadFirma();
                                       },
-
                                     ),
-
-                                    //_img.buffer.lengthInBytes == 0 ? Container(decoration: BoxDecoration(color: Colors.white),) : LimitedBox(maxHeight: 200.0, child: Image.memory(_img.buffer.asUint8List())),
                                     FlatButton(
                                       child:  Text("Borrar"),
                                       onPressed: () {
@@ -3792,23 +3663,11 @@ class _CheckListUState extends State<CheckListUnity>{
                         Divider(
                           color: Color(0xFFD4D4D4),
                         ),
-                        /* RaisedButton(
-            onPressed: (){
-              _recepcion();
-            },
-            textColor: Colors.white,
-            color: Colors.red,
-            padding: EdgeInsets.all(8.0),
-            child: Text(
-              "Envíar",
-            ),
-          ),*/
                       ],
                     ),
 
                   ),
                 );
-
               }).toList(),
             ),
           ],
@@ -3819,13 +3678,16 @@ class _CheckListUState extends State<CheckListUnity>{
             Icons.verified_user,
             color: Colors.white,),
           onPressed: () {
-            Navigator.of(context)
-                .pushNamedAndRemoveUntil('/item', (Route<dynamic> route) => false);
+            Navigator.pushReplacement(
+              context,
+              MaterialPageRoute(builder: (BuildContext context) => ItemList(id: widget.id, nombre: widget.nombre,),
+              ),
+            );
             _recepcion();
           }
 
       ),
 
-    );//no
-  } //no
-}//no
+    );
+  }
+}

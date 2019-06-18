@@ -1,6 +1,3 @@
-// Copyright 2015 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
 
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
@@ -59,11 +56,6 @@ class _SizeChangeRenderWithCallback extends RenderProxyBox {
     }) : assert(onLayoutChangedCallback != null),
             super(child);
 
-    // There's a 1:1 relationship between the _RenderSizeChangedWithCallback and
-    // the `context` that is captured by the closure created by createRenderObject
-    // above to assign to onLayoutChangedCallback, and thus we know that the
-    // onLayoutChangedCallback will never change nor need to change.
-
     final SizeChangedCallBack onLayoutChangedCallback;
 
     Size _oldSize;
@@ -71,8 +63,7 @@ class _SizeChangeRenderWithCallback extends RenderProxyBox {
     @override
     void performLayout() {
         super.performLayout();
-        // Don't send the initial notification, or this will be SizeObserver all
-        // over again!
+
         if (size != _oldSize)
             onLayoutChangedCallback(size);
         _oldSize = size;
