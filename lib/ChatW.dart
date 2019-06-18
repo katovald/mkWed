@@ -143,9 +143,6 @@ class ChatWindow extends State<Chat> with TickerProviderStateMixin {
 
     return  Container(
       margin:  EdgeInsets.all(5.0),
-      /*decoration:  BoxDecoration(
-          color: Color(0xFF1D539B),
-          borderRadius:  BorderRadius.all(const Radius.circular(8.0))),*/
       padding:  EdgeInsets.all(10.0),
       child:  Column(
         crossAxisAlignment: CrossAxisAlignment.start,

@@ -1,3 +1,10 @@
 import 'dart:async';
 
-import 'fire';
+class Controller{
+
+  //metodos post
+  void guardaChecklist(){
+
+  }
+  //metodos get
+}

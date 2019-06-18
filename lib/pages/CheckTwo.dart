@@ -7,9 +7,6 @@ class CheckListTwo extends StatelessWidget {
 
   final String title;
   CheckListTwo(this.title);
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

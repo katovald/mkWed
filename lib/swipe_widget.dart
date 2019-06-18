@@ -14,8 +14,6 @@ class ActionItems extends Object{
 
     final Widget icon;
     final VoidCallback onPress;
-    //final Color backgroudColor;
-    
 }
 
 class OnSlide extends StatefulWidget {

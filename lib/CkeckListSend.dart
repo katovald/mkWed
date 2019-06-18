@@ -22,6 +22,12 @@ class _CheckListUState extends State<CheckListUnity>{
   bool _isChecked6 = false;
   bool _isChecked7 = false;
 
+  bool _Variable;
+
+  void set_Vatiable(bool variable){
+    _Variable = variable;
+  }
+
   void onChanged(bool value){
     setState(() {
       _isChecked = value;
@@ -161,11 +167,6 @@ class _CheckListUState extends State<CheckListUnity>{
 
             ],
           ),
-
-
-
-
-
         ],
       ),
     );
