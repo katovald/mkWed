@@ -9,7 +9,8 @@ import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:cloud_firestore/cloud_firestore.dart';
 class Pass extends StatefulWidget {
   final String id;
-  Pass({Key key, this.id}) : super (key: key);
+  final String nombre;
+  Pass({Key key, this.id, this.nombre}) : super (key: key);
   @override
   NewP createState() {
     return NewP();
@@ -30,12 +31,12 @@ class NewP extends State<Pass>{
     print(decrypted);
     print(encrypted.base64);
     if(passwordController.text == confirmarController.text && passwordController.text.isNotEmpty && confirmarController.text.isNotEmpty){
-      Firestore.instance.collection('Usuarios').document('169861').updateData({
+      Firestore.instance.collection('Usuarios').document(widget.id).updateData({
         'Password': encrypted.base64,
       });
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
+        MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: widget.id, nombre: widget.nombre,),
         ),
       );
     }else{
@@ -77,6 +78,8 @@ class NewP extends State<Pass>{
   @override
   Widget build(BuildContext context) {
     print(globals.isLoggedIn);
+    print('id: ${widget.id}');
+    print('NombrePass: ${widget.nombre}');
     //id = empleadoController.text;
     return
       Scaffold(

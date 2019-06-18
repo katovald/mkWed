@@ -14,7 +14,8 @@ import 'package:firebase_storage/firebase_storage.dart';
 
 class CheckListUnity extends StatefulWidget{
   final String id;
- CheckListUnity({Key key, this.id}) : super (key: key);
+  final String nombre;
+ CheckListUnity({Key key, this.id, this.nombre}) : super (key: key);
   @override
   State<StatefulWidget> createState() {
 
@@ -374,7 +375,6 @@ class _CheckListUState extends State<CheckListUnity>{
      'Firma': urlFirma,
     });
    String id = recep.documentID;
-   //print("ID: $id");
    Firestore.instance.collection('Asignaciones').add({
      'Hora': now,
      'NoEmpeado': 166487,
@@ -383,9 +383,7 @@ class _CheckListUState extends State<CheckListUnity>{
      'id':id,
    });
    Firestore.instance.collection('Usuarios').document(widget.id).updateData({
-     'Empleado': '169861',
      'Telefono': '5611247753',
-     'Nombre': 'Juan',
      'Estatus': 'Activo',
    });
    Firestore.instance.collection('Usuarios').document(widget.id).collection('Entradas').add({
@@ -877,6 +875,8 @@ class _CheckListUState extends State<CheckListUnity>{
   }
   @override
   Widget build(BuildContext context) {
+    print('id: ${widget.id}');
+    print('nombress: ${widget.nombre}');
 
     return Scaffold(
       appBar: AppBar(
@@ -894,7 +894,7 @@ class _CheckListUState extends State<CheckListUnity>{
             onTap: () => Navigator.push(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => ChatPage(),
+                builder: (BuildContext context) => ChatPage(id: widget.id, nombre: widget.nombre,),
               ),
             ),
             child: Container(
@@ -3680,7 +3680,7 @@ class _CheckListUState extends State<CheckListUnity>{
           onPressed: () {
             Navigator.pushReplacement(
               context,
-              MaterialPageRoute(builder: (BuildContext context) => ItemList(id: widget.id),
+              MaterialPageRoute(builder: (BuildContext context) => ItemList(id: widget.id, nombre: widget.nombre,),
               ),
             );
             _recepcion();

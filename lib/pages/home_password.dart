@@ -52,15 +52,15 @@ class LoginP extends State<HomePagePass>{
     estado = snapshot['Estatus'];
     print('Pass: $passF');
   if(encrypted.base64 == passF && estado == 'Inactivo'){
-    Navigator.pushReplacement(
-      context,
-      MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
-      ),
-    );
+      Navigator.pushReplacement(
+        context,
+        MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: empleadoController.text, nombre: nombre,)
+        ),
+      );
   }else if(encrypted.base64 == passF && estado == 'Activo'){
     Navigator.pushReplacement(
       context,
-      MaterialPageRoute(builder: (BuildContext context) => ItemList(id: id),
+      MaterialPageRoute(builder: (BuildContext context) => ItemList(id: empleadoController.text, nombre: nombre,),
       ),
     );
   } else{
@@ -124,6 +124,14 @@ class LoginP extends State<HomePagePass>{
 
 
     super.dispose();
+  }
+  var nombre;
+  DocumentSnapshot snapshot;
+  Future<void> nombreUsuario() async {
+    snapshot = await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
+    nombre = snapshot['Nombre'];
+   // print('nombress: $nombre');
+
   }
   @override
   void initState() {
@@ -265,6 +273,28 @@ class LoginP extends State<HomePagePass>{
                         ),
                         onPressed: () {
                           login();
+                          nombreUsuario();
+                          print('nombre: $nombre');
+                          if(empleadoController.text.isEmpty || passwordController.text.isEmpty){
+                            return showDialog(
+                                context: context,
+                                barrierDismissible: false,
+                                builder: (BuildContext context) {
+                                  return new AlertDialog(
+                                    title: Text('Error'),
+                                    content: Text ('Tu número de empleado o de teléfono son incorrectos'),
+                                    contentPadding: EdgeInsets.all(10.0),
+                                    actions: <Widget>[
+                                      new FlatButton(
+                                        child: Text('Aceptar'),
+                                        onPressed: () {
+                                          Navigator.of(context).pop();
+                                        },
+                                      )
+                                    ],
+                                  );
+                                });
+                          }
                         },
                       ),
                     ),

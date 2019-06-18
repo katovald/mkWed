@@ -14,7 +14,9 @@ import 'package:image_picker/image_picker.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 
 class Checklist extends StatefulWidget {
-
+  final String id;
+  final String nombre;
+  Checklist({Key key, this.id, this.nombre}) : super (key: key);
   @override
   _ChecklistState createState() => _ChecklistState( );
 }

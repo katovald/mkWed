@@ -20,7 +20,8 @@ final String myJSONProducts = '{"eventos":[{"cuenta":"40030177","telefono":"5530
 
 class TaskMapManager extends StatefulWidget {
   final String id;
-  TaskMapManager({Key key, this.id}) : super (key: key);//Widget Class
+  final String nombre;
+  TaskMapManager({Key key, this.id, this.nombre}) : super (key: key);
   @override
   _MapState createState() => _MapState();
 }
@@ -49,7 +50,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                 .push<bool>(
               context,
               MaterialPageRoute(
-                builder: (BuildContext context) => CheckListTwo(e.cuenta),
+                builder: (BuildContext context) => CheckListTwo(title: e.cuenta, id: widget.id, nombre: widget.nombre,),
               ),
             );
           },
@@ -95,6 +96,7 @@ class _MapState extends State<TaskMapManager> { //State Class
   @override
   Widget build(BuildContext context){
     print  ('idMapa: ${widget.id}');
+    print('nombressR: ${widget.nombre}');
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       home: Scaffold(
@@ -135,7 +137,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Siniestros()),
+                      MaterialPageRoute(builder: (context) => Siniestros(id: widget.id, nombre: widget.nombre,)),
                     );
                   },
                 ),
@@ -166,7 +168,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                   onTap: () {
                     Navigator.push(
                       context,
-                      MaterialPageRoute(builder: (context) => Formulario(id: widget.id,)),
+                      MaterialPageRoute(builder: (context) => Formulario(id: widget.id, nombre: widget.nombre,)),
                     );
                   },
                 ),
