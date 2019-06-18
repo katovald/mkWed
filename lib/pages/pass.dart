@@ -1,70 +1,106 @@
 import 'dart:async';
+import 'package:app_editesp/Formularios/CkeckListUnity.dart';
 import 'package:app_editesp/VarGlobals.dart' as globals;
-import 'package:app_editesp/pages/home.dart';
-import 'package:app_editesp/pages/pass.dart';
+import 'package:encrypt/encrypt.dart' as encrypt;
+import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
-class HomePagePass extends StatefulWidget {
+class SPass extends StatefulWidget {
+  final String id;
+  final String nombre;
+ SPass({Key key, this.id, this.nombre}) : super (key: key);
   @override
   LoginP createState() {
     return LoginP();
   }
 }
-class LoginP extends State<HomePagePass>{
-  TextEditingController empleadoController =  TextEditingController();
-  _callMe() async {
-    // Android
-    const uri = 'tel:+521 55 37 01 34 31';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'tel:521-55-19-18-99-54';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
-  }
+class LoginP extends State<SPass>{
+  TextEditingController passwordController =  TextEditingController();
   var passF;
   var estado;
-  var nombre;
-  var pass;
-  DocumentSnapshot snapshot;
-  Future<void> nombreUsuario() async {
-    snapshot = await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
-    nombre = snapshot['Nombre'];
-    pass = snapshot['Password'];
-   print('nombress: $nombre');
-    print('Pass: $pass');
-    if (pass == null){
+  mensaje(){
+    return showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text ('¡Bienvenido ${widget.nombre}!'),
+            actions: <Widget>[
+              FlatButton(
+                child: Text('Cerrar'),
+                onPressed: () {
+                  Navigator.of(context).pop();
+                },
+              )
+            ],
+          );
+        });
+  }
+  Future login() async{
+    final contra = passwordController.text;
+    final key = encrypt.Key.fromLength(64);
+    final iv = encrypt.IV.fromLength(8);
+    final encrypter = encrypt.Encrypter(encrypt.Salsa20(key));
+    final encrypted = encrypter.encrypt(contra, iv: iv);
+    DocumentSnapshot snapshot;
+    snapshot= await Firestore.instance.collection('Usuarios').document(widget.id).get();
+    passF = snapshot['Password'];
+    estado = snapshot['Estatus'];
+    print('Pass: $passF');
+    if(encrypted.base64 == passF && estado == 'Inactivo'){
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (BuildContext context) => HomePage(id: empleadoController.text, nombre: nombre,),
+        MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: widget.id, nombre: widget.nombre,)
         ),
       );
-    }else if (pass != null){
+      mensaje();
+    }else if(encrypted.base64 == passF && estado == 'Activo'){
       Navigator.pushReplacement(
         context,
-        MaterialPageRoute(builder: (BuildContext context) => SPass(id: empleadoController.text, nombre: nombre,),
+        MaterialPageRoute(builder: (BuildContext context) => ItemList(id: widget.id, nombre: widget.nombre,),
         ),
       );
+      mensaje();
+    } else{
+      return showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text('Error'),
+              content: Text ('Tu contraseña es incorrecta'),
+              contentPadding: EdgeInsets.all(10.0),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('Aceptar'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
     }
+
+  }
+  final FocusNode myFocusNodePassword = FocusNode();
+  bool _obscureTextLogin = true;
+  @override
+  void dispose() {
+    myFocusNodePassword.dispose();
+    super.dispose();
   }
   @override
   void initState() {
     super.initState();
   }
-  String id;
   @override
   Widget build(BuildContext context) {
     print(globals.isLoggedIn);
-    id = empleadoController.text;
     return
       SingleChildScrollView (
         child: Container(
@@ -102,27 +138,34 @@ class LoginP extends State<HomePagePass>{
                             Padding(
                               padding: EdgeInsets.only(
                                   top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
-                              child: TextFormField(
-                                controller: empleadoController,
-                                keyboardType: TextInputType.number,
-                                validator: (value) {
-                                  if (value.isEmpty) {
-                                    return 'Por favor ingrese su número de empleado';
-                                  }
-                                },
+                              child: TextField(
+                                focusNode: myFocusNodePassword,
+                                controller: passwordController,
+                                obscureText: _obscureTextLogin,
+                                keyboardType: TextInputType.text,
                                 style: TextStyle(
                                     fontFamily: "WorkSansSemiBold",
                                     fontSize: 16.0,
                                     color: Colors.black),
                                 decoration: InputDecoration(
+                                  //border: InputBorder.none,
                                   icon: Icon(
-                                    Icons.account_box,
-                                    color: Colors.black,
+                                    Icons.lock,
                                     size: 22.0,
+                                    color: Colors.black,
                                   ),
-                                  hintText: "No de empleado",
+                                  hintText: "Contraseña",
                                   hintStyle: TextStyle(
-                                      fontFamily: "WorkSansSemiBold", fontSize: 17.0),
+                                      fontFamily: "WorkSansSemiBold", fontSize: 17.0
+                                  ),
+                                  suffixIcon: GestureDetector(
+                                    onTap: _toggleLogin,
+                                    child: Icon(
+                                      Icons.visibility,
+                                      size: 15.0,
+                                      color: Colors.black,
+                                    ),
+                                  ),
                                 ),
                               ),
                             ),
@@ -160,28 +203,8 @@ class LoginP extends State<HomePagePass>{
                           ),
                         ),
                         onPressed: () {
-                          nombreUsuario();
-                          print('nombre: $nombre');
-                          if(empleadoController.text.isEmpty){
-                            return showDialog(
-                                context: context,
-                                barrierDismissible: false,
-                                builder: (BuildContext context) {
-                                  return new AlertDialog(
-                                    title: Text('Error'),
-                                    content: Text ('Tu número de usuario es incorrecto'),
-                                    contentPadding: EdgeInsets.all(10.0),
-                                    actions: <Widget>[
-                                      new FlatButton(
-                                        child: Text('Aceptar'),
-                                        onPressed: () {
-                                          Navigator.of(context).pop();
-                                        },
-                                      )
-                                    ],
-                                  );
-                                });
-                          }
+                          login();
+                          print('nombre: $widget.nombre');
                         },
                       ),
                     ),
@@ -202,5 +225,10 @@ class LoginP extends State<HomePagePass>{
           ),
         ),
       );
+  }
+  void _toggleLogin() {
+    setState(() {
+      _obscureTextLogin = !_obscureTextLogin;
+    });
   }
 }

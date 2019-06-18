@@ -4,6 +4,7 @@ import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' as prefix0;
 import 'package:flutter/widgets.dart';
 import 'package:encrypt/encrypt.dart' as encrypt;
 import 'package:cloud_firestore/cloud_firestore.dart';
@@ -39,6 +40,22 @@ class NewP extends State<Pass>{
         MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: widget.id, nombre: widget.nombre,),
         ),
       );
+      return showDialog(
+          context: context,
+          barrierDismissible: false,
+          builder: (BuildContext context) {
+            return AlertDialog(
+              title: Text ('¡Bienvenido ${widget.nombre}!'),
+              actions: <Widget>[
+                FlatButton(
+                  child: Text('Cerrar'),
+                  onPressed: () {
+                    Navigator.of(context).pop();
+                  },
+                )
+              ],
+            );
+          });
     }else{
       return showDialog(
           context: context,
@@ -90,11 +107,12 @@ class NewP extends State<Pass>{
                 children: <Widget>[
                   Container(
                     child: Padding(
-                      padding: EdgeInsets.only(top: 50.0),
+                      padding: EdgeInsets.only(top: 80.0),
                       child:  Text ("""¡Bienvenido!
 Por favor proporciona una contraseña""",
+                        textAlign: TextAlign.center,
                         style: TextStyle(
-                          fontSize: 35.0,
+                          fontSize: 25.0,
                           color: Colors.white,
                         ),
                       )
@@ -102,7 +120,7 @@ Por favor proporciona una contraseña""",
                     ),
                   ),
                   Container(
-
+                    padding: EdgeInsets.only(top: 80),
                     child: Stack(
                       alignment: Alignment.topCenter,
                       overflow: Overflow.visible,
