@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'package:app_editesp/Formularios/CkeckListUnity.dart';
 import 'package:app_editesp/VarGlobals.dart' as globals;
 import 'package:app_editesp/pages/ItemList.dart';
 import 'package:app_editesp/pages/password.dart';
@@ -7,16 +6,18 @@ import 'package:app_editesp/theme.dart'as Theme;
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
-import 'package:url_launcher/url_launcher.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 class HomePage extends StatefulWidget {
+  final String id;
+  final String nombre;
+  HomePage({Key key, this.id, this.nombre}) : super (key: key);
   @override
   MyAppState createState() {
     return MyAppState();
   }
-  final Function main;
-  HomePage(this.main);
+  //final Function main;
+ // HomePage(this.main);
 }
 class MyAppState extends State<HomePage>{
   String phoneNo;
@@ -27,7 +28,7 @@ class MyAppState extends State<HomePage>{
   var nombre;
   DocumentSnapshot snapshot;
   Future<void> verifyPhone() async {
-   snapshot= await Firestore.instance.collection('Usuarios').document(empleadoController.text).get();
+   snapshot= await Firestore.instance.collection('Usuarios').document(widget.id).get();
     telefono = snapshot['Telefono'];
     Estado = snapshot['Estatus'];
     nombre = snapshot['Nombre'];
@@ -52,14 +53,14 @@ class MyAppState extends State<HomePage>{
           Navigator.of(context).pop();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (BuildContext context) => Pass(id: empleadoController.text, nombre: nombre,),
+            MaterialPageRoute(builder: (BuildContext context) => Pass(id: widget.id, nombre: nombre,),
             ),
           );
         }else if(Estado == 'Activo'){
           Navigator.of(context).pop();
           Navigator.pushReplacement(
             context,
-            MaterialPageRoute(builder: (BuildContext context) => ItemList(id: empleadoController.text),
+            MaterialPageRoute(builder: (BuildContext context) => ItemList(id: widget.id, nombre: nombre,),
             ),
           );
         }
@@ -143,57 +144,6 @@ class MyAppState extends State<HomePage>{
     return 'signInWithPhoneNumber succeeded: $user';
   }
   TextEditingController phoneController =  TextEditingController();
-  TextEditingController empleadoController =  TextEditingController();
-  void onPressed(){
-    print("Button pressed");
-  }
-_callMe() async {
-    // Android
-    const uri = 'tel:+521 55 37 01 34 31';
-    if (await canLaunch(uri)) {
-      await launch(uri);
-    } else {
-      // iOS
-      const uri = 'tel:521-55-19-18-99-54';
-      if (await canLaunch(uri)) {
-        await launch(uri);
-      } else {
-        throw 'Could not launch $uri';
-      }
-    }
-  }
-
-  void _showDialog() {
-    // flutter defined function
-    showDialog(
-      context: context,
-      builder: (BuildContext context) {
-        // return object of type Dialog
-        return AlertDialog(
-          title: Text("No puedo iniciar sesión"),
-          content:  Text("Te pondras en contacto con tu lider de area para que se te asigne una cuenta, ¿Deseas continuar?"),
-          backgroundColor: Color(0xFFF4F4F4),
-          actions: <Widget>[
-            // usually buttons at the bottom of the dialog
-            FlatButton(
-              child:  Text("Si"),
-
-              onPressed: (){_callMe();},
-
-            ),
-
-            FlatButton(
-              child:  Text("No"),
-              onPressed: () {
-                Navigator.of(context).pop();
-              },
-            ),
-          ],
-        );
-      },
-    );
-  }
-
  @override
   void dispose() {
     super.dispose();
@@ -201,7 +151,7 @@ _callMe() async {
   @override
   void initState() {
     super.initState();
-      widget.main();
+      //widget.main();
    /* FirebaseAuth.instance.currentUser().then((user) {
       if (user != null) {
         Navigator.of(context).pushReplacementNamed('/check1');
@@ -210,13 +160,10 @@ _callMe() async {
       }
     });*/
   }
-  String id;
   @override
   Widget build(BuildContext context) {
     print(globals.isLoggedIn);
-    id = empleadoController.text;
-    //RETORNAMOS un CONTAINER con un CHILD que es un SCAFFOLD, hacemos esto...
-    //...para que al aparecer el teclado no cambie de tamaño la imagen de fondo
+    print('Tel: $telefono');
     return  
     SingleChildScrollView (
          child: Container(
@@ -248,38 +195,9 @@ _callMe() async {
                     ),
                     child: Container(
                       width: 300.0,
-                      height: 220.0,
+                      height: 110.0,
                       child: Column(
                         children: <Widget>[
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
-                            child: TextFormField(
-                              controller: empleadoController,
-                              keyboardType: TextInputType.number,
-                              validator: (value) {
-                                if (value.isEmpty) {
-                                  return 'Por favor ingrese su número de empleado';
-                                }
-                              },
-                              style: TextStyle(
-                                  fontFamily: "WorkSansSemiBold",
-                                  fontSize: 16.0,
-                                  color: Colors.black),
-                              decoration: InputDecoration(
-                                //border: InputBorder.none,
-                                icon: Icon(
-                                  Icons.account_box,
-                                  //FontAwesomeIcons.user,
-                                  color: Colors.black,
-                                  size: 22.0,
-                                ),
-                                hintText: "No de empleado",
-                                hintStyle: TextStyle(
-                                    fontFamily: "WorkSansSemiBold", fontSize: 17.0),
-                              ),
-                            ),
-                          ),
                           Padding(
                             padding: EdgeInsets.only(
                                 top: 20.0, bottom: 20.0, left: 25.0, right: 25.0),
@@ -350,13 +268,8 @@ _callMe() async {
                         ),
                       ),
                       onPressed: () {
-                      /*  Navigator.pushReplacement(
-                          context,
-                          MaterialPageRoute(builder: (BuildContext context) => CheckListUnity(id: id),
-                          ),
-                        );*/
                         verifyPhone();
-                        if(empleadoController.text.isEmpty || phoneController.text.isEmpty){
+                        if(phoneController.text.isEmpty){
                           return showDialog(
                               context: context,
                               barrierDismissible: false,
@@ -379,23 +292,6 @@ _callMe() async {
                          },
                     ),
                   ),
-               Container (
-               child: Padding(
-                padding: EdgeInsets.only(top:250),
-                child: FlatButton(
-                    onPressed: (){
-                      _showDialog();
-                  },
-                    child: Text(
-                      "No puedo iniciar sesión",
-                      style: TextStyle(
-                          decoration: TextDecoration.underline,
-                          color: Colors.white,
-                          fontSize: 16.0,
-                          fontFamily: "WorkSansMedium"),
-                    )),
-              ),
-              ),
                 ],
                 
               ),
