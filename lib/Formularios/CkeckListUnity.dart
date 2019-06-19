@@ -383,7 +383,6 @@ class _CheckListUState extends State<CheckListUnity>{
      'id':id,
    });
    Firestore.instance.collection('Usuarios').document(widget.id).updateData({
-     'Telefono': '5611247753',
      'Estatus': 'Activo',
    });
    Firestore.instance.collection('Usuarios').document(widget.id).collection('Entradas').add({

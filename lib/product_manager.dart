@@ -166,7 +166,7 @@ class _MapState extends State<TaskMapManager> { //State Class
                   leading: Icon(Icons.exit_to_app),
                   title: Text('Terminar Turno'),
                   onTap: () {
-                    Navigator.push(
+                    Navigator.pushReplacement(
                       context,
                       MaterialPageRoute(builder: (context) => Formulario(id: widget.id, nombre: widget.nombre,)),
                     );

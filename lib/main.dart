@@ -11,9 +11,9 @@ import 'package:camera/camera.dart';
 List<CameraDescription> cameras;
 Future<void> main() async {
   cameras = await availableCameras();
-  snapshot= await Firestore.instance.collection('Usuarios').document('169861').get();
+  /*snapshot= await Firestore.instance.collection('Usuarios').document('169861').get();
   password = snapshot['Password'];
-  print('Contra: $password');
+  print('Contra: $password');*/
   runApp(MyApp());
 }
 var password;
@@ -21,14 +21,14 @@ DocumentSnapshot snapshot;
 class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    Widget login(){
+  /*  Widget login(){
       if (password == null){
        return HomePage(main);
       }else{
         return HomePagePass();
       }
     }
-    HomePage(main);
+    HomePage(main);*/
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
@@ -36,7 +36,7 @@ class MyApp extends StatelessWidget {
           primarySwatch: Colors.blue,
           accentColor:  Color(0xFF2350A6),
           ),
-        home: login(),
+        home: HomePagePass(),
       routes: {
        // '/': (BuildContext context) => HomePage(main), // Default Route
         '/check1': (BuildContext context) => CheckListOne(),
