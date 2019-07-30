@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="VcsDirectoryMappings">
+    <mapping directory="$PROJECT_DIR$" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CAMSAVerification" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CAMSAux" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/CAMSAux/camsa_flutter" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/flayy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/pruebas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/react-demo-store" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/GSI Connect API" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/GSI Connect Android" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/GSI Web App" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/Sapito" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/WebJob Felicitaciones" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/WebJob%20Movimientos" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/sapitoGSI/WebJob%20N%C3%B3minas" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/wasp/wasp" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/waspy" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/waspy/WASPYiOS.AlternateView" vcs="Git" />
+    <mapping directory="$PROJECT_DIR$/waspyNew" vcs="Git" />
+  </component>
+</project>

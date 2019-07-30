@@ -9,9 +9,9 @@ class VistaImagen extends StatelessWidget {
     // TODO: implement build
     return Scaffold(
       appBar: AppBar(
-        title: Text(_titulo),
+        title: Text('Nuestros momentos'),
       ),
-      body: Center(
+      body: Padding( padding: const EdgeInsets.all(10.0),
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.center,
           children: <Widget>[

@@ -5,6 +5,7 @@ import 'package:m_k_w/Controlles/auth_manager.dart';
 import 'package:m_k_w/Controlles/validator.dart';
 import 'package:m_k_w/Models/invitado.dart';
 import 'package:m_k_w/Views/app_text_fields.dart';
+import 'package:m_k_w/Views/mk_flat_button.dart';
 
 class SignInScreen extends StatefulWidget {
   _SignInScreenState createState() => _SignInScreenState();
@@ -42,7 +43,7 @@ class _SignInScreenState extends State<SignInScreen> {
       borderColor: Colors.grey[400],
       errorColor: Colors.red,
       controller: _password,
-      hint: "Password",
+      hint: "Contraseña",
       inputType: TextInputType.text,
       validator: Validator.validatePassword,
       obscuredText: true,
@@ -64,13 +65,13 @@ class _SignInScreenState extends State<SignInScreen> {
                   children: <Widget>[
                     Padding(
                       padding: const EdgeInsets.only(
-                          top: 100.0, bottom: 20.0, left: 40.0, right: 40.0),
+                          top: 50.0, bottom: 20.0, left: 40.0, right: 40.0),
                       child: Text(
                         "Bienvenido",
                         softWrap: true,
                         textAlign: TextAlign.center,
                         style: TextStyle(
-                          color: Color.fromRGBO(212, 20, 15, 1.0),
+                          color: Color.fromRGBO(101, 77, 73, 1.0),
                           decoration: TextDecoration.none,
                           fontSize: 24.0,
                           fontWeight: FontWeight.w700,
@@ -78,72 +79,58 @@ class _SignInScreenState extends State<SignInScreen> {
                         ),
                       ),
                     ),
+                    Padding(padding: EdgeInsets.all(15.0),
+                        child: CircleAvatar(
+                          backgroundColor: Color.fromRGBO(255, 242, 154, 1.0),
+                          child: Image(image: AssetImage("assets/default.png"),
+                            height: 100,
+                            width: 100,),
+                          radius: 50.0,)),
                     Padding(
                       padding: EdgeInsets.only(
-                          top: 30.0, bottom: 10.0, left: 50.0, right: 50.0),
+                          top: 10.0, bottom: 10.0, left: 50.0, right: 50.0),
                       child: _emailField,
                     ),
                     Padding(
                       padding: EdgeInsets.only(
-                          top: 30.0, bottom: 30.0, left: 50.0, right: 50.0),
+                          top: 10.0, bottom: 30.0, left: 50.0, right: 50.0),
                       child: _passwordField,
                     ),
                     Padding(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 100.0),
-                      child: FlatButton(
-                        child: Text(
-                          "Inicio",
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.black),
-                        ),
+                          vertical: 5.0, horizontal: 80.0),
+                      child: MKButton(
+                        title: "Inicio",
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        textColor: Colors.white,
                         onPressed: () {
-                          _emailLogin(
-                              email: _email.text,
+                          _emailLogin(email: _email.text,
                               password: _password.text,
                               contest: context);
                         },
-                        color: Color.fromRGBO(212, 20, 15, 1.0),
-                        splashColor: Colors.black,
+                        splashColor: Colors.black12,
+                        borderColor: Color.fromRGBO(212, 20, 15, 1.0),
+                        borderWidth: 1,
+                        color: Color.fromRGBO(252, 151, 9, 1.0),
                       ),
                     ),
                     Padding(
                       padding: EdgeInsets.symmetric(
-                        vertical: 10.0,
-                        horizontal: 100.0,
+                        vertical: 5.0,
+                        horizontal: 80.0,
                       ),
-                      child: FlatButton(
-                        onPressed: () {
-                          _googleLogin(context: context);
-                        },
-                        child: Text(
-                          "Google",
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
-                        splashColor: Colors.black12,
-                        color: Color.fromRGBO(212, 20, 15, 1.0),
-                      ),
-                    ),
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          vertical: 10.0, horizontal: 100.0),
-                      child: FlatButton(
+                      child: MKButton(
+                        title: "Facebook",
+                        fontSize: 18,
+                        fontWeight: FontWeight.w700,
+                        textColor: Colors.white,
                         onPressed: () {
                           _facebookLogin(context: context);
                         },
-                        child: Text(
-                          "Facebook",
-                          style: TextStyle(
-                              fontSize: 22,
-                              fontWeight: FontWeight.w700,
-                              color: Colors.white),
-                        ),
                         splashColor: Colors.black12,
+                        borderColor: Color.fromRGBO(212, 20, 15, 1.0),
+                        borderWidth: 0,
                         color: Color.fromRGBO(59, 89, 152, 1.0),
                       ),
                     ),
@@ -203,14 +190,6 @@ class _SignInScreenState extends State<SignInScreen> {
         );
       }
     }
-  }
-
-  void _googleLogin({BuildContext context}) async {
-    try {
-      SystemChannels.textInput.invokeMethod('TextInput.hide');
-      _changeBlackVisible();
-
-    } catch (e) {}
   }
 
   void _facebookLogin({BuildContext context}) async {

@@ -25,15 +25,22 @@ dependencies:
   firebase_auth : 0.11.1
   flutter_facebook_login : ^2.0.1
   shared_preferences : any
+  google_sign_in: ^4.0.4
+  google_maps_flutter: ^0.5.11
+  permission_handler: ^3.2.0
+  http: ^0.12.0+1
+  json_serializable: ^2.0.2
+
 
   # The following adds the Cupertino Icons font to your application.
   # Use with the CupertinoIcons class for iOS style icons.
   cupertino_icons: ^0.1.2
 
 dev_dependencies:
+  pedantic: ^1.4.0
+  build_runner: ^1.2.7
   flutter_test:
     sdk: flutter
-
 
 # For information on the generic Dart part of this file, see the
 # following page: https://www.dartlang.org/tools/pub/pubspec
@@ -48,11 +55,63 @@ flutter:
 
   # To add assets to your application, add an assets section, like this:
   assets:
-    - assets/Meli001.jpg
+    - assets/album00.jpg
     - assets/album01.jpg
     - assets/album02.jpg
     - assets/album03.jpg
     - assets/album04.jpg
+    - assets/album05.jpg
+    - assets/album06.jpg
+    - assets/album07.jpg
+    - assets/album08.jpg
+    - assets/album09.jpg
+    - assets/album10.jpg
+    - assets/album11.jpg
+    - assets/album12.jpg
+    - assets/album13.jpg
+    - assets/album14.jpg
+    - assets/album15.jpg
+    - assets/album16.jpg
+    - assets/album17.jpg
+    - assets/album18.jpg
+    - assets/album19.jpg
+    - assets/album20.jpg
+    - assets/album21.jpg
+    - assets/album22.jpg
+    - assets/album23.jpg
+    - assets/album24.jpg
+    - assets/album25.jpg
+    - assets/album26.jpg
+    - assets/album27.jpg
+    - assets/album28.jpg
+    - assets/album29.jpg
+    - assets/album30.jpg
+    - assets/album31.jpg
+    - assets/album32.jpg
+    - assets/album33.jpg
+    - assets/album34.jpg
+    - assets/album35.jpg
+    - assets/album36.jpg
+    - assets/album37.jpg
+    - assets/album38.jpg
+    - assets/album39.jpg
+    - assets/album40.jpg
+    - assets/album41.jpg
+    - assets/album42.jpg
+    - assets/album43.jpg
+    - assets/album44.jpg
+    - assets/album45.jpg
+    - assets/album46.jpg
+    - assets/album47.jpg
+    - assets/album48.jpg
+    - assets/album49.jpg
+    - assets/album50.jpg
+    - assets/album51.png
+    - assets/invitacion.png
+    - assets/default.png
+    - assets/vanilla.png
+    - assets/church.png
+    - assets/party.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

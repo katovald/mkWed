@@ -1,6 +1,8 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:m_k_w/Views/main_screen.dart';
+import 'package:flutter/material.dart';
+import 'package:m_k_w/Views/sign_in.dart';
+
+import 'home.dart';
 
 class AuthPage extends StatefulWidget {
   @override
@@ -8,12 +10,12 @@ class AuthPage extends StatefulWidget {
 }
 
 class _AuthPageState extends State<AuthPage> {
-  String Usuario = '';
-  String Password = '';
+
+  @override
+  void initState() {}
 
   @override
   Widget build(BuildContext context) {
-    // TODO: implement build,
 
     return StreamBuilder<FirebaseUser>(
       stream: FirebaseAuth.instance.onAuthStateChanged,
@@ -24,11 +26,11 @@ class _AuthPageState extends State<AuthPage> {
           );
         } else {
           if (snapshot.hasData) {
-            return new MainScreen(
+            return new Home(
               firebaseUser: snapshot.data,
             );
           } else {
-            return WelcomeScreen();
+            return SignInScreen();
           }
         }
       },

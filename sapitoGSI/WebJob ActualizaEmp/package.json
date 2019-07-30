@@ -1,0 +1,14 @@
+{
+  "name": "empdivs",
+  "version": "1.0.0",
+  "description": "webjob para actualizar la info de las empresa",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "author": "CAMSADEV",
+  "license": "ISC",
+  "dependencies": {
+    "request": "^2.88.0"
+  }
+}

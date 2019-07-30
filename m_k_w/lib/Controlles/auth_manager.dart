@@ -1,12 +1,17 @@
 import 'dart:async';
-import 'package:firebase_auth/firebase_auth.dart';
+
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
+import 'package:m_k_w/Models/invitado.dart';
+import 'package:google_sign_in/google_sign_in.dart';
+
 import 'flutter_facebook_login.dart';
 
 enum authProblems {UserNotFound, PasswordNotValid, NetworkError, UnkonwnError}
 
 class Auth {
+
   static Future<String> signIn(String email, String password) async {
     FirebaseUser user = await FirebaseAuth.instance.signInWithEmailAndPassword(email: email, password: password);
     return user.uid;
@@ -48,12 +53,12 @@ class Auth {
   static void addUser(User user) async {
     checkUserExist(user.userID).then((value) {
       if (!value) {
-        print("user ${user.firstName} ${user.email} added");
+        print("user ${user.nombre} ${user.email} added");
         Firestore.instance
             .document("users/${user.userID}")
             .setData(user.toJson());
       } else {
-        print("user ${user.firstName} ${user.email} exists");
+        print("user ${user.nombre} ${user.email} exists");
       }
     });
   }
