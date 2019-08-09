@@ -5,8 +5,12 @@ class User {
   final String nombre;
   final String email;
   final String profilePictureURL;
+  final String tipo;
+  final int boletos;
+  bool confirmado;
+  bool notificame;
 
-  User({this.userID, this.nombre, this.email, this.profilePictureURL});
+  User({this.userID, this.nombre, this.email, this.profilePictureURL, this.tipo, this.boletos, this.confirmado, this.notificame});
 
   Map<String, Object> toJson() {
     return {
@@ -14,7 +18,11 @@ class User {
       'nombre': nombre,
       'email': email == null ? '' : email,
       'profilePictureURL': profilePictureURL,
-      'apIdentifier': 'BodaMelyKato'
+      'apIdentifier': 'BodaMelyKato',
+      'tipo': tipo,
+      'boletos':boletos,
+      'confirmado':confirmado,
+      'notificame':notificame
     };
   }
 
@@ -23,7 +31,12 @@ class User {
         userID: doc['userID'],
         nombre: doc['nombre'],
         email: doc['email'],
-        profilePictureURL: doc['profilePictureURL']);
+        profilePictureURL: doc['profilePictureURL'],
+        tipo:doc['tipo'],
+        boletos: doc['boletos'],
+        confirmado: doc['confirmado'],
+        notificame: doc['notificame']
+    );
     return user;
   }
 

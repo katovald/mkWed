@@ -12,7 +12,6 @@ class InvitacionManager extends StatefulWidget {
 }
 
 class _InvitacionManagerState extends State<InvitacionManager> {
-  List<String> _products = ['Invitacion'];
   @override
   Widget build(BuildContext context) {
     // TODO: implement build

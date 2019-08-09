@@ -1,12 +1,13 @@
 import 'dart:core';
+
 import "package:flutter/material.dart";
-import 'package:m_k_w/Controlles/auth_manager.dart';
-import 'package:m_k_w/Views/app_text_fields.dart';
-import 'package:m_k_w/Controlles/validator.dart';
 import 'package:flutter/services.dart';
+import 'package:m_k_w/Controlles/auth_manager.dart';
+import 'package:m_k_w/Controlles/validator.dart';
 import 'package:m_k_w/Models/invitado.dart';
-import 'package:m_k_w/Views/mk_flat_button.dart';
+import 'package:m_k_w/Views/app_text_fields.dart';
 import 'package:m_k_w/Views/mk_alert_dialog.dart';
+import 'package:m_k_w/Views/mk_flat_button.dart';
 
 class SignUpScreen extends StatefulWidget {
   _SignUpScreenState createState() => _SignUpScreenState();
@@ -99,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       padding: const EdgeInsets.only(
                           top: 60.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Text(
-                        "Registrate con nosotros, revisaremos si tienes un evento al que fuiste invitado",
+                        "Regístrate con nosotros, te pediremos el código del al que fuiste invitado.",
                         softWrap: true,
                         textAlign: TextAlign.center,
                         style: TextStyle(
@@ -154,7 +155,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                           }else{
                             _showErrorAlert(
                               title: "Error en datos",
-                              content: "Tus contrseñas no son iguales",
+                              content: "Tus contraseñas no son iguales",
                               onPressed: () {},
                             );
                           }
@@ -220,14 +221,19 @@ class _SignUpScreenState extends State<SignUpScreen> {
               userID: uID,
               email: email,
               nombre: fullname,
-              profilePictureURL: ''));
+              profilePictureURL: '',
+              tipo: "invitado",
+              boletos: 1,
+              confirmado: false,
+              notificame: false
+          ));
           onBackPress();
         });
       } catch (e) {
         print("Error in sign up: $e");
         String exception = Auth.getExceptionText(e);
         _showErrorAlert(
-          title: "Signup failed",
+          title: "Fallo el inicio de sesion",
           content: exception,
           onPressed: _changeBlackVisible,
         );

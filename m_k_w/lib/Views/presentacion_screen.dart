@@ -33,7 +33,7 @@ class WelcomeScreen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(20.0),
             child: Text(
-              "Lo seguro es que es de personas para las cuales eres importante, revisalo.",
+              "No, no es spam, tomate unos minutos para revisarlo.",
               softWrap: true,
               textAlign: TextAlign.center,
               style: TextStyle(
@@ -66,7 +66,7 @@ class WelcomeScreen extends StatelessWidget {
             padding:
             const EdgeInsets.symmetric(vertical: 8.0, horizontal: 40.0),
             child: MKButton(
-              title: "Registrate",
+              title: "Registro",
               fontSize: 18,
               fontWeight: FontWeight.w300,
               textColor: Color.fromRGBO(101, 77, 73, 1.0),

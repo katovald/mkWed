@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_facebook_login/flutter_facebook_login.dart';
 import 'package:m_k_w/Controlles/auth_manager.dart';
 import 'package:m_k_w/Controlles/validator.dart';
 import 'package:m_k_w/Models/invitado.dart';
@@ -85,7 +84,8 @@ class _SignInScreenState extends State<SignInScreen> {
                           child: Image(image: AssetImage("assets/default.png"),
                             height: 100,
                             width: 100,),
-                          radius: 50.0,)),
+                          radius: 50.0,),
+                    ),
                     Padding(
                       padding: EdgeInsets.only(
                           top: 10.0, bottom: 10.0, left: 50.0, right: 50.0),
@@ -196,34 +196,27 @@ class _SignInScreenState extends State<SignInScreen> {
     try {
       SystemChannels.textInput.invokeMethod('TextInput.hide');
       _changeBlackVisible();
-      FacebookLogin facebookLogin = new FacebookLogin();
-      FacebookLoginResult result = await facebookLogin
-          .logInWithReadPermissions(['email', 'public_profile']);
-      switch (result.status) {
-        case FacebookLoginStatus.loggedIn:
-          Auth.signInWithFacebok(result.accessToken.token).then((uid) {
-            Auth.getCurrentFirebaseUser().then((firebaseuser) {
-              User user = new User(
-                nombre: firebaseuser.displayName,
-                userID: firebaseuser.uid,
-                email: firebaseuser.email ?? '',
-                profilePictureURL: firebaseuser.photoUrl ?? '',
-              );
-              Auth.addUser(user);
-              print(User);
-              Navigator.of(context).pop();
-            });
-          });
-          break;
-        case FacebookLoginStatus.cancelledByUser:
-        case FacebookLoginStatus.error:
-          _changeBlackVisible();
-      }
+      Auth.signInWithFacebok().then((uid) {
+        Auth.getCurrentFirebaseUser().then((firebaseuser) {
+          User user = new User(
+              nombre: firebaseuser.displayName,
+              userID: firebaseuser.uid,
+              email: firebaseuser.email ?? '',
+              profilePictureURL: firebaseuser.photoUrl ?? '',
+              tipo: "invitado",
+              boletos: 1,
+              confirmado: false,
+              notificame: false
+          );
+          Auth.addUser(user);
+          Navigator.of(context).pop();
+        });
+      });
     } catch (e) {
       print("Error in facebook sign in: $e");
       String exception = Auth.getExceptionText(e);
       _showErrorAlert(
-        title: "Login failed",
+        title: "Fallo algo...",
         content: exception,
         onPressed: _changeBlackVisible,
       );

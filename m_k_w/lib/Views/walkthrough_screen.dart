@@ -11,11 +11,11 @@ class WalkthroughScreen extends StatefulWidget {
     Walkthrough(
       icon: Icons.markunread_mailbox,
       title: "Esta es una aplicación diseñada para invitaciones virtuales a eventos organizados por nuestros usuarios.",
-      description: "Si la basajste por curiosidad te tengo la mala noticia que te pedirá un código de invitación.",
+      description: "Si la descargaste por curiosidad te tengo la mala noticia que te pedirá un código de invitación.",
     ),
     Walkthrough(
       icon: Icons.verified_user,
-      title: "Encontraras dentro el numero permitido de acompañantes que puedes llevar, además podrás solicitar mas lugares y el anfitrión te contestará.",
+      title: "Esta invitación cuenta como un boleto virtual, puedes comunicar si asistes o no.",
       description: "Tus boletos.",
     ),
     Walkthrough(

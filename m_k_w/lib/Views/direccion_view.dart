@@ -23,9 +23,9 @@ class _MapaDireccionState extends State<Mapa> {
       _markers.clear();
       final marker = Marker(
         markerId: MarkerId("Iglesia"),
-        position: LatLng(19.4109884, -99.0737776),
+        position: LatLng(19.410923, -99.071569),
         infoWindow: InfoWindow(
-          title: "Aqui la Boda",
+          title: "Aquí la Boda",
           snippet:
               "6 PM, PUNTUALES",
         ),
@@ -35,9 +35,9 @@ class _MapaDireccionState extends State<Mapa> {
         markerId: MarkerId("Salon"),
         position: LatLng(19.397309, -99.059186),
         infoWindow: InfoWindow(
-          title: "Aqui la Fiesta",
+          title: "Aquí la Fiesta",
           snippet:
-          "7 PM, igual hasta las 8 PM",
+          "7 PM, puntuales o no...",
         ),
       );
       _markers["Fiesta"] = marker2;

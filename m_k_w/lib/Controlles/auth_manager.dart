@@ -4,7 +4,6 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/services.dart';
 import 'package:m_k_w/Models/invitado.dart';
-import 'package:google_sign_in/google_sign_in.dart';
 
 import 'flutter_facebook_login.dart';
 
@@ -17,9 +16,9 @@ class Auth {
     return user.uid;
   }
 
-  static Future<String> signInWithFacebok(String mail) async {
+  static Future<String> signInWithFacebok() async {
     final facebookLogin = FacebookLogin();
-    final result = await facebookLogin.logInWithReadPermissions(['email']);
+    final result = await facebookLogin.logInWithReadPermissions(['email', 'public_profile']);
 
     switch (result.status){
       case FacebookLoginStatus.loggedIn:
@@ -94,22 +93,22 @@ class Auth {
     if (e is PlatformException) {
       switch (e.message) {
         case 'There is no user record corresponding to this identifier. The user may have been deleted.':
-          return 'User with this e-mail not found.';
+          return 'Este correo no esta registrado.';
           break;
         case 'The password is invalid or the user does not have a password.':
-          return 'Invalid password.';
+          return 'Password invalido.';
           break;
         case 'A network error (such as timeout, interrupted connection or unreachable host) has occurred.':
-          return 'No internet connection.';
+          return 'No tienes datos.';
           break;
         case 'The email address is already in use by another account.':
-          return 'Email address is already taken.';
+          return 'Este correo ya fue registrado.';
           break;
         default:
-          return 'Unknown error occured.';
+          return 'No se que paso.';
       }
     } else {
-      return 'Unknown error occured.';
+      return 'No se que paso.';
     }
   }
 }
