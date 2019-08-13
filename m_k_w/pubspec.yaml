@@ -11,7 +11,7 @@ description: A new Flutter application.
 # In iOS, build-name is used as CFBundleShortVersionString while build-number used as CFBundleVersion.
 # Read more about iOS versioning at
 # https://developer.apple.com/library/archive/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html
-version: 1.0.0+1
+version: 1.0.1+1
 
 environment:
   sdk: ">=2.2.0 <3.0.0"
@@ -26,11 +26,12 @@ dependencies:
   flutter_facebook_login : ^2.0.1
   shared_preferences : any
   google_sign_in: ^4.0.4
-  google_maps_flutter: ^0.5.11
+  google_maps_flutter: ^0.5.20
   permission_handler: ^3.2.0
   http: ^0.12.0+1
   json_serializable: ^2.0.2
   url_launcher: ^5.1.2
+  firebase_messaging: ^5.1.3
 
 
   # The following adds the Cupertino Icons font to your application.
@@ -116,6 +117,7 @@ flutter:
     - assets/liverpool.jpg
     - assets/sears.png
     - assets/alcancias.jpg
+    - assets/notificationIcon.png
   #  - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

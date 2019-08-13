@@ -100,7 +100,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                       padding: const EdgeInsets.only(
                           top: 60.0, bottom: 10.0, left: 20.0, right: 20.0),
                       child: Text(
-                        "Regístrate con nosotros, te pediremos el código del al que fuiste invitado.",
+                        "Regístrate con nosotros, te pediremos el código del evento al que fuiste invitado.",
                         softWrap: true,
                         textAlign: TextAlign.center,
                         style: TextStyle(

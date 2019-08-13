@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:m_k_w/Models/invitado.dart';
 import 'package:m_k_w/Views/home_alta.dart';
 import 'package:m_k_w/Views/home_evento.dart';
-import 'dart:async';
 
 class Home extends StatefulWidget {
   final FirebaseUser firebaseUser;
